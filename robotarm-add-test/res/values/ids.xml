@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>   
+    <item type="id" name="main_tools_index"></item>
+    <item type="id" name="main_tools_sort"></item>
+    <item type="id" name="main_tools_cart"></item>
+    <item type="id" name="main_tools_search"></item>
+    <item type="id" name="main_tools_more"></item>
+    <item type="id" name="menu_group"></item>
+    <item type="id" name="other_menu_group"></item>
+</resources>

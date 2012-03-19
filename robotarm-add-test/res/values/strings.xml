@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Bus3Activity!</string>
+    <string name="app_name">Bus3</string>
+    
+    <string name="index">首页</string>
+    <string name="sort">分类</string>
+    <string name="cart">购物车</string>
+    <string name="search">搜索</string>
+    <string name="more">更多</string>
+    <string name="other">其它</string>
+    <string name="index_title">商城首页</string>
+    
+    <!-- 网络不可用对话框 -->
+    <string name="confirm_net_title">提示</string>
+    <string name="confirm_net_content">当前网络不给力！</string>
+    <string name="confirm_net_ensure">重试</string>
+    <string name="confirm_net_cancle">取消</string>
+</resources>

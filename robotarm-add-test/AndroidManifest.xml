@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.bus3" android:versionCode="1"
+	android:versionName="1.0">
+
+	<application android:name=".common.BusApp" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/XTheme">
+		<activity android:name=".common.TabActivity" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name=".test.HomeActivity" />
+		<activity android:name=".test.SortActivity" />
+		<activity android:name=".test.CartActivity" />
+		<activity android:name=".test.SearchActivity" />
+		<activity android:name=".test.MoreActivity" />
+		<activity android:name=".test.MoreSecondActivity" />
+		<activity android:name=".test.NewActivity" />
+		
+	</application>
+	
+	<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="7"/>
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.RESTART_PACKAGES" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+</manifest>
