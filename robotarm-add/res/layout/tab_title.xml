@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 标题 -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/tab_title" android:tag="@string/tab_title_tag"/>

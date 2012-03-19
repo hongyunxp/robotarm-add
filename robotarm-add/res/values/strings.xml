@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">robotarm</string>
+    <string name="confirm_title">提示</string>
+    <string name="confirm_exit_msg">是否退出程序？</string>
+    <string name="Ensure">确定</string>
+    <string name="Cancel">取消</string>
+    <!-- tab -->
+    <string name="tab_title_tag">tab_title</string>
+    <string name="tab_content_tag">tab_content</string>
+    <string name="tab_group_tag">tab_group</string>
+
+</resources>
