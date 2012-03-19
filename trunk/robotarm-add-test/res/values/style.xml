@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title_text" parent="@android:style/TextAppearance.WindowTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">20dip</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+
+    <style name="content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">20dip</item>
+        <item name="android:textColor">#ffff0000</item>
+    </style>
+
+    <style name="main_tools_index" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/main_tools_index</item>
+        <item name="android:drawableTop">@drawable/main_navigation_home</item>
+        <item name="android:text">@string/index</item>
+    </style>
+
+    <style name="main_tools_sort" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/main_tools_sort</item>
+        <item name="android:drawableTop">@drawable/main_navigation_catagory</item>
+        <item name="android:text">@string/sort</item>
+    </style>
+
+    <style name="main_tools_cart" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/main_tools_cart</item>
+        <item name="android:drawableTop">@drawable/main_navigation_car</item>
+        <item name="android:text">@string/cart</item>
+    </style>
+
+    <style name="main_tools_search" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/main_tools_search</item>
+        <item name="android:drawableTop">@drawable/main_navigation_code_buy</item>
+        <item name="android:text">@string/search</item>
+    </style>
+
+    <style name="main_tools_more" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/main_tools_more</item>
+        <item name="android:drawableTop">@drawable/main_navigation_more</item>
+        <item name="android:text">@string/more</item>
+    </style>
+
+    <style name="my_image_view_gallery">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+</resources>

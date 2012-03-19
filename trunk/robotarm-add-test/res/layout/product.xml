@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:orientation="horizontal">
+    
+    <TextView
+        android:id="@+id/product_text"
+        android:layout_width="wrap_content"
+        android:layout_height="80dip" android:text="my love"/>
+	
+	<EditText
+        android:id="@+id/product_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="80dip" android:text="my edit"/>
+    
+     <Button
+        android:id="@+id/product_button"
+        android:layout_width="80dip"
+        android:layout_height="wrap_content" 
+        android:focusable="false"/>
+    
+</LinearLayout>
