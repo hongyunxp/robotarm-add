@@ -4,5 +4,17 @@
 	<TextView android:text="点击更多的内容" style="@style/content" android:singleLine="true" />
 	<Button android:id="@+id/more_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:text="点击我" />
+		
+	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音听写示例" android:onClick="recognizerDialog"/>
+		
+	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音识别示例" android:onClick="uploadDialog"/>
+		
+	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音合成示例" android:onClick="synthesizerDialog"/>
+		
+	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音合成示例-后台模式" android:onClick="synthesizerPlayer"/>
 
 </LinearLayout>
