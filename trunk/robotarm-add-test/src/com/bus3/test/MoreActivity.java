@@ -26,9 +26,11 @@ public class MoreActivity extends BaseActivity {
 	private final String TAG = getClass().getSimpleName();
 	private static final String APP_ID = "4f62ce1a";
 	private static final String APP = "appid=" + APP_ID;
-	private static final String temp="中华人民共和国";
+	
+	private static final String temp = "中华人民共和国";//语音合成
+	private static final String rec="中国,美国,我是学生";//语音识别
 
-	private String text;
+	private String text;//语音识别输出文字
 	private String grammar;
 
 	@Override
@@ -50,7 +52,7 @@ public class MoreActivity extends BaseActivity {
 
 	}
 
-	// 语音听写示例
+	// 语音识别
 	public void recognizerDialog(final View view) {
 		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
 		isrDialog.setEngine("sms", null, null);
@@ -89,49 +91,65 @@ public class MoreActivity extends BaseActivity {
 		isrDialog.show();
 	}
 
-	// 语音识别示例
+	// 语音-文字识别
 	public void uploadDialog(final View view) throws UnsupportedEncodingException {
 		// 创建上传对话框
 		UploadDialog uploadDialog = new UploadDialog(this, APP);
-		String keys = "张三，李四 ，Andy";
-		uploadDialog.setContent(keys.getBytes("UTF-8"), "dt=keylist", "contact");
+		uploadDialog.setContent(rec.getBytes("UTF-8"), "dt=keylist", "contact");
 
 		uploadDialog.setListener(new UploadDialogListener() {
 
 			@Override
 			public void onDataUploaded(String contentID, String extendID) {
 				grammar = extendID;
-				Log.d(TAG, grammar);
 			}
 
 			@Override
-			public void onEnd(SpeechError arg0) {
-
+			public void onEnd(SpeechError error) {
+				// 创建识别对话框
+				recognizer();
 			}
 
 		});
 
 		uploadDialog.show();
 
-		// 创建识别对话框
+	}
+
+	private void recognizer() {
 		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
 		isrDialog.setEngine(null, null, grammar);
 		isrDialog.setListener(new RecognizerDialogListener() {
 
 			@Override
 			public void onEnd(SpeechError error) {
+				if (error != null)
+					Log.e(TAG, error.getErrorDesc());
+
+				if (text != null && text.length() > 0)
+					Toast.makeText(MoreActivity.this, text, Toast.LENGTH_LONG).show();
+				else
+					Toast.makeText(MoreActivity.this, "未识别", Toast.LENGTH_LONG).show();
 			}
 
 			@Override
 			public void onResults(ArrayList<RecognizerResult> results, boolean isLast) {
+				if (isLast) {
+					StringBuilder textBuilder = new StringBuilder();
+
+					for (RecognizerResult result : results)
+						textBuilder.append(result.text);
+
+					text = textBuilder.toString();
+
+				}
 			}
 
 		});
 		isrDialog.show();
-
 	}
-	
-	//语音合成示例
+
+	// 语音合成
 	public void synthesizerDialog(View view) {
 		SynthesizerDialog synDialog = new SynthesizerDialog(this, APP);
 		synDialog.setText(temp, "dtt=Keylist");
@@ -143,10 +161,10 @@ public class MoreActivity extends BaseActivity {
 		});
 		synDialog.show();
 	}
-	
-	//语音合成示例-后台模式
-	public void synthesizerPlayer(View view){
-		SynthesizerPlayer player=SynthesizerPlayer.createSynthesizerPlayer(this, APP); 
+
+	// 语音合成-后台模式
+	public void synthesizerPlayer(View view) {
+		SynthesizerPlayer player = SynthesizerPlayer.createSynthesizerPlayer(this, APP);
 		player.setVoiceName("vivixiaomei");
 		player.playText(temp, "ent=vivi21,bft=5", null);
 		Toast.makeText(this, temp, Toast.LENGTH_LONG).show();
