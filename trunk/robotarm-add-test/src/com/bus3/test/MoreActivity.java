@@ -52,8 +52,8 @@ public class MoreActivity extends BaseActivity {
 
 	}
 
-	// 语音识别
-	public void recognizerDialog(final View view) {
+	// 语音识别（ARS-Automated Speech Recognition）
+	public void ars(final View view) {
 		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
 		isrDialog.setEngine("sms", null, null);
 
@@ -61,7 +61,7 @@ public class MoreActivity extends BaseActivity {
 	}
 
 	// 语音-文字识别
-	public void uploadDialog(final View view) throws UnsupportedEncodingException {
+	public void ars2(final View view) throws UnsupportedEncodingException {
 		// 创建上传对话框
 		UploadDialog uploadDialog = new UploadDialog(this, APP);
 		uploadDialog.setContent(rec.getBytes("UTF-8"), "dt=keylist", "contact");
@@ -88,12 +88,12 @@ public class MoreActivity extends BaseActivity {
 	private void recognizer() {
 		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
 		isrDialog.setEngine(null, null, grammar);
-		
+
 		exeRecongizerDialog(isrDialog);
 	}
 
-	// 语音合成
-	public void synthesizerDialog(View view) {
+	// 语音合成(tts-Text To Speech)
+	public void tts(View view) {
 		SynthesizerDialog synDialog = new SynthesizerDialog(this, APP);
 		synDialog.setText(temp, "dtt=Keylist");
 		synDialog.setListener(new SynthesizerDialogListener() {
@@ -107,14 +107,14 @@ public class MoreActivity extends BaseActivity {
 	}
 
 	// 语音合成-后台模式
-	public void synthesizerPlayer(View view) {
+	public void tts2(View view) {
 		SynthesizerPlayer player = SynthesizerPlayer.createSynthesizerPlayer(this, APP);
 		player.setVoiceName("vivixiaomei");
 		player.playText(temp, "ent=vivi21,bft=5", null);
 		Toast.makeText(this, temp, Toast.LENGTH_LONG).show();
 	}
-	
-	private void exeRecongizerDialog(RecognizerDialog isrDialog){
+
+	private void exeRecongizerDialog(RecognizerDialog isrDialog) {
 		isrDialog.setListener(new RecognizerDialogListener() {
 
 			@Override
