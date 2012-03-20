@@ -15,6 +15,6 @@
 		android:text="语音合成" android:onClick="tts"/>
 		
 	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音合成-后台模式" android:onClick="tts2"/>
+		android:text="语音合成-后台模式" android:onClick="tts2" android:/>
 
 </LinearLayout>
