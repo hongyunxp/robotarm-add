@@ -26,11 +26,11 @@ public class MoreActivity extends BaseActivity {
 	private final String TAG = getClass().getSimpleName();
 	private static final String APP_ID = "4f62ce1a";
 	private static final String APP = "appid=" + APP_ID;
-	
-	private static final String temp = "中华人民共和国";//语音合成
-	private static final String rec="中国,美国,我是学生";//语音识别
 
-	private String text;//语音识别输出文字
+	private static final String temp = "中华人民共和国";// 语音合成
+	private static final String rec = "中国,美国,我是学生";// 语音-文字识别
+
+	private String text;// 语音识别输出文字
 	private String grammar;
 
 	@Override
@@ -157,6 +157,7 @@ public class MoreActivity extends BaseActivity {
 
 			@Override
 			public void onEnd(SpeechError arg0) {
+				Toast.makeText(MoreActivity.this, temp, Toast.LENGTH_LONG).show();
 			}
 		});
 		synDialog.show();
