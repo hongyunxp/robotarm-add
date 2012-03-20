@@ -21,7 +21,7 @@ import com.iflytek.ui.UploadDialog;
 import com.iflytek.ui.UploadDialogListener;
 
 public class MoreActivity extends BaseActivity {
-	private final String TAG = getClass().getSimpleName();
+	private static final String TAG = MoreActivity.class.getSimpleName();
 	private static final String APP = "appid=4f62ce1a";
 
 	private static final String temp = "中华人民共和国";// 语音合成使用文字
