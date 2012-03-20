@@ -57,38 +57,7 @@ public class MoreActivity extends BaseActivity {
 		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
 		isrDialog.setEngine("sms", null, null);
 
-		isrDialog.setListener(new RecognizerDialogListener() {
-
-			@Override
-			public void onEnd(SpeechError error) {
-				if (error != null)
-					Log.e(TAG, error.getErrorDesc());
-
-				Button b = (Button) view;
-
-				if (text != null && text.length() > 0)
-					Toast.makeText(MoreActivity.this, b.getText() + ": " + text, Toast.LENGTH_LONG).show();
-				else
-					Toast.makeText(MoreActivity.this, b.getText() + ": " + "未识别", Toast.LENGTH_LONG).show();
-			}
-
-			@Override
-			public void onResults(ArrayList<RecognizerResult> results, boolean isLast) {
-				if (isLast) {
-					StringBuilder textBuilder = new StringBuilder();
-
-					for (RecognizerResult result : results)
-						textBuilder.append(result.text);
-
-					text = textBuilder.toString();
-
-				}
-
-			}
-
-		});
-
-		isrDialog.show();
+		exeRecongizerDialog(isrDialog);
 	}
 
 	// 语音-文字识别
@@ -119,6 +88,33 @@ public class MoreActivity extends BaseActivity {
 	private void recognizer() {
 		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
 		isrDialog.setEngine(null, null, grammar);
+		
+		exeRecongizerDialog(isrDialog);
+	}
+
+	// 语音合成
+	public void synthesizerDialog(View view) {
+		SynthesizerDialog synDialog = new SynthesizerDialog(this, APP);
+		synDialog.setText(temp, "dtt=Keylist");
+		synDialog.setListener(new SynthesizerDialogListener() {
+
+			@Override
+			public void onEnd(SpeechError arg0) {
+				Toast.makeText(MoreActivity.this, temp, Toast.LENGTH_LONG).show();
+			}
+		});
+		synDialog.show();
+	}
+
+	// 语音合成-后台模式
+	public void synthesizerPlayer(View view) {
+		SynthesizerPlayer player = SynthesizerPlayer.createSynthesizerPlayer(this, APP);
+		player.setVoiceName("vivixiaomei");
+		player.playText(temp, "ent=vivi21,bft=5", null);
+		Toast.makeText(this, temp, Toast.LENGTH_LONG).show();
+	}
+	
+	private void exeRecongizerDialog(RecognizerDialog isrDialog){
 		isrDialog.setListener(new RecognizerDialogListener() {
 
 			@Override
@@ -143,32 +139,12 @@ public class MoreActivity extends BaseActivity {
 					text = textBuilder.toString();
 
 				}
+
 			}
 
 		});
+
 		isrDialog.show();
-	}
-
-	// 语音合成
-	public void synthesizerDialog(View view) {
-		SynthesizerDialog synDialog = new SynthesizerDialog(this, APP);
-		synDialog.setText(temp, "dtt=Keylist");
-		synDialog.setListener(new SynthesizerDialogListener() {
-
-			@Override
-			public void onEnd(SpeechError arg0) {
-				Toast.makeText(MoreActivity.this, temp, Toast.LENGTH_LONG).show();
-			}
-		});
-		synDialog.show();
-	}
-
-	// 语音合成-后台模式
-	public void synthesizerPlayer(View view) {
-		SynthesizerPlayer player = SynthesizerPlayer.createSynthesizerPlayer(this, APP);
-		player.setVoiceName("vivixiaomei");
-		player.playText(temp, "ent=vivi21,bft=5", null);
-		Toast.makeText(this, temp, Toast.LENGTH_LONG).show();
 	}
 
 }
