@@ -30,9 +30,6 @@ public class MoreActivity extends BaseActivity {
 	private static final String temp = "中华人民共和国";// 语音合成
 	private static final String rec = "中国,美国,我是学生";// 语音-文字识别
 
-	private String text;// 语音识别输出文字
-	private String grammar;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,17 +49,17 @@ public class MoreActivity extends BaseActivity {
 
 	}
 
-	// 语音识别（ARS-Automated Speech Recognition）
+	// 语音识别（ARS - Automated Speech Recognition）
 	public void ars(final View view) {
 		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
 		isrDialog.setEngine("sms", null, null);
 
-		exeRecongizerDialog(isrDialog);
+		exeRecongizerDialog(isrDialog, view);
 	}
 
 	// 语音-文字识别
 	public void ars2(final View view) throws UnsupportedEncodingException {
-		// 创建上传对话框
+		// 创建上传对话框-上传文字
 		UploadDialog uploadDialog = new UploadDialog(this, APP);
 		uploadDialog.setContent(rec.getBytes("UTF-8"), "dt=keylist", "contact");
 
@@ -70,13 +67,15 @@ public class MoreActivity extends BaseActivity {
 
 			@Override
 			public void onDataUploaded(String contentID, String extendID) {
-				grammar = extendID;
+				view.setTag(extendID);
 			}
 
 			@Override
 			public void onEnd(SpeechError error) {
-				// 创建识别对话框
-				recognizer();
+				// 创建识别对话框-识别语音
+				RecognizerDialog isrDialog = new RecognizerDialog(MoreActivity.this, APP);
+				isrDialog.setEngine(null, null, String.valueOf(view.getTag()));
+				exeRecongizerDialog(isrDialog, view);
 			}
 
 		});
@@ -85,14 +84,7 @@ public class MoreActivity extends BaseActivity {
 
 	}
 
-	private void recognizer() {
-		RecognizerDialog isrDialog = new RecognizerDialog(this, APP);
-		isrDialog.setEngine(null, null, grammar);
-
-		exeRecongizerDialog(isrDialog);
-	}
-
-	// 语音合成(tts-Text To Speech)
+	// 语音合成(tts - Text To Speech)
 	public void tts(View view) {
 		SynthesizerDialog synDialog = new SynthesizerDialog(this, APP);
 		synDialog.setText(temp, "dtt=Keylist");
@@ -114,13 +106,15 @@ public class MoreActivity extends BaseActivity {
 		Toast.makeText(this, temp, Toast.LENGTH_LONG).show();
 	}
 
-	private void exeRecongizerDialog(RecognizerDialog isrDialog) {
+	private void exeRecongizerDialog(RecognizerDialog isrDialog, final View view) {
 		isrDialog.setListener(new RecognizerDialogListener() {
 
 			@Override
 			public void onEnd(SpeechError error) {
 				if (error != null)
 					Log.e(TAG, error.getErrorDesc());
+
+				String text = String.valueOf(view.getTag());
 
 				if (text != null && text.length() > 0)
 					Toast.makeText(MoreActivity.this, text, Toast.LENGTH_LONG).show();
@@ -136,7 +130,7 @@ public class MoreActivity extends BaseActivity {
 					for (RecognizerResult result : results)
 						textBuilder.append(result.text);
 
-					text = textBuilder.toString();
+					view.setTag(textBuilder.toString());
 
 				}
 
@@ -145,6 +139,7 @@ public class MoreActivity extends BaseActivity {
 		});
 
 		isrDialog.show();
+
 	}
 
 }
