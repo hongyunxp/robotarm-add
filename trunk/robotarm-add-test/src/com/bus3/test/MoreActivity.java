@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.bus3.R;
@@ -37,16 +35,10 @@ public class MoreActivity extends BaseActivity {
 
 		tabInvHandler().setTitle(R.layout.more_title);
 
-		Button b = (Button) findViewById(R.id.more_button);
-		b.setOnClickListener(new OnClickListener() {
+	}
 
-			@Override
-			public void onClick(View view) {
-				tabInvHandler().startSubActivity(R.id.main_tools_more, MoreSecondActivity.class);
-			}
-
-		});
-
+	public void startSubAct(View view) {
+		tabInvHandler().startSubActivity(R.id.main_tools_more, MoreSecondActivity.class);
 	}
 
 	// 语音识别（ARS - Automated Speech Recognition）

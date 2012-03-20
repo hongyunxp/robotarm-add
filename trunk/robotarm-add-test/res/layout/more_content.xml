@@ -3,7 +3,7 @@
 	android:layout_height="fill_parent" android:orientation="vertical">
 	<TextView android:text="点击更多的内容" style="@style/content" android:singleLine="true" />
 	<Button android:id="@+id/more_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="点击我" />
+		android:text="点击我" android:onClick="startSubAct"/>
 		
 	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:text="语音识别" android:onClick="ars"/>
