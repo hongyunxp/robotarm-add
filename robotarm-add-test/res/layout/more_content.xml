@@ -6,15 +6,15 @@
 		android:text="点击我" />
 		
 	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音听写示例" android:onClick="recognizerDialog"/>
+		android:text="语音识别" android:onClick="recognizerDialog"/>
 		
 	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音识别示例" android:onClick="uploadDialog"/>
+		android:text="语音-文字识别" android:onClick="uploadDialog"/>
 		
 	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音合成示例" android:onClick="synthesizerDialog"/>
+		android:text="语音合成" android:onClick="synthesizerDialog"/>
 		
 	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音合成示例-后台模式" android:onClick="synthesizerPlayer"/>
+		android:text="语音合成-后台模式" android:onClick="synthesizerPlayer"/>
 
 </LinearLayout>
