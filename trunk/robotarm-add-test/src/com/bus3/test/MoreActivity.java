@@ -48,7 +48,7 @@ public class MoreActivity extends BaseActivity {
 		exeRecongizerDialog(isrDialog, view);
 	}
 
-	// 语音-文字识别
+	// 语音识别-文字
 	public void ars2(final View view) throws UnsupportedEncodingException {
 		// 创建上传对话框-上传文字
 		UploadDialog uploadDialog = new UploadDialog(this, APP);
@@ -97,6 +97,11 @@ public class MoreActivity extends BaseActivity {
 		Toast.makeText(this, temp, Toast.LENGTH_LONG).show();
 	}
 
+	
+	
+	
+	
+	
 	private void exeRecongizerDialog(RecognizerDialog isrDialog, final View view) {
 		isrDialog.setListener(new RecognizerDialogListener() {
 
