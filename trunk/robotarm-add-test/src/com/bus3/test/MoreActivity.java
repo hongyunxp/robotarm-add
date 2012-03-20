@@ -27,8 +27,8 @@ public class MoreActivity extends BaseActivity {
 	private static final String APP_ID = "4f62ce1a";
 	private static final String APP = "appid=" + APP_ID;
 
-	private static final String temp = "中华人民共和国";// 语音合成
-	private static final String rec = "中国,美国,我是学生";// 语音-文字识别
+	private static final String temp = "中华人民共和国";// 语音合成使用文字
+	private static final String rec = "中国,美国,我是学生";// 语音识别使用文字
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
