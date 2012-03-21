@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
-	android:layout_height="fill_parent" android:orientation="vertical">
-	<TextView android:text="点击更多的内容" style="@style/content" android:singleLine="true" />
-	<Button android:id="@+id/more_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="点击我" android:onClick="startSubAct"/>
-		
-	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音识别" android:onClick="ars"/>
-		
-	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音识别-文字" android:onClick="ars2"/>
-		
-	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音合成" android:onClick="tts"/>
-		
-	<Button android:id="@+id/recognizer_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="语音合成-后台模式" android:onClick="tts2"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<TextView android:text="点击更多的内容" style="@style/content"
+		android:singleLine="true" />
+	<Button android:id="@+id/more_button" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="点击我"
+		android:onClick="startSubAct" />
+
+	<Button android:id="@+id/recognizer_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音识别" android:onClick="ars" />
+
+	<Button android:id="@+id/recognizer_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音识别-文字" android:onClick="ars2" />
+
+	<Button android:id="@+id/recognizer_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音合成" android:onClick="tts" />
+
+	<Button android:id="@+id/recognizer_button"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="语音合成-后台模式" android:onClick="tts2" />
+
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:orientation="horizontal">
+
+		<Spinner android:id="@+id/district_level1" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+			
+		<Spinner android:id="@+id/district_level2" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+			
+		<Spinner android:id="@+id/district_level3" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+
+	</LinearLayout>
 
 </LinearLayout>
