@@ -1,5 +1,14 @@
 package com.bus3.common.utils;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
@@ -83,4 +92,34 @@ public class BaseUtils {
 		return version;
 	}
 
+	public static String district() {
+
+		return null;
+	}
+
+	/**
+	 * 请求服务器数据
+	 * 
+	 * @param context
+	 * @param requestJson
+	 *            请求json
+	 */
+	public static String loadData(String url) {
+		HttpClient client = null;
+		try {
+			HttpParams httpParams = new BasicHttpParams();
+			client = new DefaultHttpClient(httpParams);
+			HttpGet get = new HttpGet(url);
+			HttpResponse response = client.execute(get);
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				return EntityUtils.toString(response.getEntity());
+			}
+		} catch (final Throwable e) {
+			e.printStackTrace();
+		} finally {
+			if (client != null)
+				client.getConnectionManager().shutdown();
+		}
+		return null;
+	}
 }
