@@ -24,18 +24,4 @@
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:text="语音合成-后台模式" android:onClick="tts2" />
 
-	<LinearLayout android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:orientation="horizontal">
-
-		<Spinner android:id="@+id/district_level1" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-			
-		<Spinner android:id="@+id/district_level2" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-			
-		<Spinner android:id="@+id/district_level3" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" />
-
-	</LinearLayout>
-
 </LinearLayout>

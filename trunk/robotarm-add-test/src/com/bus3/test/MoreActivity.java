@@ -2,27 +2,16 @@ package com.bus3.test;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.BaseAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bus3.R;
 import com.bus3.common.activity.BaseActivity;
-import com.bus3.common.utils.BaseUtils;
 import com.iflytek.speech.RecognizerResult;
 import com.iflytek.speech.SpeechError;
 import com.iflytek.speech.SynthesizerPlayer;
@@ -39,7 +28,7 @@ public class MoreActivity extends BaseActivity {
 
 	private static final String temp = "中华人民共和国";// 语音合成使用文字
 	private static final String rec = "中国,美国,我是学生";// 语音识别使用文字
-	
+
 	private Map<String, List<District>> districtsMap;
 
 	@Override
@@ -49,7 +38,6 @@ public class MoreActivity extends BaseActivity {
 
 		tabInvHandler().setTitle(R.layout.more_title);
 
-		initDistricts();
 	}
 
 	public void startSubAct(View view) {
@@ -147,67 +135,6 @@ public class MoreActivity extends BaseActivity {
 
 		isrDialog.show();
 
-	}
-	
-	private void initDistricts(){
-		Spinner district1 = (Spinner) findViewById(R.id.district_level1);
-
-		String json = BaseUtils.loadData("http://192.168.0.116/district.html");
-		JSONObject jo = null;
-		try {
-			jo = new JSONObject(json);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-
-		districtsMap = new HashMap<String, List<District>>();
-
-		for (Iterator<?> it = jo.keys(); it.hasNext();) {
-
-			String id = null;
-			String parentId = null;
-			String name = null;
-
-			try {
-
-				id = (String) it.next();
-				JSONArray array = jo.getJSONArray(id);
-				name = array.getString(0);
-				parentId = array.getString(1);
-
-				List<District> districts = districtsMap.get(parentId);
-				if (districts == null)
-					districts = new ArrayList<District>();
-
-				districts.add(new District(id, parentId, name));
-
-				districtsMap.put(parentId, districts);
-
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		List<District> list = districtsMap.get("1");
-
-		BaseAdapter adapter = new DistrictArrayAdapter(this, list);
-		district1.setAdapter(adapter);
-		district1.setPrompt("Spinner测试");
-
-		district1.setOnItemSelectedListener(new OnItemSelectedListener() {
-
-			@Override
-			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				District district = (District) parent.getItemAtPosition(position);
-
-				Toast.makeText(MoreActivity.this, district.getId() + "|" + district.getParentId() + "|" + district.getName(), Toast.LENGTH_SHORT).show();
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-			}
-
-		});
 	}
 
 }
