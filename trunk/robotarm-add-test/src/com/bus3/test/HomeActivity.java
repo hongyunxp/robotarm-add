@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.Gallery;
 import android.widget.Gallery.LayoutParams;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bus3.R;
@@ -68,7 +68,7 @@ public class HomeActivity extends BaseActivity {
 
 		Gallery g = (Gallery) findViewById(R.id.my_gallery);
 		g.setAdapter(new BaseAdapter() {
-			private List<Integer> list=Arrays.asList(R.drawable.my_gif1,R.drawable.my_gif2,R.drawable.my_gif1);
+			private List<Integer> list = Arrays.asList(R.drawable.my_gif1, R.drawable.my_gif2, R.drawable.my_gif1);
 
 			@Override
 			public int getCount() {
@@ -87,15 +87,16 @@ public class HomeActivity extends BaseActivity {
 
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
-				
-				LayoutParams la = new LayoutParams(200,200);
-				
-				GifView gifView = new GifView(HomeActivity.this);
-				gifView.setLayoutParams(la);
-				
-				gifView.setGifImage(list.get(position));
 
-				return gifView;
+
+				ImageView image = new GifView(HomeActivity.this);
+				
+				LayoutParams la = new LayoutParams(300, 300);
+				image.setLayoutParams(la);
+				
+				image.setImageResource(list.get(position));
+
+				return image;
 			}
 
 		});
