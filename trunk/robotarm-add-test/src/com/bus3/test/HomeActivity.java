@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import robot.arm.provider.view.gif.GifView;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.Gallery;
+import android.widget.Gallery.LayoutParams;
 import android.widget.Toast;
 
 import com.bus3.R;
@@ -67,16 +66,9 @@ public class HomeActivity extends BaseActivity {
 			}
 		});
 
-//		FrameLayout frame = (FrameLayout) findViewById(R.id.myGifFrame);
-//
-//		GifView gifView = new GifView(this, null, R.style.my_image_view_gif);
-//		gifView.setGifImage(R.drawable.my_gif);
-//
-//		frame.addView(gifView);
-
 		Gallery g = (Gallery) findViewById(R.id.my_gallery);
 		g.setAdapter(new BaseAdapter() {
-			private List<Integer> list=Arrays.asList(R.drawable.my_gif,R.drawable.my_gif,R.drawable.my_gif);
+			private List<Integer> list=Arrays.asList(R.drawable.my_gif1,R.drawable.my_gif2,R.drawable.my_gif1);
 
 			@Override
 			public int getCount() {
@@ -95,8 +87,11 @@ public class HomeActivity extends BaseActivity {
 
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
-				GifView gifView = new GifView(HomeActivity.this, null, R.style.my_image_view_gif);
-//				gifView.setImageResource(list.get(position));
+				
+				LayoutParams la = new LayoutParams(200,200);
+				
+				GifView gifView = new GifView(HomeActivity.this);
+				gifView.setLayoutParams(la);
 				
 				gifView.setGifImage(list.get(position));
 
