@@ -174,7 +174,7 @@ public class MoreActivity extends BaseActivity {
 						} while (phones.moveToNext());
 					}
 				} else {
-					Log.i("phoneNumber|phoneType", "无电话号码");
+					Log.i("电话|类型", "无电话号码");
 				}
 
 			} while (contacts.moveToNext());
