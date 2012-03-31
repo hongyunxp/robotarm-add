@@ -1,5 +1,6 @@
 package com.bus3.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,7 +13,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.Gallery.LayoutParams;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bus3.R;
@@ -23,6 +23,8 @@ public class HomeActivity extends BaseActivity {
 			R.drawable.girl6);
 	private AdapterView<ImageGroupAdapter> gallery;
 	private Toast toast;
+
+	private List<GifView> images;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -66,6 +68,16 @@ public class HomeActivity extends BaseActivity {
 			}
 		});
 
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		tabInvHandler().setTitle(R.layout.main_title);
+		
+		
+		images = new ArrayList<GifView>();
+		
 		Gallery g = (Gallery) findViewById(R.id.my_gallery);
 		g.setAdapter(new BaseAdapter() {
 			private List<Integer> list = Arrays.asList(R.drawable.my_gif1, R.drawable.my_gif2, R.drawable.my_gif1);
@@ -88,25 +100,29 @@ public class HomeActivity extends BaseActivity {
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
 
+				GifView image = new GifView(HomeActivity.this);
 
-				ImageView image = new GifView(HomeActivity.this);
-				
 				LayoutParams la = new LayoutParams(250, 250);
 				image.setLayoutParams(la);
-				
+
 				image.setImageResource(list.get(position));
+
+				images.add(image);
 
 				return image;
 			}
 
 		});
-
 	}
+	
+	
 
 	@Override
-	protected void onResume() {
-		super.onResume();
-		tabInvHandler().setTitle(R.layout.main_title);
+	protected void onPause() {
+		super.onPause();
+		
+		for (GifView image : images) {
+			image.destroy();//切换时释放图片资源
+		}
 	}
-
 }

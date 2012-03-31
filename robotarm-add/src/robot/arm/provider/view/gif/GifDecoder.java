@@ -236,8 +236,9 @@ public class GifDecoder extends Thread{
 		GifFrame fg = gifFrame;
 		if(cacheImage == false){
     		while(fg != null){
-    		    if(fg.image != null && !fg.image.isRecycled())
-    				fg.image.recycle();
+    		    if(fg.image != null && !fg.image.isRecycled()){
+    		    	fg.image.recycle();
+    		    }
     			fg.image = null;
     			fg = null;
     			gifFrame = gifFrame.nextFrame;
