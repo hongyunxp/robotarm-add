@@ -15,7 +15,7 @@
 	<Gallery xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/my_gallery" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:layout_marginLeft="5dip"
-		android:layout_marginRight="5dip" android:fadingEdge="none"
+		android:layout_marginTop="5dip" android:fadingEdge="none"
 		android:paddingLeft="5dip" android:paddingRight="5dip"
 		android:spacing="5dip" android:layout_gravity="center">
 	</Gallery>
