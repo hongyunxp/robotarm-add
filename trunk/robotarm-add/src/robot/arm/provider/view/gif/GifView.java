@@ -1,6 +1,5 @@
 package robot.arm.provider.view.gif;
 
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 import android.content.Context;
@@ -8,7 +7,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
@@ -176,7 +174,7 @@ public class GifView extends ImageView implements GifAction {
 	public void setGifImage(InputStream is) {
 		setGifDecoderImage(is);
 	}
-	
+
 	/**
 	 * 以字节数据形式设置gif图片
 	 * 
@@ -291,6 +289,11 @@ public class GifView extends ImageView implements GifAction {
 	private void drawImage() {
 		setImageBitmap(currentImage);
 		invalidate();
+	}
+	
+	@Override
+	public void requestLayout() {
+		//重写，什么也不做，否则会崩溃
 	}
 
 	private Handler redrawHandler = new Handler() {
