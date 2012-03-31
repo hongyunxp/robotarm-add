@@ -91,7 +91,7 @@ public class HomeActivity extends BaseActivity {
 
 				ImageView image = new GifView(HomeActivity.this);
 				
-				LayoutParams la = new LayoutParams(300, 300);
+				LayoutParams la = new LayoutParams(250, 250);
 				image.setLayoutParams(la);
 				
 				image.setImageResource(list.get(position));

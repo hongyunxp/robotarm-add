@@ -10,11 +10,14 @@
 	<robot.arm.provider.view.ImageGroupView
 		android:id="@+id/mygallery" android:layout_width="200dip"
 		android:layout_height="100dip" android:layout_centerInParent="true"
-		android:fadingEdge="none" android:spacing="0dip" android:background="@color/BgColor" />
+		android:fadingEdge="none" android:spacing="0dip" android:background="@color/BgColor" android:layout_gravity="center"/>
 
 	<Gallery xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/my_gallery" android:layout_width="wrap_content"
-		android:layout_height="wrap_content" android:layout_gravity="center">
+		android:layout_height="wrap_content" android:layout_marginLeft="5dip"
+		android:layout_marginRight="5dip" android:fadingEdge="none"
+		android:paddingLeft="5dip" android:paddingRight="5dip"
+		android:spacing="5dip" android:layout_gravity="center">
 	</Gallery>
 
 
