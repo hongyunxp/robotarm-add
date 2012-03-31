@@ -184,7 +184,7 @@ public class GifView extends ImageView implements GifAction {
 	public void setGifImage(byte[] gif) {
 		setGifDecoderImage(gif);
 	}
-
+	
 	public void destroy() {
 		if (gifDecoder != null)
 			gifDecoder.free();
