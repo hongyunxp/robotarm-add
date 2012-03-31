@@ -80,18 +80,18 @@ public class GifView extends ImageView implements GifAction {
 		setScaleType(ImageView.ScaleType.FIT_XY);
 	}
 
-	public GifView(Context context, AttributeSet attrs) {
-		this(context, attrs, 0);
-
-	}
-
-	public GifView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		this.context = context;
-		// TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
-		// gifDecoder = new GifDecoder(this);
-		// setScaleType(ImageView.ScaleType.FIT_XY);
-	}
+//	public GifView(Context context, AttributeSet attrs) {
+//		this(context, attrs, 0);
+//
+//	}
+//
+//	public GifView(Context context, AttributeSet attrs, int defStyle) {
+//		super(context, attrs, defStyle);
+//		this.context = context;
+//		// TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
+//		// gifDecoder = new GifDecoder(this);
+//		// setScaleType(ImageView.ScaleType.FIT_XY);
+//	}
 
 	/**
 	 * 设置图片，并开始解码
