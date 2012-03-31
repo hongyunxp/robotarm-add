@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -80,18 +79,18 @@ public class GifView extends ImageView implements GifAction {
 		setScaleType(ImageView.ScaleType.FIT_XY);
 	}
 
-//	public GifView(Context context, AttributeSet attrs) {
-//		this(context, attrs, 0);
-//
-//	}
-//
-//	public GifView(Context context, AttributeSet attrs, int defStyle) {
-//		super(context, attrs, defStyle);
-//		this.context = context;
-//		// TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
-//		// gifDecoder = new GifDecoder(this);
-//		// setScaleType(ImageView.ScaleType.FIT_XY);
-//	}
+	// public GifView(Context context, AttributeSet attrs) {
+	// this(context, attrs, 0);
+	//
+	// }
+	//
+	// public GifView(Context context, AttributeSet attrs, int defStyle) {
+	// super(context, attrs, defStyle);
+	// this.context = context;
+	// // TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
+	// // gifDecoder = new GifDecoder(this);
+	// // setScaleType(ImageView.ScaleType.FIT_XY);
+	// }
 
 	/**
 	 * 设置图片，并开始解码
@@ -184,7 +183,7 @@ public class GifView extends ImageView implements GifAction {
 	public void setGifImage(byte[] gif) {
 		setGifDecoderImage(gif);
 	}
-	
+
 	public void destroy() {
 		if (gifDecoder != null)
 			gifDecoder.free();
@@ -290,10 +289,10 @@ public class GifView extends ImageView implements GifAction {
 		setImageBitmap(currentImage);
 		invalidate();
 	}
-	
+
 	@Override
 	public void requestLayout() {
-		//重写，什么也不做，否则会崩溃
+		// 重写，什么也不做，否则会崩溃
 	}
 
 	private Handler redrawHandler = new Handler() {
