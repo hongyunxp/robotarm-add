@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, LookBeautifulActivity!</string>
+    <string name="app_name">美图看看</string>
+    
+    <string name="tab_home">首页</string>
+    <string name="tab_modle">模特</string>
+    <string name="tab_art">艺术</string>
+    <string name="tab_stylist">造型</string>
+    <string name="tab_other">插画</string>
+</resources>
