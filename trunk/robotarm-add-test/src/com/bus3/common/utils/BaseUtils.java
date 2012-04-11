@@ -12,8 +12,10 @@ import org.apache.http.util.EntityUtils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import com.bus3.R;
@@ -121,5 +123,61 @@ public class BaseUtils {
 				client.getConnectionManager().shutdown();
 		}
 		return null;
+	}
+	
+	public static void getContactSync(final Context ctx){
+		new Thread() {
+
+			@Override
+			public void run() {
+				BaseUtils.getContact(ctx);
+			}
+			
+		}.start();
+	}
+	
+	 // 获取联系人
+	public static void getContact(Context ctx) {
+		// 获得所有的联系人
+		Cursor contacts = ctx.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null,
+				ContactsContract.Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC");
+
+		// 循环遍历
+		if (contacts.moveToFirst()) {
+
+			int idColumn = contacts.getColumnIndex(ContactsContract.Contacts._ID);
+			int displayNameColumn = contacts.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+
+			do {
+				// 获得联系人的ID号
+				String contactId = contacts.getString(idColumn);
+				// 获得联系人姓名
+				String disPlayName = contacts.getString(displayNameColumn);
+				Log.i("名称", disPlayName);
+
+				// 查看某联系人有多少个电话号码及类型
+				int phoneCount = contacts.getInt(contacts.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
+
+				if (phoneCount > 0) {
+					// 获得联系人的电话号码
+					Cursor phones = ctx.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+							ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, null, null);
+					if (phones.moveToFirst()) {
+						do {
+							// 遍历所有的电话号码
+							String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+							String phoneType = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
+							Log.i("电话|类型", phoneNumber + "|" + phoneType);
+							
+
+						} while (phones.moveToNext());
+					}
+				} else {
+					Log.i("电话|类型", "无电话号码");
+				}
+
+			} while (contacts.moveToNext());
+
+		}
 	}
 }
