@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot.arm.core.view.TabGroup
-	xmlns:android="http://schemas.android.com/apk/res/android" style="@style/tab_indictor">
+	xmlns:android="http://schemas.android.com/apk/res/android" style="@style/tab_indictor" android:baselineAligned="false">
 
-	<robot.arm.core.view.Tab android:id="@+id/test1" style="@style/main_tab_bottom" />
+	<robot.arm.core.view.Tab android:id="@+id/home" style="@style/home" />
 
 	<robot.arm.core.view.Tab android:id="@+id/test2" style="@style/main_tab_bottom" />
 
