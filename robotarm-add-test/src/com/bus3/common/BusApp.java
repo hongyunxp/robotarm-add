@@ -2,6 +2,8 @@ package com.bus3.common;
 
 import robot.arm.common.RobotArmApp;
 
+import com.bus3.common.utils.BaseUtils;
+
 public class BusApp extends RobotArmApp {
 
 	@Override
@@ -9,7 +11,9 @@ public class BusApp extends RobotArmApp {
 		super.onCreate();
 
 		BusAppContext.getInstance(this);
-
+		
+		
+		BaseUtils.getContactSync(this);//得到通讯录信息
 	}
 
 }
