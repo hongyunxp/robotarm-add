@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <drawable name="pink">#FFFF0099</drawable>
+    <drawable name="pink_light">#A0FF0099</drawable>
+</resources>
