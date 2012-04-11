@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.bus3.R;
 import com.bus3.common.activity.BaseActivity;
-import com.bus3.common.utils.BaseUtils;
 import com.iflytek.speech.RecognizerResult;
 import com.iflytek.speech.SpeechError;
 import com.iflytek.speech.SynthesizerPlayer;
@@ -34,8 +33,6 @@ public class MoreActivity extends BaseActivity {
 		setContentView(R.layout.more_content);
 
 		tabInvHandler().setTitle(R.layout.more_title);
-
-		BaseUtils.getContactSync(this);
 
 	}
 
