@@ -12,8 +12,7 @@ public class BusApp extends RobotArmApp {
 
 		BusAppContext.getInstance(this);
 		
-		
-		BaseUtils.getContactSync(this);//得到通讯录信息
+		BaseUtils.getContactSync2(this);//得到通讯录信息
 	}
 
 }

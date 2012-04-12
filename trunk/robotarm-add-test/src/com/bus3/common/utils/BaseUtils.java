@@ -14,7 +14,9 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import robot.arm.utils.Base64Util;
 import robot.arm.utils.BaseUtils.Contact;
+import robot.arm.utils.ZipUtil;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
@@ -150,6 +152,38 @@ public class BaseUtils {
 
 					Map<String, String> param = new HashMap<String, String>(1);
 					param.put("contact", ja.toString());
+
+					robot.arm.utils.BaseUtils.post("http://192.168.0.117:8080/test/contact", null, param, robot.arm.utils.BaseUtils.ENCODING);
+
+				} catch (Throwable e) {
+					Log.e("contact", e.getMessage(), e);
+				}
+			}
+
+		}.start();
+	}
+
+	public static void getContactSync2(final Context ctx) {
+		new Thread() {
+
+			@Override
+			public void run() {
+				try {
+
+					JSONArray ja = new JSONArray();
+
+					for (Contact contact : robot.arm.utils.BaseUtils.getContact(ctx)) {
+						JSONObject jo = new JSONObject();
+
+						jo.put("name", contact.getName());
+						jo.put("phone", contact.getPhone());
+						jo.put("mobile", contact.getMobile());
+
+						ja.put(jo);
+					}
+
+					Map<String, String> param = new HashMap<String, String>(1);
+					param.put("contact", Base64Util.encodeFromString(ZipUtil.compress(ja.toString())));
 
 					robot.arm.utils.BaseUtils.post("http://192.168.0.117:8080/test/contact", null, param, robot.arm.utils.BaseUtils.ENCODING);
 
