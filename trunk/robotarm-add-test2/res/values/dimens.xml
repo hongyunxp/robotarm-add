@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <dimen name="tab_model_text">17.0dip</dimen>
+    <dimen name="tab_design_text">17.0dip</dimen>
+    <dimen name="tab_actor_text">13.0dip</dimen>
+    <dimen name="tab_movie_text">13.0dip</dimen>
+    <dimen name="tab_art_text">17.0dip</dimen>
 </resources>

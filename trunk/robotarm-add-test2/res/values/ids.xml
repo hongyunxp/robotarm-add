@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <item type="id" name="tab_model"></item>
+    <item type="id" name="tab_design"></item>
+    <item type="id" name="tab_actor"></item>
+    <item type="id" name="tab_movie"></item>
+    <item type="id" name="tab_art"></item>
 </resources>
