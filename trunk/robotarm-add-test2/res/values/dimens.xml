@@ -2,7 +2,9 @@
 <resources>
     <dimen name="tab_model_text">17.0dip</dimen>
     <dimen name="tab_design_text">17.0dip</dimen>
-    <dimen name="tab_actor_text">13.0dip</dimen>
-    <dimen name="tab_movie_text">13.0dip</dimen>
+    <dimen name="tab_actor_text">17.0dip</dimen>
+    <dimen name="tab_movie_text">17.0dip</dimen>
     <dimen name="tab_art_text">17.0dip</dimen>
+    <dimen name="tab_text_padding">7.0dip</dimen>
+    <dimen name="tab_text_padding_singleline">5.0dip</dimen>
 </resources>

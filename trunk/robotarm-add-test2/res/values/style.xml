@@ -6,6 +6,8 @@
         <item name="android:text">@string/tab_model</item>
         <item name="android:textSize">@dimen/tab_model_text</item>
         <item name="android:background">@drawable/model_tab_indicator</item>
+        <item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
+        <item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
     </style>
     
     <style name="design" parent="@style/main_tab_bottom">
@@ -14,6 +16,8 @@
         <item name="android:textSize">@dimen/tab_design_text</item>
         <item name="android:background">@drawable/design_tab_indicator</item>
         <item name="android:singleLine">false</item>
+        <item name="android:paddingLeft">@dimen/tab_text_padding</item>
+        <item name="android:paddingRight">@dimen/tab_text_padding</item>
     </style>
     
      <style name="actor" parent="@style/main_tab_bottom">
@@ -21,6 +25,9 @@
         <item name="android:text">@string/tab_actor</item>
         <item name="android:textSize">@dimen/tab_actor_text</item>
         <item name="android:background">@drawable/actor_tab_indicator</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:paddingLeft">@dimen/tab_text_padding</item>
+        <item name="android:paddingRight">@dimen/tab_text_padding</item>
     </style>
     
     <style name="movie" parent="@style/main_tab_bottom">
@@ -28,6 +35,9 @@
         <item name="android:text">@string/tab_movie</item>
         <item name="android:textSize">@dimen/tab_movie_text</item>
         <item name="android:background">@drawable/movie_tab_indicator</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:paddingLeft">@dimen/tab_text_padding</item>
+        <item name="android:paddingRight">@dimen/tab_text_padding</item>
     </style>
     
     <style name="art" parent="@style/main_tab_bottom">
