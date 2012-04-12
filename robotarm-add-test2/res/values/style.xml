@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    
-
-    <style name="home" parent="@style/main_tab_bottom">
+    <style name="model" parent="@style/main_tab_bottom">
         <item name="android:id">@+id/model</item>
         <item name="android:text">模特</item>
         <item name="android:textSize">17.0dip</item>
         <item name="android:background">@drawable/home_tab_indicator</item>
     </style>
-
 </resources>
