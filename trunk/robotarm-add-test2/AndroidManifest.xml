@@ -6,7 +6,7 @@
     <uses-sdk android:minSdkVersion="8" />
 
     <application android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/XTheme">
-        <activity android:name=".common.MyTabActivity">
+        <activity android:name=".common.TabActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
