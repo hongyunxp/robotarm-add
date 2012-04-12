@@ -4,12 +4,12 @@
 
 	<robot.arm.core.view.Tab android:id="@+id/model" style="@style/model" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test2" style="@style/main_tab_bottom" />
+	<robot.arm.core.view.Tab android:id="@+id/test2" style="@style/design" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test3" style="@style/main_tab_bottom" />
+	<robot.arm.core.view.Tab android:id="@+id/test3" style="@style/actor" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test4" style="@style/main_tab_bottom" />
+	<robot.arm.core.view.Tab android:id="@+id/test4" style="@style/movie" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test5" style="@style/main_tab_bottom" />
+	<robot.arm.core.view.Tab android:id="@+id/test5" style="@style/art" />
 
 </robot.arm.core.view.TabGroup>
