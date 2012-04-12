@@ -47,4 +47,14 @@
         <item name="android:background">@drawable/art_tab_indicator</item>
     </style>
     
+      <style name="tab_title">
+        <item name="android:id">@id/tab_title</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/model</item>
+        <item name="android:padding">8dip</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    
 </resources>
