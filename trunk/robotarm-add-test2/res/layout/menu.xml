@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<group android:id="@+id/menu_group">
+		<item android:id="@id/main_menu_setup" android:title="@string/main_menu_setup" android:icon="@drawable/main_menu_setup"/>
+		<item android:id="@+id/main_menu_help" android:title="@string/main_menu_help" android:icon="@drawable/main_menu_help"/>
+		<item android:id="@+id/main_menu_about" android:title="@string/main_menu_about" android:icon="@drawable/main_menu_about"/>
+		<item android:id="@+id/main_menu_exit" android:title="@string/main_menu_exit" android:icon="@drawable/main_menu_exit"/>
+	</group>
+
+</menu>
