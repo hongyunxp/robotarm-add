@@ -13,11 +13,11 @@ public class MyTabActivity extends TabInvHandler {
 	public Map<Integer, Class<? extends Activity>> newTabs() {
 		Map<Integer, Class<? extends Activity>> tabMap = new HashMap<Integer, Class<? extends Activity>>(5);
 		
-		tabMap.put(R.id.model, TestActivity.class);
-		tabMap.put(R.id.test2, TestActivity.class);
-		tabMap.put(R.id.test3, TestActivity.class);
-		tabMap.put(R.id.test4, TestActivity.class);
-		tabMap.put(R.id.test5, TestActivity.class);
+		tabMap.put(R.id.model, ModelActivity.class);
+		tabMap.put(R.id.test2, ModelActivity.class);
+		tabMap.put(R.id.test3, ModelActivity.class);
+		tabMap.put(R.id.test4, ModelActivity.class);
+		tabMap.put(R.id.test5, ModelActivity.class);
 		
 		return tabMap;
 	}
