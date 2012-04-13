@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- tab样式 -->
+	<style name="model" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_model</item>
+		<item name="android:text">@string/tab_model</item>
+		<item name="android:textSize">@dimen/tab_model_text</item>
+		<item name="android:background">@drawable/model_tab_indicator</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
+	</style>
+
+	<style name="design" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_design</item>
+		<item name="android:text">@string/tab_design</item>
+		<item name="android:textSize">@dimen/tab_design_text</item>
+		<item name="android:background">@drawable/design_tab_indicator</item>
+		<item name="android:singleLine">false</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding</item>
+	</style>
+
+	<style name="actor" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_actor</item>
+		<item name="android:text">@string/tab_actor</item>
+		<item name="android:textSize">@dimen/tab_actor_text</item>
+		<item name="android:background">@drawable/actor_tab_indicator</item>
+		<item name="android:singleLine">false</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding</item>
+	</style>
+
+	<style name="movie" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_movie</item>
+		<item name="android:text">@string/tab_movie</item>
+		<item name="android:textSize">@dimen/tab_movie_text</item>
+		<item name="android:background">@drawable/movie_tab_indicator</item>
+		<item name="android:singleLine">false</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding</item>
+	</style>
+
+	<style name="art" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_art</item>
+		<item name="android:text">@string/tab_art</item>
+		<item name="android:textSize">@dimen/tab_art_text</item>
+		<item name="android:background">@drawable/art_tab_indicator</item>
+	</style>
+
+
+	<style name="title_text">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">@dimen/title_height</item>
+		<item name="android:singleLine">true</item>
+		<item name="android:textColor">@color/white</item>
+		<item name="android:textSize">@dimen/title_text_size</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:layout_margin">@dimen/title_text_margin</item>
+	</style>
+	
+	<style name="title_frame">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">@dimen/title_height</item>
+	</style>
+
+</resources>
