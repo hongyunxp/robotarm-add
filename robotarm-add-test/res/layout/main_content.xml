@@ -8,7 +8,7 @@
 		android:layout_height="80dip" android:text="my love" />
 
 	<robot.arm.provider.view.ImageGroupView
-		android:id="@+id/mygallery" android:layout_width="200dip"
+		android:id="@+id/mygallery" android:layout_width="100dip"
 		android:layout_height="100dip" android:layout_centerInParent="true"
 		android:fadingEdge="none" android:spacing="0dip" android:background="@color/BgColor" android:layout_gravity="center"/>
 
