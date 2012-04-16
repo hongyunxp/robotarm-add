@@ -23,6 +23,7 @@ public class ModelActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		tabInvHandler.setTitle(R.layout.model_title);
+		title(R.layout.model_title);
+		background(R.drawable.model);
 	}
 }

@@ -24,7 +24,8 @@ public class ArtActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 
-		tabInvHandler.setTitle(R.layout.art_title);
+		title(R.layout.art_title);
+		background(R.drawable.art);
 	}
 
 }

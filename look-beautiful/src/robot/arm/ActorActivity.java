@@ -24,6 +24,8 @@ public class ActorActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		tabInvHandler.setTitle(R.layout.actor_title);
+		
+		title(R.layout.actor_title);
+		background(R.drawable.actor);
 	}
 }
