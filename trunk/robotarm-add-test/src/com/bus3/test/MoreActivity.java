@@ -3,6 +3,7 @@ package com.bus3.test;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -131,6 +132,11 @@ public class MoreActivity extends BaseActivity {
 
 		isrDialog.show();
 
+	}
+
+	public void viewSwitch(View view) {
+		Intent intent = new Intent(this, ViewSwitcherActivity.class);
+		startActivity(intent);
 	}
 
 }

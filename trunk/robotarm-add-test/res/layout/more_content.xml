@@ -23,5 +23,9 @@
 	<Button android:id="@+id/recognizer_button"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:text="语音合成-后台模式" android:onClick="tts2" />
+		
+     <Button android:id="@+id/view_switch"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="view_switch" android:onClick="viewSwitch" />
 
 </LinearLayout>
