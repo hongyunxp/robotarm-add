@@ -18,6 +18,7 @@
 		<activity android:name=".test.MoreSecondActivity" />
 		<activity android:name=".test.NewActivity" />
 		<activity android:name=".test.ViewSwitcherActivity" />
+		<activity android:name=".test.SwitchFlipperActivity" />
 		
 	</application>
 	

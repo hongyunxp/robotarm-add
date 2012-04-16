@@ -139,4 +139,9 @@ public class MoreActivity extends BaseActivity {
 		startActivity(intent);
 	}
 
+	public void viewFlipper(View view) {
+		Intent intent = new Intent(this, SwitchFlipperActivity.class);
+		startActivity(intent);
+	}
+
 }
