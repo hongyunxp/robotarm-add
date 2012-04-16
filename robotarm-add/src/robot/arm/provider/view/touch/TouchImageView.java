@@ -6,18 +6,30 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
+import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
+import android.view.View;
 import android.widget.ImageView;
 
 /**
  * 实现了 图片 缩放、移动、有效移动范围
  */
 public class TouchImageView extends ImageView {
+	
+	private SimpleOnScaleGestureListener simpleOnScaleGestureListener;//缩放监听器
+	private SimpleOnGestureListener simpleOnGestureListener;//移动监听器
+	private OnTouchListener onTouch;//大图的触摸
+	private ScaleGestureDetector scaleGestureDetector;//缩放手势
+	private GestureDetector gestureDetector;//移动手势
 
 	public TouchImageView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		init(context);
 	}
-
+	
 	public TouchImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init(context);
@@ -29,6 +41,38 @@ public class TouchImageView extends ImageView {
 	}
 
 	private void init(Context context) {
+		simpleOnScaleGestureListener = new SimpleOnScaleGestureListener() {
+			public boolean onScale(ScaleGestureDetector detector) {
+				float sf = detector.getScaleFactor();
+				if (sf > 0 && sf < 2)
+					postScale(sf, detector.getFocusX(), detector.getFocusY());
+				return true;
+			}
+		};
+
+		simpleOnGestureListener = new SimpleOnGestureListener() {
+			public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+				if (scaleGestureDetector.isInProgress())
+					return false;
+				postTranslate(-distanceX, -distanceY);
+				return true;
+			}
+		};
+		
+		scaleGestureDetector = new ScaleGestureDetector(context, simpleOnScaleGestureListener);// 缩放手势
+		gestureDetector = new GestureDetector(context, simpleOnGestureListener);// 移动手势
+		
+		onTouch = new OnTouchListener() {
+			public boolean onTouch(View v, MotionEvent event) {
+				if (scaleGestureDetector == null || gestureDetector == null)
+					return false;
+				scaleGestureDetector.onTouchEvent(event);
+				gestureDetector.onTouchEvent(event);
+				return true;
+			}
+		};
+
+		setOnTouchListener(onTouch);
 	}
 
 	private Bitmap bitmap;
@@ -39,14 +83,14 @@ public class TouchImageView extends ImageView {
 	// 放大比例
 	private float maxScale = 5.0f;
 	// 缩小比例
-	private float minScale = 1;
+	private float minScale = 0.5f;
 
 	@Override
 	public void setImageBitmap(Bitmap bm) {
 		bitmap = bm;
 		setVisibility(INVISIBLE);
 
-		//图片屏幕居中
+		// 图片屏幕居中
 		postDelayed(new Runnable() {
 			public void run() {
 				int mw = getWidth() - bitmap.getWidth();
