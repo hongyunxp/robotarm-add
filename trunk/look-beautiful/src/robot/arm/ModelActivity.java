@@ -3,8 +3,7 @@
  */
 package robot.arm;
 
-import robot.arm.core.TabInvHandler;
-import android.app.Activity;
+import robot.arm.common.BaseActivity;
 import android.os.Bundle;
 
 /**
@@ -13,7 +12,7 @@ import android.os.Bundle;
  *         Apr 12, 2012
  * 
  */
-public class ModelActivity extends Activity {
+public class ModelActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,6 +23,6 @@ public class ModelActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		((TabInvHandler) getParent()).setTitle(R.layout.model_title);
+		tabInvHandler.setTitle(R.layout.model_title);
 	}
 }
