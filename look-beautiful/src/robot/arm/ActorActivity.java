@@ -3,11 +3,8 @@
  */
 package robot.arm;
 
-import robot.arm.core.TabInvHandler;
-import android.app.Activity;
-import android.content.Intent;
+import robot.arm.common.BaseActivity;
 import android.os.Bundle;
-import android.view.View;
 
 /**
  * @author li.li
@@ -15,7 +12,7 @@ import android.view.View;
  *         Apr 12, 2012
  * 
  */
-public class ActorActivity extends Activity {
+public class ActorActivity extends BaseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,14 +24,6 @@ public class ActorActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		((TabInvHandler) getParent()).setTitle(R.layout.actor_title);
-	}
-
-	public void details(View view) {
-		// ((TabInvHandler) getParent()).startSubActivity(R.id.tab_actor,
-		// TouchImageViewActivity.class);
-
-		Intent intent = new Intent(ActorActivity.this, TouchImageViewActivity.class);
-		startActivity(intent);
+		tabInvHandler.setTitle(R.layout.actor_title);
 	}
 }
