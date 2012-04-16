@@ -3,7 +3,6 @@
  */
 package robot.arm;
 
-import robot.arm.core.TabInvHandler;
 import robot.arm.provider.view.touch.TouchImageView;
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -90,8 +89,8 @@ public class TouchImageViewActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-//		((TabInvHandler) getParent()).titleVisible(false);
-//		((TabInvHandler) getParent()).tabVisible(false);
-//		((TabInvHandler) getParent()).needCloseSoftInput(true);
+		// ((TabInvHandler) getParent()).titleVisible(false);
+		// ((TabInvHandler) getParent()).tabVisible(false);
+		// ((TabInvHandler) getParent()).needCloseSoftInput(true);
 	}
 }
