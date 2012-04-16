@@ -3,7 +3,7 @@
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:layout_weight="1.0">
 
-	<include layout="@layout/images_content_item" />
-	<include layout="@layout/images_content_item" />
-	<include layout="@layout/images_content_item" />
+	<include layout="@layout/images_content_row_item" />
+	<include layout="@layout/images_content_row_item" />
+	<include layout="@layout/images_content_row_item" />
 </TableRow>
