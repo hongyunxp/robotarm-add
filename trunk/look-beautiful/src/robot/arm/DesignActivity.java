@@ -23,6 +23,7 @@ public class DesignActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		tabInvHandler.setTitle(R.layout.design_title);
+		title(R.layout.design_title);
+		background(R.drawable.design);
 	}
 }

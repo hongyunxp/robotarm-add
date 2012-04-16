@@ -23,6 +23,7 @@ public class MovieActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		tabInvHandler.setTitle(R.layout.movie_title);
+		title(R.layout.movie_title);
+		background(R.drawable.movie);
 	}
 }
