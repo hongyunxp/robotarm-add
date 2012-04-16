@@ -175,9 +175,16 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 	 * 新启动子activity
 	 */
 	public void startSubActivity(int id, Class<? extends Activity> toActClazz) {
+		startSubActivity(id, toActClazz, null);
+	}
+
+	public void startSubActivity(int id, Class<? extends Activity> toActClazz, Bundle map) {
 		boolean resumable = resumable(toActClazz);
 
 		Intent intent = new Intent(this, toActClazz);
+		if (map != null && !map.isEmpty())
+			intent.getExtras().putAll(map);
+
 		newActivity(id, intent, toActClazz);
 
 		statusStack.push(new Record(id, intent, resumable, toActClazz));// 入栈
