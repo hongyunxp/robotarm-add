@@ -42,6 +42,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 	private TabView tabView;// 包含title、content、tabs
 	private BGLoader loader;// 背景加载器
 	private boolean checkLock;
+	private boolean needCloseSoftInput;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 		statusStack = new Stack<Record>();
 		tabView = initTabView(R.layout.tabs);
 		checkLock = false;
+		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
 
 		selectTab(tabView.getTabGroup().getChildAt(0).getId());// 默认选择第一个
@@ -118,18 +120,33 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 		tabView.getContent().addView(view);
 	}
 
+	public void titleVisible(boolean visible) {
+		Assert.assertNotNull(visible);
+
+		if (visible) {
+			tabView.getTitle().setVisibility(View.VISIBLE);
+		} else {
+			tabView.getTitle().setVisibility(View.GONE);
+		}
+
+	}
+
 	/**
 	 * 设置工具栏是否可见
 	 */
 	public void tabVisible(boolean visible) {
 		Assert.assertNotNull(visible);
-
+		System.out.println("@@@@@@@@@@@@@@@@@@tabVisible" + "|" + visible);
 		if (visible) {
 			tabView.getTabGroup().setVisibility(View.VISIBLE);
 		} else {
 			tabView.getTabGroup().setVisibility(View.GONE);
 		}
 
+	}
+
+	public void needCloseSoftInput(boolean visible) {
+		needCloseSoftInput = visible;
 	}
 
 	/**
@@ -205,7 +222,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 
 	@Override
 	public void isGone() {
-		if (!tabVisible()) {
+		if (!tabVisible() && !needCloseSoftInput) {
 			tabVisible(true);
 		}
 	}
