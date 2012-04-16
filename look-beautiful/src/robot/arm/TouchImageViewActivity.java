@@ -90,8 +90,8 @@ public class TouchImageViewActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		((TabInvHandler) getParent()).titleVisible(false);
-		((TabInvHandler) getParent()).tabVisible(false);
-		((TabInvHandler) getParent()).needCloseSoftInput(true);
+//		((TabInvHandler) getParent()).titleVisible(false);
+//		((TabInvHandler) getParent()).tabVisible(false);
+//		((TabInvHandler) getParent()).needCloseSoftInput(true);
 	}
 }

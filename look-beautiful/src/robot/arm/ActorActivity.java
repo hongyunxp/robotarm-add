@@ -5,6 +5,7 @@ package robot.arm;
 
 import robot.arm.core.TabInvHandler;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -30,6 +31,10 @@ public class ActorActivity extends Activity {
 	}
 
 	public void details(View view) {
-		((TabInvHandler) getParent()).startSubActivity(R.id.tab_actor, TouchImageViewActivity.class);
+		// ((TabInvHandler) getParent()).startSubActivity(R.id.tab_actor,
+		// TouchImageViewActivity.class);
+
+		Intent intent = new Intent(ActorActivity.this, TouchImageViewActivity.class);
+		startActivity(intent);
 	}
 }
