@@ -18,6 +18,8 @@
         <activity android:name=".ActorActivity" />
         <activity android:name=".MovieActivity" />
         <activity android:name=".ArtActivity" />
+        
+        <activity android:name=".TouchImageViewActivity" />
 
     </application>
 </manifest>
