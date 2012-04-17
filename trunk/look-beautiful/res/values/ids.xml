@@ -14,5 +14,6 @@
     
     <item type="id" name="images_content"></item>
     <item type="id" name="images"></item>
+    <item type="id" name="button_images_more"></item>
     
 </resources>
