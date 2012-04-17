@@ -47,4 +47,5 @@ public class BaseActivity extends Activity {
 	public void title(int resId){
 		tabInvHandler.setTitle(resId);
 	}
+
 }

@@ -1,5 +1,6 @@
 package robot.arm.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -7,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TableRow;
 
 public class ImagesAdapter extends BaseAdapter {
 	private List<Integer> list;
@@ -36,9 +36,16 @@ public class ImagesAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		TableRow row = (TableRow) LayoutInflater.from(act).inflate(list.get(position), null);
-		
+		View row = LayoutInflater.from(act).inflate(list.get(position), null);
+
 		return row;
 	}
 
+	public void addList(List<Integer> list){
+		List<Integer> l=new ArrayList<Integer>(this.list.size()+list.size());
+		l.addAll(this.list);
+		l.addAll(list);
+		
+		this.list=l;
+	}
 }

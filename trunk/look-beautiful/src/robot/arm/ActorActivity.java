@@ -7,6 +7,8 @@ import robot.arm.common.BaseActivity;
 import robot.arm.common.ImagesAdapter;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ListView;
 
 /**
@@ -16,6 +18,8 @@ import android.widget.ListView;
  * 
  */
 public class ActorActivity extends BaseActivity {
+	private ListView imageListView;
+	private ImagesAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -23,12 +27,13 @@ public class ActorActivity extends BaseActivity {
 
 		setContentView(R.layout.actor_content);
 
-		ListView lv = (ListView) findViewById(R.id.images);
+		imageListView = (ListView) findViewById(R.id.images);
+		imageAdapter = new ImagesAdapter(this, list);
+		View more = LayoutInflater.from(this).inflate(R.layout.images_show_more, null);
+		imageListView.addFooterView(more);
+		imageListView.setAdapter(imageAdapter);
 
-		ImagesAdapter ia = new ImagesAdapter(this, list);
-		lv.setAdapter(ia);
-
-		BaseUtils.setListViewHeight(lv);// 设置listview真实高度
+		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 	}
 
 	@Override
@@ -37,5 +42,13 @@ public class ActorActivity extends BaseActivity {
 
 		title(R.layout.actor_title);
 		background(R.drawable.actor);
+	}
+
+	public void more(View view) {
+		imageAdapter.addList(list);//增加元素
+		imageAdapter.notifyDataSetChanged();//通知更新视图
+		
+		BaseUtils.setListViewHeight(imageListView);//设置listview高度
+
 	}
 }
