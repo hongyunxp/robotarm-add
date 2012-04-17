@@ -13,5 +13,6 @@
     <item type="id" name="main_menu_exit"></item>
     
     <item type="id" name="images_content"></item>
+    <item type="id" name="images"></item>
     
 </resources>

@@ -3,6 +3,9 @@
  */
 package robot.arm.common;
 
+import java.util.Arrays;
+import java.util.List;
+
 import robot.arm.R;
 import robot.arm.TouchImageViewActivity;
 import robot.arm.core.TabInvHandler;
@@ -19,6 +22,9 @@ import android.widget.TableLayout;
  * 
  */
 public class BaseActivity extends Activity {
+	protected static List<Integer> list = Arrays.asList(R.layout.images_content_row, R.layout.images_content_row, R.layout.images_content_row,
+			R.layout.images_content_row);
+	
 	protected TabInvHandler tabInvHandler;
 
 	@Override
