@@ -1,4 +1,4 @@
-package robot.arm;
+package robot.arm.common;
 
 import java.util.List;
 
