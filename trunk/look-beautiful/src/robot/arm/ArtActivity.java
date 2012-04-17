@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import robot.arm.common.BaseActivity;
+import robot.arm.common.ImagesAdapter;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.widget.ListView;
