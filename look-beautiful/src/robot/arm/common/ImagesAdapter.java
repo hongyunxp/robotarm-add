@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TableRow;
 
 public class ImagesAdapter extends BaseAdapter {
 	private List<Integer> list;
@@ -35,9 +36,9 @@ public class ImagesAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		View product = LayoutInflater.from(act).inflate(list.get(position), null);
-
-		return product;
+		TableRow row = (TableRow) LayoutInflater.from(act).inflate(list.get(position), null);
+		
+		return row;
 	}
 
 }
