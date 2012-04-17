@@ -3,13 +3,12 @@
  */
 package robot.arm;
 
-import java.util.Arrays;
-import java.util.List;
-
 import robot.arm.common.BaseActivity;
 import robot.arm.common.ImagesAdapter;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ListView;
 
 /**
@@ -19,8 +18,8 @@ import android.widget.ListView;
  * 
  */
 public class ArtActivity extends BaseActivity {
-	private static List<Integer> list = Arrays.asList(R.layout.images_content_row, R.layout.images_content_row, R.layout.images_content_row,
-			R.layout.images_content_row);
+	private ListView imageListView;
+	private ImagesAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -28,18 +27,29 @@ public class ArtActivity extends BaseActivity {
 
 		setContentView(R.layout.art_content);
 
-		ListView lv = (ListView) findViewById(R.id.images);
-		ImagesAdapter ia = new ImagesAdapter(this, list);
-		lv.setAdapter(ia);
-		BaseUtils.setListViewHeight(lv);// 设置listview真实高度
+		imageListView = (ListView) findViewById(R.id.images);
+		imageAdapter = new ImagesAdapter(this, list);
+		View more = LayoutInflater.from(this).inflate(R.layout.images_show_more, null);
+		imageListView.addFooterView(more);
+		imageListView.setAdapter(imageAdapter);
+
+		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 
-		title(R.layout.art_title);
+		title(R.layout.actor_title);
 		background(R.drawable.art);
+	}
+	
+	public void more(View view) {
+		imageAdapter.addList(list);//增加元素
+		imageAdapter.notifyDataSetChanged();//通知更新视图
+		
+		BaseUtils.setListViewHeight(imageListView);//设置listview高度
+
 	}
 
 }
