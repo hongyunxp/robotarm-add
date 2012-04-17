@@ -9,6 +9,7 @@ import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 /**
@@ -33,6 +34,9 @@ public class DesignActivity extends BaseActivity {
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
 
+		Button b = (Button) more.findViewById(R.id.button_images_more);
+		b.setBackgroundResource(R.drawable.design);
+
 		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 	}
 
@@ -40,15 +44,15 @@ public class DesignActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 
-		title(R.layout.actor_title);
+		title(R.layout.design_title);
 		background(R.drawable.design);
 	}
-	
+
 	public void more(View view) {
-		imageAdapter.addList(list);//增加元素
-		imageAdapter.notifyDataSetChanged();//通知更新视图
-		
-		BaseUtils.setListViewHeight(imageListView);//设置listview高度
+		imageAdapter.addList(list);// 增加元素
+		imageAdapter.notifyDataSetChanged();// 通知更新视图
+
+		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
 }
