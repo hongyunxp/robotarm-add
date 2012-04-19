@@ -25,7 +25,7 @@ public class MovieActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.actor_content);
+		setContentView(R.layout.movie_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
 		imageAdapter = new AlbumArtAdapter(this, list);

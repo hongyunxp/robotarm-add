@@ -15,11 +15,11 @@
         
         <activity android:name=".ModelActivity" />
         <activity android:name=".DesignActivity" />
-        <activity android:name=".ActorActivity" />
+        <activity android:name=".ActorCoverActivity" />
         <activity android:name=".MovieActivity" />
         <activity android:name=".ArtActivity" />
         
-        <activity android:name=".ActorSecondActivity" />
+        <activity android:name=".ActorContentActivity" />
         
         <activity android:name=".TouchImageViewActivity" />
 
