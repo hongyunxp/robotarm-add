@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import robot.arm.R;
-import robot.arm.utils.BaseUtils;
+import robot.arm.utils.LoadImageUtils;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +42,7 @@ public class AlbumCoverAdapter extends BaseAdapter {
 		View row = LayoutInflater.from(act).inflate(R.layout.album_cover_list_row, null);
 		ImageView iv = (ImageView) row.findViewById(R.id.image1);
 
-		BaseUtils.loadImageSync(act, list.get(position), iv);
+		LoadImageUtils.loadImageSync(act, list.get(position), iv);
 
 		return row;
 	}
