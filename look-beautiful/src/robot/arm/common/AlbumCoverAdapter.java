@@ -13,11 +13,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 public class AlbumCoverAdapter extends BaseAdapter {
-	private List<String> list;
+	private List<String[]> list;
 
 	private Activity act;
 
-	public AlbumCoverAdapter(Activity act, List<String> list) {
+	public AlbumCoverAdapter(Activity act, List<String[]> list) {
 		this.act = act;
 		this.list = list;
 	}
@@ -40,15 +40,19 @@ public class AlbumCoverAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = LayoutInflater.from(act).inflate(R.layout.album_cover_list_row, null);
-		ImageView iv = (ImageView) row.findViewById(R.id.image1);
+		ImageView iv1 = (ImageView) row.findViewById(R.id.image1);
+		ImageView iv2 = (ImageView) row.findViewById(R.id.image2);
+		ImageView iv3 = (ImageView) row.findViewById(R.id.image3);
 
-		LoadImageUtils.loadImageSync(act, list.get(position), iv);
+		LoadImageUtils.loadImageSync(act, list.get(position)[0], iv1);
+		LoadImageUtils.loadImageSync(act, list.get(position)[1], iv2);
+		LoadImageUtils.loadImageSync(act, list.get(position)[2], iv3);
 
 		return row;
 	}
 
-	public void addList(List<String> list) {
-		List<String> l = new ArrayList<String>(this.list.size() + list.size());
+	public void addList(List<String[]> list) {
+		List<String[]> l = new ArrayList<String[]>(this.list.size() + list.size());
 		l.addAll(this.list);
 		l.addAll(list);
 
