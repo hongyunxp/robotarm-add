@@ -19,6 +19,8 @@
         <activity android:name=".MovieActivity" />
         <activity android:name=".ArtActivity" />
         
+        <activity android:name=".ActorSecondActivity" />
+        
         <activity android:name=".TouchImageViewActivity" />
 
     </application>

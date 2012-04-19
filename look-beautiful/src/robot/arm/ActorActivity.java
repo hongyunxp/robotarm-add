@@ -3,8 +3,8 @@
  */
 package robot.arm;
 
+import robot.arm.common.AlbumArtAdapter;
 import robot.arm.common.BaseActivity;
-import robot.arm.common.ImagesAdapter;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,7 +20,7 @@ import android.widget.ListView;
  */
 public class ActorActivity extends BaseActivity {
 	private ListView imageListView;
-	private ImagesAdapter imageAdapter;
+	private AlbumArtAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class ActorActivity extends BaseActivity {
 		setContentView(R.layout.actor_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new ImagesAdapter(this, list);
+		imageAdapter = new AlbumArtAdapter(this, list);
 		View more = LayoutInflater.from(this).inflate(R.layout.images_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -55,4 +55,10 @@ public class ActorActivity extends BaseActivity {
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
+	
+
+	public void details(View view) {
+		tabInvHandler.startSubActivity(R.id.actor_second_activity, ActorSecondActivity.class);
+	}
+
 }
