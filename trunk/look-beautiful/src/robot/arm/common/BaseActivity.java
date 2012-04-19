@@ -22,11 +22,11 @@ import android.widget.TableLayout;
  * 
  */
 public class BaseActivity extends Activity {
-	protected static List<Integer> list = Arrays.asList(R.layout.cover_row, R.layout.cover_row, R.layout.cover_row,
-			R.layout.cover_row);
+	protected static List<Integer> list = Arrays.asList(R.layout.album_cover_list_row, R.layout.album_cover_list_row, R.layout.album_cover_list_row,
+			R.layout.album_cover_list_row);
 	
-	protected static List<Integer> list2 = Arrays.asList(R.layout.content_row, R.layout.content_row, R.layout.content_row,
-			R.layout.content_row);
+	protected static List<Integer> list2 = Arrays.asList(R.layout.album_content_list_row, R.layout.album_content_list_row, R.layout.album_content_list_row,
+			R.layout.album_content_list_row);
 	
 	protected static List<Integer> album;
 	

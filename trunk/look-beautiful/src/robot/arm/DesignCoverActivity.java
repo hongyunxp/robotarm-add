@@ -18,7 +18,7 @@ import android.widget.ListView;
  *         Apr 12, 2012
  * 
  */
-public class DesignActivity extends BaseActivity {
+public class DesignCoverActivity extends BaseActivity {
 	private ListView imageListView;
 	private AlbumArtAdapter imageAdapter;
 
