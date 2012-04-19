@@ -18,7 +18,7 @@ import android.widget.ListView;
  *         Apr 12, 2012
  * 
  */
-public class ModelActivity extends BaseActivity {
+public class ArtContentActivity extends BaseActivity {
 	private ListView imageListView;
 	private AlbumArtAdapter imageAdapter;
 
@@ -26,16 +26,16 @@ public class ModelActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.model_content);
+		setContentView(R.layout.art_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new AlbumArtAdapter(this, list);
+		imageAdapter = new AlbumArtAdapter(this, list2);
 		View more = LayoutInflater.from(this).inflate(R.layout.images_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
 
 		Button b = (Button) more.findViewById(R.id.button_images_more);
-		b.setBackgroundResource(R.drawable.model);
+		b.setBackgroundResource(R.drawable.art);
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 	}
@@ -44,15 +44,16 @@ public class ModelActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 
-		title(R.layout.model_title);
-		background(R.drawable.model);
+		title(R.layout.art_title);
+		background(R.drawable.art);
 	}
 
 	public void more(View view) {
-		imageAdapter.addList(list);// 增加元素
+		imageAdapter.addList(list2);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
+
 }

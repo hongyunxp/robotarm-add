@@ -3,8 +3,8 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumArtAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.AlbumArtAdapter;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,7 +18,7 @@ import android.widget.ListView;
  *         Apr 12, 2012
  * 
  */
-public class DesignCoverActivity extends BaseActivity {
+public class ModelCoverActivity extends BaseActivity {
 	private ListView imageListView;
 	private AlbumArtAdapter imageAdapter;
 
@@ -26,7 +26,7 @@ public class DesignCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.design_cover);
+		setContentView(R.layout.model_cover);
 
 		imageListView = (ListView) findViewById(R.id.images);
 		imageAdapter = new AlbumArtAdapter(this, list);
@@ -35,7 +35,7 @@ public class DesignCoverActivity extends BaseActivity {
 		imageListView.setAdapter(imageAdapter);
 
 		Button b = (Button) more.findViewById(R.id.button_images_more);
-		b.setBackgroundResource(R.drawable.design);
+		b.setBackgroundResource(R.drawable.model);
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 	}
@@ -44,8 +44,8 @@ public class DesignCoverActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 
-		title(R.layout.design_title);
-		background(R.drawable.design);
+		title(R.layout.model_title);
+		background(R.drawable.model);
 	}
 
 	public void more(View view) {
@@ -55,8 +55,8 @@ public class DesignCoverActivity extends BaseActivity {
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
-
+	
 	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, DesignContentActivity.class);
+		tabInvHandler.startSubActivity(R.id.actor_second_activity, ModelContentActivity.class);
 	}
 }
