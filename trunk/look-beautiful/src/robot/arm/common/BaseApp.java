@@ -5,10 +5,10 @@ import android.app.Application;
 /**
  * 全局 Application
  */
-public class BaseApp extends RobotArmApp {
+public class BaseApp extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+(getApp()==null));
+		System.out.println("@@@@@@@@@@@######################################################");
 	}
 }
