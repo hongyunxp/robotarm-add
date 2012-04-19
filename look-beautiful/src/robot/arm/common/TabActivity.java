@@ -5,7 +5,7 @@ import java.util.Map;
 
 import robot.arm.ActorCoverActivity;
 import robot.arm.ArtActivity;
-import robot.arm.DesignActivity;
+import robot.arm.DesignCoverActivity;
 import robot.arm.ModelActivity;
 import robot.arm.MovieActivity;
 import robot.arm.R;
@@ -21,7 +21,7 @@ public class TabActivity extends TabInvHandler {
 		Map<Integer, Class<? extends Activity>> tabMap = new HashMap<Integer, Class<? extends Activity>>(5);
 
 		tabMap.put(R.id.model, ModelActivity.class);
-		tabMap.put(R.id.test2, DesignActivity.class);
+		tabMap.put(R.id.test2, DesignCoverActivity.class);
 		tabMap.put(R.id.test3, ActorCoverActivity.class);
 		tabMap.put(R.id.test4, MovieActivity.class);
 		tabMap.put(R.id.test5, ArtActivity.class);

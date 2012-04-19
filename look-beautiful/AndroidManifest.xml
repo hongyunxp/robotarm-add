@@ -14,7 +14,7 @@
         </activity>
         
         <activity android:name=".ModelActivity" />
-        <activity android:name=".DesignActivity" />
+        <activity android:name=".DesignCoverActivity" />
         <activity android:name=".ActorCoverActivity" />
         <activity android:name=".MovieActivity" />
         <activity android:name=".ArtActivity" />
