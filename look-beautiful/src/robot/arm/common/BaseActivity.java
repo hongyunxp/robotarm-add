@@ -22,8 +22,8 @@ import android.widget.TableLayout;
  * 
  */
 public class BaseActivity extends Activity {
-	protected static List<Integer> list = Arrays.asList(R.layout.album_art_content_row, R.layout.album_art_content_row, R.layout.album_art_content_row,
-			R.layout.album_art_content_row);
+	protected static List<Integer> list = Arrays.asList(R.layout.album_cover_content_row, R.layout.album_cover_content_row, R.layout.album_cover_content_row,
+			R.layout.album_cover_content_row);
 	
 	protected static List<Integer> list2 = Arrays.asList(R.layout.album_content_row, R.layout.album_content_row, R.layout.album_content_row,
 			R.layout.album_content_row);
