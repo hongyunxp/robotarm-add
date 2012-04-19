@@ -4,6 +4,7 @@
 package robot.arm;
 
 import java.util.Arrays;
+import java.util.List;
 
 import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
@@ -21,7 +22,11 @@ import android.widget.ListView;
  * 
  */
 public class ActorCoverActivity extends BaseActivity {
-	private static final String url = "http://img1.moko.cc/users/6/1812/543827/post/00/img1_cover_5557714.jpg";
+	private static final String url1 = "http://img1.moko.cc/users/6/1812/543827/post/00/img1_cover_5557714.jpg";
+	private static final String url2 = "http://img1.moko.cc/users/15/4616/1384849/post/f1/img1_cover_5556929.jpg";
+	private static final String url3 = "http://img1.moko.cc/users/2/625/187682/post/ce/img1_cover_5547862.jpg";
+	private static String[] array={url1,url2,url3};
+	private static final List<String[]> list = Arrays.asList(array,array,array,array);
 
 	private ListView imageListView;
 	private AlbumCoverAdapter imageAdapter;
@@ -33,7 +38,7 @@ public class ActorCoverActivity extends BaseActivity {
 		setContentView(R.layout.actor_cover);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new AlbumCoverAdapter(this, Arrays.asList(url));
+		imageAdapter = new AlbumCoverAdapter(this, list);//图片数组
 		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -53,10 +58,16 @@ public class ActorCoverActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
-//		imageAdapter.addList(list);// 增加元素
+		imageAdapter.addList(list);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
-
-		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
+		view.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				BaseUtils.setListViewHeight(imageListView);// 设置listview高度
+				
+			}
+		});
 
 	}
 
