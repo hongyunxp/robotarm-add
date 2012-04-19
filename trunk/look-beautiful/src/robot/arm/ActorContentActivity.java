@@ -26,7 +26,7 @@ public class ActorContentActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.actor_second_content);
+		setContentView(R.layout.actor_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
 		imageAdapter = new AlbumAdapter(this, list2);
