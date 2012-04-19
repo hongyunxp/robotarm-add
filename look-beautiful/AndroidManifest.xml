@@ -13,14 +13,19 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".ModelActivity" />
+        <!--  专辑封面 -->
+        <activity android:name=".ModelCoverActivity" />
         <activity android:name=".DesignCoverActivity" />
         <activity android:name=".ActorCoverActivity" />
-        <activity android:name=".MovieActivity" />
-        <activity android:name=".ArtActivity" />
-        
+        <activity android:name=".MovieCoverActivity" />
+        <activity android:name=".ArtCoverActivity" />
+        <!-- 专辑内容 -->
+        <activity android:name=".ModelContentActivity" />
+        <activity android:name=".DesignContentActivity" />
         <activity android:name=".ActorContentActivity" />
-        
+        <activity android:name=".MovieContentActivity" />
+        <activity android:name=".ArtContentActivity" />
+        <!-- 展示大图 -->
         <activity android:name=".TouchImageViewActivity" />
 
     </application>

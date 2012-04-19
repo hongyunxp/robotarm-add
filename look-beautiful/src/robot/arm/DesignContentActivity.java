@@ -3,8 +3,8 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumArtAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.AlbumArtAdapter;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,7 +18,7 @@ import android.widget.ListView;
  *         Apr 12, 2012
  * 
  */
-public class DesignCoverActivity extends BaseActivity {
+public class DesignContentActivity extends BaseActivity {
 	private ListView imageListView;
 	private AlbumArtAdapter imageAdapter;
 
@@ -26,10 +26,10 @@ public class DesignCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.design_cover);
+		setContentView(R.layout.design_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new AlbumArtAdapter(this, list);
+		imageAdapter = new AlbumArtAdapter(this, list2);
 		View more = LayoutInflater.from(this).inflate(R.layout.images_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -49,14 +49,10 @@ public class DesignCoverActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
-		imageAdapter.addList(list);// 增加元素
+		imageAdapter.addList(list2);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
-	}
-
-	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, DesignContentActivity.class);
 	}
 }
