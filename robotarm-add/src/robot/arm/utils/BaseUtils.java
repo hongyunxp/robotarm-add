@@ -424,9 +424,9 @@ public class BaseUtils {
 		HttpConnectionParams.setConnectionTimeout(httpParams, TIME_OUT);
 		HttpConnectionParams.setSoTimeout(httpParams, TIME_OUT);
 
-//		if (checkGPRS_WAP()) {
-//			httpParams.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(Proxy.getDefaultHost(), Proxy.getDefaultPort(), "http"));
-//		}
+		if (checkGPRS_WAP()) {
+			httpParams.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(Proxy.getDefaultHost(), Proxy.getDefaultPort(), "http"));
+		}
 		return new DefaultHttpClient(httpParams);
 
 	}
