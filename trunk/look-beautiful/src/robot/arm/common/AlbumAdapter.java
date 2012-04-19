@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package robot.arm.common;
 
 import java.util.ArrayList;
@@ -9,12 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class ImagesAdapter extends BaseAdapter {
+/**
+ * @author li.li
+ * 
+ *         Apr 19, 2012
+ * 
+ */
+public class AlbumAdapter extends BaseAdapter {
 	private List<Integer> list;
 
 	private Activity act;
 
-	public ImagesAdapter(Activity act, List<Integer> list) {
+	public AlbumAdapter(Activity act, List<Integer> list) {
 		this.act = act;
 		this.list = list;
 	}
@@ -41,11 +50,11 @@ public class ImagesAdapter extends BaseAdapter {
 		return row;
 	}
 
-	public void addList(List<Integer> list){
-		List<Integer> l=new ArrayList<Integer>(this.list.size()+list.size());
+	public void addList(List<Integer> list) {
+		List<Integer> l = new ArrayList<Integer>(this.list.size() + list.size());
 		l.addAll(this.list);
 		l.addAll(list);
-		
-		this.list=l;
+
+		this.list = l;
 	}
 }
