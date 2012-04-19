@@ -26,6 +26,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
 /**
  * @author li.li
@@ -35,7 +36,7 @@ import android.widget.ImageView;
  */
 public class LoadImageUtils {
 	private static final String TAG = LoadImageUtils.class.getName();
-	
+
 	private static final int TIME_OUT = 30000;
 
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView) {
@@ -64,8 +65,11 @@ public class LoadImageUtils {
 
 			@Override
 			public void doResult() {
-				if (bm != null)
+				if (bm != null){
 					imageView.setImageBitmap(bm);
+					imageView.setScaleType(ScaleType.CENTER_CROP);
+					
+				}
 
 			}
 
