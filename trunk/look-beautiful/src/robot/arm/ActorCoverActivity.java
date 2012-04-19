@@ -57,8 +57,8 @@ public class ActorCoverActivity extends BaseActivity {
 	}
 	
 
-	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, ActorContentActivity.class);
+	public void clickImage(View view) {
+		tabInvHandler.startSubActivity(R.id.tab_actor, ActorContentActivity.class);
 	}
 
 }

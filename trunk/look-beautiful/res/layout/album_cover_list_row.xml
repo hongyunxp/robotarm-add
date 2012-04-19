@@ -6,15 +6,15 @@
 	<ImageView android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:src="@drawable/m1"
 		android:layout_weight="1.0" android:scaleType="centerCrop"
-		android:layout_margin="@dimen/image_margin" android:onClick="details" />
+		android:layout_margin="@dimen/image_margin" android:onClick="clickImage" />
 
 	<ImageView android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:src="@drawable/m2"
 		android:layout_weight="1.0" android:scaleType="centerCrop"
-		android:layout_margin="@dimen/image_margin" android:onClick="details" />
+		android:layout_margin="@dimen/image_margin" android:onClick="clickImage" />
 
 	<ImageView android:layout_width="fill_parent"
 		android:layout_height="fill_parent" android:src="@drawable/m2"
 		android:layout_weight="1.0" android:scaleType="centerCrop"
-		android:layout_margin="@dimen/image_margin" android:onClick="details" />
+		android:layout_margin="@dimen/image_margin" android:onClick="clickImage" />
 </TableRow>

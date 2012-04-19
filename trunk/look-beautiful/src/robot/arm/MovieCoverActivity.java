@@ -55,7 +55,7 @@ public class MovieCoverActivity extends BaseActivity {
 
 	}
 	
-	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, MovieContentActivity.class);
+	public void clickImage(View view) {
+		tabInvHandler.startSubActivity(R.id.tab_movie, MovieContentActivity.class);
 	}
 }

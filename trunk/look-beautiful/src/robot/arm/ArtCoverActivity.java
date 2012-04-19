@@ -55,9 +55,9 @@ public class ArtCoverActivity extends BaseActivity {
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
-
-	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, ArtContentActivity.class);
+	
+	public void clickImage(View view) {
+		tabInvHandler.startSubActivity(R.id.tab_art, ArtContentActivity.class);
 	}
 
 }

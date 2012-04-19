@@ -2,14 +2,14 @@
 <robot.arm.core.view.TabGroup
 	xmlns:android="http://schemas.android.com/apk/res/android" style="@style/tab_indictor" android:baselineAligned="false">
 
-	<robot.arm.core.view.Tab android:id="@+id/model" style="@style/model" />
+	<robot.arm.core.view.Tab style="@style/model" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test2" style="@style/design" />
+	<robot.arm.core.view.Tab style="@style/design" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test3" style="@style/actor" />
+	<robot.arm.core.view.Tab style="@style/actor" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test4" style="@style/movie" />
+	<robot.arm.core.view.Tab style="@style/movie" />
 
-	<robot.arm.core.view.Tab android:id="@+id/test5" style="@style/art" />
+	<robot.arm.core.view.Tab style="@style/art" />
 
 </robot.arm.core.view.TabGroup>
