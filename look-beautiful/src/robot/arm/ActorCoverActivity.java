@@ -3,7 +3,9 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumArtAdapter;
+import java.util.Arrays;
+
+import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
@@ -19,8 +21,10 @@ import android.widget.ListView;
  * 
  */
 public class ActorCoverActivity extends BaseActivity {
+	private static final String url = "http://img1.moko.cc/users/6/1812/543827/post/00/img1_cover_5557714.jpg";
+
 	private ListView imageListView;
-	private AlbumArtAdapter imageAdapter;
+	private AlbumCoverAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,7 @@ public class ActorCoverActivity extends BaseActivity {
 		setContentView(R.layout.actor_cover);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new AlbumArtAdapter(this, list);
+		imageAdapter = new AlbumCoverAdapter(this, Arrays.asList(url));
 		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -49,13 +53,12 @@ public class ActorCoverActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
-		imageAdapter.addList(list);// 增加元素
+//		imageAdapter.addList(list);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
-	
 
 	public void clickImage(View view) {
 		tabInvHandler.startSubActivity(R.id.tab_actor, ActorContentActivity.class);
