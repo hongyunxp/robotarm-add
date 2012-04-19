@@ -29,7 +29,7 @@ public class MovieCoverActivity extends BaseActivity {
 
 		imageListView = (ListView) findViewById(R.id.images);
 		imageAdapter = new AlbumArtAdapter(this, list);
-		View more = LayoutInflater.from(this).inflate(R.layout.images_show_more, null);
+		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
 
