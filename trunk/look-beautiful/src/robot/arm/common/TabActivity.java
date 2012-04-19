@@ -3,7 +3,7 @@ package robot.arm.common;
 import java.util.HashMap;
 import java.util.Map;
 
-import robot.arm.ActorActivity;
+import robot.arm.ActorCoverActivity;
 import robot.arm.ArtActivity;
 import robot.arm.DesignActivity;
 import robot.arm.ModelActivity;
@@ -22,7 +22,7 @@ public class TabActivity extends TabInvHandler {
 
 		tabMap.put(R.id.model, ModelActivity.class);
 		tabMap.put(R.id.test2, DesignActivity.class);
-		tabMap.put(R.id.test3, ActorActivity.class);
+		tabMap.put(R.id.test3, ActorCoverActivity.class);
 		tabMap.put(R.id.test4, MovieActivity.class);
 		tabMap.put(R.id.test5, ArtActivity.class);
 

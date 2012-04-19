@@ -3,7 +3,7 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumArtAdapter;
+import robot.arm.common.AlbumAdapter;
 import robot.arm.common.BaseActivity;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
@@ -15,21 +15,21 @@ import android.widget.ListView;
 /**
  * @author li.li
  * 
- *         Apr 12, 2012
+ *         Apr 18, 2012
  * 
  */
-public class ActorActivity extends BaseActivity {
+public class ActorContentActivity extends BaseActivity {
 	private ListView imageListView;
-	private AlbumArtAdapter imageAdapter;
+	private AlbumAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.actor_content);
+		setContentView(R.layout.actor_second_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new AlbumArtAdapter(this, list);
+		imageAdapter = new AlbumAdapter(this, list2);
 		View more = LayoutInflater.from(this).inflate(R.layout.images_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -38,6 +38,7 @@ public class ActorActivity extends BaseActivity {
 		b.setBackgroundResource(R.drawable.actor);
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+
 	}
 
 	@Override
@@ -49,16 +50,10 @@ public class ActorActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
-		imageAdapter.addList(list);// 增加元素
+		imageAdapter.addList(list2);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
-	
-
-	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, ActorSecondActivity.class);
-	}
-
 }
