@@ -4,6 +4,6 @@
 	android:layout_weight="1.0">
 
 	<Button android:id="@id/button_images_more" android:layout_width="fill_parent"
-		android:layout_height="80dip" android:text="显示更多" android:gravity="center"
+		android:layout_height="80dip" android:text="@string/common_show_more" android:gravity="center"
 		android:textSize="30dip" android:visibility="visible" android:onClick="more" android:background="@drawable/white"/>
 </TableRow>
