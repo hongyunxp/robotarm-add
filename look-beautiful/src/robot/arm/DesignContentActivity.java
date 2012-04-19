@@ -3,9 +3,10 @@
  */
 package robot.arm;
 
-import robot.arm.common.BaseActivity;
 import robot.arm.common.AlbumArtAdapter;
+import robot.arm.common.BaseActivity;
 import robot.arm.utils.BaseUtils;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,5 +55,10 @@ public class DesignContentActivity extends BaseActivity {
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
+	}
+
+	public void clickImage(View view) {
+		Intent intent = new Intent(this, TouchImageViewActivity.class);
+		startActivity(intent);
 	}
 }

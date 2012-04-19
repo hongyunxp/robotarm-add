@@ -56,7 +56,7 @@ public class DesignCoverActivity extends BaseActivity {
 
 	}
 
-	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, DesignContentActivity.class);
+	public void clickImage(View view) {
+		tabInvHandler.startSubActivity(R.id.tab_design, DesignContentActivity.class);
 	}
 }

@@ -20,11 +20,11 @@ public class TabActivity extends TabInvHandler {
 	public Map<Integer, Class<? extends Activity>> newTabs() {
 		Map<Integer, Class<? extends Activity>> tabMap = new HashMap<Integer, Class<? extends Activity>>(5);
 
-		tabMap.put(R.id.model, ModelCoverActivity.class);
-		tabMap.put(R.id.test2, DesignCoverActivity.class);
-		tabMap.put(R.id.test3, ActorCoverActivity.class);
-		tabMap.put(R.id.test4, MovieCoverActivity.class);
-		tabMap.put(R.id.test5, ArtCoverActivity.class);
+		tabMap.put(R.id.tab_model, ModelCoverActivity.class);
+		tabMap.put(R.id.tab_design, DesignCoverActivity.class);
+		tabMap.put(R.id.tab_actor, ActorCoverActivity.class);
+		tabMap.put(R.id.tab_movie, MovieCoverActivity.class);
+		tabMap.put(R.id.tab_art, ArtCoverActivity.class);
 
 		return tabMap;
 	}

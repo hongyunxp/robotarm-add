@@ -56,7 +56,7 @@ public class ModelCoverActivity extends BaseActivity {
 
 	}
 	
-	public void details(View view) {
-		tabInvHandler.startSubActivity(R.id.actor_second_activity, ModelContentActivity.class);
+	public void clickImage(View view) {
+		tabInvHandler.startSubActivity(R.id.tab_model, ModelContentActivity.class);
 	}
 }
