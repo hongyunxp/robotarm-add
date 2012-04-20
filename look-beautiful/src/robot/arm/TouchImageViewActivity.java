@@ -4,9 +4,8 @@
 package robot.arm;
 
 import robot.arm.provider.view.touch.TouchImageView;
+import robot.arm.utils.LoadImageUtils;
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 /**
@@ -24,8 +23,9 @@ public class TouchImageViewActivity extends Activity {
 		setContentView(R.layout.touch_image_content);
 
 		touchImageView = (TouchImageView) findViewById(R.id.touch_image_view);
-		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.m3);
-		touchImageView.setImageBitmap(bm);
+		Bundle bundle = getIntent().getExtras();    
+		String imageUrl = bundle.getString(getString(R.string.detailUrl));//读出数据  
+		LoadImageUtils.loadImageSync(this, imageUrl, touchImageView);
 		touchImageView.reset();
 
 	}

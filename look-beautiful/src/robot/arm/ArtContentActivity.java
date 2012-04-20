@@ -3,7 +3,7 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumArtAdapter;
+import robot.arm.common.AlbumAdapter;
 import robot.arm.common.BaseActivity;
 import robot.arm.utils.BaseUtils;
 import android.content.Intent;
@@ -21,7 +21,7 @@ import android.widget.ListView;
  */
 public class ArtContentActivity extends BaseActivity {
 	private ListView imageListView;
-	private AlbumArtAdapter imageAdapter;
+	private AlbumAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class ArtContentActivity extends BaseActivity {
 		setContentView(R.layout.art_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new AlbumArtAdapter(this, list2);
+		imageAdapter = new AlbumAdapter(this, list2);
 		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -59,6 +59,9 @@ public class ArtContentActivity extends BaseActivity {
 
 	public void clickImage(View view) {
 		Intent intent = new Intent(this, TouchImageViewActivity.class);
+		Bundle mBundle = new Bundle();  
+        mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());//压入数据  
+        intent.putExtras(mBundle);
 		startActivity(intent);
 	}
 

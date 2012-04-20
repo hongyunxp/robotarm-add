@@ -3,7 +3,9 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumArtAdapter;
+import com.mokoclient.core.MokoClient;
+
+import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
@@ -20,7 +22,7 @@ import android.widget.ListView;
  */
 public class DesignCoverActivity extends BaseActivity {
 	private ListView imageListView;
-	private AlbumArtAdapter imageAdapter;
+	private AlbumCoverAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,15 @@ public class DesignCoverActivity extends BaseActivity {
 
 		setContentView(R.layout.design_cover);
 
+		try {
+			list = MokoClient.DESIGN.getPostList(1);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		imageListView = (ListView) findViewById(R.id.images);
-		imageAdapter = new AlbumArtAdapter(this, list);
+		imageAdapter = new AlbumCoverAdapter(this, list);
 		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -49,7 +58,7 @@ public class DesignCoverActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
-		imageAdapter.addList(list);// 增加元素
+		imageAdapter.addList(this, list);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
@@ -57,6 +66,8 @@ public class DesignCoverActivity extends BaseActivity {
 	}
 
 	public void clickImage(View view) {
-		tabInvHandler.startSubActivity(R.id.tab_design, DesignContentActivity.class);
+		Bundle mBundle = new Bundle();
+        mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());//压入数据  
+		tabInvHandler.startSubActivity(R.id.tab_design, DesignContentActivity.class, mBundle);
 	}
 }
