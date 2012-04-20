@@ -24,8 +24,7 @@ import android.widget.ListView;
 public class ActorCoverActivity extends BaseActivity {
 	private static final String url1 = "http://img1.moko.cc/users/6/1812/543827/post/00/img1_cover_5557714.jpg";
 	private static final String url2 = "http://img1.moko.cc/users/15/4616/1384849/post/f1/img1_cover_5556929.jpg";
-	private static final String url3 = "http://img1.moko.cc/users/2/625/187682/post/ce/img1_cover_5547862.jpg";
-	private static String[] array={url1,url2,url3};
+	private static String[] array={url1,url2};
 	private static final List<String[]> list = Arrays.asList(array,array,array,array);
 
 	private ListView imageListView;

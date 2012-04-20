@@ -42,11 +42,9 @@ public class AlbumCoverAdapter extends BaseAdapter {
 		View row = LayoutInflater.from(act).inflate(R.layout.album_cover_list_row, null);
 		ImageView iv1 = (ImageView) row.findViewById(R.id.image1);
 		ImageView iv2 = (ImageView) row.findViewById(R.id.image2);
-		ImageView iv3 = (ImageView) row.findViewById(R.id.image3);
 
 		LoadImageUtils.loadImageSync(act, list.get(position)[0], iv1);
 		LoadImageUtils.loadImageSync(act, list.get(position)[1], iv2);
-		LoadImageUtils.loadImageSync(act, list.get(position)[2], iv3);
 
 		return row;
 	}
