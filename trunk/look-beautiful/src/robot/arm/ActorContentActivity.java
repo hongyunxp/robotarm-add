@@ -76,6 +76,9 @@ public class ActorContentActivity extends BaseActivity {
 	
 	public void clickImage(View view) {
 		Intent intent = new Intent(this, TouchImageViewActivity.class);
+		Bundle mBundle = new Bundle();  
+        mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());//压入数据  
+        intent.putExtras(mBundle);
 		startActivity(intent);
 	}
 }

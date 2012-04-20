@@ -51,6 +51,7 @@ public class AlbumAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = LayoutInflater.from(act).inflate(R.layout.album_content_list_row, null);
 		ImageView image = (ImageView) row.findViewById(R.id.contentImage);
+		image.setTag(R.string.detailUrl, list.get(position));
 		LoadImageUtils.loadImageSync(act, list.get(position), image);
 		return row;
 	}
