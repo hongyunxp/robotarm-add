@@ -3,15 +3,11 @@
  */
 package robot.arm.common;
 
-import java.util.List;
-
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TableLayout;
-
-import com.mokoclient.core.bean.PostBean;
 
 /**
  * @author li.li
@@ -20,11 +16,6 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
-	protected static List<PostBean> list;
-
-	protected static List<String> list2;
-
-	protected static List<Integer> album;
 
 	protected TabInvHandler tabInvHandler;
 
