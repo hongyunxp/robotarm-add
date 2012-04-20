@@ -3,6 +3,10 @@
  */
 package robot.arm;
 
+import java.util.List;
+
+import com.mokoclient.core.MokoClient;
+
 import robot.arm.common.AlbumAdapter;
 import robot.arm.common.BaseActivity;
 import robot.arm.utils.BaseUtils;
@@ -22,6 +26,7 @@ import android.widget.ListView;
 public class ActorContentActivity extends BaseActivity {
 	private ListView imageListView;
 	private AlbumAdapter imageAdapter;
+	protected static List<String> list2;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,17 @@ public class ActorContentActivity extends BaseActivity {
 		setContentView(R.layout.actor_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
+		
+		Bundle bundle = getIntent().getExtras();    
+	    String detailUrl=bundle.getString(getString(R.string.detailUrl));//读出数据  
+	    
+	    try {
+			list2 = MokoClient.ACTOR.getPostDetail(detailUrl);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		imageAdapter = new AlbumAdapter(this, list2);
 		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		imageListView.addFooterView(more);
