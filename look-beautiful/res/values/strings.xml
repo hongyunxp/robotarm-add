@@ -17,4 +17,6 @@
     
     <string name="common_show_more">显示更多</string>
     
+    <!-- args -->
+    <string name = "detailUrl">detailUrl</string>
 </resources>

@@ -3,7 +3,6 @@
  */
 package robot.arm;
 
-import java.util.Arrays;
 import java.util.List;
 
 import robot.arm.common.AlbumCoverAdapter;
@@ -15,6 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.mokoclient.core.MokoClient;
+import com.mokoclient.core.bean.PostBean;
+
 /**
  * @author li.li
  * 
@@ -22,10 +24,8 @@ import android.widget.ListView;
  * 
  */
 public class ActorCoverActivity extends BaseActivity {
-	private static final String url1 = "http://img1.moko.cc/users/6/1812/543827/post/00/img1_cover_5557714.jpg";
-	private static final String url2 = "http://img1.moko.cc/users/15/4616/1384849/post/f1/img1_cover_5556929.jpg";
 
-	private static final List<String> list = Arrays.asList(url1, url2, url1, url2, url1, url2);
+	private List<PostBean> list;
 
 	private ListView imageListView;
 	private AlbumCoverAdapter imageAdapter;
@@ -36,6 +36,14 @@ public class ActorCoverActivity extends BaseActivity {
 
 		setContentView(R.layout.actor_cover);
 
+		try {
+			list = MokoClient.MOVIES.getPostList(1);
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		imageListView = (ListView) findViewById(R.id.images);
 
 		imageAdapter = new AlbumCoverAdapter(this, list);// 图片数组
@@ -44,7 +52,6 @@ public class ActorCoverActivity extends BaseActivity {
 		
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
-
 		Button b = (Button) more.findViewById(R.id.button_images_more);
 		b.setBackgroundResource(R.drawable.actor);
 
@@ -73,7 +80,10 @@ public class ActorCoverActivity extends BaseActivity {
 	}
 
 	public void clickImage(View view) {
-		tabInvHandler.startSubActivity(R.id.tab_actor, ActorContentActivity.class);
+		Bundle mBundle = new Bundle();
+		System.out.println(view.getTag(R.string.detailUrl).toString());
+        mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());//压入数据  
+		tabInvHandler.startSubActivity(R.id.tab_actor, ActorContentActivity.class, mBundle);
 	}
 
 }

@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.mokoclient.core.bean.PostBean;
+
 public class AlbumCoverAdapter extends BaseAdapter {
 	private List<AlbumCover> list;
 
@@ -16,7 +18,7 @@ public class AlbumCoverAdapter extends BaseAdapter {
 		init(albumCoverList);
 	}
 
-	public AlbumCoverAdapter(Activity act, List<String> imageUrlList) {
+	public AlbumCoverAdapter(Activity act, List<PostBean> imageUrlList) {
 		List<AlbumCover> albumCoverList = AlbumCover.coverList(act, imageUrlList);
 
 		init(albumCoverList);
@@ -55,7 +57,7 @@ public class AlbumCoverAdapter extends BaseAdapter {
 		list = l;
 	}
 
-	public void addList(Activity act, List<String> imageUrlList) {
+	public void addList(Activity act, List<PostBean> imageUrlList) {
 		List<AlbumCover> albumCoverList = AlbumCover.coverList(act, imageUrlList);
 
 		addList(albumCoverList);
