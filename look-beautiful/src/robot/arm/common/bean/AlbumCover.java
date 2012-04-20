@@ -3,6 +3,9 @@
  */
 package robot.arm.common.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import robot.arm.R;
 import robot.arm.utils.LoadImageUtils;
 import android.app.Activity;
@@ -17,6 +20,7 @@ import android.widget.ImageView;
  * 
  */
 public class AlbumCover {
+	public static final int COUNT_PER_ROW = 2;
 	Activity act;
 	String[] images;
 
@@ -25,7 +29,7 @@ public class AlbumCover {
 		this.images = images;
 	}
 
-	public View coverListRow() {
+	public View coverRow() {
 		View row = LayoutInflater.from(act).inflate(R.layout.album_cover_list_row, null);
 		ImageView iv1 = (ImageView) row.findViewById(R.id.image1);
 		ImageView iv2 = (ImageView) row.findViewById(R.id.image2);
@@ -34,5 +38,27 @@ public class AlbumCover {
 		LoadImageUtils.loadImageSync(act, images[1], iv2);
 
 		return row;
+	}
+
+	public List<AlbumCover> coverList(List<String> images) {
+		List<AlbumCover> list = new ArrayList<AlbumCover>(images.size() / COUNT_PER_ROW);
+
+		String[] row = null;
+
+		for (int i = 0; i < images.size(); i++) {
+			if (i % COUNT_PER_ROW == 0) {
+				
+				row = new String[COUNT_PER_ROW];
+				row[i % COUNT_PER_ROW] = images.get(i);
+				
+			} else if (i % COUNT_PER_ROW == 1) {
+				
+				row[i % COUNT_PER_ROW] = images.get(i);
+				list.add(new AlbumCover(act, row));
+				
+			}
+		}
+
+		return list;
 	}
 }
