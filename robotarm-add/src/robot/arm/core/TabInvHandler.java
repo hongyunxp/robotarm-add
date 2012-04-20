@@ -183,7 +183,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 
 		Intent intent = new Intent(this, toActClazz);
 		if (map != null && !map.isEmpty())
-			intent.getExtras().putAll(map);
+			intent.putExtras(map);
 
 		newActivity(id, intent, toActClazz);
 
