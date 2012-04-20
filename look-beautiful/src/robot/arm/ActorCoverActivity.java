@@ -37,7 +37,7 @@ public class ActorCoverActivity extends BaseActivity {
 		setContentView(R.layout.actor_cover);
 
 		try {
-			list = MokoClient.MOVIES.getPostList(1);
+			list = MokoClient.ACTOR.getPostList(1);
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

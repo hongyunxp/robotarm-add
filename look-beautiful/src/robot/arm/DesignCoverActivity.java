@@ -3,7 +3,10 @@
  */
 package robot.arm;
 
+import java.util.List;
+
 import com.mokoclient.core.MokoClient;
+import com.mokoclient.core.bean.PostBean;
 
 import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
@@ -21,6 +24,7 @@ import android.widget.ListView;
  * 
  */
 public class DesignCoverActivity extends BaseActivity {
+	private List<PostBean> list;
 	private ListView imageListView;
 	private AlbumCoverAdapter imageAdapter;
 
