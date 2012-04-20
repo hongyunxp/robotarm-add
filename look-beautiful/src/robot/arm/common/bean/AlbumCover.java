@@ -21,8 +21,9 @@ import android.widget.ImageView;
  */
 public class AlbumCover {
 	public static final int COUNT_PER_ROW = 2;
-	Activity act;
-	String[] images;
+	private Activity act;
+	private String[] images;
+	private List<ImageView> ivs;
 
 	public AlbumCover(Activity act, String[] images) {
 		this.act = act;
@@ -36,11 +37,15 @@ public class AlbumCover {
 
 		LoadImageUtils.loadImageSync(act, images[0], iv1);
 		LoadImageUtils.loadImageSync(act, images[1], iv2);
+		
+		ivs=new ArrayList<ImageView>(COUNT_PER_ROW);
+		ivs.add(iv1);
+		ivs.add(iv2);
 
 		return row;
 	}
 
-	public List<AlbumCover> coverList(List<String> images) {
+	public static List<AlbumCover> coverList(Activity act,List<String> images) {
 		List<AlbumCover> list = new ArrayList<AlbumCover>(images.size() / COUNT_PER_ROW);
 
 		String[] row = null;
@@ -61,4 +66,5 @@ public class AlbumCover {
 
 		return list;
 	}
+	
 }

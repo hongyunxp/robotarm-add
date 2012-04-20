@@ -10,12 +10,20 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 public class AlbumCoverAdapter extends BaseAdapter {
-	private List<String[]> list;
-	private Activity act;
+	private List<AlbumCover> list;
 
-	public AlbumCoverAdapter(Activity act, List<String[]> list) {
-		this.act = act;
-		this.list = list;
+	public AlbumCoverAdapter(List<AlbumCover> albumCoverList) {
+		init(albumCoverList);
+	}
+
+	public AlbumCoverAdapter(Activity act, List<String> imageUrlList) {
+		List<AlbumCover> albumCoverList = AlbumCover.coverList(act, imageUrlList);
+
+		init(albumCoverList);
+	}
+
+	private void init(List<AlbumCover> albumCoverList) {
+		this.list = albumCoverList;
 	}
 
 	@Override
@@ -36,16 +44,20 @@ public class AlbumCoverAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-		AlbumCover ac = new AlbumCover(act, list.get(position));
-
-		return ac.coverListRow();
+		return list.get(position).coverRow();
 	}
 
-	public void addList(List<String[]> list) {
-		List<String[]> l = new ArrayList<String[]>(this.list.size() + list.size());
-		l.addAll(this.list);
+	public void addList(List<AlbumCover> covers) {
+		List<AlbumCover> l = new ArrayList<AlbumCover>(covers.size() + list.size());
 		l.addAll(list);
+		l.addAll(covers);
 
-		this.list = l;
+		list = l;
+	}
+
+	public void addList(Activity act, List<String> imageUrlList) {
+		List<AlbumCover> albumCoverList = AlbumCover.coverList(act, imageUrlList);
+
+		addList(albumCoverList);
 	}
 }
