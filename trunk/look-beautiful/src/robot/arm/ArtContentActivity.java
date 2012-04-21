@@ -5,10 +5,9 @@ package robot.arm;
 
 import java.util.List;
 
-import com.mokoclient.core.MokoClient;
-
 import robot.arm.common.AlbumAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.Util;
 import robot.arm.utils.BaseUtils;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.mokoclient.core.MokoClient;
 
 /**
  * @author li.li
@@ -25,6 +26,8 @@ import android.widget.ListView;
  */
 public class ArtContentActivity extends BaseActivity {
 	private List<String> list2;
+	private static int curPage = 1;
+	private static String detailUrl;
 	private ListView imageListView;
 	private AlbumAdapter imageAdapter;
 
@@ -35,14 +38,9 @@ public class ArtContentActivity extends BaseActivity {
 		setContentView(R.layout.art_content);
 
 		Bundle bundle = getIntent().getExtras();    
-	    String detailUrl=bundle.getString(getString(R.string.detailUrl));//读出数据  
+	    detailUrl=bundle.getString(getString(R.string.detailUrl));//读出数据  
 	    
-	    try {
-			list2 = MokoClient.ARTS.getPostDetail(detailUrl);
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		list2 = Util.getPostDetail(MokoClient.ARTS, detailUrl, curPage);
 	    
 		imageListView = (ListView) findViewById(R.id.images);
 		imageAdapter = new AlbumAdapter(this, list2);
@@ -65,6 +63,8 @@ public class ArtContentActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
+		curPage ++;
+		list2 = Util.getPostDetail(MokoClient.ARTS, detailUrl, curPage);
 		imageAdapter.addList(list2);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
