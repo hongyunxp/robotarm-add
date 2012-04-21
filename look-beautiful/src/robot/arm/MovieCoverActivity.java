@@ -7,6 +7,7 @@ import java.util.List;
 
 import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.Util;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,6 +26,7 @@ import com.mokoclient.core.bean.PostBean;
  */
 public class MovieCoverActivity extends BaseActivity {
 	private List<PostBean> list;
+	private static int curPage = 1;
 	private ListView imageListView;
 	private AlbumCoverAdapter imageAdapter;
 
@@ -32,14 +34,7 @@ public class MovieCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.movie_cover);
-
-		try {
-			list = MokoClient.MOVIES.getPostList(1);
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		list = Util.getPostList(MokoClient.MOVIES, curPage);
 		imageListView = (ListView) findViewById(R.id.images);
 		imageAdapter = new AlbumCoverAdapter(this, list);
 		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
@@ -61,6 +56,8 @@ public class MovieCoverActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
+		curPage ++;
+		list = Util.getPostList(MokoClient.MOVIES, curPage);
 		imageAdapter.addList(this, list);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
@@ -73,4 +70,5 @@ public class MovieCoverActivity extends BaseActivity {
         mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());//压入数据  
 		tabInvHandler.startSubActivity(R.id.tab_movie, MovieContentActivity.class, mBundle);
 	}
+	
 }

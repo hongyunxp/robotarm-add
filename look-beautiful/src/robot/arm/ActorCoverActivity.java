@@ -7,6 +7,7 @@ import java.util.List;
 
 import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.Util;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import com.mokoclient.core.bean.PostBean;
 public class ActorCoverActivity extends BaseActivity {
 
 	private List<PostBean> list;
+	private static int curPage = 1;
 
 	private ListView imageListView;
 	private AlbumCoverAdapter imageAdapter;
@@ -36,13 +38,7 @@ public class ActorCoverActivity extends BaseActivity {
 
 		setContentView(R.layout.actor_cover);
 
-		try {
-			list = MokoClient.ACTOR.getPostList(1);
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		list = Util.getPostList(MokoClient.ACTOR, curPage);
 		
 		imageListView = (ListView) findViewById(R.id.images);
 
@@ -67,6 +63,10 @@ public class ActorCoverActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
+		
+		curPage ++;
+		list = Util.getPostList(MokoClient.ACTOR, curPage);
+		
 		imageAdapter.addList(this, list);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 		
