@@ -3,6 +3,7 @@
  */
 package robot.arm.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import robot.arm.R;
@@ -14,6 +15,10 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TableLayout;
 
 import com.mokoclient.core.MokoClient;
@@ -26,6 +31,12 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
+	protected int curPage = 1;
+	protected List<PostBean> list;
+	protected View more;
+	protected Button moreButton;
+	protected ListView imageListView;
+	protected AlbumCoverAdapter imageAdapter;
 
 	protected TabInvHandler tabInvHandler;
 	private volatile Builder builder;
@@ -51,6 +62,13 @@ public class BaseActivity extends Activity {
 		tabInvHandler.setTitle(resId);
 	}
 
+	protected void initView() {
+		imageListView = (ListView) findViewById(R.id.images);
+		list = new ArrayList<PostBean>();
+		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
+		moreButton = (Button) more.findViewById(R.id.button_images_more);
+	}
+
 	/**
 	 * 当网络不可用返回空
 	 * 
@@ -74,7 +92,7 @@ public class BaseActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-						AppExit.getInstance().exit(tabInvHandler);// 取消退出
+						AppExit.getInstance().exit(tabInvHandler);// 取消/退出
 					}
 
 				});
@@ -83,8 +101,9 @@ public class BaseActivity extends Activity {
 			}
 
 		} else {
-			if (list != null)
+			if (list != null) {
 				list.addAll(Util.getPostList(mClient, curPage));
+			}
 		}
 
 	}
