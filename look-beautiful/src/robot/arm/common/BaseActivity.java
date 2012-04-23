@@ -108,4 +108,38 @@ public class BaseActivity extends Activity {
 
 	}
 
+	public List<PostBean> getList() {
+		return list;
+	}
+
+	public int getCurPage() {
+		return curPage;
+	}
+
+	public ListView getImageListView() {
+		return imageListView;
+	}
+
+	public AlbumCoverAdapter getImageAdapter() {
+		return imageAdapter;
+	}
+
+	public View getMore() {
+		return more;
+	}
+
+	public Button getMoreButton() {
+		return moreButton;
+	}
+
+	public TabInvHandler getTabInvHandler() {
+		return tabInvHandler;
+	}
+
+	public Builder getBuilder() {
+		return builder;
+	}
+	
+	
+
 }
