@@ -42,7 +42,7 @@ public class LoadImageUtils {
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView) {
 
 		loadImageSync(act, imageUrl, imageView, true);// 走本地存储
-
+		
 	}
 
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView, final boolean local) {
@@ -65,10 +65,10 @@ public class LoadImageUtils {
 
 			@Override
 			public void doResult() {
-				if (bm != null){
+				if (bm != null) {
 					imageView.setImageBitmap(bm);
 					imageView.setScaleType(ScaleType.CENTER_CROP);
-					
+
 				}
 
 			}
@@ -127,8 +127,8 @@ public class LoadImageUtils {
 		// GPRS方式连接
 		if (ConnectivityManager.TYPE_MOBILE != info.getType())
 			return false;
-
-		return !"".equals(Proxy.getDefaultHost());
+		
+		return Proxy.getDefaultHost() != null && !"".equals(Proxy.getDefaultHost());
 	}
 
 	/**
