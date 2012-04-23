@@ -3,6 +3,7 @@
  */
 package robot.arm;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import robot.arm.common.AlbumCoverAdapter;
@@ -37,39 +38,42 @@ public class ActorCoverActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.actor_cover);
-
-		list = Util.getPostList(MokoClient.ACTOR, curPage);
-		
-		imageListView = (ListView) findViewById(R.id.images);
-
-		imageAdapter = new AlbumCoverAdapter(this, list);// 图片数组
-		
-		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
-		
-		imageListView.addFooterView(more);
-		imageListView.setAdapter(imageAdapter);
-		Button b = (Button) more.findViewById(R.id.button_images_more);
-		b.setBackgroundResource(R.drawable.actor);
-
-		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+		list = new ArrayList<PostBean>();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		loadList(MokoClient.ACTOR, curPage, list);
+
+		if (list != null && list.size() > 0) {
+
+			imageListView = (ListView) findViewById(R.id.images);
+
+			imageAdapter = new AlbumCoverAdapter(this, list);// 图片数组
+
+			View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
+
+			imageListView.addFooterView(more);
+			imageListView.setAdapter(imageAdapter);
+			Button b = (Button) more.findViewById(R.id.button_images_more);
+			b.setBackgroundResource(R.drawable.actor);
+
+			BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+		}
 
 		title(R.layout.actor_title);
 		background(R.drawable.actor);
 	}
 
 	public void more(View view) {
-		
-		curPage ++;
+
+		curPage++;
 		list = Util.getPostList(MokoClient.ACTOR, curPage);
-		
+
 		imageAdapter.addList(this, list);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
-		
+
 		view.post(new Runnable() {
 			@Override
 			public void run() {
@@ -81,7 +85,7 @@ public class ActorCoverActivity extends BaseActivity {
 
 	public void clickImage(View view) {
 		Bundle mBundle = new Bundle();
-        mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());//压入数据  
+		mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());// 压入数据
 		tabInvHandler.startSubActivity(R.id.tab_actor, ActorContentActivity.class, mBundle);
 	}
 
