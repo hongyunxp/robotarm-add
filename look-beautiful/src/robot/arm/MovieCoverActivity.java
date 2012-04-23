@@ -3,21 +3,14 @@
  */
 package robot.arm;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.BaseSyncTask;
 import robot.arm.common.Util;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
 
 import com.mokoclient.core.MokoClient;
-import com.mokoclient.core.bean.PostBean;
 
 /**
  * @author li.li
@@ -26,41 +19,27 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class MovieCoverActivity extends BaseActivity {
-	private List<PostBean> list;
-	private static int curPage = 1;
-	private ListView imageListView;
-	private AlbumCoverAdapter imageAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.movie_cover);
-		imageListView = (ListView) findViewById(R.id.images);
+		setContentView(R.layout.movie_content);
+		
+		initView();
 
-		list = new ArrayList<PostBean>();
+		// 创建异步任务
+		task = new BaseSyncTask(this, MokoClient.MOVIES);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 
-		loadList(MokoClient.MOVIES, curPage, list);
-
-		if (list != null && list.size() > 0) {
-
-			imageAdapter = new AlbumCoverAdapter(this, list);
-			View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
-			imageListView.addFooterView(more);
-			imageListView.setAdapter(imageAdapter);
-
-			Button b = (Button) more.findViewById(R.id.button_images_more);
-			b.setBackgroundResource(R.drawable.movie);
-
-			BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
-		}
-
 		title(R.layout.movie_title);
 		background(R.drawable.movie);
+
+		// 执行异步任务
+		task.execute();
 	}
 
 	public void more(View view) {
