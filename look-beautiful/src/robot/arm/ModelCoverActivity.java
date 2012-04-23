@@ -19,7 +19,6 @@ import com.mokoclient.core.MokoClient;
  * 
  */
 public class ModelCoverActivity extends BaseActivity {
-	private BaseSyncTask task;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
