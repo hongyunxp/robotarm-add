@@ -3,8 +3,8 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.BaseSyncTask;
 import robot.arm.common.Util;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
@@ -26,6 +26,9 @@ public class DesignCoverActivity extends BaseActivity {
 		setContentView(R.layout.design_cover);
 
 		initView();
+
+		// 创建异步任务
+		task = new BaseSyncTask(this, MokoClient.DESIGN);
 	}
 
 	@Override
@@ -35,30 +38,8 @@ public class DesignCoverActivity extends BaseActivity {
 		title(R.layout.design_title);
 		background(R.drawable.design);
 
-		new Thread() {
-
-			@Override
-			public void run() {
-
-				loadList(MokoClient.DESIGN, curPage, list);
-
-				if (list != null && list.size() > 0) {
-					imageAdapter = new AlbumCoverAdapter(DesignCoverActivity.this, list);
-
-					imageListView.post(new Runnable() {
-
-						@Override
-						public void run() {
-							imageListView.addFooterView(more);
-							imageListView.setAdapter(imageAdapter);
-							moreButton.setBackgroundResource(R.drawable.design);
-
-							BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
-						}
-					});
-				}
-			}
-		}.start();
+		// 执行异步任务
+		task.execute();
 	}
 
 	public void more(View view) {
