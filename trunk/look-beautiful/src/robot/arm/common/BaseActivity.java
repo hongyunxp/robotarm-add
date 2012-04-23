@@ -31,13 +31,13 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
+	protected BaseSyncTask task;
 	protected int curPage = 1;
 	protected List<PostBean> list;
 	protected View more;
 	protected Button moreButton;
 	protected ListView imageListView;
 	protected AlbumCoverAdapter imageAdapter;
-
 	protected TabInvHandler tabInvHandler;
 	private volatile Builder builder;
 
