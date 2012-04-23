@@ -2,6 +2,8 @@ package robot.arm.provider.view.gif;
 
 import java.io.InputStream;
 
+import robot.arm.R;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -11,6 +13,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
 import android.os.SystemClock;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -79,18 +82,20 @@ public class GifView extends ImageView implements GifAction {
 		setScaleType(ImageView.ScaleType.FIT_XY);
 	}
 
-	// public GifView(Context context, AttributeSet attrs) {
-	// this(context, attrs, 0);
-	//
-	// }
-	//
-	// public GifView(Context context, AttributeSet attrs, int defStyle) {
-	// super(context, attrs, defStyle);
-	// this.context = context;
-	// // TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
-	// // gifDecoder = new GifDecoder(this);
-	// // setScaleType(ImageView.ScaleType.FIT_XY);
-	// }
+	public GifView(Context context, AttributeSet attrs) {
+		this(context, attrs, 0);
+
+	}
+
+	public GifView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		this.context = context;
+		// TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
+		// gifDecoder = new GifDecoder(this);
+		// setScaleType(ImageView.ScaleType.FIT_XY);
+		
+		this.setImageResource(R.drawable.loading);
+	}
 
 	/**
 	 * 设置图片，并开始解码
@@ -162,7 +167,9 @@ public class GifView extends ImageView implements GifAction {
 		InputStream is = r.openRawResource(resId);
 
 		setGifImage(is);
+		
 	}
+	
 
 	/**
 	 * 以字节流形式设置gif图片

@@ -182,6 +182,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 		boolean resumable = resumable(toActClazz);
 
 		Intent intent = new Intent(this, toActClazz);
+		
 		if (map != null && !map.isEmpty())
 			intent.putExtras(map);
 
