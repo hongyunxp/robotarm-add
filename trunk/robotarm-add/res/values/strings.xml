@@ -10,5 +10,11 @@
     <string name="tab_title_tag">tab_title</string>
     <string name="tab_content_tag">tab_content</string>
     <string name="tab_group_tag">tab_group</string>
+    
+    <!-- 网络不可用对话框 -->
+	<string name="confirm_net_title">提示</string>
+	<string name="confirm_net_content">当前网络不给力！</string>
+	<string name="confirm_net_ensure">重试</string>
+	<string name="confirm_net_cancle">取消</string>
 
 </resources>
