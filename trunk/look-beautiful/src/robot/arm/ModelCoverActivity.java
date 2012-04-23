@@ -3,8 +3,8 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumCoverAdapter;
 import robot.arm.common.BaseActivity;
+import robot.arm.common.BaseSyncTask;
 import robot.arm.common.Util;
 import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import com.mokoclient.core.MokoClient;
  * 
  */
 public class ModelCoverActivity extends BaseActivity {
+	private BaseSyncTask task;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,9 @@ public class ModelCoverActivity extends BaseActivity {
 		setContentView(R.layout.model_cover);
 
 		initView();
+		
+		// 创建异步任务
+		task = new BaseSyncTask(this, MokoClient.MODEL);
 	}
 
 	@Override
@@ -35,31 +39,8 @@ public class ModelCoverActivity extends BaseActivity {
 		title(R.layout.model_title);
 		background(R.drawable.model);
 
-		// 创建并执行异步任务
-		new Thread() {
-
-			@Override
-			public void run() {
-				loadList(MokoClient.MODEL, curPage, list);
-
-				if (list != null && list.size() > 0) {
-
-					imageAdapter = new AlbumCoverAdapter(ModelCoverActivity.this, list);
-
-					imageListView.post(new Runnable() {
-
-						@Override
-						public void run() {
-							imageListView.addFooterView(more);
-							imageListView.setAdapter(imageAdapter);
-							moreButton.setBackgroundResource(R.drawable.model);
-
-							BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
-						}
-					});
-				}
-			}
-		}.start();
+		// 执行异步任务
+		task.execute();
 
 	}
 
