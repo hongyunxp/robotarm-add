@@ -24,6 +24,8 @@ public class ModelCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.model_cover);
+		
+		tabInvHandler.loading(getClass(), true);
 
 		initView();
 		
