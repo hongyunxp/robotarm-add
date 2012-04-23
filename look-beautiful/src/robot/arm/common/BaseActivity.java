@@ -3,11 +3,19 @@
  */
 package robot.arm.common;
 
+import java.util.List;
+
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
+import robot.arm.utils.NetUtils;
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.widget.TableLayout;
+
+import com.mokoclient.core.MokoClient;
+import com.mokoclient.core.bean.PostBean;
 
 /**
  * @author li.li
@@ -26,6 +34,11 @@ public class BaseActivity extends Activity {
 		tabInvHandler = ((TabInvHandler) getParent());
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
+
 	public void background(int resId) {
 		TableLayout tl = (TableLayout) findViewById(R.id.images_content);
 		tl.setBackgroundResource(resId);
@@ -33,6 +46,38 @@ public class BaseActivity extends Activity {
 
 	public void title(int resId) {
 		tabInvHandler.setTitle(resId);
+	}
+
+	/**
+	 * 当网络不可用返回空
+	 * 
+	 * @param mClient
+	 * @param curPage
+	 * @return
+	 */
+	protected void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
+
+		if (!NetUtils.checkNet().available) {
+			NetUtils.confirm(tabInvHandler, new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+					loadList(mClient, curPage, list);// 重试
+
+				}
+
+			}, new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+				}
+
+			});
+		} else {
+			if (list != null)
+				list.addAll(Util.getPostList(mClient, curPage));
+		}
+
 	}
 
 }
