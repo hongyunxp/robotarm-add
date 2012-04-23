@@ -6,6 +6,7 @@ package robot.arm.utils;
 import robot.arm.R;
 import robot.arm.common.RobotArmApp;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
 import android.net.ConnectivityManager;
@@ -67,13 +68,15 @@ public class NetUtils {
 		return checkNet(RobotArmApp.getApp());
 	}
 
-	public static void confirm(final Context context, OnClickListener pl, OnClickListener nl) {
+	public static Builder confirm(final Context context, OnClickListener pl, OnClickListener nl) {
 		AlertDialog.Builder tDialog = new AlertDialog.Builder(context);
 		tDialog.setTitle(R.string.confirm_net_title);
 		tDialog.setMessage(R.string.confirm_net_content);
 		tDialog.setPositiveButton(R.string.confirm_net_ensure, pl);
 		tDialog.setNegativeButton(R.string.confirm_net_cancle, nl);
 		tDialog.show();
+
+		return tDialog;
 
 	}
 }
