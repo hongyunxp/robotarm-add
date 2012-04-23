@@ -28,7 +28,8 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseSyncTask extends AsycTask<BaseActivity> {
-	// 参数
+	
+	// （接口穿透）初始化参数
 	private List<PostBean> postBeanList = act.getList();
 	private int curPage = act.getCurPage();
 	private AlbumCoverAdapter adapter = act.getImageAdapter();
