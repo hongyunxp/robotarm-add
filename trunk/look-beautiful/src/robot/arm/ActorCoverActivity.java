@@ -5,8 +5,6 @@ package robot.arm;
 
 import robot.arm.common.BaseActivity;
 import robot.arm.common.BaseSyncTask;
-import robot.arm.common.Util;
-import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,6 +26,8 @@ public class ActorCoverActivity extends BaseActivity {
 
 		// 创建异步任务
 		task = new BaseSyncTask(this, MokoClient.ACTOR);
+		// 执行
+		task.execute();
 	}
 
 	@Override
@@ -37,24 +37,10 @@ public class ActorCoverActivity extends BaseActivity {
 		title(R.layout.actor_title);
 		background(R.drawable.actor);
 
-		// 执行异步任务
-		task.execute();
 	}
 
 	public void more(View view) {
-
-		curPage++;
-		list = Util.getPostList(MokoClient.ACTOR, curPage);
-
-		imageAdapter.addList(this, list);// 增加元素
-		imageAdapter.notifyDataSetChanged();// 通知更新视图
-
-		view.post(new Runnable() {
-			@Override
-			public void run() {
-				BaseUtils.setListViewHeight(imageListView);// 设置listview高度
-			}
-		});
+		task.execute();
 
 	}
 

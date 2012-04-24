@@ -32,7 +32,7 @@ import com.mokoclient.core.bean.PostBean;
  */
 public class BaseActivity extends Activity {
 	protected BaseSyncTask task;
-	protected int curPage = 1;
+	protected int curPage = 0;
 	protected List<PostBean> list;
 	protected View more;
 	protected Button moreButton;
@@ -52,6 +52,11 @@ public class BaseActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+	}
+	
+	public void more(View view) {
+		task.execute();
+
 	}
 
 	public void background(int resId) {

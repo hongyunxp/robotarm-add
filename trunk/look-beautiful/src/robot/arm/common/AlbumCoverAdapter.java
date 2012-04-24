@@ -24,6 +24,9 @@ public class AlbumCoverAdapter extends BaseAdapter {
 		init(albumCoverList);
 	}
 
+	public AlbumCoverAdapter() {
+	}
+
 	private void init(List<AlbumCover> albumCoverList) {
 		this.list = albumCoverList;
 	}
@@ -50,9 +53,12 @@ public class AlbumCoverAdapter extends BaseAdapter {
 	}
 
 	public void addList(List<AlbumCover> covers) {
-		List<AlbumCover> l = new ArrayList<AlbumCover>(covers.size() + list.size());
-		l.addAll(list);
-		l.addAll(covers);
+		List<AlbumCover> l = new ArrayList<AlbumCover>();
+
+		if (list != null)
+			l.addAll(list);
+		if (covers != null)
+			l.addAll(covers);
 
 		list = l;
 	}

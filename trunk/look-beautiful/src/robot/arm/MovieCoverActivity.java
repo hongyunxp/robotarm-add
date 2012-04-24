@@ -29,6 +29,8 @@ public class MovieCoverActivity extends BaseActivity {
 
 		// 创建异步任务
 		task = new BaseSyncTask(this, MokoClient.MOVIES);
+		// 执行
+		task.execute();
 	}
 
 	@Override
@@ -37,18 +39,6 @@ public class MovieCoverActivity extends BaseActivity {
 
 		title(R.layout.movie_title);
 		background(R.drawable.movie);
-
-		// 执行异步任务
-		task.execute();
-	}
-
-	public void more(View view) {
-		curPage++;
-		list = Util.getPostList(MokoClient.MOVIES, curPage);
-		imageAdapter.addList(this, list);// 增加元素
-		imageAdapter.notifyDataSetChanged();// 通知更新视图
-
-		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
 

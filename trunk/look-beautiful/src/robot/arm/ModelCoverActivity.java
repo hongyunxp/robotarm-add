@@ -5,8 +5,6 @@ package robot.arm;
 
 import robot.arm.common.BaseActivity;
 import robot.arm.common.BaseSyncTask;
-import robot.arm.common.Util;
-import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,11 +22,14 @@ public class ModelCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.model_cover);
-		
+
 		initView();
-		
+
 		// 创建异步任务
 		task = new BaseSyncTask(this, MokoClient.MODEL);
+		
+		// 执行
+		task.execute();
 	}
 
 	@Override
@@ -38,18 +39,12 @@ public class ModelCoverActivity extends BaseActivity {
 		title(R.layout.model_title);
 		background(R.drawable.model);
 
-		// 执行异步任务
-		task.execute();
-
 	}
 
 	public void more(View view) {
-		curPage++;
-		list = Util.getPostList(MokoClient.MODEL, curPage);
-		imageAdapter.addList(this, list);// 增加元素
-		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
-		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
+		// 执行
+		task.execute();
 
 	}
 
