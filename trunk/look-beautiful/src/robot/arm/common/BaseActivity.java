@@ -31,7 +31,7 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
-	protected BaseSyncTask task;
+	protected CoverSyncTask task;
 	protected int curPage = 0;
 	protected List<PostBean> list;
 	protected View more;
