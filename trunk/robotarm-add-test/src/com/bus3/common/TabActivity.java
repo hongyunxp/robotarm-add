@@ -17,6 +17,7 @@ import com.bus3.test.HomeActivity;
 import com.bus3.test.MoreActivity;
 import com.bus3.test.SearchActivity;
 import com.bus3.test.SortActivity;
+import com.bus3.test.WelcomeActivity;
 
 /**
  * @author li.li
@@ -83,6 +84,11 @@ public class TabActivity extends TabInvHandler {
 		}
 
 		return true;
+	}
+
+	@Override
+	public Class<? extends Activity> welcomeClazz() {
+		return WelcomeActivity.class;
 	}
 
 }
