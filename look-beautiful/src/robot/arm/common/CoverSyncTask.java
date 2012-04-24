@@ -25,7 +25,7 @@ import com.mokoclient.core.bean.PostBean;
  *         Apr 23, 2012
  * 
  */
-public class BaseSyncTask extends AsycTask<BaseActivity> {
+public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	// （接口穿透）初始化参数
 	private List<PostBean> postBeanList = act.getList();
@@ -41,7 +41,7 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 	/**
 	 * @param activity
 	 */
-	public BaseSyncTask(BaseActivity activity, MokoClient client) {
+	public CoverSyncTask(BaseActivity activity, MokoClient client) {
 		super(activity);
 
 		this.client = client;

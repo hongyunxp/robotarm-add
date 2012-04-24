@@ -4,7 +4,7 @@
 package robot.arm;
 
 import robot.arm.common.BaseActivity;
-import robot.arm.common.BaseSyncTask;
+import robot.arm.common.CoverSyncTask;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,7 +26,7 @@ public class ModelCoverActivity extends BaseActivity {
 		initView();
 
 		// 创建异步任务
-		task = new BaseSyncTask(this, MokoClient.MODEL);
+		task = new CoverSyncTask(this, MokoClient.MODEL);
 		
 		// 执行
 		task.execute();
