@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,8 +36,11 @@ import android.widget.RadioButton;
  * @author li.li
  * 
  */
-public abstract class TabInvHandler extends ActivityGroup implements Tabable, OnCheckedChangeListener, SoftInputListener {
+public abstract class TabInvHandler extends ActivityGroup implements Tabable, Welable, OnCheckedChangeListener, SoftInputListener {
+	private static final String TAG = TabInvHandler.class.getName();
+	private static final int DEFAULT_SELECT_TAB = 0;
 	private static final int DEFAULT_SOFT_INPUT_MODE = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;// 默认软键盘
+	public static final int REQUEST_IF_OK = 0;
 
 	private Stack<Record> statusStack;// 状态栈
 	private TabView tabView;// 包含title、content、tabs
@@ -56,8 +60,15 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
 
-		selectTab(tabView.getTabGroup().getChildAt(0).getId());// 默认选择第一个
+		goWelcome();// 去欢迎界面
+	}
 
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {// 回调
+		Log.d(TAG, "onActivityResult|" + requestCode + "|" + resultCode);
+
+		if (requestCode == REQUEST_IF_OK && resultCode == RESULT_OK)
+			selectTab();// 默认选择第一个
 	}
 
 	@Override
@@ -182,7 +193,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 		boolean resumable = resumable(toActClazz);
 
 		Intent intent = new Intent(this, toActClazz);
-		
+
 		if (map != null && !map.isEmpty())
 			intent.putExtras(map);
 
@@ -190,42 +201,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 
 		statusStack.push(new Record(id, intent, resumable, toActClazz));// 入栈
 
-	}
-
-	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz) {
-
-		// 关闭上次的背景loading,多执行也无害
-		if (View.VISIBLE == loader.getLoading().getVisibility()) {
-			restoreLoading(toActClazz);// 还原loading
-		}
-
-		tabView.getTitle().removeAllViews();
-		tabView.getContent().removeAllViews();
-		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
-
-		setContent(getLocalActivityManager().startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
-
-	}
-
-	private Record getNextAvailableRecord() {
-		Record record = null;
-		do {
-			statusStack.pop();// 出栈
-			record = statusStack.peek();// 读取栈顶元素
-
-		} while (!record.isResumable() || statusStack.isEmpty());
-
-		return record;
-	}
-
-	private boolean resumable(Class<? extends Activity> toActClazz) {
-		for (Annotation ant : toActClazz.getAnnotations()) {
-
-			if (ant instanceof Resume)
-				return ((Resume) ant).resumable();
-		}
-
-		return true;
 	}
 
 	@Override
@@ -321,6 +296,59 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, On
 
 		return optionsItemSelected(item);
 
+	}
+
+	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz) {
+
+		// 关闭上次的背景loading,多执行也无害
+		if (View.VISIBLE == loader.getLoading().getVisibility()) {
+			restoreLoading(toActClazz);// 还原loading
+		}
+
+		tabView.getTitle().removeAllViews();
+		tabView.getContent().removeAllViews();
+		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
+
+		setContent(getLocalActivityManager().startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
+
+	}
+
+	private Record getNextAvailableRecord() {
+		Record record = null;
+		do {
+			statusStack.pop();// 出栈
+			record = statusStack.peek();// 读取栈顶元素
+
+		} while (!record.isResumable() || statusStack.isEmpty());
+
+		return record;
+	}
+
+	private boolean resumable(Class<? extends Activity> toActClazz) {
+		for (Annotation ant : toActClazz.getAnnotations()) {
+
+			if (ant instanceof Resume)
+				return ((Resume) ant).resumable();
+		}
+
+		return true;
+	}
+
+	private void selectTab() {
+		selectTab(tabView.getTabGroup().getChildAt(DEFAULT_SELECT_TAB).getId());// 默认选择第一个
+	}
+
+	private void goWelcome() {
+		Class<? extends Activity> clazz = welcomeClazz();
+
+		if (clazz != null) {
+
+			Intent intent = new Intent(this, clazz);
+			startActivityForResult(intent, REQUEST_IF_OK);
+
+		} else {
+			selectTab();
+		}
 	}
 
 }
