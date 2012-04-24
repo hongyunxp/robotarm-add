@@ -24,7 +24,6 @@ public class DesignCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.design_cover);
-		tabInvHandler.loading(getClass(), true);
 
 		initView();
 

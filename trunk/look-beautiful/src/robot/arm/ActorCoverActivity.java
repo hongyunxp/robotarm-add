@@ -24,8 +24,6 @@ public class ActorCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.actor_content);
-		tabInvHandler.loading(getClass(), true);
-		
 		initView();
 
 		// 创建异步任务

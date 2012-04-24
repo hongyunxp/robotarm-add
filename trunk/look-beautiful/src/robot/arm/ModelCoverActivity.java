@@ -25,8 +25,6 @@ public class ModelCoverActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.model_cover);
 		
-		tabInvHandler.loading(getClass(), true);
-
 		initView();
 		
 		// 创建异步任务
