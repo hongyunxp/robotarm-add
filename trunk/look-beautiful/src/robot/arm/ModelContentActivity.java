@@ -37,10 +37,7 @@ public class ModelContentActivity extends BaseActivity {
 
 		setContentView(R.layout.model_content);
 
-		// initView();
-		imageListView = (ListView) findViewById(R.id.images);
-		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
-		moreButton = (Button) more.findViewById(R.id.button_images_more);
+		initView();
 
 		Bundle bundle = getIntent().getExtras();
 		detailUrl = bundle.getString(getString(R.string.detailUrl));// 读出数据
@@ -52,7 +49,13 @@ public class ModelContentActivity extends BaseActivity {
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 
-
+	}
+	
+	protected void initView() {
+		imageListView = (ListView) findViewById(R.id.images);
+		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
+		moreButton = (Button) more.findViewById(R.id.button_images_more);
+		
 	}
 
 	@Override
