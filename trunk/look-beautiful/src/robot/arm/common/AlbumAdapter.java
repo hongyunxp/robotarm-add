@@ -51,10 +51,10 @@ public class AlbumAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-//		if (convertView == null)
-//			convertView = albums.get(position).coverRow();
+		if (convertView == null)
+			convertView = albums.get(position).coverRow();
 
-		return albums.get(position).coverRow();
+		return convertView;
 	}
 
 	public void addList(List<Album> albumList) {
