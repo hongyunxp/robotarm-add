@@ -53,5 +53,10 @@ public class TabActivity extends TabInvHandler {
 
 		return true;
 	}
+	
+	@Override
+	public Class<? extends Activity> welcomeClazz() {
+		return null;
+	}
 
 }
