@@ -45,7 +45,7 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		tabInvHandler = ((TabInvHandler) getParent());
-//		tabInvHandler.loading(getClass(), true);
+		tabInvHandler.loading(getClass(), true);
 	}
 
 	@Override
