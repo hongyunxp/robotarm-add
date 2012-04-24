@@ -52,7 +52,7 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 
 	@Override
 	public void doCall() {
-		loadList(client, curPage, postBeanList);
+		loadList(client, ++curPage, postBeanList);
 	}
 
 	@Override
@@ -60,7 +60,9 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 		if (postBeanList != null && postBeanList.size() > 0) {
 
 			if (adapter == null)
-				adapter = new AlbumCoverAdapter(act, postBeanList);
+				adapter = new AlbumCoverAdapter();
+			
+			adapter.addList(act,postBeanList);
 
 			listView.post(new Runnable() {
 
