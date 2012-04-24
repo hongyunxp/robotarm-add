@@ -14,7 +14,6 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.mokoclient.core.MokoClient;
@@ -31,13 +30,13 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 	// （接口穿透）初始化参数
 	private List<PostBean> postBeanList = act.getList();
 	private int curPage = act.getCurPage();
-	private AlbumCoverAdapter adapter = act.getImageAdapter();
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
 	private TabInvHandler tabInvHandler = act.getTabInvHandler();
 	private volatile Builder builder = act.getBuilder();
 
 	private MokoClient client;
+	private AlbumCoverAdapter adapter;
 
 	/**
 	 * @param activity
@@ -74,7 +73,7 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
 
-//					tabInvHandler.loading(act.getClass(), false);
+					// tabInvHandler.loading(act.getClass(), false);
 				}
 			});
 		}
