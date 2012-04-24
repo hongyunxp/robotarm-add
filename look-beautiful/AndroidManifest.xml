@@ -13,6 +13,8 @@
             </intent-filter>
         </activity>
         
+        <!-- 欢迎 -->
+        <activity android:name=".WelcomeActivity" />
         <!--  专辑封面 -->
         <activity android:name=".ModelCoverActivity" />
         <activity android:name=".DesignCoverActivity" />
