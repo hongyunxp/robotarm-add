@@ -28,7 +28,7 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseSyncTask extends AsycTask<BaseActivity> {
-	
+
 	// （接口穿透）初始化参数
 	private List<PostBean> postBeanList = act.getList();
 	private int curPage = act.getCurPage();
@@ -59,19 +59,24 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 	public void doResult() {
 		if (postBeanList != null && postBeanList.size() > 0) {
 
-			adapter = new AlbumCoverAdapter(act, postBeanList);
+			if (adapter == null)
+				adapter = new AlbumCoverAdapter(act, postBeanList);
 
 			listView.post(new Runnable() {
 
 				@Override
 				public void run() {
-					listView.addFooterView(more);
-					listView.setAdapter(adapter);
+					if (listView.getFooterViewsCount() == 0)
+						listView.addFooterView(more);
+
+					if (listView.getAdapter() == null)
+						listView.setAdapter(adapter);
+
 					moreButton.setBackgroundResource(R.drawable.model);
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
-					
-//					tabInvHandler.loading(act.getClass(), false);
+
+					// tabInvHandler.loading(act.getClass(), false);
 				}
 			});
 		}
