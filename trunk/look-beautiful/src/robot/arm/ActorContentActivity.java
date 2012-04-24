@@ -5,8 +5,6 @@ package robot.arm;
 
 import java.util.List;
 
-import com.mokoclient.core.MokoClient;
-
 import robot.arm.common.AlbumAdapter;
 import robot.arm.common.BaseActivity;
 import robot.arm.common.Util;
@@ -17,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.mokoclient.core.MokoClient;
 
 /**
  * @author li.li
@@ -38,12 +38,12 @@ public class ActorContentActivity extends BaseActivity {
 		setContentView(R.layout.actor_content);
 
 		imageListView = (ListView) findViewById(R.id.images);
-		
-		Bundle bundle = getIntent().getExtras();    
-	    detailUrl=bundle.getString(getString(R.string.detailUrl));//读出数据  
-	    
-		list2 =Util.getPostDetail(MokoClient.ACTOR, detailUrl, curPage);
-		
+
+		Bundle bundle = getIntent().getExtras();
+		detailUrl = bundle.getString(getString(R.string.detailUrl));// 读出数据
+
+		list2 = Util.getPostDetail(MokoClient.ACTOR, detailUrl, curPage);
+
 		imageAdapter = new AlbumAdapter(this, list2);
 		View more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		imageListView.addFooterView(more);
@@ -65,20 +65,20 @@ public class ActorContentActivity extends BaseActivity {
 	}
 
 	public void more(View view) {
-		curPage ++;
-		list2 =Util.getPostDetail(MokoClient.ACTOR, detailUrl, curPage);
-		imageAdapter.addList(list2);// 增加元素
+		curPage++;
+		list2 = Util.getPostDetail(MokoClient.ACTOR, detailUrl, curPage);
+		imageAdapter.addList(this, list2);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
 
 	}
-	
+
 	public void clickImage(View view) {
 		Intent intent = new Intent(this, TouchImageViewActivity.class);
-		Bundle mBundle = new Bundle();  
-        mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());//压入数据  
-        intent.putExtras(mBundle);
+		Bundle mBundle = new Bundle();
+		mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());// 压入数据
+		intent.putExtras(mBundle);
 		startActivity(intent);
 	}
 }

@@ -62,7 +62,7 @@ public class MovieContentActivity extends BaseActivity {
 	public void more(View view) {
 		curPage ++;
 		list2 = Util.getPostDetail(MokoClient.MOVIES, detailUrl, curPage);
-		imageAdapter.addList(list2);// 增加元素
+		imageAdapter.addList(this,list2);// 增加元素
 		imageAdapter.notifyDataSetChanged();// 通知更新视图
 
 		BaseUtils.setListViewHeight(imageListView);// 设置listview高度
