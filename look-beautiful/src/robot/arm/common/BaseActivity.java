@@ -37,7 +37,6 @@ public class BaseActivity extends Activity {
 	protected View more;
 	protected Button moreButton;
 	protected ListView imageListView;
-	protected AlbumCoverAdapter imageAdapter;
 	protected TabInvHandler tabInvHandler;
 	private volatile Builder builder;
 
@@ -126,10 +125,6 @@ public class BaseActivity extends Activity {
 
 	public ListView getImageListView() {
 		return imageListView;
-	}
-
-	public AlbumCoverAdapter getImageAdapter() {
-		return imageAdapter;
 	}
 
 	public View getMore() {
