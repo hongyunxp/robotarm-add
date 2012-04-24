@@ -24,7 +24,6 @@ public class MovieCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.movie_content);
-		tabInvHandler.loading(getClass(), true);
 		
 		initView();
 

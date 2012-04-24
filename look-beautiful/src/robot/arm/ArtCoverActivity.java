@@ -24,7 +24,6 @@ public class ArtCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.art_cover);
-		tabInvHandler.loading(getClass(), true);
 		
 		initView();
 		
