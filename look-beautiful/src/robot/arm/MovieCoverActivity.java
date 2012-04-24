@@ -5,8 +5,6 @@ package robot.arm;
 
 import robot.arm.common.BaseActivity;
 import robot.arm.common.BaseSyncTask;
-import robot.arm.common.Util;
-import robot.arm.utils.BaseUtils;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,7 +22,7 @@ public class MovieCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.movie_content);
-		
+
 		initView();
 
 		// 创建异步任务

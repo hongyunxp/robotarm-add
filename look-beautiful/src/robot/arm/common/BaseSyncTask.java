@@ -5,7 +5,6 @@ package robot.arm.common;
 
 import java.util.List;
 
-import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
@@ -35,7 +34,6 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 	private AlbumCoverAdapter adapter = act.getImageAdapter();
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
-	private Button moreButton = act.getMoreButton();
 	private TabInvHandler tabInvHandler = act.getTabInvHandler();
 	private volatile Builder builder = act.getBuilder();
 
@@ -61,8 +59,8 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 
 			if (adapter == null)
 				adapter = new AlbumCoverAdapter();
-			
-			adapter.addList(act,postBeanList);
+
+			adapter.addList(act, postBeanList);
 
 			listView.post(new Runnable() {
 
@@ -76,7 +74,7 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
 
-					// tabInvHandler.loading(act.getClass(), false);
+//					tabInvHandler.loading(act.getClass(), false);
 				}
 			});
 		}
