@@ -12,7 +12,7 @@
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:text="检查网络..."
-        android:textColor="@color/black"
-        android:textSize="14dip" />
+        android:textColor="@color/white"
+        android:textSize="20dip" />
 
 </RelativeLayout>
