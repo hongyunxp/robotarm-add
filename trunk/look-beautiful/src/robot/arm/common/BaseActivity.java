@@ -45,7 +45,7 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		tabInvHandler = ((TabInvHandler) getParent());
-		tabInvHandler.loading(getClass(), true);
+//		tabInvHandler.loading(getClass(), true);
 	}
 
 	@Override
@@ -62,6 +62,7 @@ public class BaseActivity extends Activity {
 		TableLayout tl = (TableLayout) findViewById(R.id.images_content);
 		tl.setBackgroundResource(resId);
 		
+		if(moreButton!=null)
 		moreButton.setBackgroundResource(resId);//按钮背景
 	}
 

@@ -73,7 +73,7 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
 
-					 tabInvHandler.loading(act.getClass(), false);
+//					 tabInvHandler.loading(act.getClass(), false);
 				}
 			});
 		}
