@@ -74,8 +74,6 @@ public class BaseSyncTask extends AsycTask<BaseActivity> {
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
 
-					moreButton.setBackgroundResource(R.drawable.model);
-
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
 
 					// tabInvHandler.loading(act.getClass(), false);

@@ -62,6 +62,8 @@ public class BaseActivity extends Activity {
 	public void background(int resId) {
 		TableLayout tl = (TableLayout) findViewById(R.id.images_content);
 		tl.setBackgroundResource(resId);
+		
+		moreButton.setBackgroundResource(resId);//按钮背景
 	}
 
 	public void title(int resId) {
