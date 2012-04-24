@@ -6,15 +6,11 @@ package robot.arm.common;
 import java.util.ArrayList;
 import java.util.List;
 
-import robot.arm.R;
-import robot.arm.utils.LoadImageUtils;
-
+import robot.arm.common.bean.Album;
 import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 
 /**
  * @author li.li
@@ -23,23 +19,29 @@ import android.widget.ImageView;
  * 
  */
 public class AlbumAdapter extends BaseAdapter {
-	private List<String> list;
+	private List<Album> albums;
 
-	private Activity act;
+	public AlbumAdapter(List<Album> albumCoverList) {
+		init(albumCoverList);
+	}
 
-	public AlbumAdapter(Activity act, List<String> list) {
-		this.act = act;
-		this.list = list;
+	public AlbumAdapter(Activity act, List<String> images) {
+		List<Album> albumList = Album.coverList(act, images);
+		init(albumList);
+	}
+
+	private void init(List<Album> albums) {
+		this.albums = albums;
 	}
 
 	@Override
 	public int getCount() {
-		return list.size();
+		return albums.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return list.get(position);
+		return albums.get(position);
 	}
 
 	@Override
@@ -49,22 +51,27 @@ public class AlbumAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		if (convertView == null){
-			View row = LayoutInflater.from(act).inflate(R.layout.album_content_list_row, null);
-			ImageView image = (ImageView) row.findViewById(R.id.contentImage);
-			image.setTag(R.string.detailUrl, list.get(position));
-			LoadImageUtils.loadImageSync(act, list.get(position), image);
-			convertView=row;
-		}
-		
-		return convertView;
+//		if (convertView == null)
+//			convertView = albums.get(position).coverRow();
+
+		return albums.get(position).coverRow();
 	}
 
-	public void addList(List<String> list) {
-		List<String> l = new ArrayList<String>(this.list.size() + list.size());
-		l.addAll(this.list);
-		l.addAll(list);
+	public void addList(List<Album> albumList) {
+		List<Album> l = new ArrayList<Album>();
 
-		this.list = l;
+		if (albums != null)
+			l.addAll(albums);
+		if (albumList != null)
+			l.addAll(albumList);
+
+		albums = l;
 	}
+	
+	public void addList(Activity act, List<String> imageUrlList) {
+		List<Album> albumCoverList = Album.coverList(act, imageUrlList);
+
+		addList(albumCoverList);
+	}
+
 }
