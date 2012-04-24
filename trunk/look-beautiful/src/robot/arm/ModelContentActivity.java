@@ -26,8 +26,7 @@ import com.mokoclient.core.MokoClient;
  */
 public class ModelContentActivity extends BaseActivity {
 	private List<String> list2;
-	private static int curPage = 1;
-	private static String detailUrl;
+	private String detailUrl;
 	private ListView imageListView;
 	private AlbumAdapter imageAdapter;
 
@@ -42,7 +41,7 @@ public class ModelContentActivity extends BaseActivity {
 		Bundle bundle = getIntent().getExtras();
 		detailUrl = bundle.getString(getString(R.string.detailUrl));// 读出数据
 
-		list2 = Util.getPostDetail(MokoClient.MODEL, detailUrl, curPage);
+		list2 = Util.getPostDetail(MokoClient.MODEL, detailUrl, ++curPage);
 		imageAdapter = new AlbumAdapter(this, list2);
 		imageListView.addFooterView(more);
 		imageListView.setAdapter(imageAdapter);
@@ -50,12 +49,12 @@ public class ModelContentActivity extends BaseActivity {
 		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 
 	}
-	
+
 	protected void initView() {
 		imageListView = (ListView) findViewById(R.id.images);
 		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (Button) more.findViewById(R.id.button_images_more);
-		
+
 	}
 
 	@Override
