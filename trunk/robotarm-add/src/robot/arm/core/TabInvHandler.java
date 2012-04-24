@@ -346,7 +346,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 			Intent intent = new Intent(this, clazz);
 			startActivityForResult(intent, REQUEST_IF_OK);
 
-		} else {
+		} else {// 没有欢迎界面直接选择默认tab
 			selectTab();
 		}
 	}
