@@ -8,6 +8,7 @@ import java.util.List;
 
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
+import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
 import robot.arm.utils.NetUtils;
 import android.app.Activity;
@@ -31,9 +32,9 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
-	protected CoverSyncTask task;
+	protected AsycTask<BaseActivity> task;
 	protected int curPage = 0;
-	protected List<PostBean> list;
+	protected List<PostBean> list=new ArrayList<PostBean>();
 	protected View more;
 	protected Button moreButton;
 	protected ListView imageListView;
@@ -45,14 +46,14 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		tabInvHandler = ((TabInvHandler) getParent());
-//		tabInvHandler.loading(getClass(), true);
+		// tabInvHandler.loading(getClass(), true);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 	}
-	
+
 	public void more(View view) {
 		task.execute();
 
@@ -61,9 +62,9 @@ public class BaseActivity extends Activity {
 	public void background(int resId) {
 		TableLayout tl = (TableLayout) findViewById(R.id.images_content);
 		tl.setBackgroundResource(resId);
-		
-		if(moreButton!=null)
-		moreButton.setBackgroundResource(resId);//按钮背景
+
+		if (moreButton != null)
+			moreButton.setBackgroundResource(resId);// 按钮背景
 	}
 
 	public void title(int resId) {
@@ -72,9 +73,9 @@ public class BaseActivity extends Activity {
 
 	protected void initView() {
 		imageListView = (ListView) findViewById(R.id.images);
-		list = new ArrayList<PostBean>();
 		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (Button) more.findViewById(R.id.button_images_more);
+		
 	}
 
 	/**
@@ -143,7 +144,5 @@ public class BaseActivity extends Activity {
 	public Builder getBuilder() {
 		return builder;
 	}
-	
-	
 
 }

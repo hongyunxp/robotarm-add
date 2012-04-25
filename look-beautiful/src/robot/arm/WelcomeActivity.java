@@ -26,7 +26,7 @@ public class WelcomeActivity extends Activity {
 
 		// 定义splash 动画
 		AlphaAnimation animation = new AlphaAnimation(0.1f, 1.0f);
-		animation.setDuration(3000); // 动画显示时间
+		animation.setDuration(1000); // 动画显示时间
 		animation.setAnimationListener(new AnimationListener() {
 
 			@Override
