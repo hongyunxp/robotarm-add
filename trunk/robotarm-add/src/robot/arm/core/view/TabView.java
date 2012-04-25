@@ -13,11 +13,12 @@ import android.widget.ScrollView;
 /**
  * 
  * @author li.li
- *
- * Mar 15, 2012
- *
+ * 
+ *         Mar 15, 2012
+ * 
  */
 public class TabView extends RelativeLayout {
+
 	private FrameLayout title;// 标题
 	private ScrollView content;// 内容
 	private TabGroup tabGroup;// 工具栏
