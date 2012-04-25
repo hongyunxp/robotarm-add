@@ -29,6 +29,9 @@ public class AlbumAdapter extends BaseAdapter {
 		List<Album> albumList = Album.coverList(act, images);
 		init(albumList);
 	}
+	
+	public AlbumAdapter() {
+	}
 
 	private void init(List<Album> albums) {
 		this.albums = albums;

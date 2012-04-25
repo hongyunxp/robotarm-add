@@ -3,8 +3,10 @@
  */
 package robot.arm.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
@@ -13,54 +15,59 @@ import robot.arm.utils.NetUtils;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
 import com.mokoclient.core.MokoClient;
-import com.mokoclient.core.bean.PostBean;
 
 /**
  * @author li.li
  * 
- *         Apr 23, 2012
+ *         Apr 24, 2012
  * 
  */
-public class CoverSyncTask extends AsycTask<BaseActivity> {
+public class AlbumSyncTask extends AsycTask<BaseActivity> {
+	private List<String> list2 = new ArrayList<String>();
 
-	// （接口穿透）初始化参数
-	private List<PostBean> postBeanList = act.getList();
-	
-	private int curPage = act.getCurPage();
+	protected int curPage = act.getCurPage();
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
-	private TabInvHandler tabInvHandler = act.getTabInvHandler();
+	protected TabInvHandler tabInvHandler = act.getTabInvHandler();
 	private volatile Builder builder = act.getBuilder();
 
 	private MokoClient client;
-	private AlbumCoverAdapter adapter;
+	private AlbumAdapter adapter;
+
+	private String detailUrl;
 
 	/**
 	 * @param activity
 	 */
-	public CoverSyncTask(BaseActivity activity, MokoClient client) {
+	public AlbumSyncTask(BaseActivity activity, MokoClient client) {
 		super(activity);
 
 		this.client = client;
+
+		Bundle bundle = act.getIntent().getExtras();
+		detailUrl = bundle.getString(act.getString(R.string.detailUrl));// 读出数据
 	}
 
 	@Override
 	public void doCall() {
-		loadList(client, ++curPage, postBeanList);
+		
+		loadList(MokoClient.MODEL, ++curPage, list2);
+
 	}
 
 	@Override
 	public void doResult() {
-		if (postBeanList != null && postBeanList.size() > 0) {
 
+		if (list2 != null && list2.size() > 0) {
 			if (adapter == null)
-				adapter = new AlbumCoverAdapter();
-
-			adapter.addList(act, postBeanList);
+				adapter = new AlbumAdapter();
+			
+			adapter.addList(act, list2);
 
 			listView.post(new Runnable() {
 
@@ -74,21 +81,13 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
 
-//					 tabInvHandler.loading(act.getClass(), false);
 				}
 			});
 		}
 
 	}
 
-	/**
-	 * 当网络不可用返回空
-	 * 
-	 * @param mClient
-	 * @param curPage
-	 * @return
-	 */
-	protected void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
+	protected void loadList(final MokoClient mClient, final int curPage, final List<String> list) {
 
 		if (!NetUtils.checkNet().available) {
 			if (builder == null) {
@@ -114,7 +113,8 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		} else {
 			if (list != null) {
-				list.addAll(Util.getPostList(mClient, curPage));
+				list.clear();
+				list.addAll(Util.getPostDetail(client, detailUrl, curPage));
 			}
 		}
 
