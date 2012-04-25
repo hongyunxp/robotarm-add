@@ -20,10 +20,10 @@ import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
+import android.widget.TextView;
 
 import com.mokoclient.core.MokoClient;
 import com.mokoclient.core.bean.PostBean;
@@ -39,7 +39,7 @@ public class BaseActivity extends Activity {
 	protected int curPage = 0;
 	protected List<PostBean> list = new ArrayList<PostBean>();
 	protected View more;
-	protected Button moreButton;
+	protected TextView moreButton;
 	protected ListView imageListView;
 	protected TabInvHandler tabInvHandler;
 	private volatile Builder builder;
@@ -77,7 +77,7 @@ public class BaseActivity extends Activity {
 	protected void initView() {
 		imageListView = (ListView) findViewById(R.id.images);
 		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
-		moreButton = (Button) more.findViewById(R.id.button_images_more);
+		moreButton = (TextView) more.findViewById(R.id.button_images_more);
 
 	}
 
@@ -141,7 +141,7 @@ public class BaseActivity extends Activity {
 		return more;
 	}
 
-	public Button getMoreButton() {
+	public TextView getMoreButton() {
 		return moreButton;
 	}
 
