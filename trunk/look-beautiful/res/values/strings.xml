@@ -15,7 +15,7 @@
     <string name="main_menu_about">关于</string>
     <string name="main_menu_exit">退出</string>
     
-    <string name="common_show_more">显示更多</string>
+    <string name="common_show_more">显示更多...</string>
     
     <!-- args -->
     <string name = "detailUrl">detailUrl</string>
