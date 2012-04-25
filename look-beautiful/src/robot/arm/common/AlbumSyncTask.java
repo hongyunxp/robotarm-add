@@ -64,6 +64,7 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	public void doResult() {
 
 		if (list2 != null && list2.size() > 0) {
+			
 			if (adapter == null)
 				adapter = new AlbumAdapter();
 			
@@ -87,7 +88,7 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 
 	}
 
-	protected void loadList(final MokoClient mClient, final int curPage, final List<String> list) {
+	private void loadList(final MokoClient mClient, final int curPage, final List<String> list) {
 
 		if (!NetUtils.checkNet().available) {
 			if (builder == null) {
