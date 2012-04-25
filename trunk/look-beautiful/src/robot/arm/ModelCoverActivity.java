@@ -28,15 +28,15 @@ public class ModelCoverActivity extends BaseActivity {
 
 		// 创建异步任务
 		task = new CoverSyncTask(this, MokoClient.MODEL);
-		
+
 		// 执行
 		task.execute();
-		
+
 		setOnScrollListener(new OnScrollListener() {
 
 			@Override
 			public void onBottom() {
-				task.execute();//执行显示更多
+				task.execute();// 执行显示更多
 			}
 
 			@Override

@@ -11,12 +11,7 @@ import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.provider.view.MyScrollView;
 import robot.arm.provider.view.MyScrollView.OnScrollListener;
-import robot.arm.utils.AppExit;
-import robot.arm.utils.NetUtils;
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +20,6 @@ import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.mokoclient.core.MokoClient;
 import com.mokoclient.core.bean.PostBean;
 
 /**
@@ -42,7 +36,6 @@ public class BaseActivity extends Activity {
 	protected TextView moreButton;
 	protected ListView imageListView;
 	protected TabInvHandler tabInvHandler;
-	private volatile Builder builder;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -81,45 +74,6 @@ public class BaseActivity extends Activity {
 
 	}
 
-	/**
-	 * 当网络不可用返回空
-	 * 
-	 * @param mClient
-	 * @param curPage
-	 * @return
-	 */
-	protected void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
-
-		if (!NetUtils.checkNet().available) {
-			if (builder == null) {
-				builder = NetUtils.confirm(tabInvHandler, new OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-						loadList(mClient, curPage, list);// 重试
-
-					}
-
-				}, new OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-						AppExit.getInstance().exit(tabInvHandler);// 取消/退出
-					}
-
-				});
-			} else {
-				builder.show();
-			}
-
-		} else {
-			if (list != null) {
-				list.addAll(Util.getPostList(mClient, curPage));
-			}
-		}
-
-	}
-
 	public void setOnScrollListener(OnScrollListener onScrollListener) {
 		ScrollView content = tabInvHandler.getTabView().getContent();
 		((MyScrollView) content).setOnScrollListener(onScrollListener);
@@ -147,10 +101,6 @@ public class BaseActivity extends Activity {
 
 	public TabInvHandler getTabInvHandler() {
 		return tabInvHandler;
-	}
-
-	public Builder getBuilder() {
-		return builder;
 	}
 
 }
