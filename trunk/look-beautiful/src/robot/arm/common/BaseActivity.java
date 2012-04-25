@@ -9,6 +9,8 @@ import java.util.List;
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
+import robot.arm.provider.view.MyScrollView;
+import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import robot.arm.utils.AppExit;
 import robot.arm.utils.NetUtils;
 import android.app.Activity;
@@ -20,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 
 import com.mokoclient.core.MokoClient;
@@ -34,7 +37,7 @@ import com.mokoclient.core.bean.PostBean;
 public class BaseActivity extends Activity {
 	protected AsycTask<BaseActivity> task;
 	protected int curPage = 0;
-	protected List<PostBean> list=new ArrayList<PostBean>();
+	protected List<PostBean> list = new ArrayList<PostBean>();
 	protected View more;
 	protected Button moreButton;
 	protected ListView imageListView;
@@ -75,7 +78,7 @@ public class BaseActivity extends Activity {
 		imageListView = (ListView) findViewById(R.id.images);
 		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (Button) more.findViewById(R.id.button_images_more);
-		
+
 	}
 
 	/**
@@ -115,6 +118,11 @@ public class BaseActivity extends Activity {
 			}
 		}
 
+	}
+
+	public void setOnScrollListener(OnScrollListener onScrollListener) {
+		ScrollView content = tabInvHandler.getTabView().getContent();
+		((MyScrollView) content).setOnScrollListener(onScrollListener);
 	}
 
 	public List<PostBean> getList() {

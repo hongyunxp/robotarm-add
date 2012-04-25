@@ -1,6 +1,5 @@
 package robot.arm;
 
-import robot.arm.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
