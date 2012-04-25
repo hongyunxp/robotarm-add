@@ -5,6 +5,7 @@ package robot.arm;
 
 import robot.arm.common.BaseActivity;
 import robot.arm.common.CoverSyncTask;
+import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,6 +29,23 @@ public class ActorCoverActivity extends BaseActivity {
 		task = new CoverSyncTask(this, MokoClient.ACTOR);
 		// 执行
 		task.execute();
+		
+		setOnScrollListener(new OnScrollListener() {
+
+			@Override
+			public void onBottom() {
+				task.execute();//执行显示更多
+			}
+
+			@Override
+			public void onTop() {
+			}
+
+			@Override
+			public void onScroll() {
+			}
+
+		});
 	}
 
 	@Override

@@ -14,6 +14,8 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 
 import com.mokoclient.core.MokoClient;
@@ -29,7 +31,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	// （接口穿透）初始化参数
 	private List<PostBean> postBeanList = act.getList();
-	
+
 	private int curPage = act.getCurPage();
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
@@ -46,6 +48,22 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		super(activity);
 
 		this.client = client;
+		
+		listView.setOnScrollListener(new OnScrollListener(){
+
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				// TODO Auto-generated method stub
+				System.out.println("onScrollStateChanged|scrollState"+scrollState);
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+				// TODO Auto-generated method stub
+				System.out.println("onScrollStateChanged|onScroll|"+visibleItemCount+"|"+totalItemCount);
+			}
+			
+		});
 	}
 
 	@Override
@@ -74,7 +92,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
 
-//					 tabInvHandler.loading(act.getClass(), false);
+					// tabInvHandler.loading(act.getClass(), false);
 				}
 			});
 		}
