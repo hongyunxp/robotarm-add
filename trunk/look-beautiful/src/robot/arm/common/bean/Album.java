@@ -48,9 +48,11 @@ public class Album {
 		String[] row = null;
 
 		for (int i = 0; i < images.size(); i++) {
-			 row = new String[COUNT_PER_ROW];
-			 row[0] = images.get(i);
-			 list.add(new Album(act, row));
+
+			row = new String[COUNT_PER_ROW];
+			row[0] = images.get(i);
+			list.add(new Album(act, row));
+
 		}
 
 		return list;
