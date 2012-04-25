@@ -7,8 +7,8 @@ import com.mokoclient.core.bean.PostBean;
 
 public class Util {
 
-	private static final int pageSize = 12;
-	private static final int pageSizeDetail = 1;
+	private static final int pageSize = 4;
+	private static final int pageSizeDetail = 2;
 	
 	public static List<PostBean> getPostList(MokoClient vocationEnum, int curPage){
 		// TODO 我靠啊,没网络就崩溃了啊,要先检查有没有网络啊,坑爹!

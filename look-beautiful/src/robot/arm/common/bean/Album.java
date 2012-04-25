@@ -43,9 +43,14 @@ public class Album {
 	}
 	
 	public static List<Album> coverList(Activity act,List<String> images) {
-		List<Album> list = new ArrayList<Album>(1);
-		list.add(new Album(act, images.toArray(new String[0])));
-
+		List<Album> list = new ArrayList<Album>(images.size());
+		
+		for (int i = 0; i < images.size(); i++) {
+			String[] row = new String[COUNT_PER_ROW];
+			row[0] = images.get(i);
+			list.add(new Album(act, row));
+		}
+		
 		return list;
 	}
 }
