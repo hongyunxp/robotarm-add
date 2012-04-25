@@ -9,7 +9,6 @@ import robot.arm.DesignCoverActivity;
 import robot.arm.ModelCoverActivity;
 import robot.arm.MovieCoverActivity;
 import robot.arm.R;
-import robot.arm.WelcomeActivity;
 import robot.arm.core.TabInvHandler;
 import robot.arm.utils.AppExit;
 import android.app.Activity;
@@ -54,10 +53,11 @@ public class TabActivity extends TabInvHandler {
 
 		return true;
 	}
-	
+
 	@Override
 	public Class<? extends Activity> welcomeClazz() {
-		return WelcomeActivity.class;
+		// return WelcomeActivity.class;
+		return null;
 	}
 
 }

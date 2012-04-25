@@ -13,6 +13,7 @@ import robot.arm.utils.NetUtils;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
@@ -38,6 +39,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	private MokoClient client;
 	private AlbumCoverAdapter adapter;
+	private Handler handler = new Handler();
 
 	/**
 	 * @param activity
@@ -50,6 +52,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	@Override
 	public void doCall() {
+
 		loadList(client, ++curPage, postBeanList);
 	}
 
@@ -85,10 +88,11 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		if (!NetUtils.checkNet().available) {
 
-			listView.post(new Runnable() {
+			handler.post(new Runnable() {
 
 				@Override
 				public void run() {
+
 					if (builder == null) {
 						builder = NetUtils.confirm(tabInvHandler, new OnClickListener() {
 
@@ -107,10 +111,9 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 						});
 
-					}else{
+					} else {
 						builder.show();
 					}
-
 
 				}
 			});
