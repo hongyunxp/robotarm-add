@@ -7,15 +7,10 @@ import java.util.List;
 
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
-import robot.arm.utils.AppExit;
 import robot.arm.utils.BaseUtils;
 import robot.arm.utils.NetUtils;
 import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 
 import com.mokoclient.core.MokoClient;
@@ -36,7 +31,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
 	private TabInvHandler tabInvHandler = act.getTabInvHandler();
-	private volatile Builder builder = act.getBuilder();
+	private volatile Builder builder;
 
 	private MokoClient client;
 	private AlbumCoverAdapter adapter;
@@ -84,28 +79,40 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	}
 
 	private void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
-		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$"+NetUtils.checkNet().available);
+
 		if (!NetUtils.checkNet().available) {
-			if (builder == null) {
-				builder = NetUtils.confirm(tabInvHandler, new OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-						loadList(mClient, curPage, list);// 重试
+			listView.post(new Runnable() {
 
-					}
+				@Override
+				public void run() {
+					// if (builder == null) {
+					// builder = NetUtils.confirm(tabInvHandler, new
+					// OnClickListener() {
+					//
+					// @Override
+					// public void onClick(DialogInterface paramDialogInterface,
+					// int paramInt) {
+					// loadList(mClient, curPage, list);// 重试
+					//
+					// }
+					//
+					// }, new OnClickListener() {
+					//
+					// @Override
+					// public void onClick(DialogInterface paramDialogInterface,
+					// int paramInt) {
+					// AppExit.getInstance().exit(tabInvHandler);// 取消/退出
+					// }
+					//
+					// });
+					//
+					// }
+					//
+					// builder.show();
 
-				}, new OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-						AppExit.getInstance().exit(tabInvHandler);// 取消/退出
-					}
-
-				});
-			} else {
-				builder.show();
-			}
+				}
+			});
 
 		} else {
 			if (list != null) {
