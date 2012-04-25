@@ -81,14 +81,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	}
 
-	/**
-	 * 当网络不可用返回空
-	 * 
-	 * @param mClient
-	 * @param curPage
-	 * @return
-	 */
-	protected void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
+	private void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
 
 		if (!NetUtils.checkNet().available) {
 			if (builder == null) {
