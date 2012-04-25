@@ -48,22 +48,6 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		super(activity);
 
 		this.client = client;
-		
-		listView.setOnScrollListener(new OnScrollListener(){
-
-			@Override
-			public void onScrollStateChanged(AbsListView view, int scrollState) {
-				// TODO Auto-generated method stub
-				System.out.println("onScrollStateChanged|scrollState"+scrollState);
-			}
-
-			@Override
-			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-				// TODO Auto-generated method stub
-				System.out.println("onScrollStateChanged|onScroll|"+visibleItemCount+"|"+totalItemCount);
-			}
-			
-		});
 	}
 
 	@Override
@@ -100,7 +84,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	}
 
 	private void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
-
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$"+NetUtils.checkNet().available);
 		if (!NetUtils.checkNet().available) {
 			if (builder == null) {
 				builder = NetUtils.confirm(tabInvHandler, new OnClickListener() {
