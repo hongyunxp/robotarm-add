@@ -351,4 +351,8 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		}
 	}
 
+	public TabView getTabView() {
+		return tabView;
+	}
+	
 }
