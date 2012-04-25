@@ -69,6 +69,7 @@ public class AlbumAdapter extends BaseAdapter {
 			l.addAll(albumList);
 
 		albums = l;
+		
 	}
 	
 	public void addList(Activity act, List<String> imageUrlList) {

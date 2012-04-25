@@ -114,6 +114,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		} else {
 			if (list != null) {
+				list.clear();
 				list.addAll(Util.getPostList(mClient, curPage));
 			}
 		}
