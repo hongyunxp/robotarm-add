@@ -63,7 +63,6 @@ public class MyScrollView extends ScrollView {
 								if (childView.getMeasuredHeight() <= getScrollY() + getHeight()) {
 									if (onScrollListener != null) {
 										onScrollListener.onBottom();
-										// fullScroll(View.FOCUS_DOWN);
 										Log.i(TAG, "onBottom");
 									}
 
