@@ -8,7 +8,6 @@ import java.util.List;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
-import robot.arm.utils.BaseUtils;
 import robot.arm.utils.NetUtils;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -69,14 +68,14 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 				@Override
 				public void run() {
-					if (listView.getFooterViewsCount() == 0)
-						listView.addFooterView(more);
+					// if (listView.getFooterViewsCount() == 0)
+					// listView.addFooterView(more);
 
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
 
-					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
-					
+					// BaseUtils.setListViewHeight(listView);// 设置listview真实高度
+
 					act.listFooterGone();
 
 					// tabInvHandler.loading(act.getClass(), false);
