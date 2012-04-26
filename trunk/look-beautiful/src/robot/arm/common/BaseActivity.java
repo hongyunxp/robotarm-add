@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -67,18 +68,6 @@ public class BaseActivity extends Activity {
 		tabInvHandler.setTitle(resId);
 	}
 
-	protected void initView() {
-		imageListView = (ListView) findViewById(R.id.images);
-		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
-		moreButton = (TextView) more.findViewById(R.id.button_images_more);
-
-	}
-
-	public void setOnScrollListener(OnScrollListener onScrollListener) {
-		ScrollView content = tabInvHandler.getTabView().getContent();
-		((MyScrollView) content).setOnScrollListener(onScrollListener);
-	}
-
 	public List<PostBean> getList() {
 		return list;
 	}
@@ -101,6 +90,56 @@ public class BaseActivity extends Activity {
 
 	public TabInvHandler getTabInvHandler() {
 		return tabInvHandler;
+	}
+
+	protected void initView() {
+		imageListView = (ListView) findViewById(R.id.images);
+		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
+		moreButton = (TextView) more.findViewById(R.id.button_images_more);
+
+	}
+
+	protected void initListener() {
+		setOnScrollListener(new OnScrollListener() {
+
+			@Override
+			public void onBottom() {
+				progressBarVisible();
+				task.execute();// 执行显示更多
+			}
+
+			@Override
+			public void onTop() {
+				progressBarGone();
+			}
+
+			@Override
+			public void onScroll() {
+				progressBarGone();
+			}
+
+		});
+	}
+
+	private void progressBarVisible() {
+		TextView tv = (TextView) findViewById(R.id.button_images_more);
+		tv.setText(getString(R.string.common_loading_more));
+
+		ProgressBar pb = (ProgressBar) findViewById(R.id.load_more_progressbar);
+		pb.setVisibility(View.VISIBLE);
+	}
+
+	private void progressBarGone() {
+		TextView tv = (TextView) findViewById(R.id.button_images_more);
+		tv.setText(getString(R.string.common_show_more));
+
+		ProgressBar pb = (ProgressBar) findViewById(R.id.load_more_progressbar);
+		pb.setVisibility(View.GONE);
+	}
+
+	private void setOnScrollListener(OnScrollListener onScrollListener) {
+		ScrollView content = tabInvHandler.getTabView().getContent();
+		((MyScrollView) content).setOnScrollListener(onScrollListener);
 	}
 
 }

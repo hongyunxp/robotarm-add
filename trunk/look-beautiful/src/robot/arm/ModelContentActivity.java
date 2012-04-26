@@ -5,7 +5,6 @@ package robot.arm;
 
 import robot.arm.common.AlbumSyncTask;
 import robot.arm.common.BaseActivity;
-import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,27 +26,11 @@ public class ModelContentActivity extends BaseActivity {
 		setContentView(R.layout.model_content);
 
 		initView();
+		initListener();
 
 		task = new AlbumSyncTask(this, MokoClient.MODEL);
 
 		task.execute();
-		
-		setOnScrollListener(new OnScrollListener() {
-
-			@Override
-			public void onBottom() {
-				task.execute();//执行显示更多
-			}
-
-			@Override
-			public void onTop() {
-			}
-
-			@Override
-			public void onScroll() {
-			}
-
-		});
 
 	}
 
@@ -57,12 +40,6 @@ public class ModelContentActivity extends BaseActivity {
 
 		title(R.layout.model_title);
 		background(R.drawable.model);
-	}
-
-	public void more(View view) {
-
-		task.execute();
-
 	}
 
 	public void details(View view) {
