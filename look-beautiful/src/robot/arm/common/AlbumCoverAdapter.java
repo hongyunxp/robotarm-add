@@ -49,10 +49,7 @@ public class AlbumCoverAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-		if (convertView == null)
-			convertView = list.get(position).coverRow();
-
-		return convertView;
+		return convertView = list.get(position).coverRow();
 	}
 
 	public void addList(List<AlbumCover> covers) {

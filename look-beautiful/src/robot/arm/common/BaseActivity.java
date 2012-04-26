@@ -9,15 +9,12 @@ import java.util.List;
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
-import robot.arm.provider.view.MyScrollView;
-import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import robot.arm.utils.BaseUtils;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -30,7 +27,7 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
-	private static final int MORE_LOADING_DELAY = 500;
+	// private static final int MORE_LOADING_DELAY = 500;
 
 	protected AsycTask<BaseActivity> task;
 	protected int curPage = 0;
@@ -96,58 +93,66 @@ public class BaseActivity extends Activity {
 	}
 
 	protected void initListener() {
-		setOnScrollListener(new OnScrollListener() {
-
-			@Override
-			public void onBottom() {
-				listFooterVisible();
-
-				imageListView.postDelayed(new Runnable() {
-
-					@Override
-					public void run() {
-						task.execute();// 执行显示更多
-
-					}
-				}, MORE_LOADING_DELAY);
-			}
-
-			@Override
-			public void onTop() {
-			}
-
-			@Override
-			public void onScroll() {
-			}
-
-		});
+		// setOnScrollListener(new OnScrollListener() {
+		//
+		// @Override
+		// public void onBottom() {
+		// listFooterVisible();
+		//
+		// imageListView.postDelayed(new Runnable() {
+		//
+		// @Override
+		// public void run() {
+		// task.execute();// 执行显示更多
+		//
+		// }
+		// }, MORE_LOADING_DELAY);
+		// }
+		//
+		// @Override
+		// public void onTop() {
+		// }
+		//
+		// @Override
+		// public void onScroll() {
+		// }
+		//
+		// });
 	}
 
 	protected void listFooterVisible() {
 
-		View v = findViewById(R.id.images_more);
+		final View v = findViewById(R.id.images_more);
 
-		if (v.getVisibility() != View.VISIBLE) {
-			v.setVisibility(View.VISIBLE);
-			BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+		if (v == null)
+			return;
 
-			final ScrollView content = tabInvHandler.getTabView().getContent();
+		// if (v.getVisibility() != View.VISIBLE) {
 
-			imageListView.post(new Runnable() {
-
-				@Override
-				public void run() {
-					((MyScrollView) content).fullScroll(View.FOCUS_DOWN);// 拉到底部
-
-				}
-			});
-		}
+		// imageListView.post(new Runnable() {
+		//
+		// @Override
+		// public void run() {
+		// System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@listFooterVisible"+(v.getVisibility()
+		// != View.VISIBLE));
+		// v.setVisibility(View.VISIBLE);
+		// BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+		//
+		// final ScrollView content = tabInvHandler.getTabView().getContent();
+		// ((MyScrollView) content).fullScroll(View.FOCUS_DOWN);// 拉到底部
+		//
+		// }
+		// });
+		// }
 
 	}
 
 	protected void listFooterGone() {
 
 		View v = findViewById(R.id.images_more);
+
+		if (v == null)
+			return;
 
 		if (v.getVisibility() != View.GONE) {
 
@@ -157,9 +162,9 @@ public class BaseActivity extends Activity {
 
 	}
 
-	private void setOnScrollListener(OnScrollListener onScrollListener) {
-		ScrollView content = tabInvHandler.getTabView().getContent();
-		((MyScrollView) content).setOnScrollListener(onScrollListener);
-	}
+	// private void setOnScrollListener(OnScrollListener onScrollListener) {
+	// // ScrollView content = tabInvHandler.getTabView().getContent();
+	// // ((MyScrollView) content).setOnScrollListener(onScrollListener);
+	// }
 
 }
