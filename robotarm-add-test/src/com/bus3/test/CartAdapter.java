@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.bus3.R;
 
-public class CartAdapter extends BaseAdapter{
+public class CartAdapter extends BaseAdapter {
 	private List<String> list;
 
 	private Activity act;
@@ -39,20 +39,26 @@ public class CartAdapter extends BaseAdapter{
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		View product = LayoutInflater.from(act).inflate(R.layout.product, null);
-		Button button=(Button)product.findViewById(R.id.product_button);
-		button.setText(list.get(position));
-		
-		button.setOnClickListener(new OnClickListener(){
 
-			@Override
-			public void onClick(View v) {
-				System.out.println("@@@@@@@@@@@@@点击按钮");	
-			}
-			
-		});
-		
-		return product;
+//		if (convertView == null) {
+			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + position);
+			View product = LayoutInflater.from(act).inflate(R.layout.product, null);
+			Button button = (Button) product.findViewById(R.id.product_button);
+			button.setText(list.get(position));
+
+			button.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					System.out.println("@@@@@@@@@@@@@点击按钮");
+				}
+
+			});
+
+			convertView = product;
+//		}
+
+		return convertView;
 	}
 
 }
