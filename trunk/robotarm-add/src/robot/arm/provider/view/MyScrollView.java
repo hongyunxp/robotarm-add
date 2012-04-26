@@ -18,7 +18,7 @@ import android.widget.ScrollView;
  */
 public class MyScrollView extends ScrollView {
 	private static final String TAG = MyScrollView.class.getName();
-	private static final int DELAY_EVENT_TIME = 500;// 判断Scroll状态延时
+	private static final int DELAY_EVENT_TIME = 200;// 判断Scroll状态延时
 
 	private OnScrollListener onScrollListener;// 监听器
 
