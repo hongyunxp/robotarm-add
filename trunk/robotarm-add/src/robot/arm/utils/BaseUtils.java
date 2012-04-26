@@ -95,7 +95,8 @@ public class BaseUtils {
 		for (int i = 0; i < cnt; i++) {
 			item = la.getView(i, null, lv);
 			item.measure(0, 0);
-			h += item.getMeasuredHeight();
+			if (item.getVisibility() != View.GONE)
+				h += item.getMeasuredHeight();
 		}
 
 		return h + (lv.getDividerHeight() * (cnt - 1));
