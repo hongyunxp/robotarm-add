@@ -18,9 +18,9 @@ import android.widget.ScrollView;
  */
 public class MyScrollView extends ScrollView {
 	private static final String TAG = MyScrollView.class.getName();
-	private static final int DELAY_TIME = 200;
-	
-	private OnScrollListener onScrollListener;//监听器
+	private static final int DELAY_EVENT_TIME = 1000;// 判断Scroll状态延时
+
+	private OnScrollListener onScrollListener;// 监听器
 
 	public MyScrollView(Context context) {
 		super(context);
@@ -61,22 +61,24 @@ public class MyScrollView extends ScrollView {
 							public void run() {
 
 								if (childView.getMeasuredHeight() <= getScrollY() + getHeight()) {
-									if (onScrollListener != null){
+									if (onScrollListener != null) {
 										onScrollListener.onBottom();
-//										fullScroll(View.FOCUS_DOWN);  
+										// fullScroll(View.FOCUS_DOWN);
+										Log.i(TAG, "onBottom");
 									}
 
 								} else if (getScrollY() == 0) {
 									if (onScrollListener != null)
 										onScrollListener.onTop();
-
+									Log.i(TAG, "onTop");
 								} else {
 									if (onScrollListener != null)
-										onScrollListener.onScroll();
+										Log.i(TAG, "onScroll");
+									onScrollListener.onScroll();
 								}
 
 							}
-						}, DELAY_TIME);
+						}, DELAY_EVENT_TIME);
 
 					}
 					break;
