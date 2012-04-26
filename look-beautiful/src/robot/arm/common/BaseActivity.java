@@ -117,26 +117,33 @@ public class BaseActivity extends Activity {
 
 	private void listFooterVisible() {
 		View v = findViewById(R.id.images_more);
-		v.setVisibility(View.VISIBLE);
-		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
-		
-		final ScrollView content = tabInvHandler.getTabView().getContent();
-		
-		imageListView.post(new Runnable() {
-			
-			@Override
-			public void run() {
-				((MyScrollView) content).fullScroll(View.FOCUS_DOWN);//拉到底部
-				
-			}
-		});
+
+		if (v.getVisibility() != View.VISIBLE) {
+			v.setVisibility(View.VISIBLE);
+			BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+
+			final ScrollView content = tabInvHandler.getTabView().getContent();
+
+			imageListView.post(new Runnable() {
+
+				@Override
+				public void run() {
+					((MyScrollView) content).fullScroll(View.FOCUS_DOWN);// 拉到底部
+
+				}
+			});
+		}
 
 	}
 
 	private void listFooterGone() {
 		View v = findViewById(R.id.images_more);
-		v.setVisibility(View.GONE);
-		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+
+		if (v.getVisibility() != View.GONE) {
+
+			v.setVisibility(View.GONE);
+			BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+		}
 	}
 
 	private void setOnScrollListener(OnScrollListener onScrollListener) {
