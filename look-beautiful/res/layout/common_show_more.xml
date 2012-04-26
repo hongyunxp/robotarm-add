@@ -2,20 +2,19 @@
 <TableRow android:id="@+id/images_more"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="wrap_content"
-	android:layout_weight="1.0">
+	android:layout_weight="1.0" android:visibility="gone">
 
 	<RelativeLayout android:layout_width="fill_parent"
 		android:layout_height="wrap_content">
 
 		<TextView android:id="@id/button_images_more"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_centerInParent="true" android:text="@string/common_show_more"
+			android:layout_centerInParent="true" android:text="@string/common_loading_more"
 			android:textColor="@color/black" android:textSize="18dip" />
 
 		<ProgressBar android:id="@+id/load_more_progressbar"
 			android:layout_width="wrap_content" android:layout_height="20dip"
-			android:layout_centerInParent="true" android:layout_toRightOf="@id/button_images_more"
-			android:visibility="gone" />
+			android:layout_centerInParent="true" android:layout_toRightOf="@id/button_images_more"/>
 
 	</RelativeLayout>
 </TableRow>
