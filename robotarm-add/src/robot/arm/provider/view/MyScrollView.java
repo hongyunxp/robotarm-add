@@ -27,41 +27,15 @@ public class MyScrollView extends ScrollView {
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
 
-			final View childView = getChildAt(0);
-
 			switch (event.getAction()) {
 
 			case MotionEvent.ACTION_DOWN:
 				break;
 
 			case MotionEvent.ACTION_UP:
-				if (childView != null && onScrollListener != null) {
-
-					childView.postDelayed(new Runnable() {
-
-						@Override
-						public void run() {
-
-							if (childView.getMeasuredHeight() <= getScrollY() + getHeight()) {
-								if (onScrollListener != null) {
-									onScrollListener.onBottom();
-									Log.i(TAG, "onBottom");
-								}
-
-							} else if (getScrollY() == 0) {
-								if (onScrollListener != null)
-									onScrollListener.onTop();
-								Log.i(TAG, "onTop");
-							} else {
-								if (onScrollListener != null)
-									Log.i(TAG, "onScroll");
-								onScrollListener.onScroll();
-							}
-
-						}
-					}, DELAY_EVENT_TIME);
-
-				}
+				
+				fireScrollEvent();
+				
 				break;
 
 			default:
@@ -72,6 +46,38 @@ public class MyScrollView extends ScrollView {
 		}
 
 	};
+	
+	private void fireScrollEvent(){
+		final View childView = getChildAt(0);
+		
+		if (childView != null && onScrollListener != null) {
+
+			childView.postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+
+					if (childView.getMeasuredHeight() <= getScrollY() + getHeight()) {
+						if (onScrollListener != null) {
+							onScrollListener.onBottom();
+							Log.i(TAG, "onBottom");
+						}
+
+					} else if (getScrollY() == 0) {
+						if (onScrollListener != null)
+							onScrollListener.onTop();
+						Log.i(TAG, "onTop");
+					} else {
+						if (onScrollListener != null)
+							Log.i(TAG, "onScroll");
+						onScrollListener.onScroll();
+					}
+
+				}
+			}, DELAY_EVENT_TIME);
+
+		}
+	}
 
 	public MyScrollView(Context context) {
 		super(context);
