@@ -5,7 +5,6 @@ package robot.arm;
 
 import robot.arm.common.BaseActivity;
 import robot.arm.common.CoverSyncTask;
-import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,6 +24,7 @@ public class ModelCoverActivity extends BaseActivity {
 		setContentView(R.layout.model_cover);
 
 		initView();
+		initListener();
 
 		// 创建异步任务
 		task = new CoverSyncTask(this, MokoClient.MODEL);
@@ -32,22 +32,6 @@ public class ModelCoverActivity extends BaseActivity {
 		// 执行
 		task.execute();
 
-		setOnScrollListener(new OnScrollListener() {
-
-			@Override
-			public void onBottom() {
-				task.execute();// 执行显示更多
-			}
-
-			@Override
-			public void onTop() {
-			}
-
-			@Override
-			public void onScroll() {
-			}
-
-		});
 	}
 
 	@Override
@@ -59,16 +43,10 @@ public class ModelCoverActivity extends BaseActivity {
 
 	}
 
-	public void more(View view) {
-
-		// 执行
-		task.execute();
-
-	}
-
 	public void clickImage(View view) {
 		Bundle mBundle = new Bundle();
 		mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());// 压入数据
 		tabInvHandler.startSubActivity(R.id.tab_model, ModelContentActivity.class, mBundle);
 	}
+
 }

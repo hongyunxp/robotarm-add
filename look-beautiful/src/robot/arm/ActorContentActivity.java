@@ -5,7 +5,6 @@ package robot.arm;
 
 import robot.arm.common.AlbumSyncTask;
 import robot.arm.common.BaseActivity;
-import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,29 +24,13 @@ public class ActorContentActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.actor_content);
+		initListener();
 
 		initView();
 
 		task = new AlbumSyncTask(this, MokoClient.ACTOR);
 
 		task.execute();
-		
-		setOnScrollListener(new OnScrollListener() {
-
-			@Override
-			public void onBottom() {
-				task.execute();//执行显示更多
-			}
-
-			@Override
-			public void onTop() {
-			}
-
-			@Override
-			public void onScroll() {
-			}
-
-		});
 
 	}
 
