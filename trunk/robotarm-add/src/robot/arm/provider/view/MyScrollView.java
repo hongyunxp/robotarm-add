@@ -18,9 +18,60 @@ import android.widget.ScrollView;
  */
 public class MyScrollView extends ScrollView {
 	private static final String TAG = MyScrollView.class.getName();
-	private static final int DELAY_EVENT_TIME = 100;// 判断Scroll状态延时
+	private static final int DELAY_EVENT_TIME = 200;// 判断Scroll状态延时
 
 	private OnScrollListener onScrollListener;// 监听器
+
+	private OnTouchListener onTouchListener = new OnTouchListener() {
+
+		@Override
+		public boolean onTouch(View v, MotionEvent event) {
+
+			final View childView = getChildAt(0);
+
+			switch (event.getAction()) {
+
+			case MotionEvent.ACTION_DOWN:
+				break;
+
+			case MotionEvent.ACTION_UP:
+				if (childView != null && onScrollListener != null) {
+
+					childView.postDelayed(new Runnable() {
+
+						@Override
+						public void run() {
+
+							if (childView.getMeasuredHeight() <= getScrollY() + getHeight()) {
+								if (onScrollListener != null) {
+									onScrollListener.onBottom();
+									Log.i(TAG, "onBottom");
+								}
+
+							} else if (getScrollY() == 0) {
+								if (onScrollListener != null)
+									onScrollListener.onTop();
+								Log.i(TAG, "onTop");
+							} else {
+								if (onScrollListener != null)
+									Log.i(TAG, "onScroll");
+								onScrollListener.onScroll();
+							}
+
+						}
+					}, DELAY_EVENT_TIME);
+
+				}
+				break;
+
+			default:
+				break;
+			}
+
+			return false;
+		}
+
+	};
 
 	public MyScrollView(Context context) {
 		super(context);
@@ -40,56 +91,7 @@ public class MyScrollView extends ScrollView {
 	private void init() {
 		Log.i(TAG, "init");
 
-		this.setOnTouchListener(new OnTouchListener() {
-
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-
-				final View childView = getChildAt(0);
-
-				switch (event.getAction()) {
-
-				case MotionEvent.ACTION_DOWN:
-					break;
-
-				case MotionEvent.ACTION_UP:
-					if (childView != null && onScrollListener != null) {
-
-						childView.postDelayed(new Runnable() {
-
-							@Override
-							public void run() {
-
-								if (childView.getMeasuredHeight() <= getScrollY() + getHeight()) {
-									if (onScrollListener != null) {
-										onScrollListener.onBottom();
-										Log.i(TAG, "onBottom");
-									}
-
-								} else if (getScrollY() == 0) {
-									if (onScrollListener != null)
-										onScrollListener.onTop();
-									Log.i(TAG, "onTop");
-								} else {
-									if (onScrollListener != null)
-										Log.i(TAG, "onScroll");
-									onScrollListener.onScroll();
-								}
-
-							}
-						}, DELAY_EVENT_TIME);
-
-					}
-					break;
-
-				default:
-					break;
-				}
-
-				return false;
-			}
-
-		});
+		this.setOnTouchListener(onTouchListener);
 
 	}
 
