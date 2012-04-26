@@ -4,6 +4,6 @@
 
 	<robot.arm.provider.view.touch.TouchImageView
 		android:id="@+id/touch_image_view" android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:src="@drawable/m1"/>
+		android:layout_height="fill_parent"/>
 
 </LinearLayout>
