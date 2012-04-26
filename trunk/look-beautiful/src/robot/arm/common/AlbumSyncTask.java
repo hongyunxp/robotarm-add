@@ -83,6 +83,8 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 						listView.setAdapter(adapter);
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
+					
+					act.listFooterGone();
 
 				}
 			});

@@ -14,6 +14,7 @@ import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import robot.arm.utils.BaseUtils;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
@@ -30,6 +31,8 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
+	private static final int MORE_LOADING_DELAY = 500;
+
 	protected AsycTask<BaseActivity> task;
 	protected int curPage = 0;
 	protected List<PostBean> list = new ArrayList<PostBean>();
@@ -37,6 +40,7 @@ public class BaseActivity extends Activity {
 	protected TextView moreButton;
 	protected ListView imageListView;
 	protected TabInvHandler tabInvHandler;
+	protected Handler handler = new Handler();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -99,23 +103,30 @@ public class BaseActivity extends Activity {
 			@Override
 			public void onBottom() {
 				listFooterVisible();
-				// task.execute();// 执行显示更多
+
+				handler.postDelayed(new Runnable() {
+
+					@Override
+					public void run() {
+						task.execute();// 执行显示更多
+
+					}
+				}, MORE_LOADING_DELAY);
 			}
 
 			@Override
 			public void onTop() {
-				listFooterGone();
 			}
 
 			@Override
 			public void onScroll() {
-				listFooterGone();
 			}
 
 		});
 	}
 
-	private void listFooterVisible() {
+	protected void listFooterVisible() {
+
 		View v = findViewById(R.id.images_more);
 
 		if (v.getVisibility() != View.VISIBLE) {
@@ -136,7 +147,8 @@ public class BaseActivity extends Activity {
 
 	}
 
-	private void listFooterGone() {
+	protected void listFooterGone() {
+
 		View v = findViewById(R.id.images_more);
 
 		if (v.getVisibility() != View.GONE) {
@@ -144,6 +156,7 @@ public class BaseActivity extends Activity {
 			v.setVisibility(View.GONE);
 			BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 		}
+
 	}
 
 	private void setOnScrollListener(OnScrollListener onScrollListener) {

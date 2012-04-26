@@ -76,6 +76,8 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 						listView.setAdapter(adapter);
 
 					BaseUtils.setListViewHeight(listView);// 设置listview真实高度
+					
+					act.listFooterGone();
 
 					// tabInvHandler.loading(act.getClass(), false);
 				}
