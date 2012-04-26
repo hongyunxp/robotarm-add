@@ -14,7 +14,6 @@ import robot.arm.provider.view.MyScrollView.OnScrollListener;
 import robot.arm.utils.BaseUtils;
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
@@ -40,7 +39,6 @@ public class BaseActivity extends Activity {
 	protected TextView moreButton;
 	protected ListView imageListView;
 	protected TabInvHandler tabInvHandler;
-	protected Handler handler = new Handler();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -104,7 +102,7 @@ public class BaseActivity extends Activity {
 			public void onBottom() {
 				listFooterVisible();
 
-				handler.postDelayed(new Runnable() {
+				imageListView.postDelayed(new Runnable() {
 
 					@Override
 					public void run() {
