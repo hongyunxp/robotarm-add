@@ -11,12 +11,12 @@ import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.provider.view.MyScrollView;
 import robot.arm.provider.view.MyScrollView.OnScrollListener;
+import robot.arm.utils.BaseUtils;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -43,17 +43,11 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		tabInvHandler = ((TabInvHandler) getParent());
-		// tabInvHandler.loading(getClass(), true);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-	}
-
-	public void more(View view) {
-		task.execute();
-
 	}
 
 	public void background(int resId) {
@@ -104,37 +98,45 @@ public class BaseActivity extends Activity {
 
 			@Override
 			public void onBottom() {
-				progressBarVisible();
-				task.execute();// 执行显示更多
+				listFooterVisible();
+				// task.execute();// 执行显示更多
 			}
 
 			@Override
 			public void onTop() {
-				progressBarGone();
+				listFooterGone();
 			}
 
 			@Override
 			public void onScroll() {
-				progressBarGone();
+				listFooterGone();
 			}
 
 		});
 	}
 
-	private void progressBarVisible() {
-		TextView tv = (TextView) findViewById(R.id.button_images_more);
-		tv.setText(getString(R.string.common_loading_more));
+	private void listFooterVisible() {
+		View v = findViewById(R.id.images_more);
+		v.setVisibility(View.VISIBLE);
+		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+		
+		final ScrollView content = tabInvHandler.getTabView().getContent();
+		
+		imageListView.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				((MyScrollView) content).fullScroll(View.FOCUS_DOWN);//拉到底部
+				
+			}
+		});
 
-		ProgressBar pb = (ProgressBar) findViewById(R.id.load_more_progressbar);
-		pb.setVisibility(View.VISIBLE);
 	}
 
-	private void progressBarGone() {
-		TextView tv = (TextView) findViewById(R.id.button_images_more);
-		tv.setText(getString(R.string.common_show_more));
-
-		ProgressBar pb = (ProgressBar) findViewById(R.id.load_more_progressbar);
-		pb.setVisibility(View.GONE);
+	private void listFooterGone() {
+		View v = findViewById(R.id.images_more);
+		v.setVisibility(View.GONE);
+		BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
 	}
 
 	private void setOnScrollListener(OnScrollListener onScrollListener) {

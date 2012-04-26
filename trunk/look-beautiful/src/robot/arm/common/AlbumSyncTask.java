@@ -78,7 +78,7 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 				public void run() {
 					if (listView.getFooterViewsCount() == 0)
 						listView.addFooterView(more);
-
+					
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
 
