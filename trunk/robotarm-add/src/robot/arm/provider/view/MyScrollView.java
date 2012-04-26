@@ -33,9 +33,9 @@ public class MyScrollView extends ScrollView {
 				break;
 
 			case MotionEvent.ACTION_UP:
-				
+
 				fireScrollEvent();
-				
+
 				break;
 
 			default:
@@ -46,10 +46,10 @@ public class MyScrollView extends ScrollView {
 		}
 
 	};
-	
-	private void fireScrollEvent(){
+
+	private void fireScrollEvent() {
 		final View childView = getChildAt(0);
-		
+
 		if (childView != null && onScrollListener != null) {
 
 			childView.postDelayed(new Runnable() {
@@ -59,19 +59,23 @@ public class MyScrollView extends ScrollView {
 
 					if (childView.getMeasuredHeight() <= getScrollY() + getHeight()) {
 						if (onScrollListener != null) {
-							onScrollListener.onBottom();
 							Log.i(TAG, "onBottom");
+							onScrollListener.onBottom();
 						}
 
 					} else if (getScrollY() == 0) {
-						if (onScrollListener != null)
+						if (onScrollListener != null){
+							Log.i(TAG, "onTop");
 							onScrollListener.onTop();
-						Log.i(TAG, "onTop");
+						}
 					} else {
-						if (onScrollListener != null)
+						if (onScrollListener != null){
 							Log.i(TAG, "onScroll");
-						onScrollListener.onScroll();
+							onScrollListener.onScroll();
+						}
 					}
+					
+//					fireScrollEvent();//递归
 
 				}
 			}, DELAY_EVENT_TIME);
