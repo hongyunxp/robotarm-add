@@ -30,7 +30,7 @@ public abstract class AsycTask<T extends Activity> extends Task {
 	// private static List<Future<?>> futureList = new ArrayList<Future<?>>();// 工作中的线程
 	protected T act;// 当前的活动
 
-	private Handler handler = new Handler() {
+	protected Handler handler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
