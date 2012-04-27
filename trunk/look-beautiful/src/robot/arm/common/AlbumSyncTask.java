@@ -10,13 +10,11 @@ import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
-import robot.arm.utils.BaseUtils;
 import robot.arm.utils.NetUtils;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
@@ -41,7 +39,6 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	private AlbumAdapter adapter;
 
 	private String detailUrl;
-	private Handler handler = new Handler();
 
 	/**
 	 * @param activity
@@ -78,7 +75,7 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 				public void run() {
 					if (listView.getFooterViewsCount() == 0)
 						listView.addFooterView(more);
-					
+
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
 
