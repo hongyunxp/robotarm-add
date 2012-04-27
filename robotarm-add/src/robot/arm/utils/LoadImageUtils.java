@@ -38,11 +38,13 @@ public class LoadImageUtils {
 	private static final String TAG = LoadImageUtils.class.getName();
 
 	private static final int TIME_OUT = 30000;
+	private static final int CACHE_SIZE = 100;//内存缓存100张图
+	private static final LRUMemCache<Bitmap> cache = new LRUMemCache<Bitmap>(CACHE_SIZE);// 图片bitmap缓存
 
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView) {
 
 		loadImageSync(act, imageUrl, imageView, true);// 走本地存储
-		
+
 	}
 
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView, final boolean local) {
@@ -53,14 +55,21 @@ public class LoadImageUtils {
 
 			@Override
 			public void doCall() {
-				if (local)
-					bm = SDCardUtil.getPicToSd(imageUrl);
+				bm = cache.getCache(imageUrl);// 取缓存
 
 				if (bm == null) {
-					bm = loadImage(imageUrl);
 					if (local)
-						SDCardUtil.savePicToSd(bm, imageUrl);// 将图片存到SD卡
+						bm = SDCardUtil.getPicToSd(imageUrl);
+
+					if (bm == null) {
+						bm = loadImage(imageUrl);
+						if (local)
+							SDCardUtil.savePicToSd(bm, imageUrl);// 将图片存到SD卡
+					}
+
+					cache.putCache(imageUrl, bm);// 存缓存
 				}
+
 			}
 
 			@Override
@@ -127,7 +136,7 @@ public class LoadImageUtils {
 		// GPRS方式连接
 		if (ConnectivityManager.TYPE_MOBILE != info.getType())
 			return false;
-		
+
 		return Proxy.getDefaultHost() != null && !"".equals(Proxy.getDefaultHost());
 	}
 
