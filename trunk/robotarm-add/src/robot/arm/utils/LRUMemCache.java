@@ -1,9 +1,10 @@
 /**
  * 
  */
-package robot.arm.common;
+package robot.arm.utils;
 
 import org.apache.commons.collections.map.LRUMap;
+
 
 /**
  * @author li.li
