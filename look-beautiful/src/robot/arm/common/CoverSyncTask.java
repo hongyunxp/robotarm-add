@@ -12,7 +12,6 @@ import robot.arm.utils.NetUtils;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ListView;
 
@@ -38,7 +37,6 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	private MokoClient client;
 	private AlbumCoverAdapter adapter;
-	private Handler handler = new Handler();
 
 	/**
 	 * @param activity
@@ -74,7 +72,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
-					
+
 					// tabInvHandler.loading(act.getClass(), false);
 				}
 			});
