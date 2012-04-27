@@ -36,17 +36,20 @@ public class CartAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return position;
 	}
-
+	
+	//性能可提高四倍
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + position);
 
-//		if (convertView == null) {
-			System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + position);
-			View product = LayoutInflater.from(act).inflate(R.layout.product, null);
-			Button button = (Button) product.findViewById(R.id.product_button);
-			button.setText(list.get(position));
+		ViewHolder vHolder;
 
-			button.setOnClickListener(new OnClickListener() {
+		if (convertView == null) {// 减少创建View
+			convertView = LayoutInflater.from(act).inflate(R.layout.product, null);
+
+			vHolder = new ViewHolder();
+			vHolder.button = (Button) convertView.findViewById(R.id.product_button);
+			vHolder.button.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
@@ -55,10 +58,18 @@ public class CartAdapter extends BaseAdapter {
 
 			});
 
-			convertView = product;
-//		}
+			convertView.setTag(vHolder);
+		} else {
+			vHolder = (ViewHolder) convertView.getTag();
+		}
+
+		vHolder.button.setText(list.get(position));
 
 		return convertView;
+	}
+
+	private static final class ViewHolder {
+		private Button button;
 	}
 
 }
