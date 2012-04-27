@@ -22,6 +22,7 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class AlbumCover {
+
 	public static final int COUNT_PER_ROW = 2;
 	private Activity act;
 	private PostBean[] images;
@@ -42,6 +43,9 @@ public class AlbumCover {
 
 		LoadImageUtils.loadImageSync(act, images[0].getCoverUrl(), iv1);
 		LoadImageUtils.loadImageSync(act, images[1].getCoverUrl(), iv2);
+//
+//		iv1.setImageResource(R.drawable.white);
+//		iv2.setImageResource(R.drawable.white);
 
 		ivs = new ArrayList<ImageView>(COUNT_PER_ROW);
 		ivs.add(iv1);
