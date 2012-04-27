@@ -12,8 +12,6 @@ import android.widget.BaseAdapter;
 import com.mokoclient.core.bean.PostBean;
 
 public class AlbumCoverAdapter extends BaseAdapter {
-	private static final int CACHE_SIZE = 100;
-	private static final LRUMemCache<View> cache = new LRUMemCache<View>(CACHE_SIZE);
 	private List<AlbumCover> list;
 
 	public AlbumCoverAdapter(List<AlbumCover> albumCoverList) {
@@ -53,13 +51,9 @@ public class AlbumCoverAdapter extends BaseAdapter {
 		final AlbumCover item = list.get(position);
 
 		View row = null;
-		String key = item + "|" + position;
-
-		row = cache.getCache(key);// 取缓存
 
 		if (row == null) {
 			row = item.coverRow();
-			cache.putCache(key, row);// 存缓存
 		}
 
 		return row;
