@@ -72,6 +72,8 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
+					
+					more.setVisibility(View.GONE);//加载完成后不显示加载
 
 					// tabInvHandler.loading(act.getClass(), false);
 				}
