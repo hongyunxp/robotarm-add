@@ -9,11 +9,17 @@ import java.util.List;
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
-import robot.arm.utils.BaseUtils;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.BaseAdapter;
+import android.widget.HeaderViewListAdapter;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -27,15 +33,17 @@ import com.mokoclient.core.bean.PostBean;
  * 
  */
 public class BaseActivity extends Activity {
-	// private static final int MORE_LOADING_DELAY = 500;
+	private final String TAG = getClass().getName();
+	private static final int MORE_LOADING_DELAY = 1000;
 
 	protected AsycTask<BaseActivity> task;
 	protected int curPage = 0;
 	protected List<PostBean> list = new ArrayList<PostBean>();
-	protected View more;
+	protected ViewGroup more;
 	protected TextView moreButton;
-	protected ListView imageListView;
+	protected ListView listView;
 	protected TabInvHandler tabInvHandler;
+	protected Handler handler = new Handler();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -70,7 +78,7 @@ public class BaseActivity extends Activity {
 	}
 
 	public ListView getImageListView() {
-		return imageListView;
+		return listView;
 	}
 
 	public View getMore() {
@@ -86,85 +94,68 @@ public class BaseActivity extends Activity {
 	}
 
 	protected void initView() {
-		imageListView = (ListView) findViewById(R.id.images);
-		more = LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
+		listView = (ListView) findViewById(R.id.images);
+		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (TextView) more.findViewById(R.id.button_images_more);
-
 	}
 
 	protected void initListener() {
-		// setOnScrollListener(new OnScrollListener() {
-		//
-		// @Override
-		// public void onBottom() {
-		// listFooterVisible();
-		//
-		// imageListView.postDelayed(new Runnable() {
-		//
-		// @Override
-		// public void run() {
-		// task.execute();// 执行显示更多
-		//
-		// }
-		// }, MORE_LOADING_DELAY);
-		// }
-		//
-		// @Override
-		// public void onTop() {
-		// }
-		//
-		// @Override
-		// public void onScroll() {
-		// }
-		//
-		// });
+
+		/**
+		 * 监听listview滚到最底部(最后一个元素)
+		 * 
+		 * 当不滚动时判断滚动到底部
+		 */
+		listView.setOnScrollListener(new OnScrollListener() {
+
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+				switch (scrollState) {
+				case OnScrollListener.SCROLL_STATE_IDLE:
+					Log.d(TAG, "已经停止：SCROLL_STATE_IDLE");
+
+					showMore(view);
+
+					break;
+
+				case OnScrollListener.SCROLL_STATE_FLING:
+					Log.d(TAG, "正在滚动(非触摸)：SCROLL_STATE_FLING");
+
+					break;
+
+				case OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
+					Log.d(TAG, "正在滚动(触摸)：SCROLL_STATE_TOUCH_SCROLL");
+
+					break;
+
+				}
+			}
+
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+			}
+
+		});
 	}
 
-	protected void listFooterVisible() {
+	private void showMore(AbsListView view) {
+		if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
+			listView.setSelection(view.getLastVisiblePosition());// 滚动到底
 
-		final View v = findViewById(R.id.images_more);
+			handler.postDelayed(new Runnable() {
 
-		if (v == null)
-			return;
+				@Override
+				public void run() {
+					// 执行
+					task.execute();
 
-		// if (v.getVisibility() != View.VISIBLE) {
-
-		// imageListView.post(new Runnable() {
-		//
-		// @Override
-		// public void run() {
-		// System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@listFooterVisible"+(v.getVisibility()
-		// != View.VISIBLE));
-		// v.setVisibility(View.VISIBLE);
-		// BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
-		//
-		// final ScrollView content = tabInvHandler.getTabView().getContent();
-		// ((MyScrollView) content).fullScroll(View.FOCUS_DOWN);// 拉到底部
-		//
-		// }
-		// });
-		// }
-
-	}
-
-	protected void listFooterGone() {
-
-		View v = findViewById(R.id.images_more);
-
-		if (v == null)
-			return;
-
-		if (v.getVisibility() != View.GONE) {
-
-			v.setVisibility(View.GONE);
-			BaseUtils.setListViewHeight(imageListView);// 设置listview真实高度
+					HeaderViewListAdapter hAdapter = (HeaderViewListAdapter) listView.getAdapter();
+					BaseAdapter adapter = (BaseAdapter) hAdapter.getWrappedAdapter();
+					adapter.notifyDataSetChanged();
+				}
+			}, MORE_LOADING_DELAY);
 		}
-
 	}
-
-	// private void setOnScrollListener(OnScrollListener onScrollListener) {
-	// // ScrollView content = tabInvHandler.getTabView().getContent();
-	// // ((MyScrollView) content).setOnScrollListener(onScrollListener);
-	// }
 
 }

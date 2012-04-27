@@ -68,16 +68,13 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 				@Override
 				public void run() {
-					// if (listView.getFooterViewsCount() == 0)
-					// listView.addFooterView(more);
+					if (listView.getFooterViewsCount() == 0) {
+						listView.addFooterView(more);
+					}
 
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
-
-					// BaseUtils.setListViewHeight(listView);// 设置listview真实高度
-
-					act.listFooterGone();
-
+					
 					// tabInvHandler.loading(act.getClass(), false);
 				}
 			});
