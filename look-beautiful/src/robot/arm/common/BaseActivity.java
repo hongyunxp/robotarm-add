@@ -32,7 +32,7 @@ import com.mokoclient.core.bean.PostBean;
  *         Apr 16, 2012
  * 
  */
-public class BaseActivity extends Activity {
+public abstract class BaseActivity extends Activity {
 	private final String TAG = getClass().getName();
 	private static final int MORE_LOADING_DELAY = 1000;
 
@@ -142,6 +142,7 @@ public class BaseActivity extends Activity {
 	private void showMore(AbsListView view) {
 		if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
 			listView.setSelection(view.getLastVisiblePosition());// 滚动到底
+			more.setVisibility(View.VISIBLE);
 
 			handler.postDelayed(new Runnable() {
 
