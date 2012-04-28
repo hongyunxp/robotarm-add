@@ -64,4 +64,11 @@ public class StorageUtils {
 		String currentState = Environment.getExternalStorageState();
 		return Environment.MEDIA_MOUNTED.equals(currentState);
 	}
+	
+	/**
+	 * 获取SDCard存储根目录
+	 */
+	public static String externalMemoryRootPath() {
+		return Environment.getExternalStorageDirectory().getPath();
+	}
 }

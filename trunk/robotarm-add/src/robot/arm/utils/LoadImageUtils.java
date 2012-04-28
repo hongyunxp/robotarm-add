@@ -55,19 +55,19 @@ public class LoadImageUtils {
 
 			@Override
 			public void doCall() {
-				bm = cache.getCache(imageUrl);// 取缓存
+//				bm = cache.getCache(imageUrl);// 取缓存
 
 				if (bm == null) {
 					if (local)
-						bm = SDCardUtil.getPicToSd(imageUrl);
+						bm = SDCardUtils.getPicToSd(imageUrl);
 
 					if (bm == null) {
 						bm = loadImage(imageUrl);
 						if (local)
-							SDCardUtil.savePicToSd(bm, imageUrl);// 将图片存到SD卡
+							SDCardUtils.savePicToSd(bm, imageUrl);// 将图片存到SD卡
 					}
 
-					cache.putCache(imageUrl, bm);// 存缓存
+//					cache.putCache(imageUrl, bm);// 存缓存
 				}
 
 			}

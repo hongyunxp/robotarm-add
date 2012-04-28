@@ -8,14 +8,13 @@ import java.security.MessageDigest;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
-import android.os.StatFs;
 import android.util.Log;
 
 /**
  * SD卡工具类
  */
-public class SDCardUtil {
-	private static final String TAG = SDCardUtil.class.getSimpleName();
+public class SDCardUtils {
+	private static final String TAG = SDCardUtils.class.getSimpleName();
 	// 存储卡是否可用
 	private static final boolean AVAILABLE = StorageUtils.externalMemoryAvailable();
 
@@ -51,16 +50,13 @@ public class SDCardUtil {
 		if (bm == null || "".equals(imageUrl))
 			return;
 
-		// 判断sdcard是否可用
-		if (!checkSDCard())
-			return;
 		// 如果文件夹大小超过限制则清空图片缓存文件夹
 		File picRootPath = new File(getPicRootPath());
 		if (PIC_CACHE_COUNT < fileCount(picRootPath))
 			cleanFolder(picRootPath);
 
 		// 判断sdcard上的空间是否够用
-		if (PIC_CACHE_SIZE > getFreeSpaceOnSd())
+		if (PIC_CACHE_SIZE > StorageUtils.getTotalExternalMemorySize())
 			cleanFolder(picRootPath);
 
 		OutputStream outStream = null;
@@ -104,26 +100,10 @@ public class SDCardUtil {
 	}
 
 	/**
-	 * 判断手机 SD卡是否可用
-	 */
-	private static boolean checkSDCard() {
-		return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
-	}
-
-	/**
 	 * 获取图片存储根目录
 	 */
 	private static String getPicRootPath() {
 		return Environment.getExternalStorageDirectory().getPath() + PIC_ROOT_PATH;
-	}
-
-	/**
-	 * 获取SD卡上的空闲空间大小 单位M
-	 */
-	private static int getFreeSpaceOnSd() {
-		StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
-		double sdFreeMB = ((double) stat.getAvailableBlocks() * (double) stat.getBlockSize());
-		return (int) sdFreeMB;
 	}
 
 	/**
@@ -219,7 +199,7 @@ public class SDCardUtil {
 	/**
 	 * 关闭输出流
 	 */
-	public static void closeOutputStream(OutputStream os) {
+	private static void closeOutputStream(OutputStream os) {
 		if (os == null)
 			return;
 		try {
