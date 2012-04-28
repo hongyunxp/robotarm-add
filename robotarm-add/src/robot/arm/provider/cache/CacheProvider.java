@@ -65,4 +65,13 @@ public class CacheProvider implements Cache {
 
 		return null;
 	}
+	@Override
+	public long getTotalExternalMemorySize() {
+		for (Cache cache : caches) {
+			if (cache.available())
+				return cache.getTotalExternalMemorySize();
+		}
+		
+		return 0;
+	}
 }

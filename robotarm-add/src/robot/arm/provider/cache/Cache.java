@@ -20,5 +20,7 @@ public interface Cache {
 	void savePicToSd(Bitmap bm, String imageUrl);
 
 	Bitmap getPicToSd(String imageUrl);
+	
+	long getTotalExternalMemorySize();
 
 }
