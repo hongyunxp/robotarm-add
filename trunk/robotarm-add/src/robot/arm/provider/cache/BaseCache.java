@@ -48,6 +48,7 @@ public abstract class BaseCache implements Cache {
 	 */
 	@Override
 	public void put(String imageUrl,Bitmap bm) {
+		
 		if (!AVAILABLE)
 			return;
 
@@ -165,7 +166,6 @@ public abstract class BaseCache implements Cache {
 	 */
 	private boolean checkPicExists(String picPath) {
 		File file = new File(picPath);
-		System.out.println("@@@@@@@@@@@@@@@" + picPath + "|" + file.exists());
 		return file.exists();
 	}
 

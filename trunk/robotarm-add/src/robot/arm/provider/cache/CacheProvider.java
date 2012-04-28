@@ -12,13 +12,15 @@ import android.graphics.Bitmap;
  * @author li.li
  * 
  *         Apr 28, 2012
+ * 
+ *         三级缓存
  *         
  *         接口穿透
  * 
  */
 public class CacheProvider implements Cache {
 	private static final CacheProvider instance = new CacheProvider();
-	private static final List<? extends Cache> caches = Arrays.asList(new CardCache(), new MemoryCache());
+	private static final List<? extends Cache> caches = Arrays.asList(new MemCache(), new MemoryCache(), new CardCache());
 
 	private CacheProvider() {
 	}
@@ -49,7 +51,7 @@ public class CacheProvider implements Cache {
 	}
 
 	@Override
-	public void put(String imageUrl,Bitmap bm) {
+	public void put(String imageUrl, Bitmap bm) {
 		for (Cache cache : caches) {
 			if (cache.available())
 				cache.put(imageUrl, bm);
@@ -65,13 +67,14 @@ public class CacheProvider implements Cache {
 
 		return null;
 	}
+
 	@Override
 	public long getTotalExternalMemorySize() {
 		for (Cache cache : caches) {
 			if (cache.available())
 				return cache.getTotalExternalMemorySize();
 		}
-		
+
 		return 0;
 	}
 }

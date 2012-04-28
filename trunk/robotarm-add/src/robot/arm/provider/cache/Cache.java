@@ -13,14 +13,14 @@ import android.graphics.Bitmap;
  */
 public interface Cache {
 
+	void put(String key, Bitmap value);
+
+	Bitmap get(String key);
+
 	String getRootPath();
 
 	boolean available();
 
-	void put(String imageUrl,Bitmap bm);
-
-	Bitmap get(String imageUrl);
-	
 	long getTotalExternalMemorySize();
 
 }
