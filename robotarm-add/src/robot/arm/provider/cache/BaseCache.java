@@ -64,7 +64,7 @@ public abstract class BaseCache implements Cache {
 		if (PIC_CACHE_COUNT < fileCount(picRootPath))
 			cleanFolder(picRootPath);
 
-		// 判断sdcard上的空间是否够用
+		// 判断空间是否够用
 		if (PIC_CACHE_SIZE > StorageUtils.getTotalExternalMemorySize())
 			cleanFolder(picRootPath);
 
