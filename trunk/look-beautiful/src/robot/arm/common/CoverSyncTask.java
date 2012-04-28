@@ -3,6 +3,7 @@
  */
 package robot.arm.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import robot.arm.core.TabInvHandler;
@@ -27,9 +28,8 @@ import com.mokoclient.core.bean.PostBean;
 public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	// （接口穿透）初始化参数
-	private List<PostBean> postBeanList = act.getList();
-
-	private int curPage = act.getCurPage();
+	private List<PostBean> postBeanList = new ArrayList<PostBean>();
+	private int curPage = 0;
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
 	private TabInvHandler tabInvHandler = act.getTabInvHandler();
