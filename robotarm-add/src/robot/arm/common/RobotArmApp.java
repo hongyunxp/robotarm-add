@@ -21,7 +21,6 @@ public abstract class RobotArmApp extends Application {
 
 	// 初始化程序
 	private void init() {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+(baseAppContext==null));
 		if (baseAppContext == null) {// double check
 			synchronized (RobotArmApp.class) {
 				if (baseAppContext == null) {

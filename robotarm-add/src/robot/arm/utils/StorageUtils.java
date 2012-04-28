@@ -38,7 +38,8 @@ public class StorageUtils {
 	 * 获取手机存储根目录
 	 */
 	public static String internalMemoryRootPath() {
-		return RobotArmApp.getApp().getFilesDir().getPath();
+//		return RobotArmApp.getApp().getFilesDir().getPath();
+		return RobotArmApp.getApp().getCacheDir().getPath();
 	}
 
 	// 这个是手机sdcard的可用空间大小
