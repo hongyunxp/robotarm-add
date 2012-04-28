@@ -16,25 +16,34 @@ import android.util.Log;
  */
 public class SDCardUtil {
 	private static final String TAG = SDCardUtil.class.getSimpleName();
+	// 存储卡是否可用
+	private static final boolean AVAILABLE = StorageUtils.externalMemoryAvailable();
 
 	/** 图片存储根目录 */
 	private static final String PIC_ROOT_PATH = "/look-beautiful/pic/";
-	/** 1M */
-	private static final long MB = 1024 * 1024;
-	/** 图片存储空间总大小 20M */
-	private static final long PIC_CACHE_SIZE = 20;
-	/** 图片存储数量 100个 */
-	private static final long PIC_CACHE_COUNT = 100;
+
+	private static final long BYTE = 1;
+	private static final long KB = 1024 * BYTE;
+	private static final long MB = 1024 * KB;
+	/** 最少剩余空间 20M */
+	private static final long PIC_CACHE_SIZE = 20 * MB;
+	/** 图片存储数量 */
+	private static final long PIC_CACHE_COUNT = Long.MAX_VALUE;
 
 	static {
 		// 初始化图片保存路径
-		checkPicPath(getPicRootPath());
+		if (AVAILABLE)
+			checkPicPath(getPicRootPath());
+
 	}
 
 	/**
 	 * 保存图片信息到SD卡
 	 */
 	public static void savePicToSd(Bitmap bm, String imageUrl) {
+		if (!AVAILABLE)// SD卡不可用
+			return;
+
 		// 判断图片存储目录是否存在
 		if (!checkPicPath(getPicRootPath()))
 			return;
@@ -52,7 +61,7 @@ public class SDCardUtil {
 
 		// 判断sdcard上的空间是否够用
 		if (PIC_CACHE_SIZE > getFreeSpaceOnSd())
-			return;
+			cleanFolder(picRootPath);
 
 		OutputStream outStream = null;
 		try {
@@ -74,6 +83,9 @@ public class SDCardUtil {
 	 */
 	public static Bitmap getPicToSd(String picUrl) {
 		try {
+			if (!AVAILABLE)// SD卡不可用
+				return null;
+
 			if ("".equals(picUrl))
 				return null;
 
@@ -110,7 +122,7 @@ public class SDCardUtil {
 	 */
 	private static int getFreeSpaceOnSd() {
 		StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
-		double sdFreeMB = ((double) stat.getAvailableBlocks() * (double) stat.getBlockSize()) / MB;
+		double sdFreeMB = ((double) stat.getAvailableBlocks() * (double) stat.getBlockSize());
 		return (int) sdFreeMB;
 	}
 
