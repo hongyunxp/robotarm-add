@@ -11,7 +11,7 @@ import robot.arm.utils.StorageUtils;
  *         Apr 28, 2012
  * 
  */
-public class PhoneMemCache extends BaseCache {
+public class PMCache extends BaseCache {
 
 	@Override
 	public String getRootPath() {
