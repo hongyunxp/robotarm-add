@@ -40,9 +40,9 @@ public class LoadImageUtils {
 	private static final String TAG = LoadImageUtils.class.getName();
 
 	private static final int TIME_OUT = 30000;
-	private static final int CACHE_SIZE = 100;// 内存缓存100张图
-	private static final LRUMemCache<Bitmap> cache = new LRUMemCache<Bitmap>(CACHE_SIZE);// 图片bitmap缓存
-	private static final Cache mCache = CacheProvider.getInstance();
+	private static final int CACHE_SIZE = 30;// 内存缓存100张图
+	private static final LRUMemCache<Bitmap> cache = new LRUMemCache<Bitmap>(CACHE_SIZE);// 内存缓存
+	private static final Cache mCache = CacheProvider.getInstance();// 磁盘缓存
 
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView) {
 
@@ -58,7 +58,7 @@ public class LoadImageUtils {
 
 			@Override
 			public void doCall() {
-				// bm = cache.getCache(imageUrl);// 取缓存
+				bm = cache.getCache(imageUrl);// 取缓存
 
 				if (bm == null) {
 					if (local)
@@ -70,7 +70,7 @@ public class LoadImageUtils {
 							mCache.put(bm, imageUrl);// 将图片存到SD卡
 					}
 
-					// cache.putCache(imageUrl, bm);// 存缓存
+					cache.putCache(imageUrl, bm);// 存缓存
 				}
 
 			}
