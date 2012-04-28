@@ -11,7 +11,7 @@ import robot.arm.utils.StorageUtils;
  *         Apr 28, 2012
  * 
  */
-public class MMCCache extends BaseCache {
+public class SDCache extends BaseCache {
 
 	@Override
 	public String getRootPath() {
