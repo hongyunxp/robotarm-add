@@ -49,10 +49,10 @@ public class CacheProvider implements Cache {
 	}
 
 	@Override
-	public void put(Bitmap bm, String imageUrl) {
+	public void put(String imageUrl,Bitmap bm) {
 		for (Cache cache : caches) {
 			if (cache.available())
-				cache.put(bm, imageUrl);
+				cache.put(imageUrl, bm);
 		}
 	}
 
