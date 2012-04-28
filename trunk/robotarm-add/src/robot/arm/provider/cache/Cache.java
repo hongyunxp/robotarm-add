@@ -17,9 +17,9 @@ public interface Cache {
 
 	boolean available();
 
-	void savePicToSd(Bitmap bm, String imageUrl);
+	void put(Bitmap bm, String imageUrl);
 
-	Bitmap getPicToSd(String imageUrl);
+	Bitmap get(String imageUrl);
 	
 	long getTotalExternalMemorySize();
 

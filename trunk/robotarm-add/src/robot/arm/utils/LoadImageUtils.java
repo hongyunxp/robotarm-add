@@ -62,12 +62,12 @@ public class LoadImageUtils {
 
 				if (bm == null) {
 					if (local)
-						bm = mCache.getPicToSd(imageUrl);
+						bm = mCache.get(imageUrl);
 
 					if (bm == null) {
 						bm = loadImage(imageUrl);
 						if (local)
-							mCache.savePicToSd(bm, imageUrl);// 将图片存到SD卡
+							mCache.put(bm, imageUrl);// 将图片存到SD卡
 					}
 
 					// cache.putCache(imageUrl, bm);// 存缓存
