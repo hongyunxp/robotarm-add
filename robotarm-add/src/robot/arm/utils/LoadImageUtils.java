@@ -17,6 +17,8 @@ import org.apache.http.params.HttpParams;
 
 import robot.arm.common.RobotArmApp;
 import robot.arm.provider.asyc.AsycTask;
+import robot.arm.provider.cache.Cache;
+import robot.arm.provider.cache.CacheProvider;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -40,6 +42,7 @@ public class LoadImageUtils {
 	private static final int TIME_OUT = 30000;
 	private static final int CACHE_SIZE = 100;// 内存缓存100张图
 	private static final LRUMemCache<Bitmap> cache = new LRUMemCache<Bitmap>(CACHE_SIZE);// 图片bitmap缓存
+	private static final Cache mCache = CacheProvider.getInstance();
 
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView) {
 
@@ -59,12 +62,12 @@ public class LoadImageUtils {
 
 				if (bm == null) {
 					if (local)
-						bm = MemoryUtils.getPicToSd(imageUrl);
+						bm = mCache.getPicToSd(imageUrl);
 
 					if (bm == null) {
 						bm = loadImage(imageUrl);
 						if (local)
-							MemoryUtils.savePicToSd(bm, imageUrl);// 将图片存到SD卡
+							mCache.savePicToSd(bm, imageUrl);// 将图片存到SD卡
 					}
 
 					// cache.putCache(imageUrl, bm);// 存缓存
