@@ -25,7 +25,7 @@ public abstract class BaseCache implements Cache {
 	private static final long KB = 1024 * BYTE;
 	private static final long MB = 1024 * KB;
 	private static final long PIC_CACHE_SIZE = 20 * MB;
-	private static final long PIC_CACHE_COUNT = Long.MAX_VALUE;
+	private static final long PIC_CACHE_COUNT = 100;
 	private static String PIC_PATH = "/look-beautiful/pic/";
 
 	protected boolean AVAILABLE = available();
