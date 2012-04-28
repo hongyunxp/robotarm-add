@@ -29,7 +29,7 @@ import com.mokoclient.core.MokoClient;
 public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	private List<String> list2 = new ArrayList<String>();
 
-	protected int curPage = act.getCurPage();
+	private int curPage = 0;
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
 	protected TabInvHandler tabInvHandler = act.getTabInvHandler();

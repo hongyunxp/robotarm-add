@@ -3,9 +3,6 @@
  */
 package robot.arm.common;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
@@ -24,8 +21,6 @@ import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.mokoclient.core.bean.PostBean;
-
 /**
  * @author li.li
  * 
@@ -37,8 +32,6 @@ public abstract class BaseActivity extends Activity {
 	private static final int MORE_LOADING_DELAY = 1000;
 
 	protected AsycTask<BaseActivity> task;
-	protected int curPage = 0;
-	protected List<PostBean> list = new ArrayList<PostBean>();
 	protected ViewGroup more;
 	protected TextView moreButton;
 	protected ListView listView;
@@ -67,14 +60,6 @@ public abstract class BaseActivity extends Activity {
 
 	public void title(int resId) {
 		tabInvHandler.setTitle(resId);
-	}
-
-	public List<PostBean> getList() {
-		return list;
-	}
-
-	public int getCurPage() {
-		return curPage;
 	}
 
 	public ListView getImageListView() {
