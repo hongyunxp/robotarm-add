@@ -22,5 +22,10 @@ public class MemoryCache extends BaseCache {
 	public boolean available() {
 		return true;
 	}
+	
+	@Override
+	public long getTotalExternalMemorySize() {
+		return StorageUtils.getTotalInternalMemorySize();
+	}
 
 }

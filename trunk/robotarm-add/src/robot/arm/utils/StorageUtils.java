@@ -33,6 +33,13 @@ public class StorageUtils {
 		long totalBlocks = stat.getBlockCount();
 		return totalBlocks * blockSize;
 	}
+	
+	/**
+	 * 获取手机存储根目录
+	 */
+	public static String internalMemoryRootPath() {
+		return RobotArmApp.getApp().getFilesDir().getPath();
+	}
 
 	// 这个是手机sdcard的可用空间大小
 	public static long getAvailableExternalMemorySize() {
@@ -76,10 +83,4 @@ public class StorageUtils {
 		return null;
 	}
 
-	/**
-	 * 获取手机存储根目录
-	 */
-	public static String internalMemoryRootPath() {
-		return RobotArmApp.getApp().getFilesDir().getPath();
-	}
 }

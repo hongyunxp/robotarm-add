@@ -23,4 +23,10 @@ public class CardCache extends BaseCache {
 		return StorageUtils.externalMemoryAvailable();
 	}
 
+
+	@Override
+	public long getTotalExternalMemorySize() {
+		return StorageUtils.getTotalExternalMemorySize();
+	}
+
 }
