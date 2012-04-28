@@ -11,21 +11,22 @@ import robot.arm.utils.StorageUtils;
  *         Apr 28, 2012
  * 
  */
-public class MemoryCache extends BaseCache {
+public class SDCardCache extends BaseCache {
 
 	@Override
 	public String getRootPath() {
-		return StorageUtils.internalMemoryRootPath();
+		return StorageUtils.externalMemoryRootPath();
 	}
 
 	@Override
 	public boolean available() {
-		return true;
+		return StorageUtils.externalMemoryAvailable();
 	}
-	
+
+
 	@Override
 	public long getTotalExternalMemorySize() {
-		return StorageUtils.getTotalInternalMemorySize();
+		return StorageUtils.getTotalExternalMemorySize();
 	}
 
 }
