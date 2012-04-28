@@ -1,10 +1,7 @@
-/**
- * 
- */
+
 package robot.arm.provider.cache;
 
 import org.apache.commons.collections.map.LRUMap;
-
 import android.graphics.Bitmap;
 
 /**
@@ -13,12 +10,12 @@ import android.graphics.Bitmap;
  *         Apr 28, 2012
  * 
  */
-public class MemCache implements Cache {
+public class RAMCache implements Cache {
 	private static final int CACHE_SIZE = 100;// 内存缓存100张图
 	
 	private final LRUMap cache;
 	
-	public MemCache() {
+	public RAMCache() {
 		cache = new LRUMap(CACHE_SIZE);
 	}
 
