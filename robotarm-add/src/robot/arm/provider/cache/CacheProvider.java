@@ -49,18 +49,18 @@ public class CacheProvider implements Cache {
 	}
 
 	@Override
-	public void savePicToSd(Bitmap bm, String imageUrl) {
+	public void put(Bitmap bm, String imageUrl) {
 		for (Cache cache : caches) {
 			if (cache.available())
-				cache.savePicToSd(bm, imageUrl);
+				cache.put(bm, imageUrl);
 		}
 	}
 
 	@Override
-	public Bitmap getPicToSd(String imageUrl) {
+	public Bitmap get(String imageUrl) {
 		for (Cache cache : caches) {
 			if (cache.available())
-				return cache.getPicToSd(imageUrl);
+				return cache.get(imageUrl);
 		}
 
 		return null;

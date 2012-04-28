@@ -47,7 +47,7 @@ public abstract class BaseCache implements Cache {
 	 * 保存图片信息到SD卡
 	 */
 	@Override
-	public void savePicToSd(Bitmap bm, String imageUrl) {
+	public void put(Bitmap bm, String imageUrl) {
 		if (!AVAILABLE)
 			return;
 
@@ -86,7 +86,7 @@ public abstract class BaseCache implements Cache {
 	 * 根据图片URL， 获取图片对象
 	 */
 	@Override
-	public Bitmap getPicToSd(String picUrl) {
+	public Bitmap get(String picUrl) {
 		try {
 			if (!AVAILABLE)// SD卡不可用
 				return null;
