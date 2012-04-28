@@ -24,7 +24,7 @@ public class MemoryUtils {
 	private static final boolean AVAILABLE = true;
 
 	private static final String PIC_PATH = "/look-beautiful/pic/";
-	private static final String ROOT_PATH = StorageUtils.externalMemoryRootPath();
+	private static final String ROOT_PATH = StorageUtils.internalMemoryRootPath();
 	private static final String PIC_ROOT_PATH = ROOT_PATH + PIC_PATH;
 
 	private static final long BYTE = 1;
@@ -105,14 +105,6 @@ public class MemoryUtils {
 		return null;
 	}
 
-	// /**
-	// * 获取图片存储根目录
-	// */
-	// private static String getPicRootPath() {
-	// return Environment.getExternalStorageDirectory().getPath() +
-	// PIC_ROOT_PATH;
-	// }
-
 	/**
 	 * 对图片URL进行MD5加密 作为图片名
 	 */
@@ -170,6 +162,7 @@ public class MemoryUtils {
 	 */
 	private static boolean checkPicExists(String picPath) {
 		File file = new File(picPath);
+		System.out.println("@@@@@@@@@@@@@@@"+picPath+"|"+file.exists());
 		return file.exists();
 	}
 

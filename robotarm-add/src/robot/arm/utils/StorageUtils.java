@@ -5,6 +5,7 @@ package robot.arm.utils;
 
 import java.io.File;
 
+import robot.arm.common.RobotArmApp;
 import android.os.Environment;
 import android.os.StatFs;
 
@@ -64,11 +65,21 @@ public class StorageUtils {
 		String currentState = Environment.getExternalStorageState();
 		return Environment.MEDIA_MOUNTED.equals(currentState);
 	}
-	
+
 	/**
 	 * 获取SDCard存储根目录
 	 */
 	public static String externalMemoryRootPath() {
-		return Environment.getExternalStorageDirectory().getPath();
+		if (externalMemoryAvailable())
+			return Environment.getExternalStorageDirectory().getPath();
+
+		return null;
+	}
+
+	/**
+	 * 获取手机存储根目录
+	 */
+	public static String internalMemoryRootPath() {
+		return RobotArmApp.getApp().getFilesDir().getPath();
 	}
 }
