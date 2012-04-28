@@ -62,6 +62,11 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	@Override
 	public void doResult() {
 
+		updateView();
+
+	}
+
+	private void updateView() {
 		if (list2 != null && list2.size() > 0) {
 
 			if (adapter == null)
@@ -79,10 +84,13 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
 
+					more.setVisibility(View.GONE);// 加载完成后不显示加载
+
+					adapter.notifyDataSetChanged();
+
 				}
 			});
 		}
-
 	}
 
 	private void loadList(final MokoClient mClient, final int curPage, final List<String> list) {

@@ -55,6 +55,11 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	@Override
 	public void doResult() {
+
+		updateView();
+	}
+
+	private void updateView() {
 		if (postBeanList != null && postBeanList.size() > 0) {
 
 			if (adapter == null)
@@ -72,14 +77,15 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 					if (listView.getAdapter() == null)
 						listView.setAdapter(adapter);
-					
-					more.setVisibility(View.GONE);//加载完成后不显示加载
+
+					more.setVisibility(View.GONE);// 加载完成后不显示加载
+
+					adapter.notifyDataSetChanged();
 
 					// tabInvHandler.loading(act.getClass(), false);
 				}
 			});
 		}
-
 	}
 
 	private void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
@@ -97,7 +103,6 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 							@Override
 							public void onClick(DialogInterface paramDialogInterface, int paramInt) {
 								loadList(mClient, curPage, list);// 重试
-
 							}
 
 						}, new OnClickListener() {
@@ -120,6 +125,8 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 			if (list != null) {
 				list.clear();
 				list.addAll(Util.getPostList(mClient, curPage));
+
+				updateView();// 更新视图
 			}
 		}
 
