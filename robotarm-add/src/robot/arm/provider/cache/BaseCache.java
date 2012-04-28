@@ -47,7 +47,7 @@ public abstract class BaseCache implements Cache {
 	 * 保存图片信息到SD卡
 	 */
 	@Override
-	public void put(Bitmap bm, String imageUrl) {
+	public void put(String imageUrl,Bitmap bm) {
 		if (!AVAILABLE)
 			return;
 

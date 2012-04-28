@@ -58,7 +58,7 @@ public class LoadImageUtils {
 
 			@Override
 			public void doCall() {
-				bm = cache.getCache(imageUrl);// 取缓存
+//				bm = cache.getCache(imageUrl);// 取缓存
 
 				if (bm == null) {
 					if (local)
@@ -67,10 +67,10 @@ public class LoadImageUtils {
 					if (bm == null) {
 						bm = loadImage(imageUrl);
 						if (local)
-							mCache.put(bm, imageUrl);// 将图片存到SD卡
+							mCache.put(imageUrl, bm);// 将图片存到SD卡
 					}
 
-					cache.putCache(imageUrl, bm);// 存缓存
+//					cache.putCache(imageUrl, bm);// 存缓存
 				}
 
 			}

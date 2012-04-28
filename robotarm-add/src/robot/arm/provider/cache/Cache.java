@@ -17,7 +17,7 @@ public interface Cache {
 
 	boolean available();
 
-	void put(Bitmap bm, String imageUrl);
+	void put(String imageUrl,Bitmap bm);
 
 	Bitmap get(String imageUrl);
 	
