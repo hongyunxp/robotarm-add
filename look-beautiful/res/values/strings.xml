@@ -16,6 +16,7 @@
     <string name="main_menu_exit">退出</string>
     
     <string name="common_loading_more">加载中...</string>
+    <string name="common_logo_alert">建议使用WIFI网络</string>
     
     <!-- args -->
     <string name = "detailUrl">detailUrl</string>
