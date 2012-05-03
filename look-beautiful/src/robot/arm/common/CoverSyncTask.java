@@ -59,7 +59,15 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	@Override
 	public void doResult() {
 
-		updateView();
+		try {
+
+			updateView();
+
+		} finally {
+
+//			tabInvHandler.loading(act.getClass(), false);
+		}
+
 	}
 
 	/**
