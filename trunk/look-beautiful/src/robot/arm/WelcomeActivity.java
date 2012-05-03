@@ -14,7 +14,7 @@ import android.widget.TextView;
  * 欢迎页面
  */
 public class WelcomeActivity extends Activity {
-	private static final int DURATION = 2000;
+	private static final int DURATION = 3000;
 	private TextView textView;
 
 	@Override
@@ -50,6 +50,11 @@ public class WelcomeActivity extends Activity {
 			public void onAnimationStart(Animation aim) {
 				NetType net = NetUtils.checkNet();
 				textView.setText(net.desc);
+
+				if (net == NetType.GPRS_WEB || net == NetType.GPRS_WAP) {
+					
+					NetUtils.dialog(WelcomeActivity.this, getString(R.string.common_logo_alert));
+				}
 			}
 		});
 
