@@ -23,6 +23,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import robot.arm.R;
+import robot.arm.common.RobotArmApp;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -309,6 +310,21 @@ public class BaseUtils {
 		} catch (Throwable e) {
 			Log.e(TAG, e.getMessage(), e);
 		}
+	}
+	
+	public static int getAndroidSDKVersion() {
+		int version = 0;
+		try {
+			version = Integer.valueOf(android.os.Build.VERSION.SDK);
+		} catch (NumberFormatException e) {
+			Log.e(TAG, e.toString());
+
+		}
+		return version;
+	}
+	
+	public static String getPackageName(){
+		return RobotArmApp.getApp().getPackageName();
 	}
 
 }
