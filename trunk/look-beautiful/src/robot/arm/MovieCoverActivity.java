@@ -28,8 +28,6 @@ public class MovieCoverActivity extends BaseActivity {
 
 		// 创建异步任务
 		task = new CoverSyncTask(this, MokoClient.MOVIES);
-		// 执行
-		task.execute();
 
 	}
 
@@ -39,6 +37,10 @@ public class MovieCoverActivity extends BaseActivity {
 
 		title(R.layout.movie_title);
 		background(R.drawable.movie);
+		
+		if (!isInit) {
+			task.execute();
+		}
 
 	}
 

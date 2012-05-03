@@ -28,8 +28,6 @@ public class ArtCoverActivity extends BaseActivity {
 
 		// 创建异步任务
 		task = new CoverSyncTask(this, MokoClient.ARTS);
-		// 执行
-		task.execute();
 	}
 
 	@Override
@@ -38,6 +36,10 @@ public class ArtCoverActivity extends BaseActivity {
 
 		title(R.layout.art_title);
 		background(R.drawable.art);
+		
+		if (!isInit) {
+			task.execute();
+		}
 
 	}
 

@@ -37,14 +37,15 @@ public abstract class BaseActivity extends Activity {
 	protected ListView listView;
 	protected TabInvHandler tabInvHandler;
 	protected Handler handler = new Handler();
+	protected boolean isInit = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		tabInvHandler = ((TabInvHandler) getParent());
-		
-//		tabInvHandler.loading(getClass(), true);
+
+		// tabInvHandler.loading(getClass(), true);
 	}
 
 	@Override
@@ -84,6 +85,7 @@ public abstract class BaseActivity extends Activity {
 		listView = (ListView) findViewById(R.id.images);
 		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (TextView) more.findViewById(R.id.button_images_more);
+		System.out.println("listView@@@@@@@@@@@@@@@@@@@@@@@@@" + listView.getChildCount());
 	}
 
 	protected void initListener() {
@@ -145,5 +147,15 @@ public abstract class BaseActivity extends Activity {
 			}, MORE_LOADING_DELAY);
 		}
 	}
+
+	public boolean isInit() {
+		return isInit;
+	}
+
+	public void setInit(boolean isInit) {
+		this.isInit = isInit;
+	}
+	
+	
 
 }
