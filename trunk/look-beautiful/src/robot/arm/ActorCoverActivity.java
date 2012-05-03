@@ -43,11 +43,6 @@ public class ActorCoverActivity extends BaseActivity {
 
 	}
 
-	public void more(View view) {
-		task.execute();
-
-	}
-
 	public void clickImage(View view) {
 		Bundle mBundle = new Bundle();
 		mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());// 压入数据
