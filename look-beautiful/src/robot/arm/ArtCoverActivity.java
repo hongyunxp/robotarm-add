@@ -38,6 +38,7 @@ public class ArtCoverActivity extends BaseActivity {
 		background(R.drawable.art);
 		
 		if (!isInit) {
+			tabInvHandler.loading(getClass(), true);
 			task.execute();
 		}
 
