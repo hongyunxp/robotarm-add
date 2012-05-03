@@ -1,10 +1,10 @@
 package robot.arm.utils;
 
 public enum NetType {
-	WIFI("WIFI", true), //
-	GPRS_WEB("GPRS WEB", true), //
-	GPRS_WAP("GPRS WAP", true), //
-	NONE("无连接", false), //
+	WIFI("WIFI网络", true), //
+	GPRS_WEB("GPRS WEB网络", true), //
+	GPRS_WAP("GPRS WAP网络", true), //
+	NONE("网络不可用", false), //
 	;
 
 	public String desc;// 网络连接描述
