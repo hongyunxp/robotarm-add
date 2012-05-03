@@ -6,6 +6,7 @@ package robot.arm.common;
 import java.util.ArrayList;
 import java.util.List;
 
+import robot.arm.common.bean.AlbumCover;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
@@ -45,12 +46,14 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		super(activity);
 
 		this.client = client;
+
+		listView.addFooterView(more);
 	}
 
 	@Override
 	public void doCall() {
 
-		loadList(client, ++curPage, postBeanList);
+		loadList(client, ++curPage, postBeanList, false);
 	}
 
 	@Override
@@ -59,36 +62,33 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		updateView();
 	}
 
+	/**
+	 * 更新视图
+	 */
 	private void updateView() {
 		if (postBeanList != null && postBeanList.size() > 0) {
 
-			if (adapter == null)
-				adapter = new AlbumCoverAdapter();
+			adapter = new AlbumCoverAdapter(AlbumCover.coverList(act, postBeanList));
+			listView.setAdapter(adapter);
+			adapter.notifyDataSetInvalidated();
 
-			adapter.addList(act, postBeanList);
-
-			listView.post(new Runnable() {
-
-				@Override
-				public void run() {
-					if (listView.getFooterViewsCount() == 0) {
-						listView.addFooterView(more);
-					}
-
-					if (listView.getAdapter() == null)
-						listView.setAdapter(adapter);
-
-					more.setVisibility(View.GONE);// 加载完成后不显示加载
-
-					adapter.notifyDataSetChanged();
-
-					// tabInvHandler.loading(act.getClass(), false);
-				}
-			});
+			more.setVisibility(View.GONE);// 加载完成后不显示加载
 		}
 	}
 
-	private void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list) {
+	/**
+	 * 加载列表
+	 * 
+	 * @param mClient
+	 *            加载类型
+	 * @param curPage
+	 *            当前页
+	 * @param list
+	 *            加载的列表list
+	 * @param upView
+	 *            加载后是否更新视图
+	 */
+	private void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list, final boolean upView) {
 
 		if (!NetUtils.checkNet().available) {
 
@@ -102,7 +102,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 							@Override
 							public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-								loadList(mClient, curPage, list);// 重试
+								loadList(mClient, curPage, list, true);// 重试
 							}
 
 						}, new OnClickListener() {
@@ -123,10 +123,10 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		} else {
 			if (list != null) {
-				list.clear();
 				list.addAll(Util.getPostList(mClient, curPage));
 
-				updateView();// 更新视图
+				if (upView)
+					updateView();// 更新视图
 			}
 		}
 
