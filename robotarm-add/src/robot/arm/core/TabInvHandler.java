@@ -59,13 +59,15 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		checkLock = false;
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
-
+		
 		goWelcome();// 去欢迎界面
 	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {// 回调
 		Log.d(TAG, "onActivityResult|" + requestCode + "|" + resultCode);
+		
+		loader = BGLoader.newInstance(this);
 
 		if (requestCode == REQUEST_IF_OK && resultCode == RESULT_OK)
 			selectTab();// 默认选择第一个
