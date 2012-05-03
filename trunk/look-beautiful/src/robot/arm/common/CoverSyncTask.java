@@ -30,14 +30,14 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 	// （接口穿透）初始化参数
 	private List<PostBean> postBeanList = new ArrayList<PostBean>();
-	private int curPage = 0;
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
 	private TabInvHandler tabInvHandler = act.getTabInvHandler();
-	private volatile Builder builder;
 
+	private int curPage = 0;
 	private MokoClient client;
 	private AlbumCoverAdapter adapter;
+	private volatile Builder builder;
 
 	/**
 	 * @param activity
