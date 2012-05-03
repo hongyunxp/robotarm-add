@@ -6,7 +6,6 @@ package robot.arm.common;
 import java.util.ArrayList;
 import java.util.List;
 
-import robot.arm.common.bean.AlbumCover;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
@@ -66,7 +65,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 			act.setInit(true);// 已初始化
 		} finally {
 
-			tabInvHandler.loading(act.getClass(), false);//多执行无害
+			tabInvHandler.loading(act.getClass(), false);// 多执行无害
 		}
 
 	}
@@ -78,8 +77,14 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		if (postBeanList.isEmpty())
 			return;
 
-		adapter = new AlbumCoverAdapter(AlbumCover.coverList(act, postBeanList));
-		listView.setAdapter(adapter);
+		if (adapter == null) {
+			adapter = new AlbumCoverAdapter();
+		}
+		adapter.addList(act, postBeanList);
+
+		if (listView.getAdapter() == null)
+			listView.setAdapter(adapter);
+
 		adapter.notifyDataSetInvalidated();
 
 		more.setVisibility(View.GONE);// 加载完成后不显示加载
@@ -133,6 +138,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		} else {
 			if (list != null) {
+				list.clear();
 				list.addAll(Util.getPostList(mClient, curPage));
 
 				if (upView)
