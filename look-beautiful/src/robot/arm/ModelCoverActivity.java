@@ -26,7 +26,7 @@ public class ModelCoverActivity extends BaseActivity {
 		initView();
 		initListener();
 
-		// 创建异步任务
+		// 创建任务
 		task = new CoverSyncTask(this, MokoClient.MODEL);
 
 	}
@@ -39,8 +39,8 @@ public class ModelCoverActivity extends BaseActivity {
 		background(R.drawable.model);
 
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);
-			task.execute();
+			tabInvHandler.loading(getClass(), true);// 打开loading
+			task.execute();// 执行任务
 		}
 
 	}
