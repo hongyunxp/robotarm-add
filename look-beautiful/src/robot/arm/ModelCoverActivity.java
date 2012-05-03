@@ -29,9 +29,6 @@ public class ModelCoverActivity extends BaseActivity {
 		// 创建异步任务
 		task = new CoverSyncTask(this, MokoClient.MODEL);
 
-		// 执行
-		task.execute();
-
 	}
 
 	@Override
@@ -41,10 +38,14 @@ public class ModelCoverActivity extends BaseActivity {
 		title(R.layout.model_title);
 		background(R.drawable.model);
 
+		if (!isInit) {
+			task.execute();
+		}
+
 	}
 
 	public void clickImage(View view) {
-		
+
 		Bundle mBundle = new Bundle();
 		mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());// 压入数据
 		tabInvHandler.startSubActivity(R.id.tab_model, ModelContentActivity.class, mBundle);

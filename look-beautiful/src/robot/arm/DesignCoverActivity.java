@@ -28,8 +28,6 @@ public class DesignCoverActivity extends BaseActivity {
 
 		// 创建异步任务
 		task = new CoverSyncTask(this, MokoClient.DESIGN);
-		// 执行
-		task.execute();
 
 	}
 
@@ -39,6 +37,10 @@ public class DesignCoverActivity extends BaseActivity {
 
 		title(R.layout.design_title);
 		background(R.drawable.design);
+		
+		if (!isInit) {
+			task.execute();
+		}
 
 	}
 

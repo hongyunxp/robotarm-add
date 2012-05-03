@@ -27,8 +27,6 @@ public class ActorCoverActivity extends BaseActivity {
 
 		// 创建异步任务
 		task = new CoverSyncTask(this, MokoClient.ACTOR);
-		// 执行
-		task.execute();
 	}
 
 	@Override
@@ -37,6 +35,10 @@ public class ActorCoverActivity extends BaseActivity {
 
 		title(R.layout.actor_title);
 		background(R.drawable.actor);
+		
+		if (!isInit) {
+			task.execute();
+		}
 
 	}
 

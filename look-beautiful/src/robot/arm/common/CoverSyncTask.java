@@ -63,9 +63,10 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 			updateView();
 
+			act.setInit(true);// 已初始化
 		} finally {
 
-//			tabInvHandler.loading(act.getClass(), false);
+			// tabInvHandler.loading(act.getClass(), false);
 		}
 
 	}
