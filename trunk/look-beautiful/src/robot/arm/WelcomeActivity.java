@@ -1,5 +1,6 @@
 package robot.arm;
 
+import robot.arm.common.Util;
 import robot.arm.utils.NetType;
 import robot.arm.utils.NetUtils;
 import android.app.Activity;
@@ -51,6 +52,9 @@ public class WelcomeActivity extends Activity {
 				NetType net = NetUtils.checkNet();
 				textView.setText(net.desc);
 
+				if(net.available)
+					Util.login();
+				
 				if (net == NetType.GPRS_WEB || net == NetType.GPRS_WAP) {
 					
 					NetUtils.dialog(WelcomeActivity.this, getString(R.string.common_logo_alert));

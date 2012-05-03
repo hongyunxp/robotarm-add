@@ -44,4 +44,14 @@ public class Util {
 		}
 		return null;
 	}
+	
+	public static void login(){
+		// TODO 检查网络先
+		try {
+			new MokoClient.Login();
+		} catch (Throwable e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
 }

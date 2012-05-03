@@ -134,10 +134,14 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		} else {
 			if (list != null) {
 				list.clear();//清空
-				list.addAll(Util.getPostList(mClient, curPage));
-
-				if (upView)
-					updateView();// 更新视图
+				List<PostBean> result = Util.getPostList(mClient, curPage);
+				if(result == null)
+					listView.removeFooterView(more);
+				else{
+					list.addAll(result);
+					if (upView)
+						updateView();// 更新视图
+				}
 			}
 		}
 
