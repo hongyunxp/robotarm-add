@@ -47,6 +47,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		this.client = client;
 
 		listView.addFooterView(more);
+		adapter = new AlbumCoverAdapter();
 	}
 
 	@Override
@@ -76,19 +77,13 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	private void updateView() {
 		if (postBeanList.isEmpty())
 			return;
-
-		if (adapter == null) {
-			adapter = new AlbumCoverAdapter();
-		}
+		
 		adapter.addList(act, postBeanList);
 
 		if (listView.getAdapter() == null)
 			listView.setAdapter(adapter);
 
-		adapter.notifyDataSetInvalidated();
-
 		more.setVisibility(View.GONE);// 加载完成后不显示加载
-
 	}
 
 	/**
@@ -138,7 +133,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		} else {
 			if (list != null) {
-				list.clear();
+				list.clear();//清空
 				list.addAll(Util.getPostList(mClient, curPage));
 
 				if (upView)
