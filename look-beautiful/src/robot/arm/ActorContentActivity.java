@@ -30,8 +30,6 @@ public class ActorContentActivity extends BaseActivity {
 
 		task = new AlbumSyncTask(this, MokoClient.ACTOR);
 
-		task.execute();
-
 	}
 
 	@Override
@@ -40,6 +38,11 @@ public class ActorContentActivity extends BaseActivity {
 
 		title(R.layout.actor_title);
 		background(R.drawable.actor);
+		
+		if (!isInit) {
+			tabInvHandler.loading(getClass(), true);// 打开loading
+			task.execute();// 执行任务
+		}
 	}
 
 	public void more(View view) {

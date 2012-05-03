@@ -38,11 +38,11 @@ public class MovieContentActivity extends BaseActivity {
 
 		title(R.layout.movie_title);
 		background(R.drawable.movie);
-	}
-
-	public void more(View view) {
-		task.execute();
-
+		
+		if (!isInit) {
+			tabInvHandler.loading(getClass(), true);// 打开loading
+			task.execute();// 执行任务
+		}
 	}
 
 	public void clickImage(View view) {
