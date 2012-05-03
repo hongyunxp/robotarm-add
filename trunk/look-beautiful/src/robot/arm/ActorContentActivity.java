@@ -24,9 +24,9 @@ public class ActorContentActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.actor_content);
-		initListener();
 
 		initView();
+		initListener();
 
 		task = new AlbumSyncTask(this, MokoClient.ACTOR);
 

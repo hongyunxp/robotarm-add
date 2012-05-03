@@ -29,7 +29,6 @@ public class MovieContentActivity extends BaseActivity {
 
 		task = new AlbumSyncTask(this, MokoClient.ACTOR);
 
-		task.execute();
 	}
 
 	@Override

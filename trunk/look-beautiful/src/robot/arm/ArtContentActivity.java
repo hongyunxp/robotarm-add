@@ -26,6 +26,7 @@ public class ArtContentActivity extends BaseActivity {
 		setContentView(R.layout.art_content);
 
 		initView();
+		initListener();
 
 		task = new AlbumSyncTask(this, MokoClient.ACTOR);
 

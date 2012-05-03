@@ -30,8 +30,6 @@ public class ModelContentActivity extends BaseActivity {
 
 		task = new AlbumSyncTask(this, MokoClient.MODEL);
 
-		task.execute();
-
 	}
 
 	@Override
