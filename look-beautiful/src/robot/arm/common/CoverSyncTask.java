@@ -66,14 +66,15 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	 * 更新视图
 	 */
 	private void updateView() {
-		if (postBeanList != null && postBeanList.size() > 0) {
+		if (postBeanList.isEmpty())
+			return;
 
-			adapter = new AlbumCoverAdapter(AlbumCover.coverList(act, postBeanList));
-			listView.setAdapter(adapter);
-			adapter.notifyDataSetInvalidated();
+		adapter = new AlbumCoverAdapter(AlbumCover.coverList(act, postBeanList));
+		listView.setAdapter(adapter);
+		adapter.notifyDataSetInvalidated();
 
-			more.setVisibility(View.GONE);// 加载完成后不显示加载
-		}
+		more.setVisibility(View.GONE);// 加载完成后不显示加载
+
 	}
 
 	/**
