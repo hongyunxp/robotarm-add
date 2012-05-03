@@ -79,4 +79,14 @@ public class NetUtils {
 		return tDialog;
 
 	}
+	
+	public static Builder dialog(final Context context, String message) {
+		AlertDialog.Builder tDialog = new AlertDialog.Builder(context);
+		tDialog.setTitle(R.string.confirm_title);
+		tDialog.setMessage(message);
+		tDialog.show();
+
+		return tDialog;
+
+	}
 }
