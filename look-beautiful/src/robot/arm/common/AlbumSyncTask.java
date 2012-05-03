@@ -122,7 +122,9 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		} else {
 			if (list != null) {
 				list.clear();
-				list.addAll(Util.getPostDetail(client, detailUrl, curPage));
+				List<String> result=Util.getPostDetail(client, detailUrl, curPage);
+				System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+result.size()+"|"+result);
+				list.addAll(result);
 			}
 		}
 
