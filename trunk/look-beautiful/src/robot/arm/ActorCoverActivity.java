@@ -25,7 +25,7 @@ public class ActorCoverActivity extends BaseActivity {
 		initView();
 		initListener();
 
-		// 创建异步任务
+		// 创建任务
 		task = new CoverSyncTask(this, MokoClient.ACTOR);
 	}
 
@@ -37,8 +37,8 @@ public class ActorCoverActivity extends BaseActivity {
 		background(R.drawable.actor);
 		
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);
-			task.execute();
+			tabInvHandler.loading(getClass(), true);// 打开loading
+			task.execute();// 执行任务
 		}
 
 	}

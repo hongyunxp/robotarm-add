@@ -26,7 +26,7 @@ public class MovieCoverActivity extends BaseActivity {
 		initView();
 		initListener();
 
-		// 创建异步任务
+		// 创建任务
 		task = new CoverSyncTask(this, MokoClient.MOVIES);
 
 	}
@@ -37,10 +37,10 @@ public class MovieCoverActivity extends BaseActivity {
 
 		title(R.layout.movie_title);
 		background(R.drawable.movie);
-		
+
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);
-			task.execute();
+			tabInvHandler.loading(getClass(), true);// 打开loading
+			task.execute();// 执行任务
 		}
 
 	}
