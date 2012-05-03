@@ -29,7 +29,6 @@ public class ArtContentActivity extends BaseActivity {
 
 		task = new AlbumSyncTask(this, MokoClient.ACTOR);
 
-		task.execute();
 	}
 
 	@Override
@@ -38,6 +37,11 @@ public class ArtContentActivity extends BaseActivity {
 
 		title(R.layout.art_title);
 		background(R.drawable.art);
+		
+		if (!isInit) {
+			tabInvHandler.loading(getClass(), true);// 打开loading
+			task.execute();// 执行任务
+		}
 	}
 
 	public void more(View view) {

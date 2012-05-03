@@ -47,6 +47,8 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		super(activity);
 
 		this.client = client;
+		listView.addFooterView(more);
+		adapter = new AlbumAdapter();
 
 		Bundle bundle = act.getIntent().getExtras();
 		detailUrl = bundle.getString(act.getString(R.string.detailUrl));// 读出数据
@@ -62,35 +64,29 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	@Override
 	public void doResult() {
 
-		updateView();
+		try {
+
+			updateView();
+
+			act.setInit(true);// 已初始化
+		} finally {
+
+			tabInvHandler.loading(act.getClass(), false);// 多执行无害
+		}
 
 	}
 
 	private void updateView() {
-		if (list2 != null && list2.size() > 0) {
+		if (list2.isEmpty())
+			return;
 
-			if (adapter == null)
-				adapter = new AlbumAdapter();
+		adapter.addList(act, list2);
 
-			adapter.addList(act, list2);
+		if (listView.getAdapter() == null)
+			listView.setAdapter(adapter);
 
-			listView.post(new Runnable() {
+		more.setVisibility(View.GONE);// 加载完成后不显示加载
 
-				@Override
-				public void run() {
-					if (listView.getFooterViewsCount() == 0)
-						listView.addFooterView(more);
-
-					if (listView.getAdapter() == null)
-						listView.setAdapter(adapter);
-
-					more.setVisibility(View.GONE);// 加载完成后不显示加载
-
-					adapter.notifyDataSetChanged();
-
-				}
-			});
-		}
 	}
 
 	private void loadList(final MokoClient mClient, final int curPage, final List<String> list) {
