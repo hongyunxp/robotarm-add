@@ -84,7 +84,6 @@ public abstract class BaseActivity extends Activity {
 		listView = (ListView) findViewById(R.id.images);
 		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (TextView) more.findViewById(R.id.button_images_more);
-		System.out.println("listView@@@@@@@@@@@@@@@@@@@@@@@@@" + listView.getChildCount());
 	}
 
 	protected void initListener() {
