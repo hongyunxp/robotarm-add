@@ -39,6 +39,7 @@ public class DesignCoverActivity extends BaseActivity {
 		background(R.drawable.design);
 		
 		if (!isInit) {
+			tabInvHandler.loading(getClass(), true);
 			task.execute();
 		}
 

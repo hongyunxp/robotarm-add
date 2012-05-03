@@ -28,7 +28,7 @@ import com.mokoclient.core.bean.PostBean;
  */
 public class CoverSyncTask extends AsycTask<BaseActivity> {
 
-	// （接口穿透）初始化参数
+	// 初始化参数
 	private List<PostBean> postBeanList = new ArrayList<PostBean>();
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
@@ -66,7 +66,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 			act.setInit(true);// 已初始化
 		} finally {
 
-			// tabInvHandler.loading(act.getClass(), false);
+			tabInvHandler.loading(act.getClass(), false);
 		}
 
 	}

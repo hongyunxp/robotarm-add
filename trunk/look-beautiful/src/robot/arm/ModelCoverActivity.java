@@ -39,6 +39,7 @@ public class ModelCoverActivity extends BaseActivity {
 		background(R.drawable.model);
 
 		if (!isInit) {
+			tabInvHandler.loading(getClass(), true);
 			task.execute();
 		}
 

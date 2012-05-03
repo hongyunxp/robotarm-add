@@ -45,7 +45,6 @@ public abstract class BaseActivity extends Activity {
 
 		tabInvHandler = ((TabInvHandler) getParent());
 
-		// tabInvHandler.loading(getClass(), true);
 	}
 
 	@Override
