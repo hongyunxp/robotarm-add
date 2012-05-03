@@ -15,8 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
-import android.widget.BaseAdapter;
-import android.widget.HeaderViewListAdapter;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -129,8 +127,11 @@ public abstract class BaseActivity extends Activity {
 	private void showMore(AbsListView view) {
 		if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
 			listView.setSelection(view.getLastVisiblePosition());// 滚动到底
-			more.setVisibility(View.VISIBLE);
 
+			if (more.getVisibility() == View.VISIBLE)
+				return;
+			
+			more.setVisibility(View.VISIBLE);
 			handler.postDelayed(new Runnable() {
 
 				@Override
@@ -138,9 +139,11 @@ public abstract class BaseActivity extends Activity {
 					// 执行
 					task.execute();
 
-					HeaderViewListAdapter hAdapter = (HeaderViewListAdapter) listView.getAdapter();
-					BaseAdapter adapter = (BaseAdapter) hAdapter.getWrappedAdapter();
-					adapter.notifyDataSetChanged();
+					// HeaderViewListAdapter hAdapter = (HeaderViewListAdapter)
+					// listView.getAdapter();
+					// BaseAdapter adapter = (BaseAdapter)
+					// hAdapter.getWrappedAdapter();
+					// adapter.notifyDataSetChanged();
 				}
 			}, MORE_LOADING_DELAY);
 		}
@@ -153,7 +156,5 @@ public abstract class BaseActivity extends Activity {
 	public void setInit(boolean isInit) {
 		this.isInit = isInit;
 	}
-	
-	
 
 }
