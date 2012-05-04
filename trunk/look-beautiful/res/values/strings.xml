@@ -20,4 +20,7 @@
     
     <!-- args -->
     <string name = "detailUrl">detailUrl</string>
+    
+    <!-- 升级 -->
+	<string name="upload_url">http://192.168.0.104:8080/version</string>
 </resources>
