@@ -13,6 +13,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.cookie.Cookie;
@@ -28,6 +29,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
@@ -213,6 +216,30 @@ public class BaseUtils {
 		return request(client, post);
 	}
 
+	// 这是模拟get请求
+	public static Result get(String url, Map<String, String> headers, Map<String, String> params, String encoding) throws ClientProtocolException, IOException {
+
+		DefaultHttpClient client = new DefaultHttpClient();
+
+		url = url + (null == params ? "" : assemblyParameter(params));
+
+		HttpGet get = new HttpGet(url);
+
+		if (null != headers)
+			get.setHeaders(assemblyHeader(headers));
+
+		return request(client, get);
+	}
+
+	// 这是组装参数
+	private static String assemblyParameter(Map<String, String> parameters) {
+		String para = "?";
+		for (String str : parameters.keySet()) {
+			para += str + "=" + parameters.get(str) + "&";
+		}
+		return para.substring(0, para.length() - 1);
+	}
+
 	private static Result request(AbstractHttpClient client, HttpUriRequest request) throws ClientProtocolException, IOException {
 		HttpResponse response = client.execute(request);
 		HttpEntity entity = response.getEntity();
@@ -311,7 +338,7 @@ public class BaseUtils {
 			Log.e(TAG, e.getMessage(), e);
 		}
 	}
-	
+
 	public static int getAndroidSDKVersion() {
 		int version = 0;
 		try {
@@ -322,8 +349,21 @@ public class BaseUtils {
 		}
 		return version;
 	}
-	
-	public static String getPackageName(){
+
+	public static int getAppVersion() {
+		int appVersion = 0;
+		PackageManager manager = RobotArmApp.getApp().getPackageManager();
+		try {
+			PackageInfo info = manager.getPackageInfo(RobotArmApp.getApp().getPackageName(), 0);
+			appVersion = info.versionCode; // 版本号
+		} catch (Throwable e) {
+			Log.e(TAG, e.toString());
+		}
+
+		return appVersion;
+	}
+
+	public static String getPackageName() {
 		return RobotArmApp.getApp().getPackageName();
 	}
 
