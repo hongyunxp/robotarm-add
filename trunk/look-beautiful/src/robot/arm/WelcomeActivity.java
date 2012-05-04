@@ -17,7 +17,6 @@ import android.widget.TextView;
  * 欢迎页面
  */
 public class WelcomeActivity extends Activity {
-	private static final String TAG = WelcomeActivity.class.getName();
 	private static final int DURATION = 2000;
 
 	private TextView textView;
