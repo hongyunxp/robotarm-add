@@ -52,6 +52,7 @@ public class DistrictArrayAdapter extends BaseAdapter {
 		View item = LayoutInflater.from(act).inflate(R.layout.item, parent, false);
 		TextView tv = (TextView) item.findViewById(R.id.textViewId);
 		tv.setText(district.getName());
+		item.setTag(district.getId());
 
 		return item;
 	}

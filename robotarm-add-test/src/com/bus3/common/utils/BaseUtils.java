@@ -98,6 +98,7 @@ public class BaseUtils {
 			Log.e(TAG, e.toString());
 
 		}
+		
 		return version;
 	}
 
