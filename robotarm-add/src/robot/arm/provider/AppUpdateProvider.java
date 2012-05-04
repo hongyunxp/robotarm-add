@@ -15,6 +15,8 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 
+import robot.arm.R;
+import robot.arm.common.RobotArmApp;
 import robot.arm.utils.BaseUtils;
 import robot.arm.utils.BaseUtils.Result;
 import android.app.AlertDialog;
@@ -26,12 +28,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
+import android.util.Log;
 
 /**
  * 更新程序
  */
 public class AppUpdateProvider {
-	public static final String UPPDATE_URL = "http://192.168.0.104:8080/version";
+	private static final String TAG = AppUpdateProvider.class.getName();
+	
+	private static final String UPPDATE_URL = RobotArmApp.getApp().getString(R.string.upload_url);
 	private static final AppUpdateProvider instance = new AppUpdateProvider();
 	private static final String UPDATE_SAVENAME = "look-beautiful.apk";
 	private static final File DOWNLOAD_LOCATION = new File(Environment.getExternalStorageDirectory(), UPDATE_SAVENAME);
@@ -57,14 +62,14 @@ public class AppUpdateProvider {
 
 			versionInfo = new VersionInfo(jo.getInt("versionCode"), jo.getString("versionName"), jo.getInt("type"), jo.getString("desc"), jo.getString("url"));
 			if (BaseUtils.getAppVersion() < versionInfo.versionCode) {
-				
+
 				updateNewVersion(context, versionInfo.url);
-				
+
 				return true;
 			}
 
 		} catch (Throwable e) {
-			e.printStackTrace();
+			Log.e(TAG, e.getMessage(), e);
 		}
 
 		return false;

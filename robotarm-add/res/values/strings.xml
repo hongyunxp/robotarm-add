@@ -16,5 +16,8 @@
 	<string name="confirm_net_content">当前网络不给力！</string>
 	<string name="confirm_net_ensure">重试</string>
 	<string name="confirm_net_cancle">取消</string>
-
+	
+	<!-- 升级 -->
+	<string name="upload_url"></string>
+	
 </resources>
