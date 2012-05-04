@@ -2,11 +2,23 @@ package com.bus3.test;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
+import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import robot.arm.utils.BaseUtils;
+import robot.arm.utils.BaseUtils.Result;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bus3.R;
@@ -28,12 +40,21 @@ public class MoreActivity extends BaseActivity {
 	private static final String temp = "中华人民共和国";// 语音合成使用文字
 	private static final String rec = "中国,美国,我是学生";// 语音识别使用文字
 
+	private List<District> list;
+
+	// 地址选择三级联动
+	private Spinner spinner1;// 省
+	private Spinner spinner2;// 市
+	private Spinner spinner3;// 区县
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.more_content);
 
 		tabInvHandler().setTitle(R.layout.more_title);
+
+		initDistinct();// 初始化地址选择器
 
 	}
 
@@ -142,6 +163,119 @@ public class MoreActivity extends BaseActivity {
 	public void viewFlipper(View view) {
 		Intent intent = new Intent(this, SwitchFlipperActivity.class);
 		startActivity(intent);
+	}
+
+	// 初始地址选择
+	private void initDistinct() {
+		spinner1 = (Spinner) findViewById(R.id.spinner1);
+		spinner2 = (Spinner) findViewById(R.id.spinner2);
+		spinner3 = (Spinner) findViewById(R.id.spinner3);
+
+		try {
+			Result result = BaseUtils.get("http://192.168.0.104:8080/test.js", null, null, HTTP.UTF_8);
+			String json = result.httpEntityContent();
+			JSONObject jo = new JSONObject(json);
+
+			JSONArray ja = jo.names();
+
+			// 加载所有地址
+			list = new ArrayList<District>(ja.length());
+
+			for (int i = 0; i < ja.length(); i++) {
+
+				String id = String.valueOf(ja.get(i));
+				JSONArray content = jo.getJSONArray(id);
+				String name = content.getString(1);
+				String parentId = content.getString(0);
+
+				District d = new District(id, name, parentId);
+				list.add(d);
+			}
+
+			// 排序(由小到大)
+			Collections.sort(list, new Comparator<District>() {
+
+				@Override
+				public int compare(District d1, District d2) {
+					int id1 = Integer.valueOf(d1.getId());
+					int id2 = Integer.valueOf(d2.getId());
+
+					return (id1 < id2 ? -1 : (id1 == id2 ? 0 : 1));
+
+				}
+			});
+
+			// 查找省级
+			List<District> list1 = new ArrayList<District>();
+			for (District d : list) {
+				System.out.println(d.getId());
+				if (d.getParentId().equals("1"))
+					list1.add(d);
+			}
+			DistrictArrayAdapter adapter1 = new DistrictArrayAdapter(this, list1);
+			spinner1.setAdapter(adapter1);// 设置省级
+			spinner1.setSelected(false);
+			spinner1.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+					// 查找市级
+					List<District> list2 = new ArrayList<District>();
+					for (District d : list) {
+						if (d.getParentId().equals(view.getTag()))
+							list2.add(d);
+					}
+					DistrictArrayAdapter adapter1 = new DistrictArrayAdapter(MoreActivity.this, list2);
+					spinner2.setAdapter(adapter1);// 设置市级
+					spinner2.setSelected(false);
+					spinner2.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+						@Override
+						public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+							// 查找区县级
+							List<District> list3 = new ArrayList<District>();
+							for (District d : list) {
+								if (d.getParentId().equals(view.getTag()))
+									list3.add(d);
+							}
+							DistrictArrayAdapter adapter3 = new DistrictArrayAdapter(MoreActivity.this, list3);
+							spinner3.setAdapter(adapter3);// 设置区县级
+							spinner3.setSelected(false);
+							spinner3.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+								@Override
+								public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+									District select1 = (District) spinner1.getSelectedItem();
+									District select2 = (District) spinner2.getSelectedItem();
+									District select3 = (District) spinner3.getSelectedItem();
+
+									System.out.println("当前选择的地址为|" + select1.getName() + "|" + select2.getName() + "|" + select3.getName());
+								}
+
+								@Override
+								public void onNothingSelected(AdapterView<?> arg0) {
+								}
+
+							});
+						}
+
+						@Override
+						public void onNothingSelected(AdapterView<?> arg0) {
+						}
+
+					});
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> arg0) {
+				}
+
+			});
+
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
 	}
 
 }

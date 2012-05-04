@@ -23,13 +23,26 @@
 	<Button android:id="@+id/recognizer_button"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:text="语音合成-后台模式" android:onClick="tts2" />
+
+	<Button android:id="@+id/view_switch" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="view_switch"
+		android:onClick="viewSwitch" />
+
+	<Button android:id="@+id/view_switch" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="view_flipper"
+		android:onClick="viewFlipper" />
 		
-     <Button android:id="@+id/view_switch"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="view_switch" android:onClick="viewSwitch" />
-		
-	 <Button android:id="@+id/view_switch"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:text="view_flipper" android:onClick="viewFlipper" />
+	<!-- 地址选择器 -->
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:orientation="horizontal">
+
+		<Spinner android:id="@+id/spinner1" android:layout_width="100dip"
+			android:layout_height="40dip" android:layout_margin="3dip"></Spinner>
+		<Spinner android:id="@+id/spinner2" android:layout_width="100dip"
+			android:layout_height="40dip" android:layout_margin="3dip"></Spinner>
+		<Spinner android:id="@+id/spinner3" android:layout_width="100dip"
+			android:layout_height="40dip" android:layout_margin="3dip"></Spinner>
+
+	</LinearLayout>
 
 </LinearLayout>
