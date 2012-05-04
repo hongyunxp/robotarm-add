@@ -3,6 +3,8 @@ package robot.arm.common;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.waps.AppConnect;
+
 import robot.arm.ActorCoverActivity;
 import robot.arm.ArtCoverActivity;
 import robot.arm.DesignCoverActivity;
@@ -36,6 +38,8 @@ public class TabActivity extends TabInvHandler {
 		switch (item.getItemId()) {
 
 		case R.id.main_menu_exit:
+			//广告
+			AppConnect.getInstance(this).finalize();
 			AppExit.getInstance().exit(this);// 退出程序
 			break;
 

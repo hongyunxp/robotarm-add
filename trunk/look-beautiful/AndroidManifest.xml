@@ -31,10 +31,23 @@
 		<activity android:name=".ArtContentActivity" />
 		<!-- 展示大图 -->
 		<activity android:name=".TouchImageViewActivity" />
-
+		<!-- 广告 -->
+		<activity android:name="com.waps.OffersWebView" android:configChanges="keyboardHidden|orientation"/> 
+		<!--以下属性为应用ID,从万普后台获取--> 
+		<meta-data android:name="WAPS_ID" android:value="54af7cfa21d64b67567eaaf75be2c46c" /> 
+		<!--以下属性为分发渠道ID,编码表参见本文档末附表,发布到不同平台需要填写相应编码重新打包--> 
+		<meta-data android:name="WAPS_PID" android:value="WAPS" />
 	</application>
 
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<!-- 广告 -->
+	
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.GET_TASKS" />
+	<!--以下两个权限为可选项，用于支持特殊广告形式--> 
+	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> 
+	<uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
 </manifest>

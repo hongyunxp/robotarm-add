@@ -7,8 +7,10 @@ import robot.arm.common.BaseActivity;
 import robot.arm.common.CoverSyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.mokoclient.core.MokoClient;
+import com.waps.AdView;
 
 /**
  * @author li.li
@@ -22,6 +24,10 @@ public class ActorCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.actor_content);
+		
+		//广告
+		LinearLayout container =(LinearLayout)findViewById(R.id.AdLinearLayout); 
+		new AdView(this,container).DisplayAd();
 		
 		initView();
 		initListener();
