@@ -18,7 +18,7 @@ import android.widget.TextView;
  */
 public class WelcomeActivity extends Activity {
 	private static final String TAG = WelcomeActivity.class.getName();
-	private static final int DURATION = 3000;
+	private static final int DURATION = 2000;
 
 	private TextView textView;
 	private NetType net;
@@ -52,21 +52,19 @@ public class WelcomeActivity extends Activity {
 			public void onAnimationEnd(Animation aim) {
 				// 版本升级
 				if (net.available) {
+					textView.setText("版本检测...");
 					boolean hasUpdate = AppUpdateProvider.getInstance().start(WelcomeActivity.this);
-
-					try {
-						Thread.sleep(5000);
-					} catch (InterruptedException e) {
-						Log.e(TAG, e.getMessage(), e);
-					}
 
 					if (hasUpdate)
 						return;// 有新版本不继续执行
 				}
 				
 				// 登陆
-				if (net.available)
+				if (net.available){
+					textView.setText("初始化...");
 					Util.login();
+				}
+					
 
 				setResult(RESULT_OK);
 				finish();
