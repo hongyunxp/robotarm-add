@@ -84,6 +84,7 @@ public class NetUtils {
 		AlertDialog.Builder tDialog = new AlertDialog.Builder(context);
 		tDialog.setTitle(R.string.confirm_title);
 		tDialog.setMessage(message);
+		tDialog.setPositiveButton(R.string.Ensure, null);
 		tDialog.show();
 
 		return tDialog;

@@ -375,6 +375,19 @@ public class BaseUtils {
 		return appVersion;
 	}
 
+	public static String getAppVersionName() {
+		String appVersionName = null;
+		PackageManager manager = RobotArmApp.getApp().getPackageManager();
+		try {
+			PackageInfo info = manager.getPackageInfo(RobotArmApp.getApp().getPackageName(), 0);
+			appVersionName = info.versionName; // 版本号
+		} catch (Throwable e) {
+			Log.e(TAG, e.toString());
+		}
+
+		return appVersionName;
+	}
+
 	public static String getPackageName() {
 		return RobotArmApp.getApp().getPackageName();
 	}
