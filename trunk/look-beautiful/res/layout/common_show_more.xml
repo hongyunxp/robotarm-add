@@ -9,6 +9,6 @@
 
 	<ProgressBar android:id="@+id/load_more_progressbar"
 		android:layout_width="wrap_content" android:layout_height="20dip"
-		android:layout_centerInParent="true" android:layout_toRightOf="@id/button_images_more" />
+		android:layout_toRightOf="@id/button_images_more" />
 
 </RelativeLayout>
