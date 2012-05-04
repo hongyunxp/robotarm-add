@@ -21,6 +21,9 @@ import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 
 import robot.arm.R;
@@ -48,6 +51,7 @@ import android.widget.ListView;
  * 
  */
 public class BaseUtils {
+	private static final int TIMEOUT = 5000;
 	private static final String TAG = BaseUtils.class.getName();
 	public static final String ENCODING = "utf-8";
 	private static volatile DisplayMetrics display;
@@ -199,7 +203,11 @@ public class BaseUtils {
 	// 这是模拟post请求
 	public static Result post(String url, Map<String, String> headers, Map<String, String> params, String encoding) throws ClientProtocolException, IOException {
 
-		DefaultHttpClient client = new DefaultHttpClient();
+		HttpParams httpParams = new BasicHttpParams();
+		HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
+		HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
+
+		DefaultHttpClient client = new DefaultHttpClient(httpParams);
 
 		List<NameValuePair> list = new ArrayList<NameValuePair>();
 		for (String temp : params.keySet()) {
@@ -219,7 +227,11 @@ public class BaseUtils {
 	// 这是模拟get请求
 	public static Result get(String url, Map<String, String> headers, Map<String, String> params, String encoding) throws ClientProtocolException, IOException {
 
-		DefaultHttpClient client = new DefaultHttpClient();
+		HttpParams httpParams = new BasicHttpParams();
+		HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
+		HttpConnectionParams.setSoTimeout(httpParams, TIMEOUT);
+
+		DefaultHttpClient client = new DefaultHttpClient(httpParams);
 
 		url = url + (null == params ? "" : assemblyParameter(params));
 
