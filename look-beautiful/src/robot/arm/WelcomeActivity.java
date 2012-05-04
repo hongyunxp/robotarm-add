@@ -1,5 +1,7 @@
 package robot.arm;
 
+import com.waps.AppConnect;
+
 import robot.arm.common.Util;
 import robot.arm.provider.AppUpdateProvider;
 import robot.arm.utils.NetType;
@@ -33,6 +35,9 @@ public class WelcomeActivity extends Activity {
 	private void init() {
 		textView = (TextView) findViewById(R.id.welcome_text);
 
+		//广告
+		AppConnect.getInstance(this);
+		
 		// 定义动画
 		AlphaAnimation animation = createAnimation();
 

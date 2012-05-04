@@ -7,6 +7,7 @@
 	<classpathentry kind="lib" path="lib/jsoup-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/mokoClient.jar"/>
 	<classpathentry kind="lib" path="lib/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="lib/AppOffer_1.6.4.jar"/>
 	<classpathentry kind="src" path="robotarm-add_src"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
