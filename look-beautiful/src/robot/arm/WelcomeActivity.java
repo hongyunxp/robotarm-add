@@ -1,6 +1,7 @@
 package robot.arm;
 
 import robot.arm.common.Util;
+import robot.arm.provider.AppUpdateProvider;
 import robot.arm.utils.NetType;
 import robot.arm.utils.NetUtils;
 import android.app.Activity;
@@ -16,7 +17,9 @@ import android.widget.TextView;
  */
 public class WelcomeActivity extends Activity {
 	private static final int DURATION = 3000;
+
 	private TextView textView;
+	private NetType net;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,9 +33,29 @@ public class WelcomeActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
+		net = NetUtils.checkNet();
+		textView.setText(net.desc);
+		
+		//版本升级
+		if (net.available) {
+			boolean hasUpdate = AppUpdateProvider.getInstance().start(this);
 
-		// 定义splash 动画
-		final AlphaAnimation animation = new AlphaAnimation(0.1f, 1.0f);
+			if (hasUpdate)
+				return;//有新版本不继续执行
+		}
+
+		//登陆
+		if (net.available)
+			Util.login();
+		
+		//网络提示
+		if (net == NetType.GPRS_WEB || net == NetType.GPRS_WAP)
+			NetUtils.dialog(WelcomeActivity.this, getString(R.string.common_logo_alert));
+
+		
+		//动画
+		AlphaAnimation animation = new AlphaAnimation(0.1f, 1.0f);
 		animation.setDuration(DURATION); // 动画显示时间
 		animation.setAnimationListener(new AnimationListener() {
 
@@ -49,20 +72,9 @@ public class WelcomeActivity extends Activity {
 
 			@Override
 			public void onAnimationStart(Animation aim) {
-				NetType net = NetUtils.checkNet();
-				textView.setText(net.desc);
-
-				if(net.available)
-					Util.login();
-				
-				if (net == NetType.GPRS_WEB || net == NetType.GPRS_WAP) {
-					
-					NetUtils.dialog(WelcomeActivity.this, getString(R.string.common_logo_alert));
-				}
 			}
 		});
-
-		findViewById(R.id.welcome).startAnimation(animation);
+		textView.startAnimation(animation);
 
 	}
 }
