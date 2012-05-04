@@ -80,6 +80,15 @@ public class AppUpdateProvider {
 	public void updateNewVersion(final Context context, final String downloadURL) {
 		StringBuffer sb = new StringBuffer();
 		sb.append("发现新版本, 请更新.");
+		sb.append("\n");
+		sb.append("当前版本号："+BaseUtils.getAppVersionName());
+		sb.append("\n");
+		sb.append("新版本号："+versionInfo.versionName);
+		sb.append("\n");
+		sb.append("版本描述：");
+		sb.append("\n");
+		sb.append(versionInfo.desc);
+		
 		dialog(context, "软件更新", sb.toString(), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -90,6 +99,10 @@ public class AppUpdateProvider {
 				downFile(context, downloadURL);
 			}
 		});
+	}
+	
+	public VersionInfo getVersionInfo(){
+		return versionInfo;
 	}
 
 	/**
