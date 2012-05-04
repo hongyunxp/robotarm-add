@@ -55,7 +55,6 @@ public class AppUpdateProvider {
 
 	public boolean start(final Context context) {
 		try {
-			System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"+UPPDATE_URL);
 			Result result = BaseUtils.get(UPPDATE_URL, null, null, HTTP.UTF_8);
 			String content = result.httpEntityContent();
 			JSONObject jo = new JSONObject(content);
