@@ -16,7 +16,7 @@ import android.widget.TextView;
  * 欢迎页面
  */
 public class WelcomeActivity extends Activity {
-	private static final int DURATION = 2000;
+	private static final int DURATION = 3000;
 
 	private TextView textView;
 	private NetType net;
@@ -60,7 +60,12 @@ public class WelcomeActivity extends Activity {
 				// 登陆
 				if (net.available) {
 					textView.setText("初始化...");
-					Util.login();
+
+					new Thread() {
+						public void run() {
+							Util.login();
+						}
+					}.start();
 				}
 
 				setResult(RESULT_OK);
@@ -82,7 +87,7 @@ public class WelcomeActivity extends Activity {
 				// 不是WIFI提示
 				if (net == NetType.GPRS_WEB || net == NetType.GPRS_WAP)
 					NetUtils.dialog(WelcomeActivity.this, getString(R.string.common_logo_alert));
-
+				
 			}
 		});
 
