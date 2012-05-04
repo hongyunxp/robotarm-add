@@ -43,11 +43,7 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<!-- 广告 -->
-	
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	<uses-permission android:name="android.permission.GET_TASKS" />
-	<!--以下两个权限为可选项，用于支持特殊广告形式--> 
-	<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> 
-	<uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
 </manifest>
