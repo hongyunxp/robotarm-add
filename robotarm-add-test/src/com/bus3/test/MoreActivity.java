@@ -54,7 +54,7 @@ public class MoreActivity extends BaseActivity {
 
 		tabInvHandler().setTitle(R.layout.more_title);
 
-		initDistinct();// 初始化地址选择器
+		// initDistinct();// 初始化地址选择器
 
 	}
 
