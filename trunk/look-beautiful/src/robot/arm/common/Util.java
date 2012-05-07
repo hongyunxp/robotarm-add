@@ -6,7 +6,10 @@ import com.mokoclient.core.MokoClient;
 import com.mokoclient.core.bean.PostBean;
 
 public class Util {
-	public static final int pageSize = 10;
+	public static final int COVER_COUNT = 6 * 8 * 10;
+	public static final int PAGE_SIZE = 10;
+	public static final int PAGE_COUNT = COVER_COUNT / PAGE_SIZE;
+	
 	private static final int pageSizeDetail = 1;
 
 	public static List<PostBean> getPostList(MokoClient vocationEnum, int curPage) {
@@ -15,7 +18,7 @@ public class Util {
 			List<PostBean> result = null;
 
 			if (result == null) {
-				result = vocationEnum.getPostList(curPage, pageSize);
+				result = vocationEnum.getPostList(curPage, PAGE_SIZE);
 
 			}
 
@@ -44,8 +47,8 @@ public class Util {
 		}
 		return null;
 	}
-	
-	public static void login(){
+
+	public static void login() {
 		// TODO 检查网络先
 		try {
 			new MokoClient.Login();
