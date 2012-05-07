@@ -40,6 +40,8 @@ public class AlbumCover {
 
 		iv1.setTag(R.string.detailUrl, images[0].getDetailUrl());
 		iv2.setTag(R.string.detailUrl, images[1].getDetailUrl());
+		iv1.setTag(R.string.postTitle, images[0].getTitle());
+		iv2.setTag(R.string.postTitle, images[1].getTitle());
 
 		LoadImageUtils.loadImageSync(act, images[0].getCoverUrl(), iv1);
 		LoadImageUtils.loadImageSync(act, images[1].getCoverUrl(), iv2);

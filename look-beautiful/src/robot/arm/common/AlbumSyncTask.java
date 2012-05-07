@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mokoclient.core.MokoClient;
+import com.mokoclient.core.bean.PostDetailBean;
 
 /**
  * @author li.li
@@ -40,6 +41,8 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	private AlbumAdapter adapter;
 
 	private String detailUrl;
+	private String title;
+	private int pageCount = 0;
 
 	/**
 	 * @param activity
@@ -53,6 +56,7 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 
 		Bundle bundle = act.getIntent().getExtras();
 		detailUrl = bundle.getString(act.getString(R.string.detailUrl));// 读出数据
+		title = bundle.getString(act.getString(R.string.postTitle));
 	}
 
 	@Override
@@ -97,8 +101,11 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 
 			@Override
 			public void run() {
-				TextView tv = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
-				tv.setText(curPage + "/" + "x");
+				TextView tvPage = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
+				tvPage.setText(curPage + "/" + pageCount);
+
+				TextView tvText = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_text);
+				tvText.setText(title);
 			}
 		});
 	}
@@ -136,14 +143,12 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		} else {
 			if (list != null) {
 				list.clear();
-				/**
-				 * TODO 需要专辑页数
-				 */
-				List<String> result = Util.getPostDetail(client, detailUrl, curPage);
-				if (result == null)
+				PostDetailBean result = Util.getPostDetail(client, detailUrl, curPage);
+				if (result == null || result.getPostDetailList().size() == 0)
 					listView.removeFooterView(more);
 				else {
-					list.addAll(result);
+					pageCount = result.getPageCount();
+					list.addAll(result.getPostDetailList());
 				}
 			}
 		}
