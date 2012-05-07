@@ -98,7 +98,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 			@Override
 			public void run() {
 				TextView tv = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
-				tv.setText("第" + curPage + "页");
+				tv.setText(curPage + "/" + Util.PAGE_COUNT);
 			}
 		});
 	}
