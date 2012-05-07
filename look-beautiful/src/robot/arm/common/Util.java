@@ -6,7 +6,7 @@ import com.mokoclient.core.MokoClient;
 import com.mokoclient.core.bean.PostBean;
 
 public class Util {
-	private static final int pageSize = 10;
+	public static final int pageSize = 10;
 	private static final int pageSizeDetail = 8;
 
 	public static List<PostBean> getPostList(MokoClient vocationEnum, int curPage) {

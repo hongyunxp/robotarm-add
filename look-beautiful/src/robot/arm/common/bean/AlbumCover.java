@@ -92,6 +92,10 @@ public class AlbumCover {
 
 		return list;
 	}
+	
+	public Activity getAct(){
+		return act;
+	}
 
 	@Override
 	public String toString() {
