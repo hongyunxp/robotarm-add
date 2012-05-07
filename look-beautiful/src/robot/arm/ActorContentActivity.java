@@ -8,10 +8,8 @@ import robot.arm.common.BaseActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.mokoclient.core.MokoClient;
-import com.waps.AdView;
 
 /**
  * @author li.li
@@ -26,11 +24,7 @@ public class ActorContentActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.actor_content);
-		
-		//广告
-		LinearLayout container =(LinearLayout)findViewById(R.id.AdLinearLayout); 
-		new AdView(this,container).DisplayAd();
-		
+
 		initView();
 		initListener();
 
@@ -44,7 +38,7 @@ public class ActorContentActivity extends BaseActivity {
 
 		title(R.layout.actor_title);
 		background(R.drawable.actor);
-		
+
 		if (!isInit) {
 			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
