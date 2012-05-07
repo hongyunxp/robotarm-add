@@ -2,7 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:background="@drawable/actor" style="@style/title_frame">
 
-	<TextView android:text="@string/tab_actor" style="@style/title_text" android:layout_alignParentLeft="true"/>
+	<TextView 
+		android:id="@+id/title_text" 
+		android:text="@string/tab_actor" 
+		style="@style/title_text" 
+		android:layout_alignParentLeft="true"
+		android:layout_toLeftOf="@id/title_page"
+		android:layout_marginRight="10dp"
+		android:singleLine="true"
+		android:ellipsize = "middle"
+	/>
 	
 	<TextView android:id="@id/title_page" style="@style/title_text" android:layout_alignParentRight="true"/>
 

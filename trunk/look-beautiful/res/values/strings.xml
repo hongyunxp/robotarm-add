@@ -20,6 +20,7 @@
     
     <!-- args -->
     <string name = "detailUrl">detailUrl</string>
+    <string name = "postTitle">postTitle</string>
     
     <!-- 升级 -->
 	<string name="upload_url">http://joyce.sinaapp.com/app/version.json</string>
