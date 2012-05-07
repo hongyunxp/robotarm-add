@@ -17,6 +17,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mokoclient.core.MokoClient;
 
@@ -86,7 +87,20 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 			listView.setAdapter(adapter);
 
 		more.setVisibility(View.GONE);// 加载完成后不显示加载
+		
+		pagePrompt();
 
+	}
+	
+	private void pagePrompt() {
+		handler.post(new Runnable() {
+
+			@Override
+			public void run() {
+				TextView tv = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
+				tv.setText("第" + curPage + "页");
+			}
+		});
 	}
 
 	private void loadList(final MokoClient mClient, final int curPage, final List<String> list) {
@@ -126,7 +140,6 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 				if(result == null)
 					listView.removeFooterView(more);
 				else{
-					System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+result.size()+"|"+result);
 					list.addAll(result);
 				}
 			}
