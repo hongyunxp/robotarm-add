@@ -6,6 +6,7 @@ package robot.arm.common;
 import java.util.ArrayList;
 import java.util.List;
 
+import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
@@ -15,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mokoclient.core.MokoClient;
 import com.mokoclient.core.bean.PostBean;
@@ -54,6 +56,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	public void doCall() {
 
 		loadList(client, ++curPage, postBeanList, false);
+
 	}
 
 	@Override
@@ -77,13 +80,27 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	private void updateView() {
 		if (postBeanList.isEmpty())
 			return;
-		
+
 		adapter.addList(act, postBeanList);
 
 		if (listView.getAdapter() == null)
 			listView.setAdapter(adapter);
 
 		more.setVisibility(View.GONE);// 加载完成后不显示加载
+
+		pagePrompt();
+
+	}
+
+	private void pagePrompt() {
+		handler.post(new Runnable() {
+
+			@Override
+			public void run() {
+				TextView tv = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
+				tv.setText("第" + curPage + "页");
+			}
+		});
 	}
 
 	/**
@@ -133,11 +150,11 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		} else {
 			if (list != null) {
-				list.clear();//清空
+				list.clear();// 清空
 				List<PostBean> result = Util.getPostList(mClient, curPage);
-				if(result == null)
+				if (result == null)
 					listView.removeFooterView(more);
-				else{
+				else {
 					list.addAll(result);
 					if (upView)
 						updateView();// 更新视图

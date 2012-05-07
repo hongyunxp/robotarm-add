@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:background="@drawable/actor" style="@style/title_frame">
 
-	<TextView android:id="@id/title" android:text="@string/tab_actor" style="@style/title_text" />
+	<TextView android:text="@string/tab_actor" style="@style/title_text" android:layout_alignParentLeft="true"/>
+	
+	<TextView android:id="@id/title_page" style="@style/title_text" android:layout_alignParentRight="true"/>
 
 </RelativeLayout>

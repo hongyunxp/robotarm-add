@@ -15,7 +15,9 @@
     <item type="id" name="images_content"></item>
     <item type="id" name="images"></item>
     <item type="id" name="button_images_more"></item>
-    <item type="id" name="title"></item>
+    
+    <item type="id" name="title_page"></item>
+
     
     <!-- 广告 -->
     <item type="id" name="ad_layout"></item>
