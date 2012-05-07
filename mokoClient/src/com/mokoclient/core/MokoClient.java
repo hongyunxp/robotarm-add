@@ -13,6 +13,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.mokoclient.core.bean.PostBean;
+import com.mokoclient.core.bean.PostDetailBean;
 import com.mokoclient.util.HttpClientUtil;
 import com.mokoclient.util.Util;
 
@@ -75,11 +76,11 @@ public enum MokoClient {
 	
 	private static Map<Integer, List<PostBean>> postListMap = new HashMap<Integer, List<PostBean>>(9);//这个map会一直增大,会出问题吗?~~~
 	private static Map<String, List<String>> postDetailMap = new HashMap<String, List<String>>();//这个map会一直增大,会出问题吗?~~~
+	private static Map<String, Integer> postDetailCountMap = new HashMap<String, Integer>();//这个map会一直增大,会出问题吗?~~~
 	
 	public abstract List<PostBean> getPostList(int curPage, int pageSize) throws Throwable;
 	
-	public List<String> getPostDetail(String postDetailUrl, int curPage, int pageSize) throws Throwable{
-		System.out.println(curPage + "/" + pageSize);
+	public PostDetailBean getPostDetail(String postDetailUrl, int curPage, int pageSize) throws Throwable{
 		List<String> postPicList = postDetailMap.get(postDetailUrl);
 		if(postPicList == null){
 			postPicList = new ArrayList<String>();
@@ -89,14 +90,15 @@ public enum MokoClient {
 			for(Element postPic : elements)
 				postPicList.add(postPic.attr("src2"));
 			postDetailMap.put(postDetailUrl, postPicList);
+			postDetailCountMap.put(postDetailUrl, postPicList.size() % pageSize > 0 ? postPicList.size() / pageSize + 1 : postPicList.size() / pageSize);
 		}
 		if(postPicList.size() == 0)
-			return postPicList;
-		if(postPicList.size() >= curPage * pageSize)
-			return postPicList.subList((curPage - 1) * pageSize, curPage * pageSize);
-		if(curPage > postPicList.size() / pageSize + 1)
 			return null;
-		return postPicList.subList(postPicList.size() - (postPicList.size() % pageSize), postPicList.size());
+		if(postPicList.size() >= curPage * pageSize)
+			return new PostDetailBean(postDetailCountMap.get(postDetailUrl), postPicList.subList((curPage - 1) * pageSize, curPage * pageSize));
+		if(postPicList.size() % pageSize > 0 && curPage > postPicList.size() / pageSize + 1)
+			return null;
+		return new PostDetailBean(postDetailCountMap.get(postDetailUrl), postPicList.subList(postPicList.size() - (postPicList.size() % pageSize), postPicList.size()));
 	}
 
 	private List<PostBean> getPostList(int vocationId, int curPage, int pageSize) throws Throwable{
@@ -109,7 +111,6 @@ public enum MokoClient {
 			return postList.subList((curPage - 1) * pageSize, curPage * pageSize);
 
 		int postCurPage = vocationPageCounter.get(vocationId);
-		System.out.println("post" + postCurPage);
 		String html = getVocationHtml(vocationId, postCurPage);
 		vocationPageCounter.put(vocationId, ++ postCurPage) ;
 		Document doc = Jsoup.parse(html);
@@ -126,7 +127,7 @@ public enum MokoClient {
 
 		if(postList.size() >= curPage * pageSize)
 			return postList.subList((curPage - 1) * pageSize, curPage * pageSize);
-		if(curPage > postList.size() / pageSize + 1)
+		if(postList.size() % pageSize > 0 && curPage > postList.size() / pageSize + 1)
 			return null;
 		return postList.subList(postList.size() - (postList.size() % pageSize), postList.size());
 	}
