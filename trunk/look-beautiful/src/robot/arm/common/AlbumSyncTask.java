@@ -87,18 +87,18 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 			listView.setAdapter(adapter);
 
 		more.setVisibility(View.GONE);// 加载完成后不显示加载
-		
+
 		pagePrompt();
 
 	}
-	
+
 	private void pagePrompt() {
 		handler.post(new Runnable() {
 
 			@Override
 			public void run() {
 				TextView tv = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
-				tv.setText("第" + curPage + "页");
+				tv.setText(curPage + "/" + "x");
 			}
 		});
 	}
@@ -136,10 +136,10 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		} else {
 			if (list != null) {
 				list.clear();
-				List<String> result=Util.getPostDetail(client, detailUrl, curPage);
-				if(result == null)
+				List<String> result = Util.getPostDetail(client, detailUrl, curPage);
+				if (result == null)
 					listView.removeFooterView(more);
-				else{
+				else {
 					list.addAll(result);
 				}
 			}
