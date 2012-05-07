@@ -15,9 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
+
+import com.waps.AdView;
 
 /**
  * @author li.li
@@ -58,30 +61,14 @@ public abstract class BaseActivity extends Activity {
 			moreButton.setBackgroundResource(resId);// 按钮背景
 	}
 
-	public void title(int resId) {
-		tabInvHandler.setTitle(resId);
-	}
-
-	public ListView getImageListView() {
-		return listView;
-	}
-
-	public View getMore() {
-		return more;
-	}
-
-	public TextView getMoreButton() {
-		return moreButton;
-	}
-
-	public TabInvHandler getTabInvHandler() {
-		return tabInvHandler;
-	}
-
 	protected void initView() {
+		//加入广告
+		ad();
+		
 		listView = (ListView) findViewById(R.id.images);
 		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (TextView) more.findViewById(R.id.button_images_more);
+
 	}
 
 	protected void initListener() {
@@ -130,7 +117,7 @@ public abstract class BaseActivity extends Activity {
 
 			if (more.getVisibility() == View.VISIBLE)
 				return;
-			
+
 			more.setVisibility(View.VISIBLE);
 			handler.postDelayed(new Runnable() {
 
@@ -149,12 +136,38 @@ public abstract class BaseActivity extends Activity {
 		}
 	}
 
+	// 广告
+	private void ad() {
+		LinearLayout container = (LinearLayout) findViewById(R.id.AdLinearLayout);
+		new AdView(this, container).DisplayAd();
+	}
+
 	public boolean isInit() {
 		return isInit;
 	}
 
 	public void setInit(boolean isInit) {
 		this.isInit = isInit;
+	}
+
+	public void title(int resId) {
+		tabInvHandler.setTitle(resId);
+	}
+
+	public ListView getImageListView() {
+		return listView;
+	}
+
+	public View getMore() {
+		return more;
+	}
+
+	public TextView getMoreButton() {
+		return moreButton;
+	}
+
+	public TabInvHandler getTabInvHandler() {
+		return tabInvHandler;
 	}
 
 }
