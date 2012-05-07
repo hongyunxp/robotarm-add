@@ -4,16 +4,17 @@
 	android:layout_width="match_parent" android:layout_height="match_parent"
 	android:background="@drawable/white" android:shrinkColumns="*"
 	android:stretchColumns="*">
-	<!-- 广告 start-->
-	<LinearLayout 
-	android:id="@+id/AdLinearLayout" 
-	android:layout_width="fill_parent" 
-	android:layout_height="wrap_content" 
-	android:gravity="center_horizontal"/>
-	<!-- 广告 end-->
+	
+	<!-- 广告 start -->
+	<LinearLayout android:id="@id/ad_layout"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:gravity="center_horizontal" />
+	<!-- 广告 end -->
+	
 	<ListView android:id="@id/images" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:divider="@drawable/white"
-		android:fadingEdge="none" android:drawSelectorOnTop="false" android:scrollingCache="false">
+		android:fadingEdge="none" android:drawSelectorOnTop="false"
+		android:scrollingCache="false">
 	</ListView>
 
 </TableLayout>
