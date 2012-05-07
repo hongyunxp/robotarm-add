@@ -125,12 +125,6 @@ public abstract class BaseActivity extends Activity {
 				public void run() {
 					// 执行
 					task.execute();
-
-					// HeaderViewListAdapter hAdapter = (HeaderViewListAdapter)
-					// listView.getAdapter();
-					// BaseAdapter adapter = (BaseAdapter)
-					// hAdapter.getWrappedAdapter();
-					// adapter.notifyDataSetChanged();
 				}
 			}, MORE_LOADING_DELAY);
 		}
