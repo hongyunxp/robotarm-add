@@ -136,6 +136,9 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		} else {
 			if (list != null) {
 				list.clear();
+				/**
+				 * TODO 需要专辑页数
+				 */
 				List<String> result = Util.getPostDetail(client, detailUrl, curPage);
 				if (result == null)
 					listView.removeFooterView(more);
