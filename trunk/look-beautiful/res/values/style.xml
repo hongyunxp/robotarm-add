@@ -6,8 +6,9 @@
 		<item name="android:text">@string/tab_photography</item>
 		<item name="android:textSize">@dimen/tab_photography_text</item>
 		<item name="android:background">@drawable/photography_tab_indicator</item>
-		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
-		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
+		<item name="android:singleLine">false</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding</item>
 	</style>
 	
 	<style name="music" parent="@style/main_tab_bottom">
@@ -15,6 +16,7 @@
 		<item name="android:text">@string/tab_music</item>
 		<item name="android:textSize">@dimen/tab_music_text</item>
 		<item name="android:background">@drawable/music_tab_indicator</item>
+		<item name="android:singleLine">false</item>
 		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
 		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
 	</style>
@@ -24,8 +26,9 @@
 		<item name="android:text">@string/tab_ads</item>
 		<item name="android:textSize">@dimen/tab_ads_text</item>
 		<item name="android:background">@drawable/ads_tab_indicator</item>
-		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
-		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
+		<item name="android:singleLine">false</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding</item>
 	</style>
 	
 	<style name="more" parent="@style/main_tab_bottom">
@@ -33,6 +36,7 @@
 		<item name="android:text">@string/tab_more</item>
 		<item name="android:textSize">@dimen/tab_more_text</item>
 		<item name="android:background">@drawable/more_tab_indicator</item>
+		<item name="android:singleLine">false</item>
 		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
 		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
 	</style>
@@ -42,6 +46,7 @@
 		<item name="android:text">@string/tab_model</item>
 		<item name="android:textSize">@dimen/tab_model_text</item>
 		<item name="android:background">@drawable/model_tab_indicator</item>
+		<item name="android:singleLine">false</item>
 		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
 		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
 	</style>
@@ -81,6 +86,9 @@
 		<item name="android:text">@string/tab_art</item>
 		<item name="android:textSize">@dimen/tab_art_text</item>
 		<item name="android:background">@drawable/art_tab_indicator</item>
+		<item name="android:singleLine">false</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding</item>
 	</style>
 
 
