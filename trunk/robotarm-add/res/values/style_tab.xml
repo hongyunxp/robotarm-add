@@ -19,6 +19,16 @@
         <item name="android:layout_below">@+id/tab_title</item>
     </style>
 
+    <style name="tab_scroll">
+        <item name="android:id">@id/tab_scroll</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:background">@drawable/main_navigation_background</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+
     <style name="tab_indictor">
         <item name="android:id">@id/tab_indictor</item>
         <item name="android:layout_width">fill_parent</item>

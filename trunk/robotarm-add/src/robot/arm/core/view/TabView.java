@@ -20,7 +20,8 @@ public class TabView extends RelativeLayout {
 
 	private FrameLayout title;// 标题
 	private FrameLayout content;// 内容
-	private TabGroup tabGroup;// 工具栏
+	private TabScroll tabScroll;// 工具栏
+
 	private SoftInputListener softInputListener;// 软键盘监听器
 	private int maxHeight;
 
@@ -30,9 +31,11 @@ public class TabView extends RelativeLayout {
 		// 初始化布局
 		View title = LayoutInflater.from(context).inflate(R.layout.tab_title, this, false);
 		View content = LayoutInflater.from(context).inflate(R.layout.tab_content, this, false);
+		View tabScroll = LayoutInflater.from(context).inflate(R.layout.tab_scroll, this, false);
 
 		addChildView(title);
 		addChildView(content);
+		addChildView(tabScroll);
 
 		Log.e("MyTabView", "" + title.getHeight() + "|" + content.getHeight() + "|" + title.getHeight() + content.getHeight());
 	}
@@ -45,10 +48,10 @@ public class TabView extends RelativeLayout {
 		return content;
 	}
 
-	public TabGroup getTabGroup() {
-		return tabGroup;
+	public TabScroll getTabScroll() {
+		return tabScroll;
 	}
-
+	
 	@Override
 	protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -78,8 +81,8 @@ public class TabView extends RelativeLayout {
 			title = (FrameLayout) child;
 		if (getResources().getString(R.string.tab_content_tag).equals(child.getTag()))
 			content = (FrameLayout) child;
-		if (getResources().getString(R.string.tab_group_tag).equals(child.getTag()))
-			tabGroup = (TabGroup) child;
+		if (getResources().getString(R.string.tab_scroll_tag).equals(child.getTag()))
+			tabScroll = (TabScroll) child;
 	}
 
 	public void setSoftInputListener(SoftInputListener softInputListener) {

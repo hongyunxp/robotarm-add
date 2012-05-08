@@ -83,7 +83,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 				Record record = getNextAvailableRecord();
 
 				checkLock = true;// 锁
-				tabView.getTabGroup().check(record.getId());
+				tabView.getTabScroll().getTabGroup().check(record.getId());
 				tabVisible(true);
 				newActivity(record.getId(), record.getIntent(), record.getActClazz());
 				checkLock = false;// 恢复
@@ -152,9 +152,9 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		Assert.assertNotNull(visible);
 		System.out.println("@@@@@@@@@@@@@@@@@@tabVisible" + "|" + visible);
 		if (visible) {
-			tabView.getTabGroup().setVisibility(View.VISIBLE);
+			tabView.getTabScroll().setVisibility(View.VISIBLE);
 		} else {
-			tabView.getTabGroup().setVisibility(View.GONE);
+			tabView.getTabScroll().setVisibility(View.GONE);
 		}
 
 	}
@@ -168,21 +168,21 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public boolean tabVisible() {
 
-		return tabView.getTabGroup().getVisibility() == View.VISIBLE ? true : false;
+		return tabView.getTabScroll().getVisibility() == View.VISIBLE ? true : false;
 	}
 
 	/**
 	 * 清除工具栏选择
 	 */
 	public void tabClear() {
-		tabView.getTabGroup().clearCheck();
+		tabView.getTabScroll().getTabGroup().clearCheck();
 	}
 
 	/**
 	 * 切换到指定的项
 	 */
 	public void selectTab(int tabId) {
-		tabView.getTabGroup().check(tabId);
+		tabView.getTabScroll().getTabGroup().check(tabId);
 	}
 
 	/**
@@ -258,13 +258,13 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 		TabGroup tabGroup = (TabGroup) LayoutInflater.from(this).inflate(tabs, tabView, false);
 		initTabGroup(tabGroup);// 初始化tabs
-
-		tabView.addChildView(tabGroup);// 创建tool,并将tools工具栏加入容器中
+		
+		tabView.getTabScroll().addChildView(tabGroup);// 创建tool,并将tools工具栏加入容器中
 		tabView.setSoftInputListener(this);// 键盘监听器
 
 		// bind tabView child event
-		for (int i = 0; i < tabView.getTabGroup().getChildCount(); i++) {
-			((RadioButton) tabView.getTabGroup().getChildAt(i)).setOnCheckedChangeListener(this);
+		for (int i = 0; i < tabView.getTabScroll().getTabGroup().getChildCount(); i++) {
+			((RadioButton) tabView.getTabScroll().getTabGroup().getChildAt(i)).setOnCheckedChangeListener(this);
 		}
 
 		return tabView;
@@ -338,7 +338,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	}
 
 	private void selectTab() {
-		selectTab(tabView.getTabGroup().getChildAt(DEFAULT_SELECT_TAB).getId());// 默认选择第一个
+		selectTab(tabView.getTabScroll().getTabGroup().getChildAt(DEFAULT_SELECT_TAB).getId());// 默认选择第一个
 	}
 
 	private void goWelcome() {
