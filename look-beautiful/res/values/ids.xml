@@ -20,6 +20,8 @@
     <item type="id" name="images"></item>
     <item type="id" name="button_images_more"></item>
     
+    <item type="id" name="title_text"></item>
+    <item type="id" name="title_text_post"></item>
     <item type="id" name="title_page"></item>
 
     

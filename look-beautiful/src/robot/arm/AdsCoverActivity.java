@@ -21,7 +21,7 @@ public class AdsCoverActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ads_content);
+		setContentView(R.layout.ads_cover);
 		
 		initView();
 		initListener();
