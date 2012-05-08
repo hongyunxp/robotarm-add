@@ -90,6 +90,19 @@ public enum MokoClient {
 		vocationPageCounter.put(Util.VOCATION_MUSIC_ID, 1);
 		vocationPageCounter.put(Util.VOCATION_PHOTOGRAPHY_ID, 1);
 	}
+	private static Map<Integer, String> vocationNameMap;//缓存展示列表当前页
+	static{
+		vocationNameMap = new HashMap<Integer, String>(9);
+		vocationNameMap.put(Util.VOCATION_ACTOR_ID, "演员主持");
+		vocationNameMap.put(Util.VOCATION_ADS_ID, "广告传媒");
+		vocationNameMap.put(Util.VOCATION_ARTS_ID, "艺术");
+		vocationNameMap.put(Util.VOCATION_DESIGN_ID, "设计插画");
+		vocationNameMap.put(Util.VOCATION_MODEL_ID, "模特儿");
+		vocationNameMap.put(Util.VOCATION_MORE_ID, "更多");
+		vocationNameMap.put(Util.VOCATION_MOVIES_ID, "电影电视");
+		vocationNameMap.put(Util.VOCATION_MUSIC_ID, "音乐");
+		vocationNameMap.put(Util.VOCATION_PHOTOGRAPHY_ID, "摄影造型");
+	}
 	
 	/**
 	 * 获取展示列表
@@ -178,7 +191,7 @@ public enum MokoClient {
 		Elements elements = doc.select("ul.post.small-post");
 		for(Element post : elements){
 			Element cover = post.select(".cover").get(0);
-			String title = cover.attr("cover-text");
+			String title = vocationNameMap.get(vocationId) + " - " + cover.attr("cover-text");
 			String coverUrl = cover.select("img").get(0).attr("src2");
 			String detailUrl = Util.MOKO_DOMAIN + cover.select("a").get(0).attr("href");
 			PostBean postBean = new PostBean(title, coverUrl, detailUrl);
