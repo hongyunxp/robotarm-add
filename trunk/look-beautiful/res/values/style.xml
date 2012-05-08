@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<!-- tab样式 -->
+	<style name="photography" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_photography</item>
+		<item name="android:text">@string/tab_photography</item>
+		<item name="android:textSize">@dimen/tab_photography_text</item>
+		<item name="android:background">@drawable/photography_tab_indicator</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
+	</style>
+	
+	<style name="music" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_music</item>
+		<item name="android:text">@string/tab_music</item>
+		<item name="android:textSize">@dimen/tab_music_text</item>
+		<item name="android:background">@drawable/music_tab_indicator</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
+	</style>
+	
+	<style name="ads" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_ads</item>
+		<item name="android:text">@string/tab_ads</item>
+		<item name="android:textSize">@dimen/tab_ads_text</item>
+		<item name="android:background">@drawable/ads_tab_indicator</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
+	</style>
+	
+	<style name="more" parent="@style/main_tab_bottom">
+		<item name="android:id">@id/tab_more</item>
+		<item name="android:text">@string/tab_more</item>
+		<item name="android:textSize">@dimen/tab_more_text</item>
+		<item name="android:background">@drawable/more_tab_indicator</item>
+		<item name="android:paddingLeft">@dimen/tab_text_padding_singleline</item>
+		<item name="android:paddingRight">@dimen/tab_text_padding_singleline</item>
+	</style>
+	
 	<style name="model" parent="@style/main_tab_bottom">
 		<item name="android:id">@id/tab_model</item>
 		<item name="android:text">@string/tab_model</item>

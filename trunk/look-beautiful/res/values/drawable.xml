@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <drawable name="music">#FF204363</drawable>
+    <drawable name="music_light">#A0204363</drawable>
+    
+    <drawable name="photography">#FF66DFFF</drawable>
+    <drawable name="photography_light">#A066DFFF</drawable>
+    
+    <drawable name="ads">#FFCC0000</drawable>
+    <drawable name="ads_light">#A0CC0000</drawable>
+    
+    <drawable name="more">#FFC7C7C7</drawable>
+    <drawable name="more_light">#A0C7C7C7</drawable>
+    
     <drawable name="model">#FFFF0099</drawable>
     <drawable name="model_light">#A0FF0099</drawable>
     

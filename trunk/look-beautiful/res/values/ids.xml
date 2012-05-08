@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+	<item type="id" name="tab_photography"></item>
+	<item type="id" name="tab_music"></item>
+	<item type="id" name="tab_ads"></item>
+	<item type="id" name="tab_more"></item>
     <item type="id" name="tab_model"></item>
     <item type="id" name="tab_design"></item>
     <item type="id" name="tab_actor"></item>
