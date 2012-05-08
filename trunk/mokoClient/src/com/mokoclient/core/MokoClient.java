@@ -74,24 +74,44 @@ public enum MokoClient {
 		}
 	};
 	
-	private static Map<Integer, List<PostBean>> postListMap = new HashMap<Integer, List<PostBean>>(9);//这个map会一直增大,会出问题吗?~~~
-	private static Map<String, List<String>> postDetailMap = new HashMap<String, List<String>>();//这个map会一直增大,会出问题吗?~~~
-	private static Map<String, Integer> postDetailCountMap = new HashMap<String, Integer>();//这个map会一直增大,会出问题吗?~~~
+	private static Map<Integer, List<PostBean>> postListMap = new HashMap<Integer, List<PostBean>>(9);//缓存展示列表
+	private static Map<String, List<String>> postDetailMap = new HashMap<String, List<String>>();//缓存展示详细
+	private static Map<String, Integer> postDetailCountMap = new HashMap<String, Integer>();//缓存展示详细页数
+	private static Map<Integer, Integer> vocationPageCounter;//缓存展示列表当前页
+	static{
+		vocationPageCounter = new HashMap<Integer, Integer>(9);
+		vocationPageCounter.put(Util.VOCATION_ACTOR_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_ADS_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_ARTS_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_DESIGN_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_MODEL_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_MORE_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_MOVIES_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_MUSIC_ID, 1);
+		vocationPageCounter.put(Util.VOCATION_PHOTOGRAPHY_ID, 1);
+	}
 	
+	/**
+	 * 获取展示列表
+	 * @param curPage
+	 * @param pageSize
+	 * @return
+	 * @throws Throwable
+	 */
 	public abstract List<PostBean> getPostList(int curPage, int pageSize) throws Throwable;
 	
+	/**
+	 * 获取展示详细页列表
+	 * @param postDetailUrl
+	 * @param curPage
+	 * @param pageSize
+	 * @return
+	 * @throws Throwable
+	 */
 	public PostDetailBean getPostDetail(String postDetailUrl, int curPage, int pageSize) throws Throwable{
 		List<String> postPicList = postDetailMap.get(postDetailUrl);
-		if(postPicList == null){
-			postPicList = new ArrayList<String>();
-			String html = HttpClientUtil.getInstance().get(postDetailUrl);
-			Document doc = Jsoup.parse(html);
-			Elements elements = doc.select("p.picBox img");
-			for(Element postPic : elements)
-				postPicList.add(postPic.attr("src2"));
-			postDetailMap.put(postDetailUrl, postPicList);
-			postDetailCountMap.put(postDetailUrl, postPicList.size() % pageSize > 0 ? postPicList.size() / pageSize + 1 : postPicList.size() / pageSize);
-		}
+		if(postPicList == null)
+			postPicList = buildPostDetailList(postDetailUrl, pageSize);
 		if(postPicList.size() == 0)
 			return null;
 		if(postPicList.size() >= curPage * pageSize)
@@ -101,15 +121,56 @@ public enum MokoClient {
 		return new PostDetailBean(postDetailCountMap.get(postDetailUrl), postPicList.subList(postPicList.size() - (postPicList.size() % pageSize), postPicList.size()));
 	}
 
+	/**
+	 * 构造一个新的展示详细页列表
+	 * @param postDetailUrl
+	 * @param pageSize
+	 * @return
+	 * @throws Throwable
+	 */
+	private List<String> buildPostDetailList(String postDetailUrl, int pageSize) throws Throwable{
+		List<String> postPicList = new ArrayList<String>();
+		String html = HttpClientUtil.getInstance().get(postDetailUrl);
+		Document doc = Jsoup.parse(html);
+		Elements elements = doc.select("p.picBox img");
+		for(Element postPic : elements)
+			postPicList.add(postPic.attr("src2"));
+		postDetailMap.put(postDetailUrl, postPicList);
+		postDetailCountMap.put(postDetailUrl, postPicList.size() % pageSize > 0 ? postPicList.size() / pageSize + 1 : postPicList.size() / pageSize);
+		return postPicList;
+	}
+	
+	/**
+	 * 获取展示列表
+	 * @param vocationId
+	 * @param curPage
+	 * @param pageSize
+	 * @return
+	 * @throws Throwable
+	 */
 	private List<PostBean> getPostList(int vocationId, int curPage, int pageSize) throws Throwable{
 		List<PostBean> postList = postListMap.get(vocationId);
 		if(postList != null && postList.size() == 0)
-			return postList;
+			return null;
 		if(postList == null)
 			postList = new ArrayList<PostBean>();
 		else if(postList.size() >= curPage * pageSize)
 			return postList.subList((curPage - 1) * pageSize, curPage * pageSize);
+		buildPostList(vocationId, postList);
+		if(postList.size() >= curPage * pageSize)
+			return postList.subList((curPage - 1) * pageSize, curPage * pageSize);
+		if(postList.size() % pageSize > 0 && curPage > postList.size() / pageSize + 1)
+			return null;
+		return postList.subList(postList.size() - (postList.size() % pageSize), postList.size());
+	}
 
+	/**
+	 * 构造一个新的展示列表
+	 * @param vocationId
+	 * @return
+	 * @throws Throwable
+	 */
+	private void buildPostList(int vocationId, List<PostBean> postList) throws Throwable{
 		int postCurPage = vocationPageCounter.get(vocationId);
 		String html = getVocationHtml(vocationId, postCurPage);
 		vocationPageCounter.put(vocationId, ++ postCurPage) ;
@@ -124,19 +185,24 @@ public enum MokoClient {
 			postList.add(postBean);
 		}
 		postListMap.put(vocationId, postList);
-
-		if(postList.size() >= curPage * pageSize)
-			return postList.subList((curPage - 1) * pageSize, curPage * pageSize);
-		if(postList.size() % pageSize > 0 && curPage > postList.size() / pageSize + 1)
-			return null;
-		return postList.subList(postList.size() - (postList.size() % pageSize), postList.size());
 	}
-
+	
+	/**
+	 * 获取行业html字符串
+	 * @param vocationId
+	 * @param curPage
+	 * @return
+	 * @throws Throwable
+	 */
 	private String getVocationHtml(int vocationId, int curPage) throws Throwable{
 		String url = Util.getVocationUrl(vocationId, curPage);
 		return HttpClientUtil.getInstance().get(url);
 	}
 	
+	/**
+	 * 登录
+	 * @author liuy
+	 */
 	public static class Login{
 		public Login() throws Throwable{
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -146,17 +212,4 @@ public enum MokoClient {
 		}
 	}
 	
-	private static Map<Integer, Integer> vocationPageCounter;
-	static{
-		vocationPageCounter = new HashMap<Integer, Integer>(9);
-		vocationPageCounter.put(Util.VOCATION_ACTOR_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_ADS_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_ARTS_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_DESIGN_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_MODEL_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_MORE_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_MOVIES_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_MUSIC_ID, 1);
-		vocationPageCounter.put(Util.VOCATION_PHOTOGRAPHY_ID, 1);
-	}
 }
