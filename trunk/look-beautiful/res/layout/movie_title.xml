@@ -11,6 +11,7 @@
 		android:layout_marginRight="10dp"
 		android:singleLine="true"
 		android:ellipsize = "middle"
+		android:maxLength="@string/title_max_length"
 		/>
 	
 	<TextView android:id="@id/title_page" style="@style/title_text" android:layout_alignParentRight="true"/>
