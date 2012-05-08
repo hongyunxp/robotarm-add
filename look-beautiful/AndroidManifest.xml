@@ -18,12 +18,20 @@
 		<!-- 欢迎 -->
 		<activity android:name=".WelcomeActivity" />
 		<!-- 专辑封面 -->
+		<activity android:name=".PhotographyCoverActivity" />
+		<activity android:name=".MoreCoverActivity" />
+		<activity android:name=".AdsCoverActivity" />
+		<activity android:name=".MusicCoverActivity" />
 		<activity android:name=".ModelCoverActivity" />
 		<activity android:name=".DesignCoverActivity" />
 		<activity android:name=".ActorCoverActivity" />
 		<activity android:name=".MovieCoverActivity" />
 		<activity android:name=".ArtCoverActivity" />
 		<!-- 专辑内容 -->
+		<activity android:name=".PhotographyContentActivity" />
+		<activity android:name=".AdsContentActivity" />
+		<activity android:name=".MoreContentActivity" />
+		<activity android:name=".MusicContentActivity" />
 		<activity android:name=".ModelContentActivity" />
 		<activity android:name=".DesignContentActivity" />
 		<activity android:name=".ActorContentActivity" />
