@@ -17,17 +17,18 @@ import com.mokoclient.core.MokoClient;
  *         Apr 12, 2012
  * 
  */
-public class MovieContentActivity extends BaseActivity {
+public class MoreContentActivity extends BaseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.movie_content);
+
+		setContentView(R.layout.more_content);
 		
 		initView();
 		initListener();
 
-		task = new AlbumSyncTask(this, MokoClient.MOVIES);
+		task = new AlbumSyncTask(this, MokoClient.MORE);
 
 	}
 
@@ -35,13 +36,17 @@ public class MovieContentActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 
-		title(R.layout.movie_title);
-		background(R.drawable.movie);
+		title(R.layout.more_title);
+		background(R.drawable.more);
 		
 		if (!isInit) {
 			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
 		}
+	}
+
+	public void details(View view) {
+		tabInvHandler.startSubActivity(R.id.tab_more, MoreContentActivity.class);
 	}
 
 	public void clickImage(View view) {
