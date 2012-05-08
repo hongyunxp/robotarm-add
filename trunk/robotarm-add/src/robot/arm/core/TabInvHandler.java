@@ -122,6 +122,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		Assert.assertNotNull(resouceId);
 
 		tabView.getTitle().addView(LayoutInflater.from(this).inflate(resouceId, null));
+		
 	}
 
 	/**

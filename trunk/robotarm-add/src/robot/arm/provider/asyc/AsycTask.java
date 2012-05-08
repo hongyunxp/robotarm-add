@@ -26,7 +26,7 @@ public abstract class AsycTask<T extends Activity> extends Task {
 
 	// 线程池
 	private static final int N = 5;// 5个工人
-	private static final ExecutorService worker = Executors.newFixedThreadPool(N, new TaskHandlerThreadFactory());// 线程池
+	protected static final ExecutorService worker = Executors.newFixedThreadPool(N, new TaskHandlerThreadFactory());// 线程池
 	// private static List<Future<?>> futureList = new ArrayList<Future<?>>();// 工作中的线程
 	protected T act;// 当前的活动
 

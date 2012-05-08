@@ -35,7 +35,7 @@ import android.util.Log;
  */
 public class AppUpdateProvider {
 	private static final String TAG = AppUpdateProvider.class.getName();
-	
+
 	private static final String UPPDATE_URL = RobotArmApp.getApp().getString(R.string.upload_url);
 	private static final AppUpdateProvider instance = new AppUpdateProvider();
 	private static final String UPDATE_SAVENAME = "look-beautiful.apk";
@@ -81,14 +81,14 @@ public class AppUpdateProvider {
 		StringBuffer sb = new StringBuffer();
 		sb.append("发现新版本, 请更新.");
 		sb.append("\n");
-		sb.append("当前版本号："+BaseUtils.getAppVersionName());
+		sb.append("当前版本号：" + BaseUtils.getAppVersionName());
 		sb.append("\n");
-		sb.append("新版本号："+versionInfo.versionName);
+		sb.append("新版本号：" + versionInfo.versionName);
 		sb.append("\n");
 		sb.append("版本描述：");
 		sb.append("\n");
 		sb.append(versionInfo.desc);
-		
+
 		dialog(context, "软件更新", sb.toString(), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -96,12 +96,13 @@ public class AppUpdateProvider {
 				pBar.setTitle("正在下载");
 				pBar.setMessage("请稍候...");
 				pBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
 				downFile(context, downloadURL);
 			}
 		});
 	}
-	
-	public VersionInfo getVersionInfo(){
+
+	public VersionInfo getVersionInfo() {
 		return versionInfo;
 	}
 
