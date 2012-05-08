@@ -21,7 +21,7 @@ public class MoreCoverActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.more_content);
+		setContentView(R.layout.more_cover);
 		
 		initView();
 		initListener();

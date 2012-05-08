@@ -21,7 +21,7 @@ public class PhotographyCoverActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.photography_content);
+		setContentView(R.layout.photography_cover);
 		
 		initView();
 		initListener();

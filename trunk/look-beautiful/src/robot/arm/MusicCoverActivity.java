@@ -21,7 +21,7 @@ public class MusicCoverActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.music_content);
+		setContentView(R.layout.music_cover);
 		
 		initView();
 		initListener();

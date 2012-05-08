@@ -21,7 +21,7 @@ public class MovieCoverActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.movie_content);
+		setContentView(R.layout.movie_cover);
 		
 		initView();
 		initListener();

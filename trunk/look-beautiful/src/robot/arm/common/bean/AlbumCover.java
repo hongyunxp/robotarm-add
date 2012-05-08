@@ -46,8 +46,8 @@ public class AlbumCover {
 		// 设置专辑的明细url和专辑标题
 		iv1.setTag(R.string.detailUrl, images[0].getDetailUrl());
 		iv2.setTag(R.string.detailUrl, images[1].getDetailUrl());
-		iv1.setTag(R.string.postTitle, images[0].getVocationName() + " - " + images[0].getTitle());
-		iv2.setTag(R.string.postTitle, images[1].getVocationName() + " - " + images[1].getTitle());
+		iv1.setTag(R.string.postTitle, images[0].getTitle());
+		iv2.setTag(R.string.postTitle, images[1].getTitle());
 
 		tv1.setVisibility(View.VISIBLE);
 		tv2.setVisibility(View.VISIBLE);

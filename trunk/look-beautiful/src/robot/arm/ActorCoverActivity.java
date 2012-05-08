@@ -21,7 +21,7 @@ public class ActorCoverActivity extends BaseActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.actor_content);
+		setContentView(R.layout.actor_cover);
 		
 		initView();
 		initListener();
