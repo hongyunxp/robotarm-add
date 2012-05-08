@@ -2,6 +2,10 @@
 <resources>
 
 	<!-- tab -->
+	<dimen name="tab_photography_text">17.0dip</dimen>
+	<dimen name="tab_music_text">17.0dip</dimen>
+	<dimen name="tab_ads_text">17.0dip</dimen>
+	<dimen name="tab_more_text">17.0dip</dimen>
 	<dimen name="tab_model_text">17.0dip</dimen>
 	<dimen name="tab_design_text">17.0dip</dimen>
 	<dimen name="tab_actor_text">17.0dip</dimen>

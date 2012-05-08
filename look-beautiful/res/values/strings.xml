@@ -3,6 +3,10 @@
     <string name="app_name">美空看看</string>
     
     <!-- tab -->
+    <string name="tab_photography">摄影造型</string>
+    <string name="tab_music">音乐</string>
+    <string name="tab_ads">广告传媒</string>
+    <string name="tab_more">更多</string>
     <string name="tab_model">模特儿</string>
     <string name="tab_design">插画设计</string>
     <string name="tab_actor">演员主持</string>
