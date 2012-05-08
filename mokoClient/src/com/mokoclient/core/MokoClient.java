@@ -191,10 +191,10 @@ public enum MokoClient {
 		Elements elements = doc.select("ul.post.small-post");
 		for(Element post : elements){
 			Element cover = post.select(".cover").get(0);
-			String title = vocationNameMap.get(vocationId) + " - " + cover.attr("cover-text");
+			String title = cover.attr("cover-text");
 			String coverUrl = cover.select("img").get(0).attr("src2");
 			String detailUrl = Util.MOKO_DOMAIN + cover.select("a").get(0).attr("href");
-			PostBean postBean = new PostBean(title, coverUrl, detailUrl);
+			PostBean postBean = new PostBean(vocationNameMap.get(vocationId), title, coverUrl, detailUrl);
 			postList.add(postBean);
 		}
 		postListMap.put(vocationId, postList);
