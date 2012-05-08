@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.ActivityGroup;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -272,11 +273,16 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	}
 
 	private void initTabGroup(TabGroup tabGroup) {
+		// 窗口的宽度
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+		int screenWidth = dm.widthPixels;
 		// 初始化tabs
 		for (int i = 0; i < tabGroup.getChildCount(); i++) {
 
 			Tab child = (Tab) tabGroup.getChildAt(i);
-
+			// 设置每个选项卡的宽度
+			child.setWidth(screenWidth/5);
 			child.setTag(newTabs().get(child.getId()));
 
 		}
