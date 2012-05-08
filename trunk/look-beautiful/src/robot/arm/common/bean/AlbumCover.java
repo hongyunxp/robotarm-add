@@ -34,20 +34,20 @@ public class AlbumCover {
 	}
 
 	public View coverRow() {
+		//实例化一行数据
 		View row = LayoutInflater.from(act).inflate(R.layout.album_cover_list_row, null);
 		ImageView iv1 = (ImageView) row.findViewById(R.id.image1);
 		ImageView iv2 = (ImageView) row.findViewById(R.id.image2);
-
+		
+		//设置专辑的明细url和专辑标题
 		iv1.setTag(R.string.detailUrl, images[0].getDetailUrl());
 		iv2.setTag(R.string.detailUrl, images[1].getDetailUrl());
 		iv1.setTag(R.string.postTitle, images[0].getTitle());
 		iv2.setTag(R.string.postTitle, images[1].getTitle());
-
+		
+		//加载专辑图片
 		LoadImageUtils.loadImageSync(act, images[0].getCoverUrl(), iv1);
 		LoadImageUtils.loadImageSync(act, images[1].getCoverUrl(), iv2);
-//
-//		iv1.setImageResource(R.drawable.white);
-//		iv2.setImageResource(R.drawable.white);
 
 		ivs = new ArrayList<ImageView>(COUNT_PER_ROW);
 		ivs.add(iv1);

@@ -27,6 +27,8 @@ import com.mokoclient.core.bean.PostDetailBean;
  * 
  *         Apr 24, 2012
  * 
+ *         专辑明细异步任务
+ * 
  */
 public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	private List<String> list2 = new ArrayList<String>();
@@ -40,13 +42,10 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	private MokoClient client;
 	private AlbumAdapter adapter;
 
-	private String detailUrl;
-	private String title;
-	private int pageCount = 0;
+	private String detailUrl;// 专辑明细的url
+	private String title;// 专辑的标题
+	private int pageCount;// 页数
 
-	/**
-	 * @param activity
-	 */
 	public AlbumSyncTask(BaseActivity activity, MokoClient client) {
 		super(activity);
 
@@ -101,11 +100,12 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 
 			@Override
 			public void run() {
+				// 设置页数
 				TextView tvPage = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
 				tvPage.setText(curPage + "/" + pageCount);
-
+				// 设置标题
 				TextView tvText = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_text);
-				tvText.setText(title);
+				tvText.append(" - " + title);
 			}
 		});
 	}

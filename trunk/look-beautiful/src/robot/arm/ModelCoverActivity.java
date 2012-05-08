@@ -48,8 +48,9 @@ public class ModelCoverActivity extends BaseActivity {
 	public void clickImage(View view) {
 
 		Bundle mBundle = new Bundle();
-		mBundle.putString(getString(R.string.detailUrl), view.getTag(R.string.detailUrl).toString());// 压入数据
-		mBundle.putString(getString(R.string.postTitle), view.getTag(R.string.postTitle).toString());// 压入数据
+		mBundle.putString(getString(R.string.detailUrl), String.valueOf(view.getTag(R.string.detailUrl)));
+		mBundle.putString(getString(R.string.postTitle), String.valueOf(view.getTag(R.string.postTitle)));
+		
 		tabInvHandler.startSubActivity(R.id.tab_model, ModelContentActivity.class, mBundle);
 	}
 
