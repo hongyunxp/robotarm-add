@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mokoclient.core.bean.PostBean;
 
@@ -34,35 +35,26 @@ public class AlbumCover {
 	}
 
 	public View coverRow() {
-		//实例化一行数据
+		// 实例化一行数据
 		View row = LayoutInflater.from(act).inflate(R.layout.album_cover_list_row, null);
 		ImageView iv1 = (ImageView) row.findViewById(R.id.image1);
 		ImageView iv2 = (ImageView) row.findViewById(R.id.image2);
-		
-		//设置专辑的明细url和专辑标题
+
+		TextView tv1 = (TextView) row.findViewById(R.id.text1);
+		TextView tv2 = (TextView) row.findViewById(R.id.text2);
+
+		// 设置专辑的明细url和专辑标题
 		iv1.setTag(R.string.detailUrl, images[0].getDetailUrl());
 		iv2.setTag(R.string.detailUrl, images[1].getDetailUrl());
 		iv1.setTag(R.string.postTitle, images[0].getTitle());
 		iv2.setTag(R.string.postTitle, images[1].getTitle());
-		
-		//加载专辑图片
-		LoadImageUtils.loadImageSync(act, images[0].getCoverUrl(), iv1);
-		LoadImageUtils.loadImageSync(act, images[1].getCoverUrl(), iv2);
 
-		ivs = new ArrayList<ImageView>(COUNT_PER_ROW);
-		ivs.add(iv1);
-		ivs.add(iv2);
+		tv1.setVisibility(View.VISIBLE);
+		tv2.setVisibility(View.VISIBLE);
+		tv1.setText(images[0].getTitle());
+		tv2.setText(images[1].getTitle());
 
-		return row;
-	}
-
-	public View coverRow(View row) {
-		ImageView iv1 = (ImageView) row.findViewById(R.id.image1);
-		ImageView iv2 = (ImageView) row.findViewById(R.id.image2);
-
-		iv1.setTag(R.string.detailUrl, images[0].getDetailUrl());
-		iv2.setTag(R.string.detailUrl, images[1].getDetailUrl());
-
+		// 加载专辑图片
 		LoadImageUtils.loadImageSync(act, images[0].getCoverUrl(), iv1);
 		LoadImageUtils.loadImageSync(act, images[1].getCoverUrl(), iv2);
 
@@ -94,8 +86,8 @@ public class AlbumCover {
 
 		return list;
 	}
-	
-	public Activity getAct(){
+
+	public Activity getAct() {
 		return act;
 	}
 

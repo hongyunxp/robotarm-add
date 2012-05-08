@@ -17,7 +17,7 @@
     
     <string name="common_loading_more">加载中...</string>
     <string name="common_logo_alert">建议使用WIFI网络</string>
-    <string name="title_max_length">15</string>
+    <string name="title_max_length">30</string>
     
     <!-- args -->
     <string name = "detailUrl">detailUrl</string>
