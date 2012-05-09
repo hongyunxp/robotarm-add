@@ -2,7 +2,10 @@
 <resources>
     <item type="id" name="tab_title"></item>
     <item type="id" name="tab_content"></item>
+    <item type="id" name="tab_bar"></item>
     <item type="id" name="tab_scroll"></item>
+    <item type="id" name="tab_scroll_arrowl"></item>
+    <item type="id" name="tab_scroll_arrowr"></item>
     <item type="id" name="tab_indictor"></item>
     <item type="id" name="tab_message"></item>
     <item type="id" name="tab_view"></item>

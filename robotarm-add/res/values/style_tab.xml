@@ -15,20 +15,44 @@
         <item name="android:id">@id/tab_content</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
-        <item name="android:layout_above">@+id/tab_scroll</item>
+        <item name="android:layout_above">@+id/tab_bar</item>
         <item name="android:layout_below">@+id/tab_title</item>
     </style>
 
-    <style name="tab_scroll">
-        <item name="android:id">@id/tab_scroll</item>
-        <item name="android:layout_width">wrap_content</item>
+	<style name="tab_bar">
+		<item name="android:id">@id/tab_bar</item>
+        <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_gravity">bottom</item>
+        <item name="android:orientation">horizontal</item>
+	</style>
+
+    <style name="tab_scroll">
+        <item name="android:id">@id/tab_scroll</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/main_navigation_background</item>
         <item name="android:scrollbars">none</item>
     </style>
+    
+	<style name="tab_scroll_arrow">
+		<item name="android:focusable">true</item>
+		<item name="android:clickable">true</item> 
+		<item name="android:layout_width">wrap_content</item> 
+		<item name="android:layout_height">fill_parent</item>
+	</style>
 
+	<style name="tab_scroll_arrowl" parent="tab_scroll_arrow">
+		<item name="android:id">@id/tab_scroll_arrowl</item>
+		<item name="android:src">@drawable/arrowl</item>
+	</style>
+	
+	<style name="tab_scroll_arrowr" parent="tab_scroll_arrow">
+		<item name="android:id">@id/tab_scroll_arrowr</item>
+		<item name="android:src">@drawable/arrowr</item>
+	</style>
+	
     <style name="tab_indictor">
         <item name="android:id">@id/tab_indictor</item>
         <item name="android:layout_width">fill_parent</item>
