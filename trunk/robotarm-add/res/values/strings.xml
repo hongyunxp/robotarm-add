@@ -10,7 +10,10 @@
     <string name="tab_title_tag">tab_title</string>
     <string name="tab_content_tag">tab_content</string>
     <string name="tab_group_tag">tab_group</string>
-    <string name="tab_scroll_tag">tab_scroll_tag</string>
+    <string name="tab_scroll_tag">tab_scroll</string>
+    <string name="tab_bar_tag">tab_bar</string>
+    <string name="tab_arrowl_tag">tab_scroll_arrowl</string>
+    <string name="tab_arrowr_tag">tab_scroll_arrowr</string>
     
     <!-- 网络不可用对话框 -->
 	<string name="confirm_net_title">提示</string>
