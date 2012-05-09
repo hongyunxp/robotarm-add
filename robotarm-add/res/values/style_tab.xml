@@ -15,7 +15,7 @@
         <item name="android:id">@id/tab_content</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
-        <item name="android:layout_above">@+id/tab_indictor</item>
+        <item name="android:layout_above">@+id/tab_scroll</item>
         <item name="android:layout_below">@+id/tab_title</item>
     </style>
 
