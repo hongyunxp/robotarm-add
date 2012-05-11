@@ -22,8 +22,6 @@ public class MyScrollView extends ScrollView {
 
 	private OnScrollListener onScrollListener;// 监听器
 
-	private int lastLocationY;
-
 	private OnTouchListener onTouchListener = new OnTouchListener() {
 
 		@Override
@@ -77,13 +75,7 @@ public class MyScrollView extends ScrollView {
 							onScrollListener.onScroll();
 						}
 					}
-
-					if (lastLocationY != getScrollY()) {
-						fireScrollEvent();// 递归
-					}
 					
-					lastLocationY = getScrollY();
-
 				}
 			},DELAY_EVENT_TIME);
 
