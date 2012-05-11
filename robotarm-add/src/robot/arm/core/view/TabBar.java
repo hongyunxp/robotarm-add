@@ -34,21 +34,21 @@ public class TabBar extends RelativeLayout {
 
 	public TabBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
-//		View arrowl = LayoutInflater.from(context).inflate(R.layout.tab_arrowl, this, false);
-//		View arrowr = LayoutInflater.from(context).inflate(R.layout.tab_arrowr, this, false);
+		View arrowl = LayoutInflater.from(context).inflate(R.layout.tab_arrowl, this, false);
+		View arrowr = LayoutInflater.from(context).inflate(R.layout.tab_arrowr, this, false);
 		View tabScroll = LayoutInflater.from(context).inflate(R.layout.tab_scroll, this, false);
 
 		addChildView(tabScroll);
-//		addChildView(arrowl);
-//		addChildView(arrowr);
+		addChildView(arrowl);
+		addChildView(arrowr);
 	}
 
 	public void addChildView(View child) {
 		addView(child);
-//		if (getResources().getString(R.string.tab_arrowl_tag).equals(child.getTag()))
-//			arrowl = (ImageView) child;
-//		if (getResources().getString(R.string.tab_arrowr_tag).equals(child.getTag()))
-//			arrowr = (ImageView) child;
+		if (getResources().getString(R.string.tab_arrowl_tag).equals(child.getTag()))
+			arrowl = (ImageView) child;
+		if (getResources().getString(R.string.tab_arrowr_tag).equals(child.getTag()))
+			arrowr = (ImageView) child;
 		if (getResources().getString(R.string.tab_scroll_tag).equals(child.getTag()))
 			tabScroll = (TabScroll) child;
 	}
