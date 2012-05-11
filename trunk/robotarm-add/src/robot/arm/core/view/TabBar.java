@@ -6,14 +6,15 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 /**
  * 带左右箭头的工具条
+ * 
  * @author liuy
  * @since 1.0 2012.5.09
  */
-public class TabBar extends LinearLayout {
+public class TabBar extends RelativeLayout {
 
 	ImageView arrowl;
 	ImageView arrowr;
@@ -22,7 +23,7 @@ public class TabBar extends LinearLayout {
 	public TabScroll getTabScroll() {
 		return tabScroll;
 	}
-	
+
 	public ImageView getArrowl() {
 		return arrowl;
 	}
@@ -30,18 +31,18 @@ public class TabBar extends LinearLayout {
 	public ImageView getArrowr() {
 		return arrowr;
 	}
-	
+
 	public TabBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		View arrowl = LayoutInflater.from(context).inflate(R.layout.tab_arrowl, this, false);
 		View arrowr = LayoutInflater.from(context).inflate(R.layout.tab_arrowr, this, false);
 		View tabScroll = LayoutInflater.from(context).inflate(R.layout.tab_scroll, this, false);
 
-		addChildView(arrowl);
 		addChildView(tabScroll);
+		addChildView(arrowl);
 		addChildView(arrowr);
 	}
-	
+
 	public void addChildView(View child) {
 		addView(child);
 		if (getResources().getString(R.string.tab_arrowl_tag).equals(child.getTag()))

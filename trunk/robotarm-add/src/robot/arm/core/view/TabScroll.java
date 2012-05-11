@@ -1,5 +1,6 @@
 package robot.arm.core.view;
 
+import robot.arm.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,28 +15,23 @@ import android.widget.HorizontalScrollView;
  */
 public class TabScroll extends HorizontalScrollView {
 
+	private TabGroup tabGroup;
+
 	public TabScroll(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
 	public TabGroup getTabGroup() {
-
-		for (int i = 0; i < getChildCount(); i++) {
-			
-			View v = getChildAt(i);
-			
-			if (v instanceof TabGroup)
-				return (TabGroup) v;
-		}
-
-		return null;
+		return tabGroup;
 	}
 
-	@Override
-	public void addView(View child) {
+	public void addChildView(View child) {
 
-		if (child instanceof TabGroup)
-			super.addView(child);
+		addView(child);
+
+		if (getResources().getString(R.string.tab_group_tag).equals(child.getTag()))
+			tabGroup = (TabGroup) child;
+		
 	}
 
 }

@@ -2,4 +2,6 @@
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android" 
 	style="@style/tab_scroll_arrowr"
 	android:tag="@string/tab_arrowr_tag"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:layout_alignParentRight="true"
 />
