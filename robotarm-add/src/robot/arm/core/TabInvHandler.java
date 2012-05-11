@@ -260,7 +260,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		TabGroup tabGroup = (TabGroup) LayoutInflater.from(this).inflate(tabs, tabView.getTabBar().getTabScroll(), false);
 		initTabGroup(tabGroup);// 初始化tabs
 		
-		tabView.getTabBar().getTabScroll().addChildView(tabGroup);// 创建tool,并将tools工具栏加入容器中
+		tabView.getTabBar().getTabScroll().addView(tabGroup);// 创建tool,并将tools工具栏加入容器中
 		tabView.setSoftInputListener(this);// 键盘监听器
 
 		// bind tabView child event
