@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 
 /**
@@ -46,9 +47,9 @@ public class TabScroll extends HorizontalScrollView {
 		}
 
 	};
-	
+
 	private void fireScrollEvent() {
-		final View childView = getChildAt(0);
+		final ViewGroup childView = (ViewGroup) getChildAt(0);
 
 		if (childView != null && onScrollListener != null) {
 
@@ -68,31 +69,51 @@ public class TabScroll extends HorizontalScrollView {
 						if (onScrollListener != null) {
 							Log.i(TAG, "onLeft");
 							onScrollListener.onLeft();
+
 						}
 					} else {
 						if (onScrollListener != null) {
 							Log.i(TAG, "onScroll");
 							onScrollListener.onScroll();
+							
+							//适配tab选项
+							fitTab(childView);
 						}
 					}
-					
+
 				}
-			},DELAY_EVENT_TIME);
+			}, DELAY_EVENT_TIME);
 
 		}
 	}
 
 	public TabScroll(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		
+
 		init();
 	}
-	
+
 	private void init() {
 		Log.i(TAG, "init");
 
-		setOnTouchListener(onTouchListener);//设置手势监听器
+		setOnTouchListener(onTouchListener);// 设置手势监听器
 
+	}
+	
+	private void fitTab(ViewGroup childView){
+		View first = childView.getChildAt(0);
+		final int[] location = new int[2];
+		first.getLocationOnScreen(location);
+		int left = location[0];
+		int remaining = left % first.getWidth();
+
+		if (remaining != 0) {
+			if (Math.abs(remaining) > first.getWidth() / 2) {
+				scrollBy(first.getWidth() - Math.abs(remaining), 0);
+			} else {
+				scrollBy(remaining, 0);
+			}
+		}
 	}
 
 	public TabGroup getTabGroup() {
@@ -107,7 +128,7 @@ public class TabScroll extends HorizontalScrollView {
 			tabGroup = (TabGroup) child;
 
 	}
-	
+
 	public void setOnScrollListener(OnScrollListener onScrollListener) {
 		this.onScrollListener = onScrollListener;
 
