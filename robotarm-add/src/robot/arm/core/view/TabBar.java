@@ -43,6 +43,7 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 		addChildView(tabScroll);
 		addChildView(arrowl);
 		addChildView(arrowr);
+		
 	}
 
 	public void addChildView(View child) {
