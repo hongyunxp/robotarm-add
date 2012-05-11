@@ -4,9 +4,9 @@
     <item type="id" name="tab_content"></item>
     <item type="id" name="tab_bar"></item>
     <item type="id" name="tab_scroll"></item>
-    <item type="id" name="tab_scroll_arrowl"></item>
-    <item type="id" name="tab_scroll_arrowr"></item>
     <item type="id" name="tab_indictor"></item>
     <item type="id" name="tab_message"></item>
     <item type="id" name="tab_view"></item>
+    <item type="id" name="tab_scroll_arrow_left"></item>
+    <item type="id" name="tab_scroll_arrow_right"></item>
 </resources>

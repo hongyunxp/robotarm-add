@@ -43,13 +43,13 @@
 		<item name="android:layout_height">fill_parent</item>
 	</style>
 
-	<style name="tab_scroll_arrowl" parent="tab_scroll_arrow">
-		<item name="android:id">@id/tab_scroll_arrowl</item>
+	<style name="tab_scroll_arrow_left" parent="tab_scroll_arrow">
+		<item name="android:id">@id/tab_scroll_arrow_left</item>
 		<item name="android:src">@drawable/arrow_left</item>
 	</style>
 	
-	<style name="tab_scroll_arrowr" parent="tab_scroll_arrow">
-		<item name="android:id">@id/tab_scroll_arrowr</item>
+	<style name="tab_scroll_arrow_right" parent="tab_scroll_arrow">
+		<item name="android:id">@id/tab_scroll_arrow_right</item>
 		<item name="android:src">@drawable/arrow_right</item>
 	</style>
 	
