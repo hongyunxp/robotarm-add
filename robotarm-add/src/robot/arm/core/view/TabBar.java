@@ -35,8 +35,8 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 
 	public TabBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		View arrowl = LayoutInflater.from(context).inflate(R.layout.tab_arrowl, this, false);
-		View arrowr = LayoutInflater.from(context).inflate(R.layout.tab_arrowr, this, false);
+		View arrowl = LayoutInflater.from(context).inflate(R.layout.tab_arrow_left, this, false);
+		View arrowr = LayoutInflater.from(context).inflate(R.layout.tab_arrow_right, this, false);
 		TabScroll tabScroll = (TabScroll) LayoutInflater.from(context).inflate(R.layout.tab_scroll, this, false);
 		tabScroll.setOnScrollListener(this);//事件监听
 
@@ -58,19 +58,20 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 
 	@Override
 	public void onRight() {
-		// TODO Auto-generated method stub
+		arrowr.setVisibility(View.GONE);
 
 	}
 
 	@Override
 	public void onLeft() {
-		// TODO Auto-generated method stub
+		arrowl.setVisibility(View.GONE);
 
 	}
 
 	@Override
 	public void onScroll() {
-		// TODO Auto-generated method stub
+		arrowl.setVisibility(View.VISIBLE);
+		arrowr.setVisibility(View.VISIBLE);
 
 	}
 
