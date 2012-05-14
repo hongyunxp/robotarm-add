@@ -105,7 +105,9 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 				tvPage.setText(curPage + "/" + pageCount);
 				// 设置标题
 				TextView tvText = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_text_post);
-				tvText.setText(title);
+
+				if (!String.valueOf(tvText.getText()).contains(title))
+					tvText.append(" - " + title);
 			}
 		});
 	}
