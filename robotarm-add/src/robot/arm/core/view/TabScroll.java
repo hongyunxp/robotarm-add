@@ -18,10 +18,35 @@ import android.widget.HorizontalScrollView;
  */
 public class TabScroll extends HorizontalScrollView {
 	private static final String TAG = TabScroll.class.getName();
-	private static final int DELAY_EVENT_TIME = 200;// 判断Scroll状态延时
-
+	private static final int DELAY_EVENT_TIME = 1000;// Scroll事件延时
 	private TabGroup tabGroup;
 	private OnScrollListener onScrollListener;// 监听器
+
+	public TabScroll(Context context) {
+		super(context);
+
+		init();
+	}
+
+	public TabScroll(Context context, AttributeSet attrs) {
+		super(context, attrs);
+
+		init();
+	}
+
+	public TabScroll(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+
+		init();
+	}
+	
+
+	private void init() {
+		Log.i(TAG, "init");
+		
+		setOnTouchListener(onTouchListener);// 设置手势监听器
+
+	}
 
 	private OnTouchListener onTouchListener = new OnTouchListener() {
 
@@ -49,35 +74,35 @@ public class TabScroll extends HorizontalScrollView {
 	};
 
 	private void fireScrollEvent() {
-		final ViewGroup childView = (ViewGroup) getChildAt(0);
+		final ViewGroup parent = (ViewGroup) getChildAt(0);;
 
-		if (childView != null && onScrollListener != null) {
+		if (parent != null && onScrollListener != null) {
 
-			childView.postDelayed(new Runnable() {
+			parent.postDelayed(new Runnable() {
 
 				@Override
 				public void run() {
-					Log.i(TAG, "fireScrollEvent|" + childView.getMeasuredWidth() + "|" + getScrollX() + "|" + getWidth());
+					Log.i(TAG, "fireScrollEvent|" + parent.getMeasuredWidth() + "|" + getScrollX() + "|" + getWidth());
 
-					if (childView.getMeasuredWidth() <= getScrollX() + getWidth()) {
+					if (parent.getMeasuredWidth() <= getScrollX() + getWidth()) {
 						if (onScrollListener != null) {
 							Log.i(TAG, "onRight");
-							onScrollListener.onRight();
+							onScrollListener.onRight(parent);
 						}
 
 					} else if (getScrollX() == 0) {
 						if (onScrollListener != null) {
 							Log.i(TAG, "onLeft");
-							onScrollListener.onLeft();
+							onScrollListener.onLeft(parent);
 
 						}
 					} else {
 						if (onScrollListener != null) {
 							Log.i(TAG, "onScroll");
-							onScrollListener.onScroll();
-							
-							//适配tab选项
-							fitTab(childView);
+							onScrollListener.onScroll(parent);
+
+							// 适配tab选项
+							fitTab(parent);
 						}
 					}
 
@@ -87,21 +112,13 @@ public class TabScroll extends HorizontalScrollView {
 		}
 	}
 
-	public TabScroll(Context context, AttributeSet attrs) {
-		super(context, attrs);
-
-		init();
-	}
-
-	private void init() {
-		Log.i(TAG, "init");
-
-		setOnTouchListener(onTouchListener);// 设置手势监听器
-
-	}
-	
-	private void fitTab(ViewGroup childView){
-		View first = childView.getChildAt(0);
+	/**
+	 * 自适应
+	 * 
+	 * @param childView
+	 */
+	private void fitTab(ViewGroup parent) {
+		View first = parent.getChildAt(0);
 		final int[] location = new int[2];
 		first.getLocationOnScreen(location);
 		int left = location[0];
@@ -135,11 +152,11 @@ public class TabScroll extends HorizontalScrollView {
 	}
 
 	public interface OnScrollListener {
-		void onRight();
+		void onRight(ViewGroup parent);
 
-		void onLeft();
+		void onLeft(ViewGroup parent);
 
-		void onScroll();
+		void onScroll(ViewGroup parent);
 	}
 
 }
