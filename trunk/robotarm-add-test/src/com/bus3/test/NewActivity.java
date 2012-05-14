@@ -1,6 +1,6 @@
 package com.bus3.test;
 
-import robot.arm.common.BGLoader;
+import robot.arm.provider.BGLoader;
 import android.os.Bundle;
 
 import com.bus3.R;
