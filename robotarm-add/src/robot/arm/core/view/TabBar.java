@@ -82,10 +82,10 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 		view.getLocationOnScreen(location);
 		int point = location[0];
 
-		if (point == l) {
+		if (point == l) 
 			arrow.setVisibility(View.GONE);
-		} else {
+		 else 
 			arrow.setVisibility(View.VISIBLE);
-		}
+		
 	}
 }
