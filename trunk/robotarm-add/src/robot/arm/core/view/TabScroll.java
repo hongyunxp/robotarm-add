@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.TranslateAnimation;
 import android.widget.HorizontalScrollView;
 
 /**
@@ -128,14 +131,15 @@ public class TabScroll extends HorizontalScrollView {
 
 		if (remaining != 0)
 			if (Math.abs(remaining) > first.getWidth() / 2)
-				doScrollBy(first.getWidth() - Math.abs(remaining));
+				doScrollBy(first.getWidth() - Math.abs(remaining), parent);
 			else
-				doScrollBy(remaining);
+				doScrollBy(remaining, parent);
 
 	}
 
-	private void doScrollBy(int x) {
-		scrollBy(x, 0);
+	private void doScrollBy(final int x, ViewGroup parent) {
+		smoothScrollBy(x, 0);
+
 	}
 
 	public TabGroup getTabGroup() {
