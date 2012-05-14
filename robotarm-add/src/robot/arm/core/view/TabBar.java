@@ -69,15 +69,15 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 	public void onScroll(final ViewGroup parent) {
 
 		View first = parent.getChildAt(0);
-		controlTabBar(first, arrowLeft, 0);// 移动到了最左侧
+		controlArrow(first, arrowLeft, 0);// 移动到了最左侧
 
 		View last = parent.getChildAt(parent.getChildCount() - 1);
 		Display display = BaseUtils.getScreenDisplay((Activity) getContext());
-		controlTabBar(last, arrowRight, display.getWidth() - last.getWidth());// 移动到了最右侧
+		controlArrow(last, arrowRight, display.getWidth() - last.getWidth());// 移动到了最右侧
 
 	}
 
-	private void controlTabBar(View view, View arrow, int l) {
+	private void controlArrow(View view, View arrow, int l) {
 		final int[] location = new int[2];
 		view.getLocationOnScreen(location);
 		int point = location[0];
