@@ -7,9 +7,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.TranslateAnimation;
 import android.widget.HorizontalScrollView;
 
 /**
@@ -21,7 +18,6 @@ import android.widget.HorizontalScrollView;
  */
 public class TabScroll extends HorizontalScrollView {
 	private static final String TAG = TabScroll.class.getName();
-	private static final int DELAY_EVENT_TIME = 100;// Scroll事件延时
 	private TabGroup tabGroup;
 	private OnScrollListener onScrollListener;// 监听器
 
@@ -81,7 +77,7 @@ public class TabScroll extends HorizontalScrollView {
 
 		if (parent != null && onScrollListener != null) {
 
-			parent.postDelayed(new Runnable() {
+			parent.post(new Runnable() {
 
 				@Override
 				public void run() {
@@ -112,7 +108,7 @@ public class TabScroll extends HorizontalScrollView {
 					}
 
 				}
-			}, DELAY_EVENT_TIME);
+			});
 
 		}
 	}
