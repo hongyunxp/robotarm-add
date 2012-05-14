@@ -39,11 +39,10 @@ public class TabScroll extends HorizontalScrollView {
 
 		init();
 	}
-	
 
 	private void init() {
 		Log.i(TAG, "init");
-		
+
 		setOnTouchListener(onTouchListener);// 设置手势监听器
 
 	}
@@ -74,7 +73,8 @@ public class TabScroll extends HorizontalScrollView {
 	};
 
 	private void fireScrollEvent() {
-		final ViewGroup parent = (ViewGroup) getChildAt(0);;
+		final ViewGroup parent = (ViewGroup) getChildAt(0);
+		;
 
 		if (parent != null && onScrollListener != null) {
 
@@ -118,19 +118,18 @@ public class TabScroll extends HorizontalScrollView {
 	 * @param childView
 	 */
 	private void fitTab(ViewGroup parent) {
-		View first = parent.getChildAt(0);
+		final View first = parent.getChildAt(0);
 		final int[] location = new int[2];
 		first.getLocationOnScreen(location);
 		int left = location[0];
 		int remaining = left % first.getWidth();
 
-		if (remaining != 0) {
-			if (Math.abs(remaining) > first.getWidth() / 2) {
+		if (remaining != 0)
+			if (Math.abs(remaining) > first.getWidth() / 2)
 				scrollBy(first.getWidth() - Math.abs(remaining), 0);
-			} else {
+			else
 				scrollBy(remaining, 0);
-			}
-		}
+
 	}
 
 	public TabGroup getTabGroup() {
