@@ -2,7 +2,7 @@ package robot.arm.core.view;
 
 import robot.arm.R;
 import robot.arm.core.view.TabScroll.OnScrollListener;
-import robot.arm.provider.BGLoader;
+import robot.arm.utils.BaseUtils;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -68,28 +68,24 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 	@Override
 	public void onScroll(final ViewGroup parent) {
 
-		final View first = parent.getChildAt(0);
-		final int[] location = new int[2];
-		first.getLocationOnScreen(location);
-		int left = location[0];
-		if (left == 0) {//移动到了最左侧
-			arrowLeft.setVisibility(View.GONE);
-		} else {
-			arrowLeft.setVisibility(View.VISIBLE);
-		}
+		View first = parent.getChildAt(0);
+		controlTabBar(first, arrowLeft, 0);// 移动到了最左侧
 
-		final View last = parent.getChildAt(parent.getChildCount() - 1);
-		final int[] lastLocation = new int[2];
-		last.getLocationOnScreen(lastLocation);
-		int right = lastLocation[0];
-		Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
-		int disWidth = display.getWidth();
-		if (right == disWidth - last.getWidth()) {//移动到了最右侧
-			arrowRight.setVisibility(View.GONE);
-		} else {
-			arrowRight.setVisibility(View.VISIBLE);
-		}
+		View last = parent.getChildAt(parent.getChildCount() - 1);
+		Display display = BaseUtils.getScreenDisplay((Activity) getContext());
+		controlTabBar(last, arrowRight, display.getWidth() - last.getWidth());// 移动到了最右侧
 
 	}
 
+	private void controlTabBar(View view, View arrow, int l) {
+		final int[] location = new int[2];
+		view.getLocationOnScreen(location);
+		int point = location[0];
+
+		if (point == l) {
+			arrow.setVisibility(View.GONE);
+		} else {
+			arrow.setVisibility(View.VISIBLE);
+		}
+	}
 }
