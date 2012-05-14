@@ -55,26 +55,29 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 
 	@Override
 	public void onRight(ViewGroup parent) {
-		arrowRight.setVisibility(View.GONE);
 
+		scrollEnd(parent);
 	}
 
 	@Override
 	public void onLeft(ViewGroup parent) {
-		arrowLeft.setVisibility(View.GONE);
 
+		scrollEnd(parent);
 	}
 
 	@Override
-	public void onScroll(final ViewGroup parent) {
+	public void onScroll(ViewGroup parent) {
 
+		scrollEnd(parent);
+	}
+
+	private void scrollEnd(ViewGroup parent) {
 		View first = parent.getChildAt(0);
 		controlArrow(first, arrowLeft, 0);// 移动到了最左侧
 
 		View last = parent.getChildAt(parent.getChildCount() - 1);
 		Display display = BaseUtils.getScreenDisplay((Activity) getContext());
 		controlArrow(last, arrowRight, display.getWidth() - last.getWidth());// 移动到了最右侧
-
 	}
 
 	private void controlArrow(View view, View arrow, int l) {
@@ -82,10 +85,10 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 		view.getLocationOnScreen(location);
 		int point = location[0];
 
-		if (point == l) 
+		if (point == l || Math.abs(point - l) < view.getWidth() / 2)// 允许有误差
 			arrow.setVisibility(View.GONE);
-		 else 
+		else
 			arrow.setVisibility(View.VISIBLE);
-		
+
 	}
 }
