@@ -22,32 +22,6 @@ public class TabScroll extends HorizontalScrollView {
 
 	private TabGroup tabGroup;
 	private OnScrollListener onScrollListener;// 监听器
-
-	public TabScroll(Context context) {
-		super(context);
-
-		init();
-	}
-
-	public TabScroll(Context context, AttributeSet attrs) {
-		super(context, attrs);
-
-		init();
-	}
-
-	public TabScroll(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-
-		init();
-	}
-
-	private void init() {
-		Log.i(TAG, "init");
-
-		setOnTouchListener(onTouchListener);// 设置手势监听器
-
-	}
-
 	private OnTouchListener onTouchListener = new OnTouchListener() {
 
 		@Override
@@ -72,6 +46,39 @@ public class TabScroll extends HorizontalScrollView {
 		}
 
 	};
+
+	public TabScroll(Context context) {
+		super(context);
+
+		init();
+	}
+
+	public TabScroll(Context context, AttributeSet attrs) {
+		super(context, attrs);
+
+		init();
+	}
+
+	public TabScroll(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+
+		init();
+	}
+
+	private void init() {
+		Log.i(TAG, "init");
+
+		setOnTouchListener(onTouchListener);// 设置手势监听器
+
+		getRootView().postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				fireScrollEvent();// 初始化触发事件
+			}
+		}, DELAY_TIME);
+
+	}
 
 	private void fireScrollEvent() {
 		final ViewGroup parent = (ViewGroup) getChildAt(0);
