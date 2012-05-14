@@ -18,6 +18,8 @@ import android.widget.HorizontalScrollView;
  */
 public class TabScroll extends HorizontalScrollView {
 	private static final String TAG = TabScroll.class.getName();
+	private static final long DELAY_TIME = 500;
+
 	private TabGroup tabGroup;
 	private OnScrollListener onScrollListener;// 监听器
 
@@ -73,7 +75,6 @@ public class TabScroll extends HorizontalScrollView {
 
 	private void fireScrollEvent() {
 		final ViewGroup parent = (ViewGroup) getChildAt(0);
-		;
 
 		if (parent != null && onScrollListener != null) {
 
@@ -102,7 +103,13 @@ public class TabScroll extends HorizontalScrollView {
 							// 适配tab选项
 							fitTab(parent);
 
-							onScrollListener.onScroll(parent);
+							parent.postDelayed(new Runnable() {
+
+								@Override
+								public void run() {
+									onScrollListener.onScroll(parent);
+								}
+							}, DELAY_TIME);
 
 						}
 					}
@@ -127,13 +134,13 @@ public class TabScroll extends HorizontalScrollView {
 
 		if (remaining != 0)
 			if (Math.abs(remaining) > first.getWidth() / 2)
-				doScrollBy(first.getWidth() - Math.abs(remaining), parent);
+				doScrollBy(first.getWidth() - Math.abs(remaining));
 			else
-				doScrollBy(remaining, parent);
+				doScrollBy(remaining);
 
 	}
 
-	private void doScrollBy(final int x, ViewGroup parent) {
+	private void doScrollBy(final int x) {
 		smoothScrollBy(x, 0);
 
 	}
