@@ -99,10 +99,12 @@ public class TabScroll extends HorizontalScrollView {
 					} else {
 						if (onScrollListener != null) {
 							Log.i(TAG, "onScroll");
-							onScrollListener.onScroll(parent);
-
+							
 							// 适配tab选项
 							fitTab(parent);
+							
+							onScrollListener.onScroll(parent);
+
 						}
 					}
 

@@ -1,4 +1,4 @@
-package robot.arm.common;
+package robot.arm.provider;
 
 import robot.arm.R;
 import android.app.Activity;
@@ -102,5 +102,15 @@ public class BGLoader {
 	public static BGLoader newInstance(Activity act) {
 		return new BGLoader(act);
 	}
+
+	public int getDisWidth() {
+		return disWidth;
+	}
+
+	public int getDisHeight() {
+		return disHeight;
+	}
+	
+	
 
 }

@@ -2,8 +2,11 @@ package robot.arm.core.view;
 
 import robot.arm.R;
 import robot.arm.core.view.TabScroll.OnScrollListener;
+import robot.arm.provider.BGLoader;
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,20 +21,12 @@ import android.widget.RelativeLayout;
  */
 public class TabBar extends RelativeLayout implements OnScrollListener {
 
-	ImageView arrowl;
-	ImageView arrowr;
-	TabScroll tabScroll;
+	private ImageView arrowLeft;
+	private ImageView arrowRight;
+	private TabScroll tabScroll;
 
 	public TabScroll getTabScroll() {
 		return tabScroll;
-	}
-
-	public ImageView getArrowl() {
-		return arrowl;
-	}
-
-	public ImageView getArrowr() {
-		return arrowr;
 	}
 
 	public TabBar(Context context, AttributeSet attrs) {
@@ -51,29 +46,49 @@ public class TabBar extends RelativeLayout implements OnScrollListener {
 		addView(child);
 
 		if (getResources().getString(R.string.tab_arrowl_tag).equals(child.getTag()))
-			arrowl = (ImageView) child;
+			arrowLeft = (ImageView) child;
 		if (getResources().getString(R.string.tab_arrowr_tag).equals(child.getTag()))
-			arrowr = (ImageView) child;
+			arrowRight = (ImageView) child;
 		if (getResources().getString(R.string.tab_scroll_tag).equals(child.getTag()))
 			tabScroll = (TabScroll) child;
 	}
 
 	@Override
 	public void onRight(ViewGroup parent) {
-		arrowr.setVisibility(View.GONE);
+		arrowRight.setVisibility(View.GONE);
 
 	}
 
 	@Override
 	public void onLeft(ViewGroup parent) {
-		arrowl.setVisibility(View.GONE);
+		arrowLeft.setVisibility(View.GONE);
 
 	}
 
 	@Override
-	public void onScroll(ViewGroup parent) {
-		arrowl.setVisibility(View.VISIBLE);
-		arrowr.setVisibility(View.VISIBLE);
+	public void onScroll(final ViewGroup parent) {
+
+		final View first = parent.getChildAt(0);
+		final int[] location = new int[2];
+		first.getLocationOnScreen(location);
+		int left = location[0];
+		if (left == 0) {//移动到了最左侧
+			arrowLeft.setVisibility(View.GONE);
+		} else {
+			arrowLeft.setVisibility(View.VISIBLE);
+		}
+
+		final View last = parent.getChildAt(parent.getChildCount() - 1);
+		final int[] lastLocation = new int[2];
+		last.getLocationOnScreen(lastLocation);
+		int right = lastLocation[0];
+		Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
+		int disWidth = display.getWidth();
+		if (right == disWidth - last.getWidth()) {//移动到了最右侧
+			arrowRight.setVisibility(View.GONE);
+		} else {
+			arrowRight.setVisibility(View.VISIBLE);
+		}
 
 	}
 

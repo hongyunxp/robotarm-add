@@ -5,12 +5,12 @@ import java.util.Stack;
 
 import junit.framework.Assert;
 import robot.arm.R;
-import robot.arm.common.BGLoader;
 import robot.arm.core.annotation.Resume;
 import robot.arm.core.view.SoftInputListener;
 import robot.arm.core.view.Tab;
 import robot.arm.core.view.TabGroup;
 import robot.arm.core.view.TabView;
+import robot.arm.provider.BGLoader;
 import robot.arm.utils.AppExit;
 import android.app.Activity;
 import android.app.ActivityGroup;
