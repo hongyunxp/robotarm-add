@@ -38,6 +38,7 @@ import android.database.Cursor;
 import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
@@ -390,6 +391,12 @@ public class BaseUtils {
 
 	public static String getPackageName() {
 		return RobotArmApp.getApp().getPackageName();
+	}
+
+	public static Display getScreenDisplay(Activity act) {
+		Display display = act.getWindowManager().getDefaultDisplay();
+
+		return display;
 	}
 
 }
