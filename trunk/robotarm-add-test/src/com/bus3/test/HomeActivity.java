@@ -77,36 +77,41 @@ public class HomeActivity extends BaseActivity {
 		});
 
 		// 画图示例
-		ImageView arrow = (ImageView) findViewById(R.id.home_gallery_select_arrow);
-		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.android_gallery_select_arrow);
-
-		Bitmap image = Bitmap.createBitmap(400, 10, Bitmap.Config.ARGB_8888); // 图形的存储空间
-		Canvas canvas = new Canvas(image);// 画板
-		Paint paint = new Paint(Paint.DITHER_FLAG);// 画笔
-		paint.setColor(Color.DKGRAY);
-		paint.setAntiAlias(true);
-		paint.setStyle(Paint.Style.FILL);
-		paint.setAntiAlias(true);
-		paint.setDither(true);
-		paint.setStrokeWidth(3);
-
-		canvas.drawLine(0, 10, 200 - bm.getWidth() / 2, 10, paint);
-		canvas.drawLine(200 + bm.getWidth() / 2, 10, 400, 10, paint);
-
-		Path path = new Path();
-		path.moveTo(200 - bm.getWidth() / 2, 10);
-		path.lineTo(200, 0);
-		path.lineTo(200 + bm.getWidth() / 2, 10);
-		paint.setStrokeWidth(2);
-		paint.setStyle(Paint.Style.STROKE);
-		canvas.drawPath(path, paint);  
+//		ImageView arrow = (ImageView) findViewById(R.id.home_gallery_select_arrow);
+//		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.android_gallery_select_arrow);
+//
+//		Bitmap image = Bitmap.createBitmap(400, 10, Bitmap.Config.ARGB_8888); // 图形的存储空间
+//		Canvas canvas = new Canvas(image);// 画板
+//		Paint paint = new Paint(Paint.DITHER_FLAG);// 画笔
+//		paint.setColor(Color.DKGRAY);
+//		paint.setAntiAlias(true);
+//		paint.setStyle(Paint.Style.FILL);
+//		paint.setAntiAlias(true);
+//		paint.setDither(true);
+//		paint.setStrokeWidth(3);
+//
+//		canvas.drawLine(0, 10, 200 - bm.getWidth() / 2, 10, paint);
+//		canvas.drawLine(200 + bm.getWidth() / 2, 10, 400, 10, paint);
+//
+//		Path path = new Path();
+//		path.moveTo(200 - bm.getWidth() / 2, 10);
+//		path.lineTo(200, 0);
+//		path.lineTo(200 + bm.getWidth() / 2, 10);
+//		paint.setStrokeWidth(2);
+//		paint.setStyle(Paint.Style.STROKE);
+//		canvas.drawPath(path, paint);  
+//		
+//		paint.setStyle(Paint.Style.FILL);
+//		paint.setColor(Color.GRAY);
+//		canvas.drawPath(path, paint);  
+//
+//		arrow.setImageBitmap(image);// 在ImageView上设置图形
 		
-		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(Color.GRAY);
-		canvas.drawPath(path, paint);  
-
-		arrow.setImageBitmap(image);// 在ImageView上设置图形
-
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
 	}
 
 	@Override
