@@ -21,7 +21,13 @@ public class Record {
 		this.resumable = resumable;
 		this.actClazz = actClazz;
 	}
-
+	
+	public Record(int id, Intent intent, Class<? extends Activity> actClazz) {
+		this.id = id;
+		this.intent = intent;
+		this.actClazz = actClazz;
+	}
+	
 	public int getId() {
 		return this.id;
 	}
