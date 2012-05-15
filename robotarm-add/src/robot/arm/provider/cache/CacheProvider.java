@@ -20,7 +20,13 @@ import android.graphics.Bitmap;
  */
 public class CacheProvider implements Cache {
 	private static final CacheProvider instance = new CacheProvider();
-	private static final List<? extends Cache> caches = Arrays.asList(new RAMCache(), new PMCache(), new SDCache());
+	private static final List<? extends Cache> caches = Arrays.asList(//
+
+			new RAMCache(),// 内存缓存
+//			new PMCache(),// 手机存储缓存
+			new SDCache()// sd卡缓存
+
+			);
 
 	private CacheProvider() {
 	}
