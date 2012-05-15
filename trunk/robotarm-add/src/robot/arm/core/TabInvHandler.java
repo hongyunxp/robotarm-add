@@ -51,8 +51,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private boolean checkLock;
 	private boolean needCloseSoftInput;
 
-	private Animation inLeftToRight;
-	private Animation outLeftToRight;
 	private Animation inRightToLeft;
 	private Animation outRightToLeft;
 
@@ -68,8 +66,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
 
-		inLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right);
-		outLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_left_to_right);
 		inRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left);
 		outRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_right_to_left);
 
@@ -143,18 +139,11 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void setContent(View child) {
 		Assert.assertNotNull(child);
-		
-		// 动画效果,当前Activity时，从右向左，当已访问过，从左到右
-		if (tabView.getContent().indexOfChild(child) != -1) {
-			tabView.getContent().removeView(child);
 
-			
-			tabView.getContent().setInAnimation(inLeftToRight);
-			tabView.getContent().setOutAnimation(outLeftToRight);
-		} else {
-			tabView.getContent().setInAnimation(inRightToLeft);
-			tabView.getContent().setOutAnimation(outRightToLeft);
-		}
+		// 动画效果,当前Activity时，从右向左，当已访问过，从左到右
+		tabView.getContent().removeAllViews();
+		tabView.getContent().setInAnimation(inRightToLeft);
+		tabView.getContent().setOutAnimation(outRightToLeft);
 
 		tabView.getContent().addView(child);
 		tabView.getContent().showNext();
