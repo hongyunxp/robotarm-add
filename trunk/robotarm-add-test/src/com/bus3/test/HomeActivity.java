@@ -10,7 +10,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Paint.Style;
+import android.graphics.Path;
+import android.opengl.Matrix;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,18 +75,37 @@ public class HomeActivity extends BaseActivity {
 				toast.show();
 			}
 		});
-		
-		//画图示例
+
+		// 画图示例
 		ImageView arrow = (ImageView) findViewById(R.id.home_gallery_select_arrow);
-		Bitmap bm=BitmapFactory.decodeResource(getResources(), R.drawable.girl6);
-		
-		Bitmap image = Bitmap.createBitmap(bm.getWidth(), bm.getHeight(), Bitmap.Config.ARGB_8888); //图形的存储空间
+		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.android_gallery_select_arrow);
+
+		Bitmap image = Bitmap.createBitmap(400, 10, Bitmap.Config.ARGB_8888); // 图形的存储空间
 		Canvas canvas = new Canvas(image);// 画板
-		Paint paint = new Paint(Paint.DITHER_FLAG);//画笔
+		Paint paint = new Paint(Paint.DITHER_FLAG);// 画笔
+		paint.setColor(Color.DKGRAY);
+		paint.setAntiAlias(true);
+		paint.setStyle(Paint.Style.FILL);
+		paint.setAntiAlias(true);
+		paint.setDither(true);
+		paint.setStrokeWidth(3);
+
+		canvas.drawLine(0, 10, 200 - bm.getWidth() / 2, 10, paint);
+		canvas.drawLine(200 + bm.getWidth() / 2, 10, 400, 10, paint);
+
+		Path path = new Path();
+		path.moveTo(200 - bm.getWidth() / 2, 10);
+		path.lineTo(200, 0);
+		path.lineTo(200 + bm.getWidth() / 2, 10);
+		paint.setStrokeWidth(2);
+		paint.setStyle(Paint.Style.STROKE);
+		canvas.drawPath(path, paint);  
 		
-		canvas.drawBitmap(bm, 0, 0,paint);
-		
-		arrow.setImageBitmap(image);//在ImageView上设置图形
+		paint.setStyle(Paint.Style.FILL);
+		paint.setColor(Color.GRAY);
+		canvas.drawPath(path, paint);  
+
+		arrow.setImageBitmap(image);// 在ImageView上设置图形
 
 	}
 
