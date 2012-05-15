@@ -37,4 +37,10 @@ public class Record {
 	public Class<? extends Activity> getActClazz() {
 		return actClazz;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+
+		return getId() == ((Record) o).getId();
+	}
 }

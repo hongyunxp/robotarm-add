@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioButton;
@@ -60,14 +61,14 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		checkLock = false;
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
-		
+
 		goWelcome();// 去欢迎界面
 	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {// 回调
 		Log.d(TAG, "onActivityResult|" + requestCode + "|" + resultCode);
-		
+
 		loader = BGLoader.newInstance(this);
 
 		if (requestCode == REQUEST_IF_OK && resultCode == RESULT_OK)
@@ -123,7 +124,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		Assert.assertNotNull(resouceId);
 
 		tabView.getTitle().addView(LayoutInflater.from(this).inflate(resouceId, null));
-		
+
 	}
 
 	/**
@@ -133,6 +134,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		Assert.assertNotNull(view);
 
 		tabView.getContent().addView(view);
+		tabView.getContent().showPrevious();
 	}
 
 	public void titleVisible(boolean visible) {
@@ -151,7 +153,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void tabVisible(boolean visible) {
 		Assert.assertNotNull(visible);
-		System.out.println("@@@@@@@@@@@@@@@@@@tabVisible" + "|" + visible);
 		if (visible) {
 			tabView.getTabBar().setVisibility(View.VISIBLE);
 		} else {
@@ -256,10 +257,10 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 	private TabView initTabView(int tabs) {
 		tabView = (TabView) findViewById(R.id.tab_view);
-		
+
 		TabGroup tabGroup = (TabGroup) LayoutInflater.from(this).inflate(tabs, tabView.getTabBar().getTabScroll(), false);
 		initTabGroup(tabGroup);// 初始化tabs
-		
+
 		tabView.getTabBar().getTabScroll().addChildView(tabGroup);// 创建tool,并将tools工具栏加入容器中
 		tabView.setSoftInputListener(this);// 键盘监听器
 
@@ -282,7 +283,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 			Tab child = (Tab) tabGroup.getChildAt(i);
 			// 设置每个选项卡的宽度
-			child.setWidth(screenWidth/5);
+			child.setWidth(screenWidth / 5);
 			child.setTag(newTabs().get(child.getId()));
 
 		}
@@ -315,10 +316,24 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		}
 
 		tabView.getTitle().removeAllViews();
-		tabView.getContent().removeAllViews();
+//		tabView.getContent().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
-		setContent(getLocalActivityManager().startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)).getDecorView());
+		Window window = getLocalActivityManager().startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+		View view = window.getDecorView();
+		
+		//设置动画效果
+		tabView.getContent().removeAllViews();
+		tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left));
+		tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_right_to_left));
+		tabView.getContent().addView(view);
+		tabView.getContent().showNext();
+		
+//		setContent(view);
+		
+
+
+		// va.removeView(view);
 
 	}
 
@@ -363,5 +378,5 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	public TabView getTabView() {
 		return tabView;
 	}
-	
+
 }

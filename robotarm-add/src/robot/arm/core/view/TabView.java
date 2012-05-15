@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.ViewFlipper;
 
 /**
  * 
@@ -19,7 +20,7 @@ import android.widget.RelativeLayout;
 public class TabView extends RelativeLayout {
 
 	private FrameLayout title;// 标题
-	private FrameLayout content;// 内容
+	private ViewFlipper content;// 内容
 	private TabBar tabBar;// 工具栏
 
 	private SoftInputListener softInputListener;// 软键盘监听器
@@ -44,7 +45,7 @@ public class TabView extends RelativeLayout {
 		return title;
 	}
 
-	public FrameLayout getContent() {
+	public ViewFlipper getContent() {
 		return content;
 	}
 
@@ -80,8 +81,10 @@ public class TabView extends RelativeLayout {
 
 		if (getResources().getString(R.string.tab_title_tag).equals(child.getTag()))
 			title = (FrameLayout) child;
-		if (getResources().getString(R.string.tab_content_tag).equals(child.getTag()))
-			content = (FrameLayout) child;
+		if (getResources().getString(R.string.tab_content_tag).equals(child.getTag())) {
+			content = (ViewFlipper) child;
+		}
+
 		if (getResources().getString(R.string.tab_bar_tag).equals(child.getTag()))
 			tabBar = (TabBar) child;
 	}
