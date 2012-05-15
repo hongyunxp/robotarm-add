@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import robot.arm.provider.view.gif.GifView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +74,18 @@ public class HomeActivity extends BaseActivity {
 				toast.show();
 			}
 		});
+		
+		//画图示例
+		ImageView arrow = (ImageView) findViewById(R.id.home_gallery_select_arrow);
+		Bitmap bm=BitmapFactory.decodeResource(getResources(), R.drawable.girl6);
+		
+		Bitmap image = Bitmap.createBitmap(bm.getWidth(), bm.getHeight(), Bitmap.Config.ARGB_8888); //图形的存储空间
+		Canvas canvas = new Canvas(image);// 画板
+		Paint paint = new Paint(Paint.DITHER_FLAG);//画笔
+		
+		canvas.drawBitmap(bm, 0, 0,paint);
+		
+		arrow.setImageBitmap(image);//在ImageView上设置图形
 
 	}
 
