@@ -39,12 +39,12 @@ public class SwitchFlipperActivity extends Activity {
 		case MotionEvent.ACTION_UP:
 
 			if (event.getX() > startX) { // 向右滑动
-				viewFlipper.setInAnimation(this, R.anim.in_leftright);
-				viewFlipper.setOutAnimation(this, R.anim.out_leftright);
+				viewFlipper.setInAnimation(this, R.anim.in_left_to_right);
+				viewFlipper.setOutAnimation(this, R.anim.out_left_to_right);
 				viewFlipper.showNext();
 			} else if (event.getX() < startX) { // 向左滑动
-				viewFlipper.setInAnimation(this, R.anim.in_rightleft);
-				viewFlipper.setOutAnimation(this, R.anim.out_rightleft);
+				viewFlipper.setInAnimation(this, R.anim.in_right_to_left);
+				viewFlipper.setOutAnimation(this, R.anim.out_right_to_left);
 				viewFlipper.showPrevious();
 			}
 			break;
