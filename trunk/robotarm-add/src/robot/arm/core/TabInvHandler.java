@@ -316,7 +316,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		}
 
 		tabView.getTitle().removeAllViews();
-//		tabView.getContent().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
 		Window window = getLocalActivityManager().startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
@@ -330,10 +329,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		tabView.getContent().showNext();
 		
 //		setContent(view);
-		
-
-
-		// va.removeView(view);
 
 	}
 
