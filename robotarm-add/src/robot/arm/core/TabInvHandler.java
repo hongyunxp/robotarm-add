@@ -132,9 +132,14 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void setContent(View view) {
 		Assert.assertNotNull(view);
+		
 
+		// 设置动画效果
+		tabView.getContent().removeAllViews();
+		tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left));
+		tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_right_to_left));
 		tabView.getContent().addView(view);
-		tabView.getContent().showPrevious();
+		tabView.getContent().showNext();
 	}
 
 	public void titleVisible(boolean visible) {
@@ -320,15 +325,8 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 		Window window = getLocalActivityManager().startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
-		
-		//设置动画效果
-		tabView.getContent().removeAllViews();
-		tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left));
-		tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_right_to_left));
-		tabView.getContent().addView(view);
-		tabView.getContent().showNext();
-		
-//		setContent(view);
+
+		setContent(view);
 
 	}
 
