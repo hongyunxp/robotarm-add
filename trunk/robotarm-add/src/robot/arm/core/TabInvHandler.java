@@ -130,16 +130,24 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	/**
 	 * 设置显示内容
 	 */
-	public void setContent(View view) {
-		Assert.assertNotNull(view);
-		
+	public void setContent(View child) {
+		Assert.assertNotNull(child);
 
-		// 设置动画效果
-		tabView.getContent().removeAllViews();
-		tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left));
-		tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_right_to_left));
-		tabView.getContent().addView(view);
+		if (tabView.getContent().indexOfChild(child) != -1) {
+			tabView.getContent().removeView(child);
+
+			// 设置动画效果
+			tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right));
+			tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_left_to_right));
+		} else {
+			// 设置动画效果
+			tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left));
+			tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_right_to_left));
+		}
+
+		tabView.getContent().addView(child);
 		tabView.getContent().showNext();
+
 	}
 
 	public void titleVisible(boolean visible) {
