@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -50,6 +51,11 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private boolean checkLock;
 	private boolean needCloseSoftInput;
 
+	private Animation inLeftToRight;
+	private Animation outLeftToRight;
+	private Animation inRightToLeft;
+	private Animation outRightToLeft;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,6 +67,11 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		checkLock = false;
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
+
+		inLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right);
+		outLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_left_to_right);
+		inRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left);
+		outRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_right_to_left);
 
 		goWelcome();// 去欢迎界面
 	}
@@ -132,17 +143,17 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void setContent(View child) {
 		Assert.assertNotNull(child);
-
+		
+		// 动画效果,当前Activity时，从右向左，当已访问过，从左到右
 		if (tabView.getContent().indexOfChild(child) != -1) {
 			tabView.getContent().removeView(child);
 
-			// 设置动画效果
-			tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right));
-			tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_left_to_right));
+			
+			tabView.getContent().setInAnimation(inLeftToRight);
+			tabView.getContent().setOutAnimation(outLeftToRight);
 		} else {
-			// 设置动画效果
-			tabView.getContent().setInAnimation(AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left));
-			tabView.getContent().setOutAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.out_right_to_left));
+			tabView.getContent().setInAnimation(inRightToLeft);
+			tabView.getContent().setOutAnimation(outRightToLeft);
 		}
 
 		tabView.getContent().addView(child);
