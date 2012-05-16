@@ -22,10 +22,23 @@
     <string name="common_loading_more">加载中...</string>
     <string name="common_logo_alert">建议使用WIFI网络</string>
     
+    <!-- 关于 -->
+    <string name="menu_about_title">关于</string>
+    <string name="menu_about_content">实时跟随美空最新内容！\n提供火辣性感妹汁！\n美空网的手机终端！\n因为专注，所以专业！\n</string>
+    <string name="menu_about_content2">\n本应用是首个使用robot-arm-add开源框架的安卓应用；\n欢迎开发者加入：https://code.google.com/p/robotarm-add/</string>
+    <string name="menu_about_button">关闭</string>
+    
+    <!-- 意见反馈 -->
+    <string name="menu_feedback_title">意见反馈</string>
+    <string name="menu_feedback_content">如有任何问题请发送到邮箱：\n77804248@qq.com \n</string>
+    <string name="menu_feedback_button">关闭</string>
+    
     <!-- args -->
     <string name = "detailUrl">detailUrl</string>
     <string name = "postTitle">postTitle</string>
     
     <!-- 升级 -->
 	<string name="upload_url">http://joyce.sinaapp.com/app/version.json</string>
+	
+	
 </resources>
