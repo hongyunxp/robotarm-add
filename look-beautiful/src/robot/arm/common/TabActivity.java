@@ -52,12 +52,12 @@ public class TabActivity extends TabInvHandler {
 			break;
 
 		case R.id.main_menu_about:
-			break;
-
-		case R.id.main_menu_help:
+			CommonUtils.dialogAbout(this);
+			
 			break;
 
 		case R.id.main_menu_setup:
+			CommonUtils.dialogFeedback(this);
 			break;
 
 		default:
