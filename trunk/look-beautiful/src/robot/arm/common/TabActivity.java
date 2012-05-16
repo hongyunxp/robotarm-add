@@ -45,18 +45,17 @@ public class TabActivity extends TabInvHandler {
 
 		switch (item.getItemId()) {
 
-		case R.id.main_menu_exit:
-			//广告
-			AppConnect.getInstance(this).finalize();
-			AppExit.getInstance().exit(this);// 退出程序
+		case R.id.main_menu_exit://退出
+			AppConnect.getInstance(this).finalize();	//广告
+			AppExit.getInstance().exit(this);
 			break;
 
-		case R.id.main_menu_about:
+		case R.id.main_menu_about://关于
 			CommonUtils.dialogAbout(this);
 			
 			break;
 
-		case R.id.main_menu_setup:
+		case R.id.main_menu_feedback://意见反馈
 			CommonUtils.dialogFeedback(this);
 			break;
 
