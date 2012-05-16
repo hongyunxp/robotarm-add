@@ -38,12 +38,12 @@ public class TabView extends RelativeLayout {
 		View content = LayoutInflater.from(context).inflate(R.layout.tab_content, this, false);
 		View tabBar = LayoutInflater.from(context).inflate(R.layout.tab_bar, this, false);
 
+		inRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.in_right_to_left);
+		outRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.out_right_to_left);
+		
 		addChildView(title);
 		addChildView(content);
 		addChildView(tabBar);
-		
-		inRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.in_right_to_left);
-		outRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.out_right_to_left);
 
 		Log.e("MyTabView", "" + title.getHeight() + "|" + content.getHeight() + "|" + title.getHeight() + content.getHeight());
 	}
