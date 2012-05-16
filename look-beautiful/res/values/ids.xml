@@ -11,8 +11,7 @@
     <item type="id" name="tab_art"></item>
     
     <!-- menu -->
-    <item type="id" name="main_menu_setup"></item>
-    <item type="id" name="main_menu_help"></item>
+    <item type="id" name="main_menu_feedback"></item>
     <item type="id" name="main_menu_about"></item>
     <item type="id" name="main_menu_exit"></item>
     
