@@ -26,8 +26,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioButton;
@@ -52,9 +50,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private boolean checkLock;
 	private boolean needCloseSoftInput;
 
-	private Animation inRightToLeft;
-	private Animation outRightToLeft;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,9 +61,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		checkLock = false;
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
-
-		inRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left);
-		outRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_right_to_left);
 
 		goWelcome();// 去欢迎界面
 	}
@@ -141,10 +133,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	public void setContent(View child) {
 		Assert.assertNotNull(child);
 
-		// 动画效果
-		final ViewAnimator content = tabView.getContent();
-		content.setInAnimation(inRightToLeft);
-		content.setOutAnimation(outRightToLeft);
+		ViewAnimator content = tabView.getContent();
 		content.removeAllViews();
 		content.addView(child);
 		content.setDisplayedChild(tabView.getContent().getChildCount());// 执行
