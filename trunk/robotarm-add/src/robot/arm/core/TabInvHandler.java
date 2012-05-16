@@ -142,13 +142,12 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		Assert.assertNotNull(child);
 
 		// 动画效果
-		ViewAnimator content = tabView.getContent();
-		content.removeAllViews();
+		final ViewAnimator content = tabView.getContent();
 		content.setInAnimation(inRightToLeft);
 		content.setOutAnimation(outRightToLeft);
+		content.removeAllViews();
 		content.addView(child);
-		content.setDisplayedChild(tabView.getContent().getChildCount());
-
+		content.setDisplayedChild(tabView.getContent().getChildCount());// 执行
 	}
 
 	public void titleVisible(boolean visible) {
