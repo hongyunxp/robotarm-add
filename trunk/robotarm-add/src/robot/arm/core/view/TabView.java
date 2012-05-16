@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.ViewAnimator;
@@ -25,6 +27,8 @@ public class TabView extends RelativeLayout {
 
 	private SoftInputListener softInputListener;// 软键盘监听器
 	private int maxHeight;
+	private Animation inRightToLeft;
+	private Animation outRightToLeft;
 
 	public TabView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -37,6 +41,9 @@ public class TabView extends RelativeLayout {
 		addChildView(title);
 		addChildView(content);
 		addChildView(tabBar);
+		
+		inRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.in_right_to_left);
+		outRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.out_right_to_left);
 
 		Log.e("MyTabView", "" + title.getHeight() + "|" + content.getHeight() + "|" + title.getHeight() + content.getHeight());
 	}
@@ -83,6 +90,9 @@ public class TabView extends RelativeLayout {
 			title = (FrameLayout) child;
 		if (getResources().getString(R.string.tab_content_tag).equals(child.getTag())) {
 			content = (ViewAnimator) child;
+			
+			content.setInAnimation(inRightToLeft);
+			content.setOutAnimation(outRightToLeft);
 		}
 
 		if (getResources().getString(R.string.tab_bar_tag).equals(child.getTag()))
