@@ -27,10 +27,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
-import android.widget.ViewAnimator;
 
 /**
  * 
@@ -51,6 +53,17 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private boolean checkLock;
 	private boolean needCloseSoftInput;
 	private LocalActivityManager activityManager;
+	private Animation inRightToLeft;
+	private Animation outRightToLeft;
+	private Animation inLeftToRight;
+	private Animation outLeftToRight;
+
+	public static enum ContentAnim {
+		RightToLeft, //
+		LeftToRight, //
+
+		;
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +78,11 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		checkLock = false;
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
+
+		inRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left);
+		outRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_right_to_left);
+		inLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right);
+		outLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_left_to_right);
 
 		goWelcome();// 去欢迎界面
 	}
@@ -134,13 +152,44 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	/**
 	 * 设置显示内容
 	 */
-	public void setContent(View child) {
-		Assert.assertNotNull(child);
-
-		ViewAnimator content = tabView.getContent();
+	public void setContent(final View child, ContentAnim cAnim) {
+		final FrameLayout content = tabView.getContent();
 		content.removeAllViews();
 		content.addView(child);
-		content.setDisplayedChild(tabView.getContent().getChildCount());// 执行
+		// final View pre = content.getChildAt(content.getChildCount() - 2);
+
+		// inRightToLeft.setAnimationListener(new AnimationListener() {
+		//
+		// @Override
+		// public void onAnimationStart(Animation animation) {
+		// }
+		//
+		// @Override
+		// public void onAnimationRepeat(Animation animation) {
+		// }
+		//
+		// @Override
+		// public void onAnimationEnd(Animation animation) {
+		//
+		// // content.removeViews(0, content.getChildCount() - 1);// 移除掉没用的views
+		// if (pre != null){
+		// pre.destroyDrawingCache();
+		// content.removeView(pre);
+		// }
+		// }
+		// });
+		//
+		// if (pre != null)
+		// if (ContentAnim.RightToLeft.equals(cAnim))
+		// pre.startAnimation(outRightToLeft);
+		// else if (ContentAnim.LeftToRight.equals(cAnim))
+		// pre.startAnimation(outLeftToRight);
+		//
+		// if (child != null)
+		// if (ContentAnim.RightToLeft.equals(cAnim))
+		// child.startAnimation(inRightToLeft);
+		// else if (ContentAnim.LeftToRight.equals(cAnim))
+		// child.startAnimation(inLeftToRight);
 	}
 
 	public void titleVisible(boolean visible) {
@@ -328,7 +377,8 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
-		setContent(view);
+
+		setContent(view, ContentAnim.RightToLeft);
 
 	}
 
