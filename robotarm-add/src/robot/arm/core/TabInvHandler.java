@@ -85,7 +85,53 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		outRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_right_to_left);
 		inLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right);
 		outLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_left_to_right);
-		
+
+		inRightToLeft.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+
+				// 移除掉没用的views
+				View pre = tabView.getContent().getChildAt(tabView.getContent().getChildCount() - 2);
+				if (pre != null) {
+					tabView.getContent().removeView(pre);
+					LoadImageUtils.recycle();// 释放图片资源
+				}
+
+			}
+		});
+
+		inLeftToRight.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+
+				// 移除掉没用的views
+				View pre = tabView.getContent().getChildAt(tabView.getContent().getChildCount() - 2);
+				if (pre != null) {
+					tabView.getContent().removeView(pre);
+					LoadImageUtils.recycle();// 释放图片资源
+				}
+
+			}
+		});
+
 		goWelcome();// 去欢迎界面
 	}
 
@@ -111,7 +157,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 				checkLock = true;// 锁
 				tabView.getTabBar().getTabScroll().getTabGroup().check(record.getId());
 				tabVisible(true);
-				newActivity(record.getId(), record.getIntent(), record.getActClazz());
+				newActivity(record.getId(), record.getIntent(), record.getActClazz(), ContentAnim.LeftToRight);
 				checkLock = false;// 恢复
 
 			} else {
@@ -156,37 +202,15 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void setContent(final View child, ContentAnim cAnim) {
 		final FrameLayout content = tabView.getContent();
-//		 content.removeAllViews();
 		content.addView(child);
 		final View pre = content.getChildAt(content.getChildCount() - 2);
 
-		inRightToLeft.setAnimationListener(new AnimationListener() {
-
-			@Override
-			public void onAnimationStart(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationEnd(Animation animation) {
-
-				// 移除掉没用的views
-				if (pre != null){
-					content.removeView(pre);
-					LoadImageUtils.recycle();//释放图片资源
-				}
-				
-			}
-		});
-
-		if (pre != null)
+		if (pre != null) {
 			if (ContentAnim.RightToLeft.equals(cAnim))
 				pre.startAnimation(outRightToLeft);
 			else if (ContentAnim.LeftToRight.equals(cAnim))
 				pre.startAnimation(outLeftToRight);
+		}
 
 		if (child != null)
 			if (ContentAnim.RightToLeft.equals(cAnim))
@@ -260,7 +284,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		if (map != null && !map.isEmpty())
 			intent.putExtras(map);
 
-		newActivity(id, intent, toActClazz);
+		newActivity(id, intent, toActClazz, ContentAnim.RightToLeft);
 
 		statusStack.push(new Record(id, intent, resumable, toActClazz));// 入栈
 
@@ -366,7 +390,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 	}
 
-	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz) {
+	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz, ContentAnim cAnim) {
 
 		// 关闭上次的背景loading,多执行也无害
 		if (View.VISIBLE == loader.getLoading().getVisibility()) {
@@ -381,7 +405,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
 
-		setContent(view, ContentAnim.RightToLeft);
+		setContent(view, cAnim);
 
 	}
 
