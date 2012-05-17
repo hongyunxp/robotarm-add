@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ViewSwitcher;
+import android.widget.ViewSwitcher.ViewFactory;
 
 import com.bus3.R;
 
@@ -44,6 +45,15 @@ public class ViewSwitcherActivity extends Activity {
 		inLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right);
 		outLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_left_to_right);
 
+		mSwitcher.setFactory(new ViewFactory() {
+
+			@Override
+			public View makeView() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		});
+
 		btn_next.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -60,7 +70,7 @@ public class ViewSwitcherActivity extends Activity {
 			public void onClick(View v) {
 				mSwitcher.setInAnimation(inLeftToRight);
 				mSwitcher.setOutAnimation(outLeftToRight);
-				
+
 				mSwitcher.showPrevious();
 			}
 		});
