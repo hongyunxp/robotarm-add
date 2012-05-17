@@ -4,7 +4,9 @@
 package robot.arm.utils;
 
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.lang.ref.SoftReference;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -38,11 +40,11 @@ import android.widget.ImageView.ScaleType;
  * 
  */
 public class LoadImageUtils {
-	private static final ArrayList<Bitmap> images = new ArrayList<Bitmap>();
 	private static final String TAG = LoadImageUtils.class.getName();
 
 	private static final int TIME_OUT = 30000;
 	private static final Cache cache = CacheProvider.getInstance();
+	private static final Set<SoftReference<Bitmap>> images = new HashSet<SoftReference<Bitmap>>();
 
 	public static void loadImageSync(Activity act, final String imageUrl, final ImageView imageView) {
 
@@ -68,7 +70,7 @@ public class LoadImageUtils {
 						if (local)
 							cache.put(imageUrl, bm);
 
-						images.add(bm);
+						images.add(new SoftReference<Bitmap>(bm));
 					}
 
 				}
@@ -90,8 +92,9 @@ public class LoadImageUtils {
 	}
 
 	public static void recycle() {
-		for (Bitmap bm : images) {
-			if (!bm.isRecycled())
+		for (SoftReference<Bitmap> bmr : images) {
+			Bitmap bm = bmr.get();
+			if (bm != null && !bm.isRecycled())
 				bm.recycle();
 		}
 	}
