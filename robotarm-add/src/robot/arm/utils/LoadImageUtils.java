@@ -4,6 +4,7 @@
 package robot.arm.utils;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -37,6 +38,7 @@ import android.widget.ImageView.ScaleType;
  * 
  */
 public class LoadImageUtils {
+	private static final ArrayList<Bitmap> images = new ArrayList<Bitmap>();
 	private static final String TAG = LoadImageUtils.class.getName();
 
 	private static final int TIME_OUT = 30000;
@@ -65,6 +67,8 @@ public class LoadImageUtils {
 						bm = loadImage(imageUrl);
 						if (local)
 							cache.put(imageUrl, bm);
+
+						images.add(bm);
 					}
 
 				}
@@ -83,6 +87,13 @@ public class LoadImageUtils {
 
 		}.execute();
 
+	}
+
+	public static void recycle() {
+		for (Bitmap bm : images) {
+			if (!bm.isRecycled())
+				bm.recycle();
+		}
 	}
 
 	/**
