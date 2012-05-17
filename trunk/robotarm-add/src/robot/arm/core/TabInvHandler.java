@@ -14,6 +14,7 @@ import robot.arm.provider.BGLoader;
 import robot.arm.utils.AppExit;
 import android.app.Activity;
 import android.app.ActivityGroup;
+import android.app.LocalActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -49,12 +50,15 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private BGLoader loader;// 背景加载器
 	private boolean checkLock;
 	private boolean needCloseSoftInput;
+	private LocalActivityManager activityManager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.tab_view);// 加载视图
+
+		activityManager = getLocalActivityManager();
 
 		statusStack = new Stack<Record>();
 		tabView = initTabView(R.layout.tabs);
@@ -320,9 +324,10 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		tabView.getTitle().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
-		Window window = getLocalActivityManager().startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
-		View view = window.getDecorView();
+		activityManager.removeAllActivities();// 销毁activitys
 
+		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+		View view = window.getDecorView();
 		setContent(view);
 
 	}
