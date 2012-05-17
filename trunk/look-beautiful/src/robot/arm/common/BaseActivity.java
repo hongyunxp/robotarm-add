@@ -6,6 +6,7 @@ package robot.arm.common;
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.asyc.AsycTask;
+import robot.arm.utils.LoadImageUtils;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -72,7 +73,7 @@ public abstract class BaseActivity extends Activity {
 		super.onDestroy();
 		Log.i(TAG, "onDestroy");
 		
-		//TODO释放资源
+		LoadImageUtils.recycle();//释放图片资源
 	}
 
 	public void background(int resId) {
