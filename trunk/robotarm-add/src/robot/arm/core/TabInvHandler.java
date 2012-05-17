@@ -12,6 +12,7 @@ import robot.arm.core.view.TabGroup;
 import robot.arm.core.view.TabView;
 import robot.arm.provider.BGLoader;
 import robot.arm.utils.AppExit;
+import robot.arm.utils.LoadImageUtils;
 import android.app.Activity;
 import android.app.ActivityGroup;
 import android.app.LocalActivityManager;
@@ -28,6 +29,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -83,7 +85,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		outRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_right_to_left);
 		inLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right);
 		outLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_left_to_right);
-
+		
 		goWelcome();// 去欢迎界面
 	}
 
@@ -154,42 +156,43 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void setContent(final View child, ContentAnim cAnim) {
 		final FrameLayout content = tabView.getContent();
-		content.removeAllViews();
+//		 content.removeAllViews();
 		content.addView(child);
-		// final View pre = content.getChildAt(content.getChildCount() - 2);
+		final View pre = content.getChildAt(content.getChildCount() - 2);
 
-		// inRightToLeft.setAnimationListener(new AnimationListener() {
-		//
-		// @Override
-		// public void onAnimationStart(Animation animation) {
-		// }
-		//
-		// @Override
-		// public void onAnimationRepeat(Animation animation) {
-		// }
-		//
-		// @Override
-		// public void onAnimationEnd(Animation animation) {
-		//
-		// // content.removeViews(0, content.getChildCount() - 1);// 移除掉没用的views
-		// if (pre != null){
-		// pre.destroyDrawingCache();
-		// content.removeView(pre);
-		// }
-		// }
-		// });
-		//
-		// if (pre != null)
-		// if (ContentAnim.RightToLeft.equals(cAnim))
-		// pre.startAnimation(outRightToLeft);
-		// else if (ContentAnim.LeftToRight.equals(cAnim))
-		// pre.startAnimation(outLeftToRight);
-		//
-		// if (child != null)
-		// if (ContentAnim.RightToLeft.equals(cAnim))
-		// child.startAnimation(inRightToLeft);
-		// else if (ContentAnim.LeftToRight.equals(cAnim))
-		// child.startAnimation(inLeftToRight);
+		inRightToLeft.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+
+				// 移除掉没用的views
+				if (pre != null){
+					content.removeView(pre);
+					LoadImageUtils.recycle();//释放图片资源
+				}
+				
+			}
+		});
+
+		if (pre != null)
+			if (ContentAnim.RightToLeft.equals(cAnim))
+				pre.startAnimation(outRightToLeft);
+			else if (ContentAnim.LeftToRight.equals(cAnim))
+				pre.startAnimation(outLeftToRight);
+
+		if (child != null)
+			if (ContentAnim.RightToLeft.equals(cAnim))
+				child.startAnimation(inRightToLeft);
+			else if (ContentAnim.LeftToRight.equals(cAnim))
+				child.startAnimation(inLeftToRight);
 	}
 
 	public void titleVisible(boolean visible) {
