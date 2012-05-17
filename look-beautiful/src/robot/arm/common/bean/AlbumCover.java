@@ -61,7 +61,7 @@ public class AlbumCover {
 		ivs = new ArrayList<ImageView>(COUNT_PER_ROW);
 		ivs.add(iv1);
 		ivs.add(iv2);
-
+		
 		return row;
 	}
 

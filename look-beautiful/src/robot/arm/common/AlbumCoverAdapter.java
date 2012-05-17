@@ -48,6 +48,7 @@ public class AlbumCoverAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+position+"|"+(convertView==null));
 		final AlbumCover item = list.get(position);
 
 		View row = null;
