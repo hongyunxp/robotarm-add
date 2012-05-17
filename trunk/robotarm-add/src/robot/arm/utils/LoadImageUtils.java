@@ -94,8 +94,10 @@ public class LoadImageUtils {
 	public static void recycle() {
 		for (SoftReference<Bitmap> bmr : images) {
 			Bitmap bm = bmr.get();
-			if (bm != null && !bm.isRecycled())
+			if (bm != null && !bm.isRecycled()) {
 				bm.recycle();
+				images.remove(bm);
+			}
 		}
 	}
 
