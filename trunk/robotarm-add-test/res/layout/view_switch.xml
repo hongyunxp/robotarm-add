@@ -5,7 +5,7 @@
 
 	<ViewSwitcher android:id="@+id/switcher"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:inAnimation="@android:anim/slide_in_left" android:outAnimation="@android:anim/slide_out_right">
+		android:inAnimation="@anim/in_right_to_left" android:outAnimation="@anim/out_right_to_left">
 
 		<RelativeLayout android:layout_width="wrap_content"
 			android:layout_height="wrap_content">
