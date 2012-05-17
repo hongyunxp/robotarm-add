@@ -71,6 +71,8 @@ public abstract class BaseActivity extends Activity {
 	protected void onDestroy() {
 		super.onDestroy();
 		Log.i(TAG, "onDestroy");
+		
+		//TODO释放资源
 	}
 
 	public void background(int resId) {
