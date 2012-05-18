@@ -29,6 +29,9 @@ public class Util {
 	/**职业大类 更多行业ID 94*/
 	public static final int VOCATION_MORE_ID = 94;
 	
+	/**展示列表页ID -1*/
+	public static final int POSTLIST_ID = -1;
+	
 	/**
 	 * moko 域名
 	 */
@@ -46,6 +49,9 @@ public class Util {
 	 * @return
 	 */
 	public static String getVocationUrl(int vocationId, int curPage){
+		if (POSTLIST_ID == vocationId) 
+			return String.format(MOKO_DOMAIN + "/moko/post/%s.html", curPage);
 		return String.format(MOKO_DOMAIN + "/channels/post/%s/%s.html", vocationId, curPage);
 	}
+	
 }
