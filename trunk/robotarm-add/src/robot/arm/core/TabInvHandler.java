@@ -12,7 +12,6 @@ import robot.arm.core.view.TabGroup;
 import robot.arm.core.view.TabView;
 import robot.arm.provider.BGLoader;
 import robot.arm.utils.AppExit;
-import robot.arm.utils.LoadImageUtils;
 import android.app.Activity;
 import android.app.ActivityGroup;
 import android.app.LocalActivityManager;
@@ -103,7 +102,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 				View pre = tabView.getContent().getChildAt(tabView.getContent().getChildCount() - 2);
 				if (pre != null) {
 					tabView.getContent().removeView(pre);
-					LoadImageUtils.recycle();// 释放图片资源
 				}
 
 			}
@@ -126,7 +124,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 				View pre = tabView.getContent().getChildAt(tabView.getContent().getChildCount() - 2);
 				if (pre != null) {
 					tabView.getContent().removeView(pre);
-					LoadImageUtils.recycle();// 释放图片资源
 				}
 
 			}
