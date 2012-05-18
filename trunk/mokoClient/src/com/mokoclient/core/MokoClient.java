@@ -72,6 +72,12 @@ public enum MokoClient {
 		public List<PostBean> getPostList(int curPage, int pageSize) throws Throwable {
 			return super.getPostList(Util.VOCATION_MORE_ID, curPage, pageSize);
 		}
+	},
+	POST{
+		@Override
+		public List<PostBean> getPostList(int curPage, int pageSize) throws Throwable {
+			return super.getPostList(Util.POSTLIST_ID, curPage, pageSize);
+		}
 	};
 	
 	private static Map<Integer, List<PostBean>> postListMap = new HashMap<Integer, List<PostBean>>(9);//缓存展示列表
@@ -89,6 +95,7 @@ public enum MokoClient {
 		vocationPageCounter.put(Util.VOCATION_MOVIES_ID, 1);
 		vocationPageCounter.put(Util.VOCATION_MUSIC_ID, 1);
 		vocationPageCounter.put(Util.VOCATION_PHOTOGRAPHY_ID, 1);
+		vocationPageCounter.put(Util.POSTLIST_ID, 1);
 	}
 	
 	/**
@@ -175,11 +182,14 @@ public enum MokoClient {
 		String html = getVocationHtml(vocationId, postCurPage);
 		vocationPageCounter.put(vocationId, ++ postCurPage) ;
 		Document doc = Jsoup.parse(html);
-		Elements elements = doc.select("ul.post.small-post");
+		String select = "ul.post.small-post";
+		if (vocationId == Util.POSTLIST_ID)
+			select = "ul.post.big-post";
+		Elements elements = doc.select(select);
 		for(Element post : elements){
 			Element cover = post.select(".cover").get(0);
 			String title = cover.attr("cover-text");
-			String coverUrl = cover.select("img").get(0).attr("src2");
+			String coverUrl = cover.select("img").get(0).attr("src2").replace("_cover_", "_mokoshow_");//保证都是小图
 			String detailUrl = Util.MOKO_DOMAIN + cover.select("a").get(0).attr("href");
 			PostBean postBean = new PostBean(title, coverUrl, detailUrl);
 			postList.add(postBean);
