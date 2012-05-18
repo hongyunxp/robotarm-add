@@ -8,7 +8,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
 
-import robot.arm.utils.StorageUtils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -21,16 +20,17 @@ import android.util.Log;
  */
 public abstract class BaseCache implements Cache {
 	private static final String TAG = Cache.class.getSimpleName();
+
+	private static String PIC_PATH = "/look-beautiful/pic/";
 	private static final long BYTE = 1;
 	private static final long KB = 1024 * BYTE;
 	private static final long MB = 1024 * KB;
-	private static final long PIC_CACHE_SIZE = 20 * MB;
-	private static final long PIC_CACHE_COUNT = 100;
-	private static String PIC_PATH = "/look-beautiful/pic/";
+	private static final long PIC_AVAILABLE_MIN_CACHE_SIZE = 20 * MB;
 
 	protected boolean AVAILABLE = available();
 	protected String ROOT_PATH = getRootPath();
 	protected String PIC_ROOT_PATH = ROOT_PATH + PIC_PATH;
+	private File picRootPath = new File(PIC_ROOT_PATH);
 
 	{
 		// 初始化图片保存路径
@@ -47,27 +47,52 @@ public abstract class BaseCache implements Cache {
 	 * 保存图片信息到SD卡
 	 */
 	@Override
-	public void put(String imageUrl,Bitmap bm) {
-		
-		if (!AVAILABLE)
-			return;
+	public void put(String imageUrl, Bitmap bm) {
 
-		// 判断图片存储目录是否存在
-		if (!checkPicPath(PIC_ROOT_PATH))
-			return;
+		if (!AVAILABLE)
+			return;// 不可用直接返回
 
 		if (bm == null || "".equals(imageUrl))
 			return;
 
-		// 如果文件夹大小超过限制则清空图片缓存文件夹
-		File picRootPath = new File(PIC_ROOT_PATH);
-		if (PIC_CACHE_COUNT < fileCount(picRootPath))
+		// 判断可用空间是否够用，当不可用时清空
+		if (PIC_AVAILABLE_MIN_CACHE_SIZE > getAvailableMemorySize())
 			cleanFolder(picRootPath);
 
-		// 判断空间是否够用
-		if (PIC_CACHE_SIZE > StorageUtils.getTotalExternalMemorySize())
-			cleanFolder(picRootPath);
+		savePic(imageUrl, bm);
+	}
 
+	/**
+	 * 根据图片URL， 获取图片对象
+	 */
+	@Override
+	public Bitmap get(String picUrl) {
+		if (!AVAILABLE)// SD卡不可用
+			return null;
+
+		if ("".equals(picUrl))
+			return null;
+
+		return getPic(picUrl);
+	}
+
+	private Bitmap getPic(String picUrl) {
+		try {
+			// 根据图片url获取图片路径
+			String picPath = getPicPath(picUrl);
+
+			if (!checkPicExists(picPath))
+				return null;
+
+			return BitmapFactory.decodeFile(picPath);
+		} catch (Throwable e) {
+			Log.e(TAG, e.getMessage(), e);
+		}
+
+		return null;
+	}
+
+	private void savePic(String imageUrl, Bitmap bm) {
 		OutputStream outStream = null;
 		try {
 			String picName = convertUrlToFileName(imageUrl);
@@ -84,32 +109,6 @@ public abstract class BaseCache implements Cache {
 	}
 
 	/**
-	 * 根据图片URL， 获取图片对象
-	 */
-	@Override
-	public Bitmap get(String picUrl) {
-		try {
-			if (!AVAILABLE)// SD卡不可用
-				return null;
-
-			if ("".equals(picUrl))
-				return null;
-
-			// 根据图片url获取图片路径
-			String picPath = getPicPath(picUrl);
-			if (!checkPicExists(picPath))
-				return null;
-
-			// 修改图片最后访问时间
-			updateFileTime(picPath);
-			return BitmapFactory.decodeFile(picPath);
-		} catch (Throwable e) {
-			Log.e(TAG, e.getMessage(), e);
-		}
-		return null;
-	}
-
-	/**
 	 * 对图片URL进行MD5加密 作为图片名
 	 */
 	private String convertUrlToFileName(String picUrl) throws Throwable {
@@ -120,7 +119,7 @@ public abstract class BaseCache implements Cache {
 	 * 获得对字符串进行MD5加密后的结果字符串
 	 */
 	private String getMD5(String value) {
-		if ("".equals(value))
+		if (value == null || "".equals(value))
 			return null;
 
 		try {
@@ -167,25 +166,6 @@ public abstract class BaseCache implements Cache {
 	private boolean checkPicExists(String picPath) {
 		File file = new File(picPath);
 		return file.exists();
-	}
-
-	/**
-	 * 修改文件的最后修改时间
-	 */
-	private void updateFileTime(String filePath) {
-		File file = new File(filePath);
-		long newModifiedTime = System.currentTimeMillis();
-		file.setLastModified(newModifiedTime);
-	}
-
-	/**
-	 * 获得文件个数
-	 */
-	private long fileCount(File f) {
-		if (f.exists() && f.isDirectory()) {
-			return f.list().length;
-		}
-		return 0;
 	}
 
 	/**

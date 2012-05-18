@@ -24,8 +24,13 @@ public class PMCache extends BaseCache {
 	}
 	
 	@Override
-	public long getTotalExternalMemorySize() {
+	public long getTotalMemorySize() {
 		return StorageUtils.getTotalInternalMemorySize();
+	}
+
+	@Override
+	public long getAvailableMemorySize() {
+		return StorageUtils.getAvailableInternalMemorySize();
 	}
 
 }

@@ -25,8 +25,13 @@ public class SDCache extends BaseCache {
 
 
 	@Override
-	public long getTotalExternalMemorySize() {
+	public long getTotalMemorySize() {
 		return StorageUtils.getTotalExternalMemorySize();
+	}
+
+	@Override
+	public long getAvailableMemorySize() {
+		return StorageUtils.getAvailableExternalMemorySize();
 	}
 
 }

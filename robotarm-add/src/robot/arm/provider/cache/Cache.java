@@ -21,6 +21,8 @@ public interface Cache {
 
 	boolean available();
 
-	long getTotalExternalMemorySize();
+	long getTotalMemorySize();
+	
+	long getAvailableMemorySize();
 
 }
