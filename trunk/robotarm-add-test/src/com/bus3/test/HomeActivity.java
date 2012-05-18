@@ -162,10 +162,10 @@ public class HomeActivity extends BaseActivity {
 	protected void onPause() {
 		super.onPause();
 
-		for (ImageView image : images) {
-			if (image instanceof GifView)
-
-				((GifView) image).destroy();// 切换时释放图片资源
-		}
+//		for (ImageView image : images) {
+//			if (image instanceof GifView)
+//
+//				((GifView) image).destroy();// 切换时释放图片资源
+//		}
 	}
 }
