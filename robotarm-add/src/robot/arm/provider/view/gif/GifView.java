@@ -3,7 +3,6 @@ package robot.arm.provider.view.gif;
 import java.io.InputStream;
 
 import robot.arm.R;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;

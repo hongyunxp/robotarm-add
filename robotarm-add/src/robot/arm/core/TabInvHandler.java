@@ -27,12 +27,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.AnimationUtils;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.FrameLayout;
 import android.widget.RadioButton;
 
 /**
@@ -54,10 +50,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private boolean checkLock;
 	private boolean needCloseSoftInput;
 	private LocalActivityManager activityManager;
-	private Animation inRightToLeft;
-	private Animation outRightToLeft;
-	private Animation inLeftToRight;
-	private Animation outLeftToRight;
 
 	public static enum ContentAnim {
 		RightToLeft, //
@@ -79,55 +71,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		checkLock = false;
 		needCloseSoftInput = false;
 		loader = BGLoader.newInstance(this);
-
-		inRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_right_to_left);
-		outRightToLeft = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_right_to_left);
-		inLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.in_left_to_right);
-		outLeftToRight = AnimationUtils.loadAnimation((getApplicationContext()), R.anim.out_left_to_right);
-
-		inRightToLeft.setAnimationListener(new AnimationListener() {
-
-			@Override
-			public void onAnimationStart(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationEnd(Animation animation) {
-
-				// 移除掉没用的views
-				View pre = tabView.getContent().getChildAt(tabView.getContent().getChildCount() - 2);
-				if (pre != null) {
-					tabView.getContent().removeView(pre);
-				}
-
-			}
-		});
-
-		inLeftToRight.setAnimationListener(new AnimationListener() {
-
-			@Override
-			public void onAnimationStart(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-			}
-
-			@Override
-			public void onAnimationEnd(Animation animation) {
-
-				// 移除掉没用的views
-				View pre = tabView.getContent().getChildAt(tabView.getContent().getChildCount() - 2);
-				if (pre != null) {
-					tabView.getContent().removeView(pre);
-				}
-
-			}
-		});
 
 		goWelcome();// 去欢迎界面
 	}
@@ -198,22 +141,8 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 * 设置显示内容
 	 */
 	public void setContent(final View child, ContentAnim cAnim) {
-		final FrameLayout content = tabView.getContent();
-		content.addView(child);
-		final View pre = content.getChildAt(content.getChildCount() - 2);
 
-		if (pre != null) {
-			if (ContentAnim.RightToLeft.equals(cAnim))
-				pre.startAnimation(outRightToLeft);
-			else if (ContentAnim.LeftToRight.equals(cAnim))
-				pre.startAnimation(outLeftToRight);
-		}
-
-		if (child != null)
-			if (ContentAnim.RightToLeft.equals(cAnim))
-				child.startAnimation(inRightToLeft);
-			else if (ContentAnim.LeftToRight.equals(cAnim))
-				child.startAnimation(inLeftToRight);
+		tabView.getContent().animShow(child);
 	}
 
 	public void titleVisible(boolean visible) {
@@ -397,8 +326,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		tabView.getTitle().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
-		activityManager.removeAllActivities();// 销毁activitys
-
+//		activityManager.removeAllActivities();// 销毁activitys
 		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
 

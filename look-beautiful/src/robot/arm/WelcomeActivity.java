@@ -1,7 +1,5 @@
 package robot.arm;
 
-import com.waps.AppConnect;
-
 import robot.arm.common.Util;
 import robot.arm.provider.AppUpdateProvider;
 import robot.arm.utils.NetType;
@@ -13,6 +11,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.TextView;
+
+import com.waps.AppConnect;
 
 /**
  * 欢迎页面
