@@ -65,8 +65,14 @@ public class TabAnimContent extends FrameLayout {
 	}
 
 	public void animShow(View child) {
-		if (indexOfChild(child) == -1)
+		if (getChildCount() == 0) {
 			addView(child);
+
+			return;
+		} else if (indexOfChild(child) == -1)
+
+			addView(child);
+
 		else {
 			removeView(child);
 			addView(child);
@@ -76,6 +82,7 @@ public class TabAnimContent extends FrameLayout {
 	}
 
 	private void show(int childIndex) {
+
 		final int count = getChildCount();
 
 		for (int i = 0; i < count; i++) {
@@ -89,5 +96,4 @@ public class TabAnimContent extends FrameLayout {
 
 		}
 	}
-
 }
