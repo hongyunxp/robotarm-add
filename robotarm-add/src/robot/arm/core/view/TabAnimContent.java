@@ -57,9 +57,13 @@ public class TabAnimContent extends FrameLayout {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				// 移除掉多余的view
-				View pre = getChildAt(getChildCount() - 2);
-				if (pre != null)
-					removeView(pre);
+				post(new Runnable() {
+					public void run() {
+						View pre = getChildAt(getChildCount() - 2);
+						if (pre != null)
+							removeView(pre);
+					}
+				});
 			}
 		});
 	}
