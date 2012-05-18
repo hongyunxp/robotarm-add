@@ -51,13 +51,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private boolean needCloseSoftInput;
 	private LocalActivityManager activityManager;
 
-	public static enum ContentAnim {
-		RightToLeft, //
-		LeftToRight, //
-
-		;
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -97,7 +90,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 				checkLock = true;// 锁
 				tabView.getTabBar().getTabScroll().getTabGroup().check(record.getId());
 				tabVisible(true);
-				newActivity(record.getId(), record.getIntent(), record.getActClazz(), ContentAnim.LeftToRight);
+				newActivity(record.getId(), record.getIntent(), record.getActClazz());
 				checkLock = false;// 恢复
 
 			} else {
@@ -140,7 +133,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	/**
 	 * 设置显示内容
 	 */
-	public void setContent(final View child, ContentAnim cAnim) {
+	public void setContent(final View child) {
 
 		tabView.getContent().animShow(child);
 	}
@@ -210,7 +203,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		if (map != null && !map.isEmpty())
 			intent.putExtras(map);
 
-		newActivity(id, intent, toActClazz, ContentAnim.RightToLeft);
+		newActivity(id, intent, toActClazz);
 
 		statusStack.push(new Record(id, intent, resumable, toActClazz));// 入栈
 
@@ -316,7 +309,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 	}
 
-	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz, ContentAnim cAnim) {
+	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz) {
 
 		// 关闭上次的背景loading,多执行也无害
 		if (View.VISIBLE == loader.getLoading().getVisibility()) {
@@ -326,11 +319,11 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		tabView.getTitle().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
-//		activityManager.removeAllActivities();// 销毁activitys
+		// activityManager.removeAllActivities();// 销毁activitys
 		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
 
-		setContent(view, cAnim);
+		setContent(view);
 
 	}
 
