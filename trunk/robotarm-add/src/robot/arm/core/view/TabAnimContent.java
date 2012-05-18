@@ -23,13 +23,6 @@ public class TabAnimContent extends FrameLayout {
 	private Animation inRightToLeft;
 	private Animation outRightToLeft;
 
-	public static enum ContentAnim {
-		RightToLeft, //
-		LeftToRight, //
-
-		;
-	}
-
 	public TabAnimContent(Context context) {
 		super(context, null);
 
