@@ -50,9 +50,8 @@ public class TabAnimContent extends FrameLayout {
 
 	private void init() {
 		inRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.in_right_to_left);
-		outRightToLeft = AnimationUtils.loadAnimation((getContext()), R.anim.out_right_to_left);
 
-		outRightToLeft.setAnimationListener(new AnimationListener() {
+		inRightToLeft.setAnimationListener(new AnimationListener() {
 
 			@Override
 			public void onAnimationStart(Animation animation) {
@@ -75,11 +74,10 @@ public class TabAnimContent extends FrameLayout {
 	public void animShow(View child) {
 		if (indexOfChild(child) == -1)
 			addView(child);
-		else{
+		else {
 			removeView(child);
 			addView(child);
 		}
-		
 
 		show(getChildCount() - 1);
 	}
@@ -90,13 +88,11 @@ public class TabAnimContent extends FrameLayout {
 		for (int i = 0; i < count; i++) {
 
 			final View child = getChildAt(i);
-			if (i == childIndex)
-
+			if (i == childIndex) {
 				if (inRightToLeft != null)
 					child.startAnimation(inRightToLeft);
-
-				else if (outRightToLeft != null && child.getVisibility() == View.VISIBLE)
-					child.startAnimation(outRightToLeft);
+			} else if (outRightToLeft != null)
+				child.startAnimation(outRightToLeft);
 
 		}
 	}
