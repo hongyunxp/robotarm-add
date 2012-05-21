@@ -1,7 +1,12 @@
 package robot.arm.utils;
 
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,13 +14,16 @@ import java.util.Map;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.params.ConnRoutePNames;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -35,6 +43,9 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
 import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -56,6 +67,8 @@ public class BaseUtils {
 	private static final String TAG = BaseUtils.class.getName();
 	public static final String ENCODING = "utf-8";
 	private static volatile DisplayMetrics display;
+	private static String PIC_PATH = "/look-beautiful/pic/";
+	private static final int TIME_OUT = 30000;
 
 	public static void confirm(final Context context, int message, OnClickListener pl, OnClickListener nl) {
 		AlertDialog.Builder tDialog = new AlertDialog.Builder(context);
@@ -342,7 +355,7 @@ public class BaseUtils {
 		}
 	}
 
-	public static void closeInputStream(InputStream is) {
+	public static void closeStream(Closeable is) {
 		if (is == null)
 			return;
 		try {
@@ -397,6 +410,151 @@ public class BaseUtils {
 		Display display = act.getWindowManager().getDefaultDisplay();
 
 		return display;
+	}
+
+	/**
+	 * 从网络上读取图片
+	 */
+	public static String loadImage(String rootPath, String imageUrl) {
+		HttpClient client = null;
+		HttpGet get = new HttpGet(imageUrl);
+		InputStream is = null;
+		OutputStream out = null;
+
+		try {
+			client = getHttpClient();
+			HttpResponse response = client.execute(get);
+			is = response.getEntity().getContent();
+
+			// 根据图片url获取图片路径
+			String picPath = BaseUtils.getPicPath(rootPath, imageUrl);
+
+			File file = new File(picPath);
+			out = new FileOutputStream(file);
+
+			byte[] buf = new byte[64];
+			int length = 0;
+			while ((length = is.read(buf)) != -1) {
+				out.write(buf, 0, length);
+			}
+
+			return picPath;
+
+		} catch (Throwable e) {
+			Log.e(TAG, e.getMessage(), e);
+		} finally {
+			BaseUtils.closeStream(is);
+			BaseUtils.closeStream(out);
+			if (client != null)
+				client.getConnectionManager().shutdown();
+		}
+
+		return null;
+	}
+
+	private static HttpClient getHttpClient() throws Throwable {
+		HttpParams httpParams = new BasicHttpParams();
+		HttpConnectionParams.setConnectionTimeout(httpParams, TIME_OUT);
+		HttpConnectionParams.setSoTimeout(httpParams, TIME_OUT);
+
+		if (checkGPRS_WAP()) {
+			httpParams.setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(Proxy.getDefaultHost(), Proxy.getDefaultPort(), "http"));
+		}
+		return new DefaultHttpClient(httpParams);
+
+	}
+
+	/**
+	 * 检查手机网络连接类型是否为GPRS WAP
+	 */
+	private static boolean checkGPRS_WAP() {
+		if (!checkNetIsAvailable())
+			return false;
+
+		NetworkInfo info = ((ConnectivityManager) RobotArmApp.getApp().getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+		// WIFI连接
+		if (ConnectivityManager.TYPE_WIFI == info.getType())
+			return false;
+
+		// GPRS方式连接
+		if (ConnectivityManager.TYPE_MOBILE != info.getType())
+			return false;
+
+		return Proxy.getDefaultHost() != null && !"".equals(Proxy.getDefaultHost());
+	}
+
+	/**
+	 * 检查手机网络是否可用 true：可用 false:不可用
+	 */
+	public static boolean checkNetIsAvailable() {
+		// 获取手机所有连接管理对象
+		ConnectivityManager cm = (ConnectivityManager) RobotArmApp.getApp().getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (cm == null)
+			return false;
+
+		// 获取网络连接管理的对象
+		NetworkInfo info = cm.getActiveNetworkInfo();
+		if (info == null || !info.isAvailable() || !info.isConnected() || info.getState() != NetworkInfo.State.CONNECTED)
+			return false;
+		return true;
+	}
+
+	/**
+	 * 根据图片URL生成图片存储路径
+	 */
+	public static String getPicPath(String root, String picUrl) throws Throwable {
+		return root + PIC_PATH + convertUrlToFileName(picUrl);
+	}
+
+	/**
+	 * 对图片URL进行MD5加密 作为图片名
+	 */
+	public static String convertUrlToFileName(String picUrl) throws Throwable {
+		return getMD5(picUrl);
+	}
+
+	// public void savePic(String local, Bitmap bm) {
+	// OutputStream outStream = null;
+	// try {
+	// String picName = convertUrlToFileName(local);
+	// File file = new File(PIC_ROOT_PATH + picName);
+	// outStream = new FileOutputStream(file);
+	// bm.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
+	// outStream.flush();
+	// } catch (Throwable e) {
+	// Log.e(TAG, e.getMessage(), e);
+	//
+	// } finally {
+	// closeOutputStream(outStream);
+	// }
+	// }
+
+	/**
+	 * 获得对字符串进行MD5加密后的结果字符串
+	 */
+	public static String getMD5(String value) {
+		if (value == null || "".equals(value))
+			return null;
+
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(value.getBytes("UTF-8"));
+			return toHexString(md.digest());
+		} catch (Throwable e) {
+			return null;
+		}
+	}
+
+	/**
+	 * 获得指定byte[]对象中的所有byte值的16进制形式的结果字符串
+	 */
+	private static String toHexString(byte[] bytes) {
+		StringBuffer sb = new StringBuffer(bytes.length * 2);
+		for (int i = 0; i < bytes.length; i++) {
+			sb.append(Character.forDigit((bytes[i] & 0XF0) >> 4, 16));
+			sb.append(Character.forDigit(bytes[i] & 0X0F, 16));
+		}
+		return sb.toString();
 	}
 
 }

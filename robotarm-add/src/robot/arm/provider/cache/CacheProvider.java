@@ -6,8 +6,6 @@ package robot.arm.provider.cache;
 import java.util.Arrays;
 import java.util.List;
 
-import android.graphics.Bitmap;
-
 /**
  * @author li.li
  * 
@@ -22,8 +20,8 @@ public class CacheProvider implements Cache {
 	private static final CacheProvider instance = new CacheProvider();
 	private static final List<? extends Cache> caches = Arrays.asList(//
 
-//			new RAMCache(),// 内存缓存
-//			new PMCache(),// 手机存储缓存
+			// new RAMCache(),// 内存缓存
+			// new PMCache(),// 手机存储缓存
 			new SDCache()// sd卡缓存
 
 			);
@@ -57,15 +55,19 @@ public class CacheProvider implements Cache {
 	}
 
 	@Override
-	public void put(String imageUrl, Bitmap bm) {
+	public String put(String imageUrl) {
+		String result=null;
+		
 		for (Cache cache : caches) {
 			if (cache.available())
-				cache.put(imageUrl, bm);
+				result = cache.put(imageUrl);
 		}
+		
+		return result;
 	}
 
 	@Override
-	public Bitmap get(String imageUrl) {
+	public String get(String imageUrl) {
 		for (Cache cache : caches) {
 			if (cache.available())
 				return cache.get(imageUrl);
