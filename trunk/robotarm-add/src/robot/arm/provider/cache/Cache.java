@@ -3,7 +3,6 @@
  */
 package robot.arm.provider.cache;
 
-import android.graphics.Bitmap;
 
 /**
  * @author li.li
@@ -13,9 +12,9 @@ import android.graphics.Bitmap;
  */
 public interface Cache {
 
-	void put(String key, Bitmap value);
+	String put(String key);
 
-	Bitmap get(String key);
+	String get(String key);
 
 	String getRootPath();
 

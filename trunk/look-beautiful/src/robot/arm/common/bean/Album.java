@@ -23,7 +23,6 @@ public class Album {
 	public static final int COUNT_PER_ROW = 1;
 	private Activity act;
 	private String[] images;
-	private List<ImageView> ivs;
 
 	public Album(Activity act, String[] images) {
 		this.act = act;
@@ -35,9 +34,6 @@ public class Album {
 		ImageView image = (ImageView) row.findViewById(R.id.contentImage);
 		image.setTag(R.string.detailUrl, images[0]);
 		LoadImageUtils.loadImageSync(act, images[0], image);
-
-		ivs = new ArrayList<ImageView>(COUNT_PER_ROW);
-		ivs.add(image);
 
 		return row;
 	}
