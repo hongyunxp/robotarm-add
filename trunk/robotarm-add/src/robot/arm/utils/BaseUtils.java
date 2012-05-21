@@ -43,6 +43,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
@@ -513,21 +514,42 @@ public class BaseUtils {
 		return getMD5(picUrl);
 	}
 
-	// public void savePic(String local, Bitmap bm) {
-	// OutputStream outStream = null;
-	// try {
-	// String picName = convertUrlToFileName(local);
-	// File file = new File(PIC_ROOT_PATH + picName);
-	// outStream = new FileOutputStream(file);
-	// bm.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
-	// outStream.flush();
-	// } catch (Throwable e) {
-	// Log.e(TAG, e.getMessage(), e);
-	//
-	// } finally {
-	// closeOutputStream(outStream);
-	// }
-	// }
+	public static int computeSampleSize(BitmapFactory.Options options, int minSideLength, int maxNumOfPixels) {
+		int initialSize = computeInitialSampleSize(options, minSideLength, maxNumOfPixels);
+
+		int roundedSize;
+		if (initialSize <= 8) {
+			roundedSize = 1;
+			while (roundedSize < initialSize) {
+				roundedSize <<= 1;
+			}
+		} else {
+			roundedSize = (initialSize + 7) / 8 * 8;
+		}
+
+		return roundedSize;
+	}
+
+	private static int computeInitialSampleSize(BitmapFactory.Options options, int minSideLength, int maxNumOfPixels) {
+		double w = options.outWidth;
+		double h = options.outHeight;
+
+		int lowerBound = (maxNumOfPixels == -1) ? 1 : (int) Math.ceil(Math.sqrt(w * h / maxNumOfPixels));
+		int upperBound = (minSideLength == -1) ? 128 : (int) Math.min(Math.floor(w / minSideLength), Math.floor(h / minSideLength));
+
+		if (upperBound < lowerBound) {
+			// return the larger one when there is no overlapping zone.
+			return lowerBound;
+		}
+
+		if ((maxNumOfPixels == -1) && (minSideLength == -1)) {
+			return 1;
+		} else if (minSideLength == -1) {
+			return lowerBound;
+		} else {
+			return upperBound;
+		}
+	}
 
 	/**
 	 * 获得对字符串进行MD5加密后的结果字符串

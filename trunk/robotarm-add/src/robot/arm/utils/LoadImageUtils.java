@@ -42,6 +42,7 @@ public class LoadImageUtils {
 					return;
 
 				Bitmap bm = BitmapFactory.decodeFile(picPath);
+
 				if (bm != null) {
 					imageView.setImageBitmap(bm);
 					imageView.setScaleType(ScaleType.CENTER_CROP);
