@@ -152,9 +152,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 			if (list != null) {
 				list.clear();// 清空
 				List<PostBean> result = Util.getPostList(mClient, curPage);
-				if (result == null)
-					listView.removeFooterView(more);
-				else {
+				if (result != null && result.size() > 0) {
 					list.addAll(result);
 					if (upView)
 						updateView();// 更新视图

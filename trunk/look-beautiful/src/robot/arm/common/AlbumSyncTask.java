@@ -146,9 +146,15 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 			if (list != null) {
 				list.clear();
 				PostDetailBean result = Util.getPostDetail(client, detailUrl, curPage);
-				if (result == null || result.getPostDetailList().size() == 0)
-					listView.removeFooterView(more);
-				else {
+				if (result == null || result.getPostDetailList().size() == 0) {
+					listView.post(new Runnable() {
+
+						@Override
+						public void run() {
+							listView.removeFooterView(more);
+						}
+					});
+				} else {
 					pageCount = result.getPageCount();
 					list.addAll(result.getPostDetailList());
 				}
@@ -156,5 +162,4 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		}
 
 	}
-
 }
