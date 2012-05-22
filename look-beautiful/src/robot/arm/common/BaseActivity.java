@@ -31,6 +31,7 @@ import com.waps.AdView;
 public abstract class BaseActivity extends Activity {
 	private final String TAG = getClass().getName();
 	private static final int MORE_LOADING_DELAY = 1000;
+	private static View ad;
 
 	protected AsycTask<BaseActivity> task;
 	protected ViewGroup more;
@@ -46,6 +47,9 @@ public abstract class BaseActivity extends Activity {
 		Log.i(TAG, "onCreate");
 
 		tabInvHandler = ((TabInvHandler) getParent());
+
+		// 加入广告
+		ad();
 
 	}
 
@@ -83,8 +87,6 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected void initView() {
-		// 加入广告
-		ad();
 
 		listView = (ListView) findViewById(R.id.images);
 		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
@@ -153,8 +155,11 @@ public abstract class BaseActivity extends Activity {
 
 	// 广告
 	private void ad() {
-		LinearLayout adLayout = (LinearLayout) findViewById(R.id.ad_layout);
+		View ad = tabInvHandler.setAd(R.layout.ad);
+
+		LinearLayout adLayout = (LinearLayout) ad.findViewById(R.id.ad_layout);
 		new AdView(this, adLayout).DisplayAd();
+
 	}
 
 	public boolean isInit() {

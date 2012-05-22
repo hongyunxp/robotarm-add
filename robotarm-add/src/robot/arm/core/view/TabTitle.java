@@ -35,7 +35,7 @@ public class TabTitle extends LinearLayout {
 
 	}
 
-	public void setTitle(int resouceId) {
+	public View setTitle(int resouceId) {
 		title = LayoutInflater.from(getContext()).inflate(resouceId, null);
 		int index = indexOfChild(title);
 
@@ -44,10 +44,12 @@ public class TabTitle extends LinearLayout {
 
 		int childCount = getChildCount();
 		addView(title, childCount == 0 ? 0 : childCount - 1);
+		
+		return title;
 
 	}
 
-	public void setAd(int resouceId) {
+	public View setAd(int resouceId) {
 		ad = LayoutInflater.from(getContext()).inflate(resouceId, null);
 		int index = indexOfChild(ad);
 
@@ -55,6 +57,8 @@ public class TabTitle extends LinearLayout {
 			removeViewAt(index);
 
 		addView(ad);
+		
+		return ad;
 	}
 
 }
