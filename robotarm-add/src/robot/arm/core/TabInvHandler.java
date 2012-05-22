@@ -125,13 +125,21 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void setTitle(int resouceId) {
 
-	    tabView.getTitle().setTitle(resouceId);
+		tabView.getTitle().setTitle(resouceId);
 
 	}
 
 	public View setAd(int resouceId) {
 
 		return tabView.getTitle().setAd(resouceId);
+
+	}
+
+	public View setAd() {
+		View ad = setAd(R.layout.ad);
+		View adLayout = ad.findViewById(R.id.ad_layout);
+
+		return adLayout;
 
 	}
 
