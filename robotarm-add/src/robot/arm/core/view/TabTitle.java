@@ -18,7 +18,6 @@ import android.widget.LinearLayout;
  */
 public class TabTitle extends LinearLayout {
 	private View title;
-
 	private View ad;
 
 	public TabTitle(Context context) {
