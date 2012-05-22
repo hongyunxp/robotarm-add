@@ -53,6 +53,9 @@ public abstract class BaseActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		Log.i(TAG, "onResume");
+
+		// 加入广告
+		ad();
 	}
 
 	@Override
@@ -83,9 +86,6 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected void initView() {
-		// 加入广告
-		ad();
-
 		listView = (ListView) findViewById(R.id.images);
 		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (TextView) more.findViewById(R.id.button_images_more);
