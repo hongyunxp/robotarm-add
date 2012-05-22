@@ -14,6 +14,7 @@
     <string name="tab_bar_tag">tab_bar</string>
     <string name="tab_arrowl_tag">tab_scroll_arrowl</string>
     <string name="tab_arrowr_tag">tab_scroll_arrowr</string>
+    <string name="tab_ad_tag">tab_ad_tag</string>
     
     <!-- 网络不可用对话框 -->
 	<string name="confirm_net_title">提示</string>

@@ -3,6 +3,7 @@
  */
 package robot.arm.core.view;
 
+import robot.arm.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -37,27 +38,38 @@ public class TabTitle extends LinearLayout {
 
 	public View setTitle(int resouceId) {
 		title = LayoutInflater.from(getContext()).inflate(resouceId, null);
-		int index = indexOfChild(title);
 
-		if (index != -1)
-			removeViewAt(index);
+		int count = getChildCount();
 
-		int childCount = getChildCount();
-		addView(title, childCount == 0 ? 0 : childCount - 1);
-		
+		for (int i = 0; i < count; i++) {
+			View view = getChildAt(i);
+			String tag = getResources().getString(R.string.tab_ad_tag);
+
+			if (!tag.equals(view.getTag()))
+				removeViewAt(i);
+		}
+
+		addView(title, 0);
+
 		return title;
 
 	}
 
 	public View setAd(int resouceId) {
 		ad = LayoutInflater.from(getContext()).inflate(resouceId, null);
-		int index = indexOfChild(ad);
-
-		if (index != -1)
-			removeViewAt(index);
-
-		addView(ad);
 		
+		int count = getChildCount();
+
+		for (int i = 0; i < count; i++) {
+			View view = getChildAt(i);
+			String tag = getResources().getString(R.string.tab_ad_tag);
+
+			if (tag.equals(view.getTag()))
+				removeViewAt(i);
+		}
+		
+		addView(ad);
+
 		return ad;
 	}
 
