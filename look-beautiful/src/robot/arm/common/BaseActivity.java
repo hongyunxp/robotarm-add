@@ -31,7 +31,6 @@ import com.waps.AdView;
 public abstract class BaseActivity extends Activity {
 	private final String TAG = getClass().getName();
 	private static final int MORE_LOADING_DELAY = 1000;
-	private static View ad;
 
 	protected AsycTask<BaseActivity> task;
 	protected ViewGroup more;
