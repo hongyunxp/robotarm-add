@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 /**
@@ -18,7 +17,7 @@ import android.widget.RelativeLayout;
  */
 public class TabView extends RelativeLayout {
 
-	private LinearLayout title;// 标题
+	private TabTitle title;// 标题
 	private TabAnimContent content;// 内容
 	private TabBar tabBar;// 工具栏
 
@@ -40,7 +39,7 @@ public class TabView extends RelativeLayout {
 		Log.e("MyTabView", "" + title.getHeight() + "|" + content.getHeight() + "|" + title.getHeight() + content.getHeight());
 	}
 
-	public LinearLayout getTitle() {
+	public TabTitle getTitle() {
 		return title;
 	}
 
@@ -79,7 +78,7 @@ public class TabView extends RelativeLayout {
 		addView(child);
 
 		if (getResources().getString(R.string.tab_title_tag).equals(child.getTag()))
-			title = (LinearLayout) child;
+			title = (TabTitle) child;
 		if (getResources().getString(R.string.tab_content_tag).equals(child.getTag())) {
 			content = (TabAnimContent) child;
 		}
