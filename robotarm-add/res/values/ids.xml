@@ -9,4 +9,6 @@
     <item type="id" name="tab_view"></item>
     <item type="id" name="tab_scroll_arrow_left"></item>
     <item type="id" name="tab_scroll_arrow_right"></item>
+     <!-- 广告 -->
+    <item type="id" name="ad_layout"></item>
 </resources>
