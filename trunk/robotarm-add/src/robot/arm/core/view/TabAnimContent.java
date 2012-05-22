@@ -59,9 +59,8 @@ public class TabAnimContent extends FrameLayout {
 				// 移除掉多余的view
 				post(new Runnable() {
 					public void run() {
-						View pre = getChildAt(getChildCount() - 2);
-						if (pre != null)
-							removeView(pre);
+
+						removeViewAt(getChildCount() - 2);
 					}
 				});
 			}
@@ -82,10 +81,10 @@ public class TabAnimContent extends FrameLayout {
 			addView(child);
 		}
 
-		show(getChildCount() - 1);
+		doAnimShow(getChildCount() - 1);//显示最后一个元素
 	}
 
-	private void show(int childIndex) {
+	private void doAnimShow(int childIndex) {
 
 		final int count = getChildCount();
 
