@@ -66,7 +66,8 @@ public class TabAnimContent extends FrameLayout {
 			}
 		});
 	}
-
+	
+	//动画展示
 	public void animShow(View child) {
 		if (getChildCount() == 0) {
 			addView(child);
@@ -83,12 +84,13 @@ public class TabAnimContent extends FrameLayout {
 
 		doAnimShow(getChildCount() - 1);// 显示最后一个元素
 	}
-
+	
+	//普通展示
 	public void simpleShow(View child) {
 		removeAllViews();
 		addView(child);
 	}
-
+	
 	private void doAnimShow(int childIndex) {
 
 		final int count = getChildCount();
