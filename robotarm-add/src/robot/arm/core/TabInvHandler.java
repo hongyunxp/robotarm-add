@@ -319,7 +319,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		tabView.getTitle().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
-		activityManager.removeAllActivities();// 销毁activitys
+//		activityManager.removeAllActivities();// 销毁activitys
 
 		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
