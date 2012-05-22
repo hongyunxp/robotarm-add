@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="wrap_content" android:tag="@string/tab_ad_tag">
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:tag="@string/tab_ad_tag">
 
-	<!-- 广告-->
+	<!-- 广告 -->
 	<LinearLayout android:id="@id/ad_layout"
 		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:gravity="center_horizontal"/>
+		android:gravity="center_horizontal" />
 
 </FrameLayout>

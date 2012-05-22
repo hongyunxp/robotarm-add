@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
  */
 public class TabTitle extends LinearLayout {
 	private View title;
+
 	private View ad;
 
 	public TabTitle(Context context) {
@@ -33,7 +34,6 @@ public class TabTitle extends LinearLayout {
 	}
 
 	private void init() {
-
 	}
 
 	public View setTitle(int resouceId) {
@@ -45,7 +45,7 @@ public class TabTitle extends LinearLayout {
 			View view = getChildAt(i);
 			String tag = getResources().getString(R.string.tab_ad_tag);
 
-			if (!tag.equals(view.getTag()))
+			if (tag != null && view != null && !tag.equals(view.getTag()))
 				removeViewAt(i);
 		}
 
@@ -55,22 +55,23 @@ public class TabTitle extends LinearLayout {
 
 	}
 
-	public View setAd(int resouceId) {
-		ad = LayoutInflater.from(getContext()).inflate(resouceId, null);
-		
+	public View getAd() {
+		ad = LayoutInflater.from(getContext()).inflate(R.layout.ad, null);
+
 		int count = getChildCount();
 
 		for (int i = 0; i < count; i++) {
 			View view = getChildAt(i);
 			String tag = getResources().getString(R.string.tab_ad_tag);
 
-			if (tag.equals(view.getTag()))
+			if (tag != null && view != null && tag.equals(view.getTag()))
 				removeViewAt(i);
 		}
-		
-		addView(ad);
 
-		return ad;
+		addView(ad);
+		View adLayout = ad.findViewById(R.id.ad_layout);
+
+		return adLayout;
 	}
 
 }

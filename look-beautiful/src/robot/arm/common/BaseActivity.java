@@ -30,7 +30,7 @@ import com.waps.AdView;
  */
 public abstract class BaseActivity extends Activity {
 	private final String TAG = getClass().getName();
-	private static final int MORE_LOADING_DELAY = 1000;
+	private static final int MORE_LOADING_DELAY = 500;
 
 	protected AsycTask<BaseActivity> task;
 	protected ViewGroup more;
@@ -53,9 +53,9 @@ public abstract class BaseActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		Log.i(TAG, "onResume");
-
-		// 加入广告
+		
 		ad();
+
 	}
 
 	@Override
@@ -152,9 +152,9 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	// 广告
-	private void ad() {
+	protected void ad() {
 
-		View adLayout = tabInvHandler.setAd();
+		View adLayout = tabInvHandler.getAd();
 		new AdView(this, (LinearLayout) adLayout).DisplayAd();
 	}
 
