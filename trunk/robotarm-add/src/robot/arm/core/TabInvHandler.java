@@ -124,9 +124,8 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 * 设置标题
 	 */
 	public void setTitle(int resouceId) {
-		Assert.assertNotNull(resouceId);
 
-		tabView.getTitle().addView(LayoutInflater.from(this).inflate(resouceId, null));
+		tabView.getTitle().setTitle(resouceId);
 
 	}
 
