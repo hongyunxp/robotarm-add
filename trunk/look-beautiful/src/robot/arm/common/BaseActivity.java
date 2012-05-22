@@ -47,9 +47,6 @@ public abstract class BaseActivity extends Activity {
 
 		tabInvHandler = ((TabInvHandler) getParent());
 
-		// 加入广告
-		ad();
-
 	}
 
 	@Override
@@ -86,6 +83,8 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected void initView() {
+		// 加入广告
+		ad();
 
 		listView = (ListView) findViewById(R.id.images);
 		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
@@ -154,11 +153,9 @@ public abstract class BaseActivity extends Activity {
 
 	// 广告
 	private void ad() {
-		View ad = tabInvHandler.setAd(R.layout.ad);
 
-		LinearLayout adLayout = (LinearLayout) ad.findViewById(R.id.ad_layout);
-		new AdView(this, adLayout).DisplayAd();
-
+		View adLayout = tabInvHandler.setAd();
+		new AdView(this, (LinearLayout) adLayout).DisplayAd();
 	}
 
 	public boolean isInit() {
