@@ -5,12 +5,6 @@
 	android:background="@drawable/white" android:shrinkColumns="*"
 	android:stretchColumns="*">
 	
-	<!-- 广告 start -->
-	<LinearLayout android:id="@id/ad_layout"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:gravity="center_horizontal" />
-	<!-- 广告 end -->
-	
 	<ListView android:id="@id/images" android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:divider="@drawable/white"
 		android:fadingEdge="none" android:drawSelectorOnTop="false"
