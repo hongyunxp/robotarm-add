@@ -55,7 +55,6 @@ public abstract class BaseActivity extends Activity {
 		Log.i(TAG, "onResume");
 		
 		ad();
-
 	}
 
 	@Override
