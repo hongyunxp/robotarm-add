@@ -9,6 +9,7 @@
         <item name="android:padding">0dip</item>
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
     <style name="tab_content">
