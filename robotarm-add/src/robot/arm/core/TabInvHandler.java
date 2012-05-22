@@ -140,7 +140,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public void setContent(final View child) {
 
-		tabView.getContent().animShow(child);
+		tabView.getContent().simpleShow(child);
 	}
 
 	public void titleVisible(boolean visible) {

@@ -81,7 +81,12 @@ public class TabAnimContent extends FrameLayout {
 			addView(child);
 		}
 
-		doAnimShow(getChildCount() - 1);//显示最后一个元素
+		doAnimShow(getChildCount() - 1);// 显示最后一个元素
+	}
+
+	public void simpleShow(View child) {
+		removeAllViews();
+		addView(child);
 	}
 
 	private void doAnimShow(int childIndex) {
