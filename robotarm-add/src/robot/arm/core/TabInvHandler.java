@@ -72,7 +72,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {// 回调
 		Log.d(TAG, "onActivityResult|" + requestCode + "|" + resultCode);
 
-		loader = BGLoader.newInstance(this);
 
 		if (requestCode == REQUEST_IF_OK && resultCode == RESULT_OK)
 			selectTab();// 默认选择第一个
@@ -324,7 +323,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		tabView.getTitle().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
-		activityManager.removeAllActivities();// 销毁activitys
+//		activityManager.removeAllActivities();// 销毁activitys
 
 		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
