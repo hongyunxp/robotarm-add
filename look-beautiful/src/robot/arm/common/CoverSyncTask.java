@@ -8,6 +8,7 @@ import java.util.List;
 
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
+import robot.arm.provider.LoaderPrivider;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
 import robot.arm.utils.NetUtils;
@@ -34,6 +35,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	private ListView listView = act.getImageListView();
 	private View more = act.getMore();
 	private TabInvHandler tabInvHandler = act.getTabInvHandler();
+	private LoaderPrivider loader;
 
 	private int curPage = 0;
 	private MokoClient client;
@@ -50,6 +52,8 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		listView.addFooterView(more);
 		adapter = new AlbumCoverAdapter();
+		loader=LoaderPrivider.newInstance(tabInvHandler);
+		loader.show();
 	}
 
 	@Override
@@ -68,8 +72,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 			act.setInit(true);// 已初始化
 		} finally {
-
-			tabInvHandler.loading(act.getClass(), false);// 多执行无害
+			loader.hide();
 		}
 
 	}

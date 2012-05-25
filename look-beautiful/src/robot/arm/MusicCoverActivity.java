@@ -38,7 +38,6 @@ public class MusicCoverActivity extends BaseActivity {
 		background(R.drawable.music);
 		
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
 		}
 

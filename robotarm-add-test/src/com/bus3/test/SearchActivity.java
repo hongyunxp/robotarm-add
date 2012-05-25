@@ -1,5 +1,6 @@
 package com.bus3.test;
 
+import robot.arm.provider.LoaderPrivider;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import com.bus3.common.utils.BaseUtils;
 
 //@Resume(resumable = false)
 public class SearchActivity extends BaseActivity {
+	private LoaderPrivider loader;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,8 @@ public class SearchActivity extends BaseActivity {
 
 	private boolean check() {
 		boolean r = true;
-		tabInvHandler().loading(getClass(), true);
+		loader=LoaderPrivider.newInstance(this);
+		loader.show();
 
 		if (NetType.NONE.equals(nt())) {
 			BaseUtils.confirm(this, new OnClickListener() {
@@ -46,7 +49,7 @@ public class SearchActivity extends BaseActivity {
 				@Override
 				public void onClick(DialogInterface paramDialogInterface, int paramInt) {
 
-					tabInvHandler().restoreLoading(SearchActivity.this.getClass());// 取消
+					loader.hide();
 
 				}
 

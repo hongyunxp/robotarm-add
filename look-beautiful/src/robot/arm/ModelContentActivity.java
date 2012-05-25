@@ -40,7 +40,6 @@ public class ModelContentActivity extends BaseActivity {
 		background(R.drawable.model);
 		
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
 		}
 	}

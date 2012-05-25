@@ -10,7 +10,6 @@ import robot.arm.core.view.SoftInputListener;
 import robot.arm.core.view.Tab;
 import robot.arm.core.view.TabGroup;
 import robot.arm.core.view.TabView;
-import robot.arm.provider.BGLoader;
 import robot.arm.utils.AppExit;
 import android.app.Activity;
 import android.app.ActivityGroup;
@@ -46,7 +45,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 	private Stack<Record> statusStack;// 状态栈
 	private TabView tabView;// 包含title、content、tabs
-	private BGLoader loader;// 背景加载器
 	private boolean checkLock;
 	private boolean needCloseSoftInput;
 	private LocalActivityManager activityManager;
@@ -63,7 +61,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		tabView = initTabView(R.layout.tabs);
 		checkLock = false;
 		needCloseSoftInput = false;
-		loader = BGLoader.newInstance(this);
 
 		goWelcome();// 去欢迎界面
 	}
@@ -71,7 +68,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {// 回调
 		Log.d(TAG, "onActivityResult|" + requestCode + "|" + resultCode);
-
 
 		if (requestCode == REQUEST_IF_OK && resultCode == RESULT_OK)
 			selectTab();// 默认选择第一个
@@ -140,6 +136,7 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	public void setContent(final View child) {
 
 		tabView.getContent().simpleShow(child);
+		// tabView.getContent().animShow(child);
 	}
 
 	public void titleVisible(boolean visible) {
@@ -243,23 +240,6 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	//
 	// }
 
-	public void loading(Class<? extends Activity> actClazz, boolean visible) {
-
-		if (visible) {
-			loader.start(actClazz);
-		} else {
-			loader.stop(actClazz);
-		}
-
-	}
-
-	/**
-	 * 还原loading层
-	 */
-	public void restoreLoading(Class<? extends Activity> actClazz) {
-		loader.restore(actClazz);
-	}
-
 	private TabView initTabView(int tabs) {
 		tabView = (TabView) findViewById(R.id.tab_view);
 
@@ -315,15 +295,10 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz) {
 
-		// 关闭上次的背景loading,多执行也无害
-		if (View.VISIBLE == loader.getLoading().getVisibility()) {
-			restoreLoading(toActClazz);// 还原loading
-		}
-
 		tabView.getTitle().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
-//		activityManager.removeAllActivities();// 销毁activitys
+		// activityManager.removeAllActivities();// 销毁activitys
 
 		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();

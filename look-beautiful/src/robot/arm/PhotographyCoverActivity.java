@@ -22,7 +22,7 @@ public class PhotographyCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.photography_cover);
-		
+
 		initView();
 		initListener();
 
@@ -36,9 +36,8 @@ public class PhotographyCoverActivity extends BaseActivity {
 
 		title(R.layout.photography_title);
 		background(R.drawable.photography);
-		
+
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
 		}
 
