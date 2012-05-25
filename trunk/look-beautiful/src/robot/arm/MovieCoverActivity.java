@@ -39,7 +39,6 @@ public class MovieCoverActivity extends BaseActivity {
 		background(R.drawable.movie);
 
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
 		}
 

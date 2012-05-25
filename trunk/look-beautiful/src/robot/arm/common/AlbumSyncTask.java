@@ -8,6 +8,7 @@ import java.util.List;
 
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
+import robot.arm.provider.LoaderPrivider;
 import robot.arm.provider.asyc.AsycTask;
 import robot.arm.utils.AppExit;
 import robot.arm.utils.NetUtils;
@@ -45,6 +46,7 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 	private String detailUrl;// 专辑明细的url
 	private String title;// 专辑的标题
 	private int pageCount;// 页数
+	private LoaderPrivider loader;
 
 	public AlbumSyncTask(BaseActivity activity, MokoClient client) {
 		super(activity);
@@ -56,6 +58,9 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		Bundle bundle = act.getIntent().getExtras();
 		detailUrl = bundle.getString(act.getString(R.string.detailUrl));// 读出数据
 		title = bundle.getString(act.getString(R.string.postTitle));
+		
+		loader=LoaderPrivider.newInstance(tabInvHandler);
+		loader.show();
 	}
 
 	@Override
@@ -74,8 +79,7 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 
 			act.setInit(true);// 已初始化
 		} finally {
-
-			tabInvHandler.loading(act.getClass(), false);// 多执行无害
+			loader.hide();
 		}
 
 	}

@@ -22,7 +22,7 @@ public class ModelCoverActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.model_cover);
-		
+
 		initView();
 		initListener();
 
@@ -39,7 +39,6 @@ public class ModelCoverActivity extends BaseActivity {
 		background(R.drawable.model);
 
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
 		}
 
@@ -50,7 +49,7 @@ public class ModelCoverActivity extends BaseActivity {
 		Bundle mBundle = new Bundle();
 		mBundle.putString(getString(R.string.detailUrl), String.valueOf(view.getTag(R.string.detailUrl)));
 		mBundle.putString(getString(R.string.postTitle), String.valueOf(view.getTag(R.string.postTitle)));
-		
+
 		tabInvHandler.startSubActivity(R.id.tab_model, ModelContentActivity.class, mBundle);
 	}
 

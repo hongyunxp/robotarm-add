@@ -40,7 +40,6 @@ public class ActorContentActivity extends BaseActivity {
 		background(R.drawable.actor);
 
 		if (!isInit) {
-			tabInvHandler.loading(getClass(), true);// 打开loading
 			task.execute();// 执行任务
 		}
 	}

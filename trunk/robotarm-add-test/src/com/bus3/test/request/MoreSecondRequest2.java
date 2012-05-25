@@ -107,7 +107,6 @@ public class MoreSecondRequest2 extends AsycTask<MoreSecondActivity> {
 
 	@Override
 	public void doResult() {
-		act.tabInvHandler().loading(act.getClass(), false);
 	}
 
 }
