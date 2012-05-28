@@ -41,7 +41,7 @@ public class CartActivity2 extends BaseActivity implements OnItemClickListener {
 
 		// listview和scrollview配合使用
 		ListView products = (ListView) findViewById(R.id.products);
-		products.setAdapter(new CartAdapter(this, list));
+		products.setAdapter(new CartAdapter2(this, list));
 		products.setOnItemClickListener(this);
 
 	}
