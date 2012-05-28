@@ -38,6 +38,12 @@
         <item name="android:drawableTop">@drawable/main_navigation_car</item>
         <item name="android:text">@string/cart</item>
     </style>
+    
+    <style name="main_tools_cart2" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/main_tools_cart</item>
+        <item name="android:drawableTop">@drawable/main_navigation_car</item>
+        <item name="android:text">@string/cart2</item>
+    </style>
 
     <style name="main_tools_search" parent="@style/main_tab_bottom">
         <item name="android:id">@id/main_tools_search</item>
