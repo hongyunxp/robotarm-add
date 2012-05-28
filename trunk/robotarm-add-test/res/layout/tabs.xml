@@ -8,10 +8,11 @@
 
 	<robot.arm.core.view.Tab style="@style/main_tools_cart" />
 
+	<robot.arm.core.view.Tab style="@style/main_tools_cart2" />
+	
 	<robot.arm.core.view.Tab style="@style/main_tools_search" />
 
 	<robot.arm.core.view.Tab style="@style/main_tools_more" />
 	
-	<robot.arm.core.view.Tab style="@style/main_tools_cart2" />
 
 </robot.arm.core.view.TabGroup>
