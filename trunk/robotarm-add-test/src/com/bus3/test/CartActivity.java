@@ -1,7 +1,6 @@
 package com.bus3.test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.os.Bundle;
