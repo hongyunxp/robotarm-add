@@ -33,7 +33,7 @@ public class SearchActivity extends BaseActivity {
 	private boolean check() {
 		boolean r = true;
 		loader=LoaderPrivider.newInstance(this);
-		loader.show();
+//		loader.show();
 
 		if (NetType.NONE.equals(nt())) {
 			BaseUtils.confirm(this, new OnClickListener() {
