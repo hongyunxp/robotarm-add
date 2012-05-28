@@ -22,20 +22,23 @@ import android.view.MenuItem;
 import com.waps.AppConnect;
 
 public class TabActivity extends TabInvHandler {
+	private Map<Integer, Class<? extends Activity>> tabMap;
 
 	@Override
 	public Map<Integer, Class<? extends Activity>> newTabs() {
-		Map<Integer, Class<? extends Activity>> tabMap = new HashMap<Integer, Class<? extends Activity>>(5);
+		if (tabMap == null) {
+			tabMap = new HashMap<Integer, Class<? extends Activity>>(9);
 
-		tabMap.put(R.id.tab_photography, PhotographyCoverActivity.class);
-		tabMap.put(R.id.tab_model, ModelCoverActivity.class);
-		tabMap.put(R.id.tab_design, DesignCoverActivity.class);
-		tabMap.put(R.id.tab_actor, ActorCoverActivity.class);
-		tabMap.put(R.id.tab_music, MusicCoverActivity.class);
-		tabMap.put(R.id.tab_movie, MovieCoverActivity.class);
-		tabMap.put(R.id.tab_ads, AdsCoverActivity.class);
-		tabMap.put(R.id.tab_art, ArtCoverActivity.class);
-		tabMap.put(R.id.tab_more, MoreCoverActivity.class);
+			tabMap.put(R.id.tab_photography, PhotographyCoverActivity.class);
+			tabMap.put(R.id.tab_model, ModelCoverActivity.class);
+			tabMap.put(R.id.tab_design, DesignCoverActivity.class);
+			tabMap.put(R.id.tab_actor, ActorCoverActivity.class);
+			tabMap.put(R.id.tab_music, MusicCoverActivity.class);
+			tabMap.put(R.id.tab_movie, MovieCoverActivity.class);
+			tabMap.put(R.id.tab_ads, AdsCoverActivity.class);
+			tabMap.put(R.id.tab_art, ArtCoverActivity.class);
+			tabMap.put(R.id.tab_more, MoreCoverActivity.class);
+		}
 
 		return tabMap;
 	}
@@ -45,17 +48,17 @@ public class TabActivity extends TabInvHandler {
 
 		switch (item.getItemId()) {
 
-		case R.id.main_menu_exit://退出
-			AppConnect.getInstance(this).finalize();	//广告
+		case R.id.main_menu_exit:// 退出
+			AppConnect.getInstance(this).finalize(); // 广告
 			AppExit.getInstance().exit(this);
 			break;
 
-		case R.id.main_menu_about://关于
+		case R.id.main_menu_about:// 关于
 			CommonUtils.dialogAbout(this);
-			
+
 			break;
 
-		case R.id.main_menu_feedback://意见反馈
+		case R.id.main_menu_feedback:// 意见反馈
 			CommonUtils.dialogFeedback(this);
 			break;
 
@@ -69,7 +72,7 @@ public class TabActivity extends TabInvHandler {
 	@Override
 	public Class<? extends Activity> welcomeClazz() {
 		return WelcomeActivity.class;
-//		 return null;
+		// return null;
 	}
 
 }
