@@ -9,6 +9,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.bus3.R;
 
@@ -36,11 +38,10 @@ public class CartAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return position;
 	}
-	
-	//性能可提高四倍
+
+	// 性能可提高四倍
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + position);
 
 		ViewHolder vHolder;
 
@@ -48,6 +49,7 @@ public class CartAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(act).inflate(R.layout.product, null);
 
 			vHolder = new ViewHolder();
+			vHolder.edit = (EditText) convertView.findViewById(R.id.product_edit);
 			vHolder.button = (Button) convertView.findViewById(R.id.product_button);
 			vHolder.button.setOnClickListener(new OnClickListener() {
 
@@ -58,18 +60,24 @@ public class CartAdapter extends BaseAdapter {
 
 			});
 
+			vHolder.iv = (ImageView) convertView.findViewById(R.id.iv);
+
 			convertView.setTag(vHolder);
 		} else {
 			vHolder = (ViewHolder) convertView.getTag();
 		}
 
+		vHolder.edit.setText("内容" + position);
 		vHolder.button.setText(list.get(position));
+		vHolder.iv.setImageResource(R.drawable.girl6);
 
 		return convertView;
 	}
 
 	private static final class ViewHolder {
 		private Button button;
+		private ImageView iv;
+		private EditText edit;
 	}
 
 }
