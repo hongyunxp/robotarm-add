@@ -1,6 +1,5 @@
 package com.bus3.test;
 
-import robot.arm.provider.LoaderPrivider;
 import android.os.Bundle;
 
 import com.bus3.R;
@@ -19,7 +18,7 @@ public class SortActivity extends BaseActivity {
 		super.onResume();
 		tabInvHandler().setTitle(R.layout.sort_title);
 		// parent().toolsVisible(false);
-		LoaderPrivider loader = LoaderPrivider.newInstance(this);
-		loader.show();
+		// LoaderPrivider loader = LoaderPrivider.newInstance(this);
+		// loader.show();
 	}
 }
