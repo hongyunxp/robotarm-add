@@ -38,9 +38,9 @@ public class TabActivity extends TabInvHandler {
 			tabMap.put(R.id.main_tools_index, HomeActivity.class);
 			tabMap.put(R.id.main_tools_sort, SortActivity.class);
 			tabMap.put(R.id.main_tools_cart, CartActivity.class);
+			tabMap.put(R.id.main_tools_cart2, CartActivity2.class);
 			tabMap.put(R.id.main_tools_search, SearchActivity.class);
 			tabMap.put(R.id.main_tools_more, MoreActivity.class);
-			tabMap.put(R.id.main_tools_cart2, CartActivity2.class);
 		}
 
 		return tabMap;
