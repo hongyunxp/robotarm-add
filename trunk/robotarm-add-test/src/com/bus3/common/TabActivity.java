@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.bus3.R;
 import com.bus3.test.CartActivity;
+import com.bus3.test.CartActivity2;
 import com.bus3.test.HomeActivity;
 import com.bus3.test.MoreActivity;
 import com.bus3.test.SearchActivity;
@@ -26,30 +27,25 @@ import com.bus3.test.WelcomeActivity;
  * 
  */
 public class TabActivity extends TabInvHandler {
+	private Map<Integer, Class<? extends Activity>> tabMap;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see robot.arm.core.Tabable#newTabs()
-	 */
 	@Override
 	public Map<Integer, Class<? extends Activity>> newTabs() {
-		Map<Integer, Class<? extends Activity>> tabMap = new HashMap<Integer, Class<? extends Activity>>(5);
 
-		tabMap.put(R.id.main_tools_index, HomeActivity.class);
-		tabMap.put(R.id.main_tools_sort, SortActivity.class);
-		tabMap.put(R.id.main_tools_cart, CartActivity.class);
-		tabMap.put(R.id.main_tools_search, SearchActivity.class);
-		tabMap.put(R.id.main_tools_more, MoreActivity.class);
+		if (tabMap == null) {
+			tabMap = new HashMap<Integer, Class<? extends Activity>>(6);
+
+			tabMap.put(R.id.main_tools_index, HomeActivity.class);
+			tabMap.put(R.id.main_tools_sort, SortActivity.class);
+			tabMap.put(R.id.main_tools_cart, CartActivity.class);
+			tabMap.put(R.id.main_tools_search, SearchActivity.class);
+			tabMap.put(R.id.main_tools_more, MoreActivity.class);
+			tabMap.put(R.id.main_tools_cart2, CartActivity2.class);
+		}
 
 		return tabMap;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see robot.arm.core.Tabable#optionsItemSelected(android.view.MenuItem)
-	 */
 	@Override
 	public boolean optionsItemSelected(MenuItem item) {
 

@@ -20,6 +20,7 @@
 		<activity android:name=".test.ViewSwitcherActivity" />
 		<activity android:name=".test.SwitchFlipperActivity" />
 		<activity android:name=".test.WelcomeActivity" />
+		<activity android:name=".test.CartActivity2" />
 		
 	</application>
 	
