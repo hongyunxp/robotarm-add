@@ -52,7 +52,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		listView.addFooterView(more);
 		adapter = new AlbumCoverAdapter();
-		loader=LoaderPrivider.newInstance(tabInvHandler);
+		loader = LoaderPrivider.newInstance(tabInvHandler);
 		loader.show();
 	}
 
@@ -88,8 +88,6 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 
 		if (listView.getAdapter() == null)
 			listView.setAdapter(adapter);
-
-		more.setVisibility(View.GONE);// 加载完成后不显示加载
 
 		pagePrompt();
 
@@ -159,6 +157,10 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 					list.addAll(result);
 					if (upView)
 						updateView();// 更新视图
+				} else if (result == null || result.isEmpty()) {
+
+					act.hideMore();
+
 				}
 			}
 		}
