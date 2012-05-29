@@ -58,8 +58,8 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 		Bundle bundle = act.getIntent().getExtras();
 		detailUrl = bundle.getString(act.getString(R.string.detailUrl));// 读出数据
 		title = bundle.getString(act.getString(R.string.postTitle));
-		
-		loader=LoaderPrivider.newInstance(tabInvHandler);
+
+		loader = LoaderPrivider.newInstance(tabInvHandler);
 		loader.show();
 	}
 
@@ -92,8 +92,6 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 
 		if (listView.getAdapter() == null)
 			listView.setAdapter(adapter);
-
-		more.setVisibility(View.GONE);// 加载完成后不显示加载
 
 		pagePrompt();
 
@@ -151,13 +149,8 @@ public class AlbumSyncTask extends AsycTask<BaseActivity> {
 				list.clear();
 				PostDetailBean result = Util.getPostDetail(client, detailUrl, curPage);
 				if (result == null || result.getPostDetailList().size() == 0) {
-					listView.post(new Runnable() {
+					act.hideMore();
 
-						@Override
-						public void run() {
-							listView.removeFooterView(more);
-						}
-					});
 				} else {
 					pageCount = result.getPageCount();
 					list.addAll(result.getPostDetailList());

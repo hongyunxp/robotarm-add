@@ -5,10 +5,10 @@
 	<TextView android:id="@id/button_images_more"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
 		android:layout_centerInParent="true" android:text="@string/common_loading_more"
-		android:textColor="@color/black" android:textSize="18dip" />
+		android:textColor="@color/black" android:textSize="18dip" android:visibility="visible"/>
 
 	<ProgressBar android:id="@+id/load_more_progressbar"
 		android:layout_width="wrap_content" android:layout_height="20dip"
-		android:layout_toRightOf="@id/button_images_more" />
+		android:layout_toRightOf="@id/button_images_more" android:visibility="visible"/>
 
 </RelativeLayout>

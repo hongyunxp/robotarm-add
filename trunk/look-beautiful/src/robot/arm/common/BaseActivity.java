@@ -133,12 +133,9 @@ public abstract class BaseActivity extends Activity {
 
 	private void showMore(AbsListView view) {
 		if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
+			
 			listView.setSelection(view.getLastVisiblePosition());// 滚动到底
 
-			if (more.getVisibility() == View.VISIBLE)
-				return;
-
-			more.setVisibility(View.VISIBLE);
 			handler.postDelayed(new Runnable() {
 
 				@Override
@@ -148,6 +145,19 @@ public abstract class BaseActivity extends Activity {
 				}
 			}, MORE_LOADING_DELAY);
 		}
+	}
+	
+	public void hideMore(){
+		handler.post(new Runnable() {
+
+			@Override
+			public void run() {
+				TextView t = (TextView) more.findViewById(R.id.button_images_more);
+				t.setVisibility(View.GONE);
+				View p = more.findViewById(R.id.load_more_progressbar);
+				p.setVisibility(View.GONE);
+			}
+		});
 	}
 
 	// 广告
