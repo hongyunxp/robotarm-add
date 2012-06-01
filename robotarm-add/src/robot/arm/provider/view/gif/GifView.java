@@ -2,7 +2,6 @@ package robot.arm.provider.view.gif;
 
 import java.io.InputStream;
 
-import robot.arm.R;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -92,8 +91,8 @@ public class GifView extends ImageView implements GifAction {
 		// TypedArray a = context.obtainStyledAttributes(attrs,R.array.);
 		// gifDecoder = new GifDecoder(this);
 		// setScaleType(ImageView.ScaleType.FIT_XY);
-		
-		this.setImageResource(R.drawable.loading);
+
+		// this.setImageResource(R.drawable.loading);
 	}
 
 	/**
@@ -166,9 +165,8 @@ public class GifView extends ImageView implements GifAction {
 		InputStream is = r.openRawResource(resId);
 
 		setGifImage(is);
-		
+
 	}
-	
 
 	/**
 	 * 以字节流形式设置gif图片
