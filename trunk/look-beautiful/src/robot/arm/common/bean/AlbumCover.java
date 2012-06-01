@@ -36,7 +36,7 @@ public class AlbumCover {
 
 	public View coverRow() {
 		// 实例化一行数据
-		View row = LayoutInflater.from(act).inflate(R.layout.album_cover_list_row, null);
+		View row = LayoutInflater.from(act).inflate(R.layout.common_cover_list_row, null);
 		ImageView iv1 = (ImageView) row.findViewById(R.id.image1);
 		ImageView iv2 = (ImageView) row.findViewById(R.id.image2);
 
