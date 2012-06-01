@@ -30,7 +30,7 @@ public class Album {
 	}
 
 	public View coverRow() {
-		View row = LayoutInflater.from(act).inflate(R.layout.album_content_list_row, null);
+		View row = LayoutInflater.from(act).inflate(R.layout.common_content_list_row, null);
 		ImageView image = (ImageView) row.findViewById(R.id.contentImage);
 		image.setTag(R.string.detailUrl, images[0]);
 		LoadImageUtils.loadImageSync(act, images[0], image);
