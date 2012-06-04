@@ -152,7 +152,7 @@ public class Util {
 		List<String> postPicList = new ArrayList<String>();
 		String html = HttpClientUtil.getInstance().get(postDetailUrl);
 		Document doc = Jsoup.parse(html);
-		Elements elements = doc.select("p.picBox img");
+		Elements elements = doc.select("img[src2]");
 		for(Element postPic : elements)
 			postPicList.add(postPic.attr("src2"));
 		postDetailMap.put(postDetailUrl, postPicList);
