@@ -68,6 +68,16 @@ public enum MokoClient {
 		public List<PostBean> getPostList(int curPage, int pageSize) throws Throwable {
 			return Util.getInstance().getPostList(Util.POSTLIST_ID, curPage, pageSize);
 		}
+	},
+	MTG5{
+
+		@Override
+		public List<PostBean> getPostList(int curPage, int pageSize)
+				throws Throwable {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
 	};
 	
 	/**
