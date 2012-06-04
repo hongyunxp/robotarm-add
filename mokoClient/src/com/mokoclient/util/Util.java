@@ -13,7 +13,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.mokoclient.core.MokoClient;
 import com.mokoclient.core.bean.MonthPostBean;
 import com.mokoclient.core.bean.PostBean;
 import com.mokoclient.core.bean.PostDetailBean;
@@ -56,6 +55,9 @@ public class Util {
 	/**展示列表页ID -1*/
 	public static final int POSTLIST_ID = -1;
 	
+	/**MTG5列表ID -2*/
+	public static final int MTG5_ID = -2;
+	
 	/**
 	 * moko 域名
 	 */
@@ -87,6 +89,7 @@ public class Util {
 		vocationPageCounter.put(VOCATION_MUSIC_ID, 1);
 		vocationPageCounter.put(VOCATION_PHOTOGRAPHY_ID, 1);
 		vocationPageCounter.put(POSTLIST_ID, 1);
+		vocationPageCounter.put(MTG5_ID, 1);
 	}
 	
 	/**
@@ -96,9 +99,25 @@ public class Util {
 	 * @return
 	 */
 	private String getVocationUrl(int vocationId, int curPage){
-		if (POSTLIST_ID == vocationId) 
+		switch (vocationId) {
+		case POSTLIST_ID:
 			return String.format(MOKO_DOMAIN + "/moko/post/%s.html", curPage);
-		return String.format(MOKO_DOMAIN + "/channels/post/%s/%s.html", vocationId, curPage);
+		case MTG5_ID:
+			return String.format(MOKO_DOMAIN + "/mtg/all/%s.html", curPage);
+		default:
+			return String.format(MOKO_DOMAIN + "/channels/post/%s/%s.html", vocationId, curPage);
+		}
+	}
+	
+	private String getListSelect(int vocationId){
+		switch (vocationId) {
+		case POSTLIST_ID:
+			return "ul.post.big-post";
+		case MTG5_ID:
+			return "ul.contestant";
+		default:
+			return "ul.post.small-post";
+		}
 	}
 	
 	/**
@@ -152,21 +171,36 @@ public class Util {
 		String html = getVocationHtml(vocationId, postCurPage);
 		vocationPageCounter.put(vocationId, ++ postCurPage) ;
 		Document doc = Jsoup.parse(html);
-		String select = "ul.post.small-post";
-		if (vocationId == POSTLIST_ID)
-			select = "ul.post.big-post";
+		String select = getListSelect(vocationId);
 		Elements elements = doc.select(select);
 		for(Element post : elements){
-			Element cover = post.select(".cover").get(0);
-			String title = cover.attr("cover-text");
-			String coverUrl = cover.select("img").get(0).attr("src2").replace("_cover_", "_mokoshow_");//保证都是小图
-			String detailUrl = MOKO_DOMAIN + cover.select("a").get(0).attr("href");
-			PostBean postBean = new PostBean(title, coverUrl, detailUrl);
+			PostBean postBean = getPostBean(vocationId, post);
 			postList.add(postBean);
 		}
 		postListMap.put(vocationId, postList);
 	}
 
+	private PostBean getPostBean(int vocationId, Element post){
+		Element cover;
+		String title;
+		String coverUrl;
+		String detailUrl;
+		switch (vocationId) {
+		case MTG5_ID:
+			cover = post.select("li.name a").get(0);
+			title = cover.text();
+			detailUrl = MOKO_DOMAIN + cover.attr("href");
+			coverUrl = post.select("img[src2]").get(0).attr("src2");
+			return new PostBean(title, coverUrl, detailUrl);
+		default:
+			cover = post.select(".cover").get(0);
+			title = cover.attr("cover-text");
+			coverUrl = cover.select("img").get(0).attr("src2").replace("_cover_", "_mokoshow_");//保证都是小图
+			detailUrl = MOKO_DOMAIN + cover.select("a").get(0).attr("href");
+			return new PostBean(title, coverUrl, detailUrl);
+		}
+	}
+	
 	/**
 	 * 获取行业html字符串
 	 * @param vocationId
@@ -240,7 +274,4 @@ public class Util {
 		return null;
 	}
 	
-	public static void main(String[] args) {
-		MokoClient.MonthPost.getInstance().getMonthPostList();
-	}
 }
