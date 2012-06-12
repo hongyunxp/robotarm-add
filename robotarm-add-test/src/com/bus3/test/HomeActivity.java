@@ -11,7 +11,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.opengl.Matrix;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +26,7 @@ import com.bus3.R;
 import com.bus3.common.activity.BaseActivity;
 
 public class HomeActivity extends BaseActivity {
-	private static List<Integer> picList = Arrays.asList(R.drawable.girl1, R.drawable.girl2, R.drawable.girl3, R.drawable.girl4, R.drawable.girl5,
-			R.drawable.girl6);
+	private static List<Integer> picList = Arrays.asList(R.drawable.girl1, R.drawable.girl2, R.drawable.girl3, R.drawable.girl4, R.drawable.girl5, R.drawable.girl6);
 	private AdapterView<ImageGroupAdapter> gallery;
 	private Toast toast;
 
@@ -106,9 +104,9 @@ public class HomeActivity extends BaseActivity {
 		canvas.drawPath(path, paint);
 
 		arrow.setImageBitmap(image);// 在ImageView上设置图形
-		
+
 	}
-	
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
@@ -162,10 +160,10 @@ public class HomeActivity extends BaseActivity {
 	protected void onPause() {
 		super.onPause();
 
-//		for (ImageView image : images) {
-//			if (image instanceof GifView)
-//
-//				((GifView) image).destroy();// 切换时释放图片资源
-//		}
+		// for (ImageView image : images) {
+		// if (image instanceof GifView)
+		//
+		// ((GifView) image).destroy();// 切换时释放图片资源
+		// }
 	}
 }
