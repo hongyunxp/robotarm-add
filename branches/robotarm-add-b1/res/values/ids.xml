@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <item type="id" name="tab_title"></item>
+    <item type="id" name="tab_content"></item>
+    <item type="id" name="tab_bar"></item>
+    <item type="id" name="tab_scroll"></item>
+    <item type="id" name="tab_indictor"></item>
+    <item type="id" name="tab_message"></item>
+    <item type="id" name="tab_view"></item>
+    <item type="id" name="tab_scroll_arrow_left"></item>
+    <item type="id" name="tab_scroll_arrow_right"></item>
+     <!-- 广告 -->
+    <item type="id" name="ad_layout"></item>
+</resources>

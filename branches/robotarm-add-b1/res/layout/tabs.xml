@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot.arm.core.view.TabGroup
+	xmlns:android="http://schemas.android.com/apk/res/android" style="@style/tab_indictor">
+	
+	<!-- 需要去实现 -->
+</robot.arm.core.view.TabGroup>

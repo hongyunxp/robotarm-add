@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot.arm.core.view.TabBar xmlns:android="http://schemas.android.com/apk/res/android" 
+	style="@style/tab_bar"
+	android:tag="@string/tab_bar_tag"
+/>
