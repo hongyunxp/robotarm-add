@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
-	<TextView android:text="更多二级页面" style="@style/content" android:singleLine="true"/>
-	<Button android:id="@+id/otherButton" android:tag="startThread" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开启当前进程1"/>
-	<Button android:id="@+id/otherButton2" android:tag="startThread" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开启当前进程2"/>
-	<Button android:id="@+id/otherButton3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="新启Activity"/>
-	<TextView android:id="@+id/text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black"/>
-	<TextView android:id="@+id/text2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/black"/>
-</LinearLayout>
