@@ -27,17 +27,17 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 /**
- * 
- * TAB框架
- * 
- * @author li.li
- * 
+ * TAB框架:支持底部滑动
+ *
+ * @author wanglin(lin3.wang@changhong.com)
+ * 2012-7-20下午02:03:37
  */
-public abstract class TabInvHandler extends ActivityGroup implements Tabable, Welable, OnCheckedChangeListener, SoftInputListener {
+public abstract class TabInvHandler extends ActivityGroup implements Tabable,
+		Welable, OnCheckedChangeListener, SoftInputListener {
 	private static final String TAG = TabInvHandler.class.getName();
 	private static final int DEFAULT_SELECT_TAB = 0;
 	private static final int DEFAULT_SOFT_INPUT_MODE = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;// 默认软键盘
@@ -76,16 +76,19 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event) {
 
-		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_UP) {
 
 			if (!statusStack.isEmpty() && statusStack.size() > 1) {
 
 				Record record = getNextAvailableRecord();
 
 				checkLock = true;// 锁
-				tabView.getTabBar().getTabScroll().getTabGroup().check(record.getId());
+				tabView.getTabBar().getTabScroll().getTabGroup().check(
+						record.getId());
 				tabVisible(true);
-				newActivity(record.getId(), record.getIntent(), record.getActClazz());
+				newActivity(record.getId(), record.getIntent(), record
+						.getActClazz());
 				checkLock = false;// 恢复
 
 			} else {
@@ -103,15 +106,25 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	@SuppressWarnings("unchecked")
 	@Override
 	public void onCheckedChanged(CompoundButton button, boolean isChecked) {
-		Assert.assertTrue("button或button.getTag()不能为空", button != null && button.getTag() != null);
+		Assert.assertTrue("button或button.getTag()不能为空", button != null
+				&& button.getTag() != null);
 
 		if (!isChecked || checkLock)
 			return;
 
-		if (button.getTag() instanceof Class<?>)
-			startSubActivity(button.getId(), (Class<? extends Activity>) button.getTag());
-		else
-			new AssertionError("Activity非法：应该为Class<? extends Activity>类型的子Activity|" + button.getTag().getClass().getName());
+		if (button.getTag() instanceof Class<?>) {
+
+			if (button == tabView.getTabBar().getTabScroll().getTabGroup()
+					.getChildAt(DEFAULT_SELECT_TAB))
+				statusStack.clear(); // 如果切换到首页，则清除前面的状态记录
+
+			startSubActivity(button.getId(), (Class<? extends Activity>) button
+					.getTag());
+
+		} else
+			new AssertionError(
+					"Activity非法：应该为Class<? extends Activity>类型的子Activity|"
+							+ button.getTag().getClass().getName());
 
 	}
 
@@ -172,7 +185,8 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	 */
 	public boolean tabVisible() {
 
-		return tabView.getTabBar().getVisibility() == View.VISIBLE ? true : false;
+		return tabView.getTabBar().getVisibility() == View.VISIBLE ? true
+				: false;
 	}
 
 	/**
@@ -196,7 +210,14 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 		startSubActivity(id, toActClazz, null);
 	}
 
-	public void startSubActivity(int id, Class<? extends Activity> toActClazz, Bundle map) {
+	/**
+	 * 新启动子activity，并且传递绑定参数
+	 * @param id
+	 * @param toActClazz
+	 * @param map
+	 */
+	public void startSubActivity(int id, Class<? extends Activity> toActClazz,
+			Bundle map) {
 		boolean resumable = resumable(toActClazz);
 
 		Intent intent = new Intent(this, toActClazz);
@@ -243,15 +264,18 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	private TabView initTabView(int tabs) {
 		tabView = (TabView) findViewById(R.id.tab_view);
 
-		TabGroup tabGroup = (TabGroup) LayoutInflater.from(this).inflate(tabs, tabView.getTabBar().getTabScroll(), false);
+		TabGroup tabGroup = (TabGroup) LayoutInflater.from(this).inflate(tabs,
+				tabView.getTabBar().getTabScroll(), false);
 		initTabGroup(tabGroup);// 初始化tabs
 
 		tabView.getTabBar().getTabScroll().addChildView(tabGroup);// 创建tool,并将tools工具栏加入容器中
 		tabView.setSoftInputListener(this);// 键盘监听器
 
 		// bind tabView child event
-		for (int i = 0; i < tabView.getTabBar().getTabScroll().getTabGroup().getChildCount(); i++) {
-			((RadioButton) tabView.getTabBar().getTabScroll().getTabGroup().getChildAt(i)).setOnCheckedChangeListener(this);
+		for (int i = 0; i < tabView.getTabBar().getTabScroll().getTabGroup()
+				.getChildCount(); i++) {
+			((RadioButton) tabView.getTabBar().getTabScroll().getTabGroup()
+					.getChildAt(i)).setOnCheckedChangeListener(this);
 		}
 
 		return tabView;
@@ -293,14 +317,16 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 
 	}
 
-	private void newActivity(final int id, final Intent intent, final Class<? extends Activity> toActClazz) {
+	private void newActivity(final int id, final Intent intent,
+			final Class<? extends Activity> toActClazz) {
 
 		tabView.getTitle().removeAllViews();
 		getWindow().setSoftInputMode(DEFAULT_SOFT_INPUT_MODE);// 默认soft_input_mode
 
 		// activityManager.removeAllActivities();// 销毁activitys
 
-		Window window = activityManager.startActivity(String.valueOf(id), intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+		Window window = activityManager.startActivity(String.valueOf(id),
+				intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 		View view = window.getDecorView();
 
 		setContent(view);
@@ -329,7 +355,8 @@ public abstract class TabInvHandler extends ActivityGroup implements Tabable, We
 	}
 
 	private void selectTab() {
-		selectTab(tabView.getTabBar().getTabScroll().getTabGroup().getChildAt(DEFAULT_SELECT_TAB).getId());// 默认选择第一个
+		selectTab(tabView.getTabBar().getTabScroll().getTabGroup().getChildAt(
+				DEFAULT_SELECT_TAB).getId());// 默认选择第一个
 	}
 
 	private void goWelcome() {
