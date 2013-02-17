@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	android:installLocation="auto" package="robot.arm" android:versionCode="6"
+	android:versionName="1.0.5">
+
+	<application android:name=".common.BaseApp" android:icon="@drawable/app_icon"
+		android:label="@string/app_name" android:theme="@style/XTheme">
+
+		<activity android:name=".common.TabActivity"
+			android:screenOrientation="portrait">
+
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+
+		</activity>
+
+		<!-- 欢迎 -->
+		<activity android:name=".WelcomeActivity" />
+		<!-- 专辑封面 -->
+		<activity android:name=".PhotographyCoverActivity" />
+		<activity android:name=".MoreCoverActivity" />
+		<activity android:name=".AdsCoverActivity" />
+		<activity android:name=".MusicCoverActivity" />
+		<activity android:name=".ModelCoverActivity" />
+		<activity android:name=".DesignCoverActivity" />
+		<activity android:name=".ActorCoverActivity" />
+		<activity android:name=".MovieCoverActivity" />
+		<activity android:name=".ArtCoverActivity" />
+		<!-- 专辑内容 -->
+		<activity android:name=".PhotographyContentActivity" />
+		<activity android:name=".AdsContentActivity" />
+		<activity android:name=".MoreContentActivity" />
+		<activity android:name=".MusicContentActivity" />
+		<activity android:name=".ModelContentActivity" />
+		<activity android:name=".DesignContentActivity" />
+		<activity android:name=".ActorContentActivity" />
+		<activity android:name=".MovieContentActivity" />
+		<activity android:name=".ArtContentActivity" />
+		<!-- 展示大图 -->
+		<activity android:name=".TouchImageViewActivity" />
+		<!-- 广告 -->
+		<activity android:name="com.waps.OffersWebView"
+			android:configChanges="keyboardHidden|orientation" />
+		<!--以下属性为应用ID,从万普后台获取 -->
+		<meta-data android:name="WAPS_ID" android:value="54af7cfa21d64b67567eaaf75be2c46c" />
+		<!--以下属性为分发渠道ID,编码表参见本文档末附表,发布到不同平台需要填写相应编码重新打包 -->
+		<meta-data android:name="WAPS_PID" android:value="GFAN" />
+	</application>
+
+	<uses-sdk android:minSdkVersion="8" />
+	<uses-sdk android:targetSdkVersion="8" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<!-- 广告 -->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.GET_TASKS" />
+</manifest>
