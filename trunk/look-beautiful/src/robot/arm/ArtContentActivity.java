@@ -3,13 +3,10 @@
  */
 package robot.arm;
 
-import robot.arm.common.AlbumSyncTask;
 import robot.arm.common.BaseActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import com.mokoclient.core.MokoClient;
 
 /**
  * @author li.li
@@ -24,11 +21,9 @@ public class ArtContentActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.art_content);
-		
+
 		initView();
 		initListener();
-
-		task = new AlbumSyncTask(this, MokoClient.ACTOR);
 
 	}
 
@@ -38,7 +33,7 @@ public class ArtContentActivity extends BaseActivity {
 
 		title(R.layout.art_title);
 		background(R.drawable.art);
-		
+
 		if (!isInit) {
 			task.execute();// 执行任务
 		}
