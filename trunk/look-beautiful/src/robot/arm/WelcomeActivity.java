@@ -1,27 +1,29 @@
 package robot.arm;
 
 import robot.arm.common.Util;
-import robot.arm.provider.AppUpdateProvider;
 import robot.arm.utils.NetType;
 import robot.arm.utils.NetUtils;
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.TextView;
-
-import com.waps.AppConnect;
+import cn.waps.AppConnect;
 
 /**
  * 欢迎页面
  */
 public class WelcomeActivity extends Activity {
-	private static final int DURATION = 3000;
+	private static final int DURATION = 5000;
 
 	private TextView textView;
 	private NetType net;
+	private AnimationDrawable anim; //加载动画
+	private Handler handler = new Handler();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,11 +35,17 @@ public class WelcomeActivity extends Activity {
 	}
 
 	private void init() {
-		textView = (TextView) findViewById(R.id.welcome_text);
-
 		//广告
 		AppConnect.getInstance(this);
-		
+
+		//插屏广告
+		//⑴	始化（预先加载）广告数据
+		AppConnect.getInstance(this).initPopAd(this);
+		//⑵	显示插屏广告,限制该方法3分钟内只能调用一次。
+		AppConnect.getInstance(this).showPopAd(this);
+
+		textView = (TextView) findViewById(R.id.welcome_text);
+
 		// 定义动画
 		AlphaAnimation animation = createAnimation();
 
@@ -54,13 +62,13 @@ public class WelcomeActivity extends Activity {
 			@Override
 			public void onAnimationEnd(Animation aim) {
 				// 版本升级
-				if (net.available) {
-					textView.setText("版本检测...");
-					boolean needUpdate = AppUpdateProvider.getInstance().start(WelcomeActivity.this);
-
-					if (needUpdate)
-						return;// 需要更新时不继续执行
-				}
+				//				if (net.available) {
+				//					textView.setText("版本检测...");
+				//					boolean needUpdate = AppUpdateProvider.getInstance().start(WelcomeActivity.this);
+				//
+				//					if (needUpdate)
+				//						return;// 需要更新时不继续执行
+				//				}
 
 				// 登陆
 				if (net.available) {
@@ -92,7 +100,7 @@ public class WelcomeActivity extends Activity {
 				// 不是WIFI提示
 				if (net == NetType.GPRS_WEB || net == NetType.GPRS_WAP)
 					NetUtils.dialog(WelcomeActivity.this, getString(R.string.common_logo_alert));
-				
+
 			}
 		});
 

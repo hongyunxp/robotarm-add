@@ -14,5 +14,12 @@
         android:text="检查网络..."
         android:textColor="@color/white"
         android:textSize="20dip" />
+    
+    <ImageView
+        android:id="@+id/dhimg"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:layout_below="@+id/qudaopicture"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

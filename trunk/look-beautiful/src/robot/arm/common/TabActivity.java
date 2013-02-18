@@ -18,8 +18,7 @@ import robot.arm.core.TabInvHandler;
 import robot.arm.utils.AppExit;
 import android.app.Activity;
 import android.view.MenuItem;
-
-import com.waps.AppConnect;
+import cn.waps.AppConnect;
 
 public class TabActivity extends TabInvHandler {
 	private Map<Integer, Class<? extends Activity>> tabMap;
