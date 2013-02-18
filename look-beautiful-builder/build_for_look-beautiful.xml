@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="gbk"?>
+<!-- Build an Android project.                        -->
+<project name="look-beautiful" default="10zipalign" basedir=".">
+	
+    <!-- 通用属性 -->
+	<property file="build-look-beautiful.properties" />
+	
+	<property file="auto-builder-look-beautiful.properties" />
+	
+	<!-- lib工程相关配置-->
+	<property name="libproject.package.name" value="robot.arm"/>
+	<property name="libproject.abs.res" location="${libproject.abs}/res"/>
+	<property name="libproject.abs.src" location="${libproject.abs}/src"/>
+	<property name="libproject.abs.lib" value="${libproject.abs}/libs"/>
+
+    <!-- The absolute paths for the tools. -->
+    <property name="android.framework" value="${sdk.home}/platforms/${sdk.platform}/framework.aidl"></property>
+    <property name="android.core" value="${sdk.home}/platforms/${sdk.platform}/android.jar"></property>
+	<property name="android.proguard" value="${sdk.home}/tools/proguard/lib/proguard.jar"></property>
+	<property name="android.support.lib" value="${sdk.home}/tools/support"></property>
+    <property name="jarsigner" value="${jdk.home}/bin/jarsigner.exe"></property>
+    <property name="zipalign" value="${sdk.home}/tools/zipalign.exe"></property>
+    <property name="dx" value="${sdk.home}/platform-tools/dx.bat"></property>
+    <property name="apk-builder" value="${sdk.home}/tools/apkbuilder.bat"></property>
+    <property name="aapt" value="${sdk.home}/platform-tools/aapt.exe"></property>
+    <property name="aidl" value="${sdk.home}/platform-tools/aidl.exe"></property>
+	<property name="adb" value="${sdk.home}/platform-tools/adb.exe"></property>
+	
+    <!-- The absolute path. -->
+    <property name="src.abs" value="${mainproject.abs}/src"></property>
+    <property name="lib.abs" value="${mainproject.abs}/libs"></property>
+    <property name="bin.abs" value="${mainproject.abs}/bin"></property>
+	<property name="gen.abs" value="${mainproject.abs}/gen"></property>
+	<property name="res.abs" value="${mainproject.abs}/res"></property>
+	<property name="assets.abs" value="${mainproject.abs}/assets"></property>
+	<property name="androidManifest.abs" value="${mainproject.abs}/AndroidManifest.xml"></property>
+    <property name="dex.abs" value="${mainproject.abs}/bin/classes.dex"></property>
+    <property name="resources.abs" value="${mainproject.abs}/bin/resources.ap_"></property>
+    <property name="unsigned.abs" value="${bin.abs}/${ant.project.name}-unsigned.apk"></property>
+    <property name="signed.abs" value="${bin.abs}/${ant.project.name}-signed.apk"></property>
+	<property name="keystore.path" location="${mainproject.abs}/${keystore.name}"/>   
+
+    <!-- 1.Cleaning the project -->
+    <target name="1clean">
+        <echo>Cleaning the project...</echo>
+        <delete includeemptydirs="true" verbose="true">
+            <fileset dir="${bin.abs}" includes="**/*">
+        </fileset>
+        </delete>
+        <delete includeemptydirs="true" verbose="true">
+            <fileset dir="${gen.abs}" includes="**/*">
+        </fileset>
+        </delete>
+    </target>
+    
+    <!--2 Generate R.java -->
+    <target name="2generate" depends="1clean">
+        <echo>Generating R.java / Manifest.java from the resources...</echo>
+        <exec executable="${aapt}" failonerror="true">
+            <arg value="package"  /> 
+			<arg value="-f" /> 
+            <arg value="-m" /> 
+			<arg value="--auto-add-overlay" />
+            <arg value="-J" /> 
+            <arg value="${gen.abs}" /> 
+            <arg value="-M"  /> 
+            <arg value="${androidManifest.abs}" /> 
+            <arg value="-S" /> 
+            <arg value="${res.abs}" /> 
+			 <arg value="-S" /> 
+			<arg value="${libproject.abs.res}" />
+            <arg value="--extra-packages" />
+            <arg value="${libproject.package.name}" /><!-- Library Project的包名 -->
+            <arg value="-I" /> 
+            <arg value="${android.core}" /> 
+        </exec>
+    </target>
+    
+
+
+    <!-- 3Convert and compile AIDL files. -->
+    <target name="3aidl" depends="1clean">
+        <echo>Compiling aidl files into Java classes...</echo>
+        <apply executable="${aidl}" failonerror="true">
+            <arg value="-p${android.framework}"/>
+            <arg value="-I${src.abs}"/>
+            <arg value="-o${gen.abs}"/>
+            <fileset dir="${src.abs}">
+                <include name="**/*.aidl">
+            </include></fileset>
+        </apply>
+    </target>
+
+
+    <!-- 4Compile 
+     srcdir="${src.abs}:${gen.abs}:${libproject.abs.src}" 表示编译的源文件目录有三个
+    -->
+    <target name="4compile" depends="1clean,2generate,3aidl">
+        <javac encoding="UTF-8" target="1.6" debug="off" extdirs="" includeantruntime="false"  srcdir="${src.abs}:${gen.abs}:${libproject.abs.src}" destdir="${bin.abs}"  bootclasspath="${android.core}">
+            <classpath>
+                <fileset dir="${lib.abs}" includes="*.jar">
+            </fileset></classpath>
+			<classpath>
+                <fileset dir="${android.support.lib}" includes="*.jar">
+            </fileset></classpath>
+            <classpath>
+                <fileset dir="${libproject.abs.lib}" includes="*.jar">
+            </fileset></classpath>
+        </javac>
+    
+    </target>   
+
+    <!-- 5Convert and compress .class files to .dex file. -->
+    <target name="5dex" depends="4compile">
+        <echo>Converting compiled files and external libraries into dex format file...</echo>
+        <apply executable="${dx}" failonerror="true" parallel="true">
+            <arg value="--dex"/>
+            <arg value="--output=${dex.abs}"/> 
+            <arg path="${bin.abs}"/>
+            <fileset dir="${lib.abs}" includes="*.jar" />
+            <fileset dir="${libproject.abs.lib}" includes="*.jar" />
+        </apply>
+    </target>
+
+
+
+    <!-- 6Package the resources. -->
+    <target name="6package">
+        <echo>Packaging resources and assets...</echo>
+        <exec executable="${aapt}" failonerror="true">
+            <arg value="package"  /> 
+            <arg value="-f" /> 
+			<arg value="-m" /> 
+			<arg value="--auto-add-overlay" />
+            <arg value="-M" /> 
+            <arg value="${androidManifest.abs}" /> 
+			<arg value="-S" /> 
+            <arg value="${res.abs}" />
+			<arg value="-S" /> 
+			<arg value="${libproject.abs.res}" />	
+            <arg value="-A" /> 
+            <arg value="${assets.abs}" /> 
+            <arg value="-I" /> 
+            <arg value="${android.core}" /> 
+            <arg value="-F" /> 
+            <arg value="${resources.abs}" /> 
+        </exec>
+    </target>
+        
+        
+    <!-- 7Package an unsigned APK file. -->
+    <target name="7genUnsignedApk" depends="5dex, 6package">
+        <echo>Packaging an unsigned APK file...</echo>
+        <exec executable="${apk-builder}" failonerror="true">
+            <arg value="${unsigned.abs}"/>
+            <arg value="-u"/>
+            <arg value="-z"/>
+            <arg value="${resources.abs}"/>
+            <arg value="-f"/>
+            <arg value="${dex.abs}"/>
+            <arg value="-rf"/>
+            <arg value="${src.abs}"/>
+        
+        <!--加jar库到应用包中 -->
+            
+            <arg value="-rj"/>
+            <arg value="${lib.abs}"/>
+        
+        <!--加动态连接库到应用包中 -->
+        <arg value="-nf"/>
+        <arg value="${lib.abs}"/>
+        </exec>
+        <echo>It will need to be signed with jarsigner before being published.</echo>
+    </target>
+
+    <!-- 9Sign the APK. -->
+    <target name="9genSignedApk" depends="7genUnsignedApk">
+        <exec executable="${jarsigner}" failonerror="true">
+            <arg value="-verbose"/>
+            <arg value="-storepass"/>
+            <arg value="${keystore.password}"/>
+            <arg value="-keystore"/>
+            <arg value="${keystore.path}"/>
+            <arg value="-signedjar"/>
+            <arg value="${signed.abs}"/>
+            <arg value="${unsigned.abs}"/>
+            <arg value="${keystore.alias}"/>
+       </exec>
+    </target>
+
+    <!-- 10Zipalign -->
+    <target name="10zipalign" depends="9genSignedApk">
+        <tstamp>  
+            <format property="time" pattern="yyyy-MM-dd-HH-mm-ss"></format>
+        </tstamp>
+        <exec executable="${zipalign}" failonerror="true">
+            <arg value="-v"/>
+            <arg value="-f"/>
+            <arg value="4"/>
+            <arg value="${signed.abs}"/>
+            <arg value="${bin.abs}\${ant.project.name}-final.apk"/>
+        </exec>
+    </target>
+
+
+</project>
