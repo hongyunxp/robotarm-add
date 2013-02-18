@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -116,52 +114,9 @@ public class ApkBuildUtils {
 		return format.format(new Date());
 	}
 
-	//更改AndroidManifest.xml渠道
+	//渠道
 	public static boolean changeChannel(String fileName, String channelName) {
-		InputStream in = null;
-		XMLWriter xmlWriter = null;
-
-		try {
-			File file = new File(fileName);
-			in = new FileInputStream(file);
-			SAXReader saxReader = new SAXReader();
-			Document doc = saxReader.read(in);
-			Attribute attr = (Attribute) doc.selectSingleNode("//manifest//application//meta-data/@android:value");
-			attr.setValue(channelName);
-
-			//写文�?
-			//			OutputFormat of = OutputFormat.createPrettyPrint();
-
-			OutputStream out = new FileOutputStream(fileName);
-			Writer writer = new OutputStreamWriter(out, "UTF-8");
-			xmlWriter = new XMLWriter(writer);
-
-			xmlWriter.write(doc);
-			xmlWriter.close();
-
-			return true;
-		} catch (Throwable e) {
-			e.printStackTrace();
-		} finally {
-
-			if (xmlWriter != null)
-				try {
-					xmlWriter.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-			if (in != null)
-				try {
-					in.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-		}
-
-		return false;
-
+		return change(fileName, "//resources//string[2]", channelName);
 	}
 
 	/**
@@ -239,7 +194,7 @@ public class ApkBuildUtils {
 	}
 
 	/**
-	 * 更改程序�?
+	 * 更改程序
 	 */
 	public static boolean changeAppName(String fileName, String appName) {
 

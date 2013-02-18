@@ -1,4 +1,5 @@
 package common;
+
 import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
@@ -18,6 +19,7 @@ public class RNBaseBuilder {
 	private String work_location;//android主工程目�?
 	private String dist_location;//apk目录目录
 	private String manifest;
+	private String strings;
 	private String versionName;
 	private String versionCode;
 	private String today;
@@ -40,6 +42,7 @@ public class RNBaseBuilder {
 		String channels = props.getProperty("channels");
 		channelList = StringUtils.split(channels, ",");
 		manifest = work_location + "\\AndroidManifest.xml";
+		strings = work_location + "\\res\\values\\strings.xml";
 		versionName = ApkBuildUtils.getVersionName(manifest);
 		versionCode = ApkBuildUtils.getVersionCode(manifest);
 		today = ApkBuildUtils.getToday();
@@ -53,10 +56,10 @@ public class RNBaseBuilder {
 
 			for (String channel : channelList) {
 				System.out.println("====================================================================");
-				System.out.println("构建" + channel + "�?��...");
+				System.out.println("构建" + channel);
 
 				//更改渠道
-				result = ApkBuildUtils.changeChannel(manifest, channel);
+				result = ApkBuildUtils.changeChannel(strings, channel);
 				//构建工程
 				result = ApkBuildUtils.doBuild(build, Project.MSG_INFO);
 
