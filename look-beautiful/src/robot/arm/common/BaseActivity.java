@@ -19,8 +19,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import cn.waps.AdView;
 
-import com.waps.AdView;
+import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
 
 /**
  * @author li.li
@@ -52,6 +54,7 @@ public abstract class BaseActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		MobclickAgent.onResume(this);
 		Log.i(TAG, "onResume");
 
 		ad();
@@ -60,6 +63,7 @@ public abstract class BaseActivity extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
+		MobclickAgent.onPause(this);
 		Log.i(TAG, "onPause");
 	}
 
@@ -88,6 +92,10 @@ public abstract class BaseActivity extends Activity {
 		listView = (ListView) findViewById(R.id.images);
 		more = (ViewGroup) LayoutInflater.from(this).inflate(R.layout.common_show_more, null);
 		moreButton = (TextView) more.findViewById(R.id.button_images_more);
+
+		// 版本升级
+		UmengUpdateAgent.setUpdateOnlyWifi(false);
+		UmengUpdateAgent.update(this);
 
 	}
 
@@ -133,7 +141,7 @@ public abstract class BaseActivity extends Activity {
 
 	private void showMore(AbsListView view) {
 		if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
-			
+
 			listView.setSelection(view.getLastVisiblePosition());// 滚动到底
 
 			handler.postDelayed(new Runnable() {
@@ -146,8 +154,8 @@ public abstract class BaseActivity extends Activity {
 			}, MORE_LOADING_DELAY);
 		}
 	}
-	
-	public void hideMore(){
+
+	public void hideMore() {
 		handler.post(new Runnable() {
 
 			@Override

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list   xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:oneshot="false" >
+	<item android:drawable="@drawable/dh1"  android:duration="100"/>
+	<item android:drawable="@drawable/dh2"  android:duration="100"/>
+	<item android:drawable="@drawable/dh3"  android:duration="100"/>
+	<item android:drawable="@drawable/dh4"  android:duration="100"/>
+	<item android:drawable="@drawable/dh5"  android:duration="100"/>
+	<item android:drawable="@drawable/dh6"  android:duration="100"/>
+	<item android:drawable="@drawable/dh7"  android:duration="100"/>
+	<item android:drawable="@drawable/dh8"  android:duration="100"/>
+</animation-list>
