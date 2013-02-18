@@ -63,9 +63,9 @@
         <!-- 以下属性为分发渠道ID,编码表参见本文档末附表,发布到不同平台需要填写相应编码重新打包 -->
         <meta-data
             android:name="WAPS_PID"
-            android:value="GFAN" />
+            android:value="@string/channel" />
         <meta-data
-            android:value="gfan"
+            android:value="@string/channel"
             android:name="UMENG_CHANNEL" />
         <meta-data
             android:value="51208be65270152126000011"
