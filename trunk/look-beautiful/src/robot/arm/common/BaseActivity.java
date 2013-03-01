@@ -5,7 +5,7 @@ package robot.arm.common;
 
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
-import robot.arm.provider.asyc.AsycTask;
+import robot.arm.provider.asyc.EasyTask;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -34,7 +34,7 @@ public abstract class BaseActivity extends Activity {
 	private final String TAG = getClass().getName();
 	private static final int MORE_LOADING_DELAY = 500;
 
-	protected AsycTask<BaseActivity> task;
+	protected EasyTask<BaseActivity, Void, Void, Void> task;
 	protected ViewGroup more;
 	protected TextView moreButton;
 	protected ListView listView;

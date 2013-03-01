@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import robot.arm.R;
-import robot.arm.utils.LoadImageUtils;
+import robot.arm.common.LBConstants;
+import robot.arm.provider.http.LoadImgProvider;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,13 +56,13 @@ public class AlbumCover {
 		tv2.setText(images[1].getTitle());
 
 		// 加载专辑图片
-		LoadImageUtils.loadImageSync(act, images[0].getCoverUrl(), iv1);
-		LoadImageUtils.loadImageSync(act, images[1].getCoverUrl(), iv2);
+		LoadImgProvider.getInstance(LBConstants.READNOVEL_IMGCACHE_ABS).load(images[0].getCoverUrl(), iv1);
+		LoadImgProvider.getInstance(LBConstants.READNOVEL_IMGCACHE_ABS).load(images[1].getCoverUrl(), iv2);
 
 		ivs = new ArrayList<ImageView>(COUNT_PER_ROW);
 		ivs.add(iv1);
 		ivs.add(iv2);
-		
+
 		return row;
 	}
 

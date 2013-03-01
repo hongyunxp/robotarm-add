@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">美空看看</string>
     <!-- 渠道 -->
-    <string name="channel">gfan</string>
+    <string name="channel">eo</string>
     
     <!-- tab -->
     <string name="tab_photography">摄影造型</string>
@@ -35,8 +35,8 @@
     <string name="menu_feedback_button">关闭</string>
     
     <!-- args -->
-    <string name = "detailUrl">detailUrl</string>
-    <string name = "postTitle">postTitle</string>
+    <string name="detailUrl">detailUrl</string>
+    <string name="postTitle">postTitle</string>
     
     <!-- 升级 -->
 	<string name="upload_url">http://joyce.sinaapp.com/app/version.json</string>

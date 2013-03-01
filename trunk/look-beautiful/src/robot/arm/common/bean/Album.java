@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import robot.arm.R;
-import robot.arm.utils.LoadImageUtils;
+import robot.arm.common.LBConstants;
+import robot.arm.provider.http.LoadImgProvider;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,8 @@ public class Album {
 		View row = LayoutInflater.from(act).inflate(R.layout.common_content_list_row, null);
 		ImageView image = (ImageView) row.findViewById(R.id.contentImage);
 		image.setTag(R.string.detailUrl, images[0]);
-		LoadImageUtils.loadImageSync(act, images[0], image);
+
+		LoadImgProvider.getInstance(LBConstants.READNOVEL_IMGCACHE_ABS).load(images[0], image);
 
 		return row;
 	}

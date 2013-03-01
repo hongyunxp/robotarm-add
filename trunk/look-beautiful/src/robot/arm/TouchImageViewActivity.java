@@ -3,8 +3,9 @@
  */
 package robot.arm;
 
+import robot.arm.common.LBConstants;
+import robot.arm.provider.http.LoadImgProvider;
 import robot.arm.provider.view.touch.TouchImageView;
-import robot.arm.utils.LoadImageUtils;
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -23,9 +24,9 @@ public class TouchImageViewActivity extends Activity {
 		setContentView(R.layout.touch_image_content);
 
 		touchImageView = (TouchImageView) findViewById(R.id.touch_image_view);
-		Bundle bundle = getIntent().getExtras();    
+		Bundle bundle = getIntent().getExtras();
 		String imageUrl = bundle.getString(getString(R.string.detailUrl));//读出数据  
-		LoadImageUtils.loadImageSync(this, imageUrl, touchImageView);
+		LoadImgProvider.getInstance(LBConstants.READNOVEL_IMGCACHE_ABS).load(imageUrl, touchImageView);
 		touchImageView.reset();
 
 	}
