@@ -9,9 +9,11 @@ import java.util.List;
 import robot.arm.R;
 import robot.arm.core.TabInvHandler;
 import robot.arm.provider.LoaderPrivider;
-import robot.arm.provider.asyc.AsycTask;
+import robot.arm.provider.asyc.EasyTask;
 import robot.arm.utils.AppExit;
+import robot.arm.utils.NetType;
 import robot.arm.utils.NetUtils;
+import robot.arm.utils.ViewUtils;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -28,13 +30,13 @@ import com.mokoclient.core.bean.PostBean;
  *         Apr 23, 2012
  * 
  */
-public class CoverSyncTask extends AsycTask<BaseActivity> {
+public class CoverSyncTask extends EasyTask<BaseActivity, Void, Void, Void> {
 
 	// 初始化参数
 	private List<PostBean> postBeanList = new ArrayList<PostBean>();
-	private ListView listView = act.getImageListView();
-	private View more = act.getMore();
-	private TabInvHandler tabInvHandler = act.getTabInvHandler();
+	private ListView listView = caller.getImageListView();
+	private View more = caller.getMore();
+	private TabInvHandler tabInvHandler = caller.getTabInvHandler();
 	private LoaderPrivider loader;
 
 	private int curPage = 0;
@@ -57,24 +59,21 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	}
 
 	@Override
-	public void doCall() {
-
+	public Void doInBackground(Void... params) {
 		loadList(client, ++curPage, postBeanList, false);
-
+		return null;
 	}
 
 	@Override
-	public void doResult() {
-
+	public void onPostExecute(Void result) {
 		try {
 
 			updateView();
 
-			act.setInit(true);// 已初始化
+			caller.setInit(true);// 已初始化
 		} finally {
 			loader.hide();
 		}
-
 	}
 
 	/**
@@ -84,7 +83,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 		if (postBeanList.isEmpty())
 			return;
 
-		adapter.addList(act, postBeanList);
+		adapter.addList(caller, postBeanList);
 
 		if (listView.getAdapter() == null)
 			listView.setAdapter(adapter);
@@ -94,14 +93,8 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	}
 
 	private void pagePrompt() {
-		handler.post(new Runnable() {
-
-			@Override
-			public void run() {
-				TextView tv = (TextView) act.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
-				tv.setText(curPage + "/" + Util.PAGE_COUNT);
-			}
-		});
+		TextView tv = (TextView) caller.getTabInvHandler().getTabView().getTitle().findViewById(R.id.title_page);
+		tv.setText(curPage + "/" + Util.PAGE_COUNT);
 	}
 
 	/**
@@ -118,34 +111,28 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 	 */
 	private void loadList(final MokoClient mClient, final int curPage, final List<PostBean> list, final boolean upView) {
 
-		if (!NetUtils.checkNet().available) {
+		if (NetUtils.checkNet() == NetType.TYPE_NONE) {
 
-			handler.post(new Runnable() {
+			HANDLER.post(new Runnable() {
 
 				@Override
 				public void run() {
+					ViewUtils.confirm(caller, "温馨提示", "网络不给力请重试", new OnClickListener() {
 
-					if (builder == null) {
-						builder = NetUtils.confirm(tabInvHandler, new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+							loadList(mClient, curPage, list, true);// 重试
 
-							@Override
-							public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-								loadList(mClient, curPage, list, true);// 重试
-							}
+						}
 
-						}, new OnClickListener() {
+					}, new OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface paramDialogInterface, int paramInt) {
-								AppExit.getInstance().exit(tabInvHandler);// 取消/退出
-							}
+						@Override
+						public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+							AppExit.getInstance().exit(tabInvHandler);// 取消/退出
+						}
 
-						});
-
-					} else {
-						builder.show();
-					}
-
+					});
 				}
 			});
 
@@ -159,7 +146,7 @@ public class CoverSyncTask extends AsycTask<BaseActivity> {
 						updateView();// 更新视图
 				} else if (result == null || result.isEmpty()) {
 
-					act.hideMore();
+					caller.hideMore();
 
 				}
 			}

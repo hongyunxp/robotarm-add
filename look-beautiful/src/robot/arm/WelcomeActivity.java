@@ -3,6 +3,7 @@ package robot.arm;
 import robot.arm.common.Util;
 import robot.arm.utils.NetType;
 import robot.arm.utils.NetUtils;
+import robot.arm.utils.ViewUtils;
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -71,7 +72,8 @@ public class WelcomeActivity extends Activity {
 				//				}
 
 				// 登陆
-				if (net.available) {
+				NetType netType = NetUtils.checkNet();
+				if (netType != NetType.TYPE_NONE) {
 					textView.setText("初始化...");
 
 					new Thread() {
@@ -95,11 +97,11 @@ public class WelcomeActivity extends Activity {
 				net = NetUtils.checkNet();
 
 				// 网络提示
-				textView.setText(net.desc);
+				textView.setText(net.getDesc());
 
 				// 不是WIFI提示
-				if (net == NetType.GPRS_WEB || net == NetType.GPRS_WAP)
-					NetUtils.dialog(WelcomeActivity.this, getString(R.string.common_logo_alert));
+				if (net != NetType.TYPE_WIFI)
+					ViewUtils.showDialog(WelcomeActivity.this, "温馨提示", getString(R.string.common_logo_alert), null);
 
 			}
 		});
