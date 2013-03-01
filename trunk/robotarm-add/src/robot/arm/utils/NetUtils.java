@@ -3,15 +3,11 @@
  */
 package robot.arm.utils;
 
-import robot.arm.R;
-import robot.arm.common.RobotArmApp;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
+import robot.arm.common.CommonApp;
 import android.content.Context;
-import android.content.DialogInterface.OnClickListener;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
+import android.telephony.TelephonyManager;
 
 /**
  * @author li.li
@@ -20,13 +16,18 @@ import android.util.Log;
  * 
  */
 public class NetUtils {
-	private static final String TAG = NetUtils.class.getName();
+
+	public static NetType checkNet() {
+		return checkNet(CommonApp.getInstance());
+	}
 
 	/**
 	 * 检测网络是否可用
+	 * 
+	 * 同步方法，支持多线程
 	 */
-	public static NetType checkNet(Context context) {
-		NetType netType = NetType.NONE;
+	public static synchronized NetType checkNet(Context context) {
+		NetType netType = NetType.TYPE_NONE;
 		try {
 			// 获取手机所有连接管理对象（包括对wi-fi,net等连接的管理）
 			ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -34,61 +35,52 @@ public class NetUtils {
 				// 获取网络连接管理的对象
 				NetworkInfo info = connectivity.getActiveNetworkInfo();
 
-				if (info != null && info.isConnected()) {
-					// 判断当前网络是否已经连接
+				// 判断当前网络是否已经连接
+				if (info != null && info.isConnected() && info.getState() == NetworkInfo.State.CONNECTED) {
 
-					if (info.getState() == NetworkInfo.State.CONNECTED) {
+					// 判断当前的接入点
+					if (ConnectivityManager.TYPE_WIFI == info.getType()) // wifi连接
+						netType = NetType.TYPE_WIFI;
+					else if (ConnectivityManager.TYPE_MOBILE == info.getType()) {// 手机方式连接
 
-						// 判断当前的接入点
-						if (ConnectivityManager.TYPE_WIFI == info.getType()) {// wifi连接
-							netType = NetType.WIFI;
+						/**
+						* 获取网络类型
+						* 
+						* NETWORK_TYPE_CDMA 网络类型为CDMA
+						* NETWORK_TYPE_EDGE 网络类型为EDGE
+						* NETWORK_TYPE_EVDO_0 网络类型为EVDO0
+						* NETWORK_TYPE_EVDO_A 网络类型为EVDOA
+						* NETWORK_TYPE_GPRS 网络类型为GPRS
+						* NETWORK_TYPE_HSDPA 网络类型为HSDPA
+						* NETWORK_TYPE_HSPA 网络类型为HSPA
+						* NETWORK_TYPE_HSUPA 网络类型为HSUPA
+						* NETWORK_TYPE_UMTS 网络类型为UMTS
+						* 
+						* 在中国，联通的3G为UMTS或HSDPA，移动和联通的2G为GPRS或EGDE，电信的2G为CDMA，电信的3G为EVDO
+						*/
 
-						} else if (ConnectivityManager.TYPE_MOBILE == info.getType()) {// gprs方式连接
+						if (TelephonyManager.NETWORK_TYPE_GPRS == info.getSubtype() || //
+								TelephonyManager.NETWORK_TYPE_EDGE == info.getSubtype() || //
+								TelephonyManager.NETWORK_TYPE_CDMA == info.getSubtype()) {// 2G网络
 
-							String proxyHost = android.net.Proxy.getDefaultHost();
-							if (proxyHost != null && !"".equals(proxyHost)) {// wap方式
-								netType = NetType.GPRS_WAP;
-							} else {// web方式
-								netType = NetType.GPRS_WEB;
-							}
+							netType = NetType.TYPE_2G;
 
+						} else {// 3G或其它手机网络
+							netType = NetType.TYPE_3G_OR_OTHERS;
 						}
 
+					} else {//其它未知连接方式 
+						netType = NetType.TYPE_UNKNOWN;
 					}
+
+					LogUtils.info("当前网络类型|" + netType.getDesc() + "|" + info.getType() + "|" + info.getSubtype());
 				}
 			}
+
 		} catch (Throwable e) {
-			Log.e(TAG, e.getMessage(), e);
+			LogUtils.error(e.getMessage(), e);
 		}
 
 		return netType;
 	}
-
-	public static NetType checkNet() {
-		return checkNet(RobotArmApp.getApp());
-	}
-
-	public static Builder confirm(final Context context, OnClickListener pl, OnClickListener nl) {
-		AlertDialog.Builder tDialog = new AlertDialog.Builder(context);
-		tDialog.setTitle(R.string.confirm_net_title);
-		tDialog.setMessage(R.string.confirm_net_content);
-		tDialog.setPositiveButton(R.string.confirm_net_ensure, pl);
-		tDialog.setNegativeButton(R.string.confirm_net_cancle, nl);
-		tDialog.show();
-
-		return tDialog;
-
-	}
-	
-	public static Builder dialog(final Context context, String message) {
-		AlertDialog.Builder tDialog = new AlertDialog.Builder(context);
-		tDialog.setTitle(R.string.confirm_title);
-		tDialog.setMessage(message);
-		tDialog.setPositiveButton(R.string.Ensure, null);
-		tDialog.show();
-
-		return tDialog;
-
-	}
-	
 }

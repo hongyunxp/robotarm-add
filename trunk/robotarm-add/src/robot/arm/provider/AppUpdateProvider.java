@@ -16,7 +16,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 
 import robot.arm.R;
-import robot.arm.common.RobotArmApp;
+import robot.arm.common.CommonApp;
 import robot.arm.utils.BaseUtils;
 import robot.arm.utils.BaseUtils.Result;
 import android.app.AlertDialog;
@@ -36,7 +36,7 @@ import android.util.Log;
 public class AppUpdateProvider {
 	private static final String TAG = AppUpdateProvider.class.getName();
 
-	private static final String UPPDATE_URL = RobotArmApp.getApp().getString(R.string.upload_url);
+	private static final String UPPDATE_URL = CommonApp.getInstance().getString(R.string.upload_url);
 	private static final AppUpdateProvider instance = new AppUpdateProvider();
 	private static final String UPDATE_SAVENAME = "look-beautiful.apk";
 	private static final File DOWNLOAD_LOCATION = new File(Environment.getExternalStorageDirectory(), UPDATE_SAVENAME);
@@ -59,7 +59,8 @@ public class AppUpdateProvider {
 			String content = result.httpEntityContent();
 			JSONObject jo = new JSONObject(content);
 
-			versionInfo = new VersionInfo(jo.getInt("versionCode"), jo.getString("versionName"), jo.getInt("type"), jo.getString("desc"), jo.getString("url"));
+			versionInfo = new VersionInfo(jo.getInt("versionCode"), jo.getString("versionName"), jo.getInt("type"), jo.getString("desc"),
+					jo.getString("url"));
 			if (BaseUtils.getAppVersion() < versionInfo.versionCode) {
 
 				updateNewVersion(context, versionInfo.url);

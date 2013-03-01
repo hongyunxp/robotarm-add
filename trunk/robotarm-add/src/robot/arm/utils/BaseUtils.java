@@ -35,7 +35,7 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 
 import robot.arm.R;
-import robot.arm.common.RobotArmApp;
+import robot.arm.common.CommonApp;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -216,7 +216,8 @@ public class BaseUtils {
 	}
 
 	// 这是模拟post请求
-	public static Result post(String url, Map<String, String> headers, Map<String, String> params, String encoding) throws ClientProtocolException, IOException {
+	public static Result post(String url, Map<String, String> headers, Map<String, String> params, String encoding) throws ClientProtocolException,
+			IOException {
 
 		HttpParams httpParams = new BasicHttpParams();
 		HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
@@ -240,7 +241,8 @@ public class BaseUtils {
 	}
 
 	// 这是模拟get请求
-	public static Result get(String url, Map<String, String> headers, Map<String, String> params, String encoding) throws ClientProtocolException, IOException {
+	public static Result get(String url, Map<String, String> headers, Map<String, String> params, String encoding) throws ClientProtocolException,
+			IOException {
 
 		HttpParams httpParams = new BasicHttpParams();
 		HttpConnectionParams.setConnectionTimeout(httpParams, TIMEOUT);
@@ -379,9 +381,9 @@ public class BaseUtils {
 
 	public static int getAppVersion() {
 		int appVersion = 0;
-		PackageManager manager = RobotArmApp.getApp().getPackageManager();
+		PackageManager manager = CommonApp.getInstance().getPackageManager();
 		try {
-			PackageInfo info = manager.getPackageInfo(RobotArmApp.getApp().getPackageName(), 0);
+			PackageInfo info = manager.getPackageInfo(CommonApp.getInstance().getPackageName(), 0);
 			appVersion = info.versionCode; // 版本号
 		} catch (Throwable e) {
 			Log.e(TAG, e.toString());
@@ -392,9 +394,9 @@ public class BaseUtils {
 
 	public static String getAppVersionName() {
 		String appVersionName = null;
-		PackageManager manager = RobotArmApp.getApp().getPackageManager();
+		PackageManager manager = CommonApp.getInstance().getPackageManager();
 		try {
-			PackageInfo info = manager.getPackageInfo(RobotArmApp.getApp().getPackageName(), 0);
+			PackageInfo info = manager.getPackageInfo(CommonApp.getInstance().getPackageName(), 0);
 			appVersionName = info.versionName; // 版本号
 		} catch (Throwable e) {
 			Log.e(TAG, e.toString());
@@ -404,7 +406,7 @@ public class BaseUtils {
 	}
 
 	public static String getPackageName() {
-		return RobotArmApp.getApp().getPackageName();
+		return CommonApp.getInstance().getPackageName();
 	}
 
 	public static Display getScreenDisplay(Activity act) {
@@ -472,7 +474,7 @@ public class BaseUtils {
 		if (!checkNetIsAvailable())
 			return false;
 
-		NetworkInfo info = ((ConnectivityManager) RobotArmApp.getApp().getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+		NetworkInfo info = ((ConnectivityManager) CommonApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
 		// WIFI连接
 		if (ConnectivityManager.TYPE_WIFI == info.getType())
 			return false;
@@ -489,7 +491,7 @@ public class BaseUtils {
 	 */
 	public static boolean checkNetIsAvailable() {
 		// 获取手机所有连接管理对象
-		ConnectivityManager cm = (ConnectivityManager) RobotArmApp.getApp().getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager) CommonApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
 		if (cm == null)
 			return false;
 
