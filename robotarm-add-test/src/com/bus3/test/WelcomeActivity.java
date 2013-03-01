@@ -46,4 +46,12 @@ public class WelcomeActivity extends Activity {
 
 		findViewById(R.id.welcome).startAnimation(animation);
 	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@onstop");
+	}
+	
+	
 }

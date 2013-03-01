@@ -26,7 +26,7 @@ import android.net.NetworkInfo;
 import android.util.Log;
 
 import com.bus3.R;
-import com.bus3.common.BusAppContext;
+import com.bus3.common.BusApp;
 import com.bus3.common.net.NetType;
 
 public class BaseUtils {
@@ -77,7 +77,7 @@ public class BaseUtils {
 	}
 
 	public static NetType checkNet() {
-		return checkNet(BusAppContext.getInstance().getApp());
+		return checkNet(BusApp.getInstance());
 	}
 
 	public static void confirm(final Context context, OnClickListener pl, OnClickListener nl) {
@@ -98,7 +98,7 @@ public class BaseUtils {
 			Log.e(TAG, e.toString());
 
 		}
-		
+
 		return version;
 	}
 

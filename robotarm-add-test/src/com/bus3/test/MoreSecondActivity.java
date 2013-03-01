@@ -1,6 +1,5 @@
 package com.bus3.test;
 
-import robot.arm.provider.asyc.AsycTask;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import com.bus3.R;
 import com.bus3.common.activity.BaseActivity;
 import com.bus3.test.request.MoreSecondRequest;
-import com.bus3.test.request.MoreSecondRequest2;
 
 public class MoreSecondActivity extends BaseActivity {
 
@@ -19,7 +17,7 @@ public class MoreSecondActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.more_second_content);
 
-		tabInvHandler().setTitle(R.layout.more_title);
+		//		tabInvHandler().setTitle(R.layout.more_title);
 
 		Button b = (Button) findViewById(R.id.otherButton);
 		b.setOnClickListener(new OnClickListener() {
@@ -28,7 +26,6 @@ public class MoreSecondActivity extends BaseActivity {
 			public void onClick(View view) {
 				if ("startThread".equals(view.getTag())) {
 					System.out.println("开启当前进程1");
-					AsycTask.call(MoreSecondActivity.this, MoreSecondRequest.class);
 
 					((Button) view).setText("结束当前进程1");
 					view.setTag("endThread");
@@ -52,14 +49,11 @@ public class MoreSecondActivity extends BaseActivity {
 			public void onClick(View view) {
 				if ("startThread".equals(view.getTag())) {
 					System.out.println("开启当前进程2");
-					AsycTask.call(MoreSecondActivity.this, MoreSecondRequest2.class);
 
 					((Button) view).setText("结束当前进程2");
 					view.setTag("endThread");
 				} else if ("endThread".equals(view.getTag())) {
 					System.out.println("结束当前进程2");
-
-					AsycTask.cancel();// 设置中断信号
 
 					((Button) view).setText("开启当前进程2");
 					view.setTag("startThread");
@@ -78,6 +72,9 @@ public class MoreSecondActivity extends BaseActivity {
 			}
 
 		});
+
+		setResult(RESULT_OK);
+		finish();
 
 	}
 

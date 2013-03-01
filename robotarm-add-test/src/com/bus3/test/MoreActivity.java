@@ -61,6 +61,19 @@ public class MoreActivity extends BaseActivity {
 	public void startSubAct(View view) {
 		tabInvHandler().startSubActivity(R.id.main_tools_more, MoreSecondActivity.class);
 	}
+	
+	public void startActForResult(View view) {
+		Intent intent = new Intent(this, WelcomeActivity.class);
+		startActivityForResult(intent, 0);
+	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {// 回调
+		Log.d(TAG, "onActivityResult|" + requestCode + "|" + resultCode);
+
+		if (requestCode == 0 && resultCode == RESULT_OK)
+			System.out.println("result onActivityResult");
+	}
 
 	// 语音识别（ARS - Automated Speech Recognition）
 	public void ars(final View view) {
