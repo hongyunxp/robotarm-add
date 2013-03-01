@@ -25,4 +25,7 @@
 	<!-- 升级 -->
 	<string name="upload_url"></string>
 	
+	<string name="ensure">确定</string>
+    <string name="cacel">取消</string>
+	
 </resources>
