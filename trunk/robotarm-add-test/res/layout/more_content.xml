@@ -7,6 +7,10 @@
 	<Button android:id="@+id/more_button" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:text="点击我"
 		android:onClick="startSubAct" />
+	
+	<Button android:id="@+id/more_button2" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="startActForResult"
+		android:onClick="startActForResult" />
 
 	<Button android:id="@+id/recognizer_button"
 		android:layout_width="wrap_content" android:layout_height="wrap_content"
