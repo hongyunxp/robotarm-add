@@ -14,13 +14,13 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import robot.arm.provider.asyc.AsycTask;
+import robot.arm.R;
+import robot.arm.provider.asyc.EasyTask;
 import android.widget.TextView;
 
-import com.bus3.R;
 import com.bus3.test.MoreSecondActivity;
 
-public class MoreSecondRequest2 extends AsycTask<MoreSecondActivity> {
+public class MoreSecondRequest2 extends EasyTask<MoreSecondActivity, Void, Void, Void> {
 	private static final int STEP = 1000;
 	private static DecimalFormat df = new DecimalFormat("00.00%");
 	public static HttpGet get;
@@ -30,8 +30,8 @@ public class MoreSecondRequest2 extends AsycTask<MoreSecondActivity> {
 	}
 
 	@Override
-	public void doCall() {// 非阻塞
-		final TextView view = (TextView) act.findViewById(R.id.text2);
+	public Void doInBackground(Void... params) {
+		final TextView view = (TextView) caller.findViewById(R.id.text2);
 
 		// act.parent().openLoading();
 		// 中断线程典型
@@ -103,10 +103,13 @@ public class MoreSecondRequest2 extends AsycTask<MoreSecondActivity> {
 			}
 		}
 
+		return null;
 	}
 
 	@Override
-	public void doResult() {
+	public void onPostExecute(Void result) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
