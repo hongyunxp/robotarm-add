@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<item type="id" name="tab_novel"></item>
+	<item type="id" name="tab_cartoon"></item>
+	<item type="id" name="tab_joke"></item>
+	<item type="id" name="tab_news"></item>
+
+    
+</resources>

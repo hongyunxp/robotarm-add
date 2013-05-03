@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">reader-man</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    
+    <string name="tab_novel">小说</string>
+    <string name="tab_cartoon">漫画</string>
+    <string name="tab_joke">笑话</string>
+    <string name="tab_news">新闻</string>
+
+</resources>

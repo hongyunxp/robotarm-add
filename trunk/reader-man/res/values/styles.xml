@@ -1,0 +1,29 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Light" />
+    
+    <style name="tab_novel" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/tab_novel</item>
+        <item name="android:drawableTop">@drawable/ic_action_search</item>
+        <item name="android:text">@string/tab_novel</item>
+    </style>
+    
+    <style name="tab_cartoon" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/tab_cartoon</item>
+        <item name="android:drawableTop">@drawable/ic_action_search</item>
+        <item name="android:text">@string/tab_cartoon</item>
+    </style>
+    
+    <style name="tab_joke" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/tab_joke</item>
+        <item name="android:drawableTop">@drawable/ic_action_search</item>
+        <item name="android:text">@string/tab_joke</item>
+    </style>
+    
+    <style name="tab_news" parent="@style/main_tab_bottom">
+        <item name="android:id">@id/tab_news</item>
+        <item name="android:drawableTop">@drawable/ic_action_search</item>
+        <item name="android:text">@string/tab_news</item>
+    </style>
+
+</resources>

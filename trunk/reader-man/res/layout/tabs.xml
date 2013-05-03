@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot.arm.core.view.TabGroup
+	xmlns:android="http://schemas.android.com/apk/res/android" style="@style/tab_indictor">
+
+	<robot.arm.core.view.Tab style="@style/tab_novel" />
+
+	<robot.arm.core.view.Tab style="@style/tab_cartoon" />
+	
+	<robot.arm.core.view.Tab style="@style/tab_joke" />
+
+	<robot.arm.core.view.Tab style="@style/tab_news" />
+
+</robot.arm.core.view.TabGroup>
