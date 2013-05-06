@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">美空看看</string>
     <!-- 渠道 -->
-    <string name="channel">eo</string>
+    <string name="channel">moko</string>
     
     <!-- tab -->
     <string name="tab_photography">摄影造型</string>
