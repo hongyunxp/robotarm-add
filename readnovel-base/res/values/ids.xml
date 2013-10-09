@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <item type="id" name="dialog_confirm_ensure"></item>
+    <item type="id" name="dialog_confirm_cacel"></item>
+    <item type="id" name="dialog_confirm_titel"></item>
+    <item type="id" name="dialog_confirm_msg"></item>
+    <item type="id" name="more_image3"></item>
+    <item type="id" name="more_tv1"></item>
+    <item type="id" name="more_tv2"></item>
+    <item type="id" name="more_tv3"></item>
+    <item type="id" name="exit_ll"></item>
+    <item type="id" name="ad_layout"></item>
+    <item type="id" name="pay_record_ll"></item>
+    <item type="id" name="more_ll"></item>
+    
+	<!-- 抽屉 -->
+    <item type="id" name="panelHandle" />
+  	<item type="id" name="panelContent" />
+</resources>
