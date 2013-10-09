@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/bf_main"
+        android:orientation="vertical"
+        android:background="#e9e9e9"
+        android:layout_above="@id/footer">
+
+        <include
+            layout="@layout/include_top_bfbar"
+            android:id="@+id/top_bar"/>
+        
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+	
+            <!-- 书架内容 -->
+           <!--  <com.eastedge.readnovel.view.MyGallery
+                android:id="@+id/gallery"
+                android:gravity="top"
+                android:visibility="visible"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:spacing="1dip"/> -->
+            
+            <ListView 
+                android:id="@+id/listview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" 
+                android:drawSelectorOnTop="false"
+                android:fadingEdge="none"
+                android:divider="@android:color/transparent"
+                android:listSelector="@drawable/listview_selector"
+                android:cacheColorHint="@android:color/transparent"
+                android:fastScrollEnabled="true"/>
+            
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:layout_marginLeft="20dip"
+                android:lineSpacingExtra="5dip"
+                android:text="您的书架太空了！\n马上到书城瞧一瞧吧！！！\n喜欢的别忘加入书架哦！！！"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:textColor="#cccccc"
+                android:id="@+id/bookshelf_nobook_tv"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dip"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="5dip"
+                android:text="您还没有订阅过VIP章节哦！"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:textColor="#cccccc"
+                android:id="@+id/bookshelf_noVIP_tv"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@id/footer"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/menu_bar_bg">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:id="@+id/bf_rn"
+                android:background="@drawable/btn_r1"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="5dip"/>
+            
+            <FrameLayout
+                android:id="@+id/bookshell_notice_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="29dip"
+                android:layout_toRightOf="@id/bf_rn"
+                android:layout_toLeftOf="@id/bf_lastRead"
+                android:background="@drawable/bf_bottom_msg_bg"
+                android:padding="1.5dip"
+                android:layout_marginTop="2dip"
+                android:visibility="invisible">
+                
+                <TextView
+                    android:id="@+id/bookshell_notice_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="60天免费畅阅所有小说特权等你来拿！"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:ellipsize="marquee"
+                android:focusable="true" 
+                android:focusableInTouchMode="true" 
+                android:clickable="true"/>
+                
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/bf_lastRead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/btn_z4"
+                android:text="上次阅读"
+                android:layout_alignParentRight="true"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="5dip"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/bf_yy"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#99000000"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bookshelf_help"
+        android:visibility="gone"
+        android:id="@+id/bf_help"/>
+
+</RelativeLayout>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_bar"
+        android:orientation="vertical" >
+
+        <!-- 启动推送通知 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/linearLayout1"
+            android:layout_below="@+id/top_bar"
+            android:background="@drawable/biankuang1"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip" >
+
+            <TextView
+                android:text="启动推送通知"
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/set_push"
+                android:checked="true"
+                android:layout_marginRight="5dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        
+        <!-- 设置屏幕常亮 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/novel_set_bbgxsz"
+            android:background="@drawable/biankuang2"
+            android:layout_marginTop="-1dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip" >
+
+            <TextView
+                android:text="屏幕常亮"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/set_keepScreenOn"
+                android:checked="true"
+                android:layout_marginRight="5dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" 
+                android:onClick="keepScreenOn"/>
+        </RelativeLayout>
+        
+        <!-- 版本更新设置 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/novel_set_bbgxsz"
+            android:background="@drawable/biankuang2"
+            android:layout_marginTop="-1dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip" >
+
+            <TextView
+                android:text="版本更新设置"
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <ImageView
+                android:background="@drawable/jiantou2"
+                android:layout_width="15.33dip"
+                android:layout_height="10.67dip"
+                android:id="@+id/imageView1"
+                android:layout_marginRight="10dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" >
+            </ImageView>
+        </RelativeLayout>
+        <!-- 更新软件版本 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/novel_set_gxrjbb"
+            android:layout_marginTop="-1dip"
+            android:background="@drawable/biankuang2"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip" >
+
+            <TextView
+                android:text="更新软件版本"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <ImageView
+                android:background="@drawable/jiantou2"
+                android:layout_width="15.33dip"
+                android:layout_height="10.67dip"
+                android:id="@+id/imageView1"
+                android:layout_marginRight="10dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" >
+            </ImageView>
+        </RelativeLayout>
+        <!-- 更新软件版本 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/novel_set_cheandata"
+            android:layout_marginTop="-1dip"
+            android:background="@drawable/biankuang2"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:clickable="true"
+            android:onClick="cleanData" >
+
+            <TextView
+                android:text="清理SD卡数据"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <ImageView
+                android:background="@drawable/jiantou2"
+                android:layout_width="15.33dip"
+                android:layout_height="10.67dip"
+                android:id="@+id/imageView1"
+                android:layout_marginRight="10dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" >
+            </ImageView>
+        </RelativeLayout>
+        <!-- 清理缓存 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/novel_set_cheancache"
+            android:layout_marginTop="-1dip"
+            android:background="@drawable/biankuang2"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:clickable="true"
+            android:onClick="cleanCache" >
+
+            <TextView
+                android:text="清理手机缓存"
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <ImageView
+                android:background="@drawable/jiantou2"
+                android:layout_width="15.33dip"
+                android:layout_height="10.67dip"
+                android:id="@+id/imageView1"
+                android:layout_marginRight="10dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" >
+            </ImageView>
+        </RelativeLayout>
+        <!-- 关于我们 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/novel_set_aboutwe"
+            android:gravity="center_vertical"
+            android:background="@drawable/biankuang2"
+            android:layout_marginTop="-1dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip" >
+
+            <TextView
+                android:text="关于我们"
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <ImageView
+                android:background="@drawable/jiantou2"
+                android:layout_width="15.33dip"
+                android:layout_height="10.67dip"
+                android:id="@+id/imageView1"
+                android:layout_marginRight="10dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" >
+            </ImageView>
+        </RelativeLayout>
+        <!-- 应用推荐 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:id="@+id/novel_set_app"
+            android:gravity="center_vertical"
+            android:background="@drawable/biankuang3"
+            android:layout_marginTop="-1dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:clickable="true"
+            android:onClick="goToApp" >
+
+            <TextView
+                android:text="应用推荐"
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:layout_marginLeft="10dip" >
+            </TextView>
+
+            <ImageView
+                android:background="@drawable/jiantou2"
+                android:layout_width="15.33dip"
+                android:layout_height="10.67dip"
+                android:id="@+id/imageView1"
+                android:layout_marginRight="10dip"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" >
+            </ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/biankuangsbxxy" >
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="13dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="4dip" >
+
+        <TextView
+            android:text="此章节为VIP收费章节，订阅后方可阅读！"
+            android:id="@+id/textView1"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_marginRight="10dip"
+        android:layout_marginLeft="10dip" >
+
+        <TextView
+            android:text="字数：3600（单价：5阅读币/1000字）"
+            android:id="@+id/tv_zsydb"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_marginRight="10dip"
+        android:layout_marginLeft="10dip"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout3"
+            android:layout_width="fill_parent"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:text="订阅价格："
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:text="15阅读币"
+                android:id="@+id/tv_dyjg"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:text="特权价格：0阅读币"
+            android:id="@+id/tv_dyjg_free"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/custom" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4"
+        android:layout_width="fill_parent"
+        android:layout_marginRight="10dip"
+        android:layout_marginLeft="10dip" >
+
+        <TextView
+            android:text="剩余阅读币：108.8个"
+            android:id="@+id/tv_syydb"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TextView>
+
+        <TextView
+            android:text="马上充值"
+            android:id="@+id/textView2"
+            android:layout_marginLeft="15dip"
+            android:textColor="#0066CC"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout5"
+        android:layout_width="fill_parent"
+        android:layout_marginRight="10dip"
+        android:layout_marginLeft="10dip" >
+
+        <CheckBox
+            android:text="后续章节设为自动阅读"
+            android:id="@+id/checkBox"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </CheckBox>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout6"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_marginRight="10dip"
+        android:layout_marginLeft="10dip" >
+		<!-- 订阅按钮 -->
+        <Button
+            android:text="订   阅"
+            android:id="@+id/bt_dy"
+            android:textSize="24sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/button_bg"
+            android:layout_width="130dip"
+            android:layout_height="40dip" >
+        </Button>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/sub_all_layout"
+        layout="@layout/sub_all" />
+
+    <include
+        android:id="@+id/sub_free_time_layout"
+        layout="@layout/sub_free_time" />
+
+</LinearLayout>

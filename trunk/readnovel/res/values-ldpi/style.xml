@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <style name="style_bookshelf_yy2320">
+        <item name="android:layout_height">55dip</item>
+        <item name="android:layout_width">50.66dip</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@drawable/yy</item>
+        <item name="android:paddingRight">2dip</item>
+    </style>
+
+</resources>

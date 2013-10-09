@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@drawable/title_bg"
+    android:layout_height="wrap_content" >
+
+    <Button
+        android:id="@+id/title_btn_left1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_z2"
+        android:layout_marginLeft="10dip"
+        android:layout_alignParentLeft="true" />
+
+    <Button
+        android:id="@+id/title_btn_logined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_logined"
+        android:layout_marginLeft="10dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@id/title_btn_left1" />
+
+    <Button
+        android:id="@+id/title_btn_leftz41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_z4"
+        android:layout_marginLeft="10dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@id/title_btn_logined" />
+
+    <Button
+        android:id="@+id/title_btn_leftz42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/btn_z4"
+        android:layout_marginLeft="10dip"
+        android:layout_toRightOf="@id/title_btn_leftz41" />
+
+    <Button
+        android:id="@+id/title_btn_left2"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="5dip"
+        android:background="@drawable/btn_back"
+        android:layout_marginLeft="10dip"
+        android:layout_alignRight="@id/title_btn_left1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_tv"
+        android:textColor="#FFFFFF"
+        android:layout_centerInParent="true"
+        android:textSize="20dip"
+        android:singleLine="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="@dimen/top_bar_right_buttion_width"
+        android:layout_height="@dimen/top_bar_height"
+        android:visibility="gone"
+        android:id="@+id/title_btn_right1"
+        android:layout_marginRight="10dip"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:background="@drawable/btn_z2" />
+	
+    <!-- 右侧button -->
+    <Button
+        android:layout_width="@dimen/top_bar_right_buttion_width"
+        android:layout_height="@dimen/top_bar_height"
+        android:visibility="gone"
+        android:id="@+id/title_btn_right2"
+        android:layout_marginRight="10dip"
+        android:layout_toLeftOf="@id/title_btn_right1"
+        android:layout_centerVertical="true"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:background="@drawable/btn_z2" />
+
+</RelativeLayout>

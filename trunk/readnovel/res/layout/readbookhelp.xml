@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#c8737373"
+    android:id="@+id/readbook_help"
+    android:visibility="gone"
+    >
+	    <TextView 
+	    android:layout_width="35dip"
+   		android:layout_height="fill_parent"
+   		android:textSize="30sp"
+   		android:textColor="#fff"
+   		android:layout_alignParentLeft="true"
+   		android:layout_margin="25dip"
+   		android:gravity="center_vertical"
+   		android:text="点击或拖动进入上一页"
+   		android:id="@+id/read_help_left"/>
+   		
+   		<TextView 
+	    android:layout_width="35dip"
+   		android:layout_height="fill_parent"
+   		android:textSize="30sp"
+   		android:textColor="#fff"
+   		android:layout_alignParentRight="true"
+   		android:layout_margin="25dip"
+   		android:gravity="center_vertical"
+   		android:text="点击或拖动进入下一页"
+   		android:id="@+id/read_help_right"/>
+   		
+   		<View
+   		android:layout_width="2dip"
+   		android:layout_height="200dip"
+   		android:background="#fff"
+   		android:layout_centerHorizontal="true"/>
+   		
+   		<View
+   		android:layout_width="148dip"
+   		android:layout_height="0.1dip"
+   		android:background="#fff"
+   		android:layout_centerHorizontal="true"
+   		android:layout_marginTop="200dip"
+   		android:id="@+id/readhelp_heng"/>
+   		
+   		<View
+   		android:layout_width="148dip"
+   		android:layout_height="0.1dip"
+   		android:background="#fff"
+   		android:layout_centerHorizontal="true"
+   		android:layout_alignParentBottom="true"
+   		android:layout_marginBottom="200dip"
+   		android:id="@+id/readhelp_heng2"/>
+   		
+   		<View
+   		android:layout_width="0.1dip"
+   		android:layout_height="260dip"
+   		android:background="#fff"
+   		android:layout_toRightOf="@id/read_help_left"
+   		android:layout_below="@id/readhelp_heng"
+   		android:layout_above="@id/readhelp_heng2"
+   		android:layout_centerVertical="true"
+   		android:id="@+id/readhelp_shu"/>
+   		
+   		<View
+   		android:layout_width="0.1dip"
+   		android:layout_height="260dip"
+   		android:background="#fff"
+   		android:layout_toLeftOf="@id/read_help_right"
+   		android:layout_below="@id/readhelp_heng"
+   		android:layout_above="@id/readhelp_heng2"
+   		android:layout_centerVertical="true"
+   		android:id="@+id/readhelp_shu2"/>
+   		
+   		<View
+   		android:layout_width="2dip"
+   		android:layout_height="200dip"
+   		android:background="#fff"
+   		android:layout_alignParentBottom="true"
+   		android:layout_centerHorizontal="true"/>
+   		
+   		<TextView 
+   		android:layout_width="310dip"
+   		android:layout_height="560dip"
+   		android:background="#c8515151"
+   		android:textSize="30sp"
+   		android:textColor="#fff"
+   		android:layout_above="@id/readhelp_heng2"
+   		android:layout_below="@id/readhelp_heng"
+   		android:layout_toRightOf="@id/readhelp_shu"
+   		android:layout_toLeftOf="@id/readhelp_shu2"
+   		android:gravity="center"
+   		android:text="点击弹出\n菜单"/>
+</RelativeLayout>

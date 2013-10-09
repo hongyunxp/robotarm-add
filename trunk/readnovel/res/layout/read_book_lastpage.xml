@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/readbg13" >
+    
+    <include
+		layout="@layout/include_top_bar"
+		android:id="@+id/pd_top_bar" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/readbg13" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dip"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:text="小说已完美结局，意犹未尽？分享给您的朋友吧，让大家一起享受此书吧！" />
+
+            <TextView
+                android:id="@+id/last_read_page_share_content_count"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginBottom="5dip"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:text="还可以输入67个字" />
+
+            <EditText
+                android:id="@+id/last_read_page_share_content"
+                android:layout_width="fill_parent"
+                android:layout_height="150dip"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:padding="5dip"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:text="我正在阅读《代嫁》小说，剧情非常精彩，推荐各位亲一起阅读 。 http://t.xs.cn/d"
+                android:gravity="top"
+                android:background="@drawable/biankuangsbxxy"/>
+
+            <Button
+                android:id="@id/read_book_share_sina_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginBottom="5dip"
+                android:paddingLeft="80dip"
+                android:paddingRight="70dip"
+                android:paddingTop="5dip"
+                android:paddingBottom="5dip"
+                android:textSize="22sp"
+                android:textColor="#000000"
+                android:text="新浪微博"
+                android:drawableLeft="@drawable/sina_share_big"
+                android:background="@drawable/consume_write_btn" />
+
+            <Button
+                android:id="@id/read_book_share_qq_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:layout_marginTop="5dip"
+                android:layout_marginBottom="10dip"
+                android:paddingLeft="80dip"
+                android:paddingRight="70dip"
+                android:paddingTop="5dip"
+                android:paddingBottom="5dip"
+                android:textSize="22sp"
+                android:textColor="#000000"
+                android:text="QQ分享"
+                android:drawableLeft="@drawable/qq_share_big"
+                android:background="@drawable/consume_write_btn" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

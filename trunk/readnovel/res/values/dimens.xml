@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="dialog_left_margin">10dp</dimen>
+	<dimen name="dialog_top_margin">30dp</dimen>
+	<dimen name="dialog_right_margin">10dp</dimen>
+	<dimen name="dialog_bottom_margin">10dp</dimen>		
+	<dimen name="dialog_btn_close_right_margin">10dp</dimen>
+	<dimen name="dialog_btn_close_top_margin">10dp</dimen>
+	<dimen name="dialog_title_logo_left_margin">5dp</dimen>
+	<dimen name="dialog_title_height">30dp</dimen>	
+	
+	 <dimen name="button_height">50.0dip</dimen>
+    <dimen name="bottom_tab_font_size">10.0dip</dimen>
+    <dimen name="bottom_tab_padding_up">-2.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">1.0dip</dimen>
+    <dimen name="switch_logo_bottom_padding">20.0sp</dimen>
+
+    <!-- 阅读页面 -->
+    <!-- 阅读内容文字大小  -->
+    <dimen name="read_text_font_size_1">18sp</dimen>
+    <dimen name="read_text_font_size_2">21sp</dimen>
+    <dimen name="read_text_font_size_3">27sp</dimen>
+    <dimen name="read_text_font_size_4">34sp</dimen>
+    <dimen name="read_text_font_size_5">42sp</dimen>
+    <!-- 顶部和底部小标题大小 -->
+    <dimen name="read_text_title_font_size">12sp</dimen>
+    <!-- 标题顶部距离 -->
+    <dimen name="read_text_title_top_space_size">12sp</dimen>
+    <!-- 正文行间距 -->
+    <dimen name="read_text_font_space_size">3sp</dimen>
+    <!-- 正文左右边距 -->
+    <dimen name="read_text_left_right_size">10sp</dimen>
+    <!-- 正文上下边距 -->
+    <dimen name="read_text_top_bottom_size">15sp</dimen>
+    <!-- 时间和进度底部距离 -->
+    <dimen name="read_text_time_bottom_space_size">7sp</dimen>
+    
+    
+    
+    
+    <dimen name="read_text_font_size_small">17sp</dimen>
+    <dimen name="read_text_font_size_middle">21sp</dimen>
+    <dimen name="read_text_font_size_big">25sp</dimen>
+
+    <!--  章节字体的显示   -->
+    <dimen name="read_zhangjie_font_size">13sp</dimen>
+    <!--  底部字体-->
+    <dimen name="read_bottom_font_size">13sp</dimen>
+    <!--  行的高度-->
+    <dimen name="read_hang_height">5dp</dimen>
+    <!--  段落间空白高度-->
+    <dimen name="read_duanbetween_height">8dp</dimen>
+      <!--  标题和顶部的距离-->
+    <dimen name="read_titletotop_height">15sp</dimen>
+    <!--  内容距离最上面的高度-->
+    <dimen name="read_topbetweencontent_height">15dp</dimen>
+    <!--  左右边距-->
+    <dimen name="read_leftright_bianju">10dp</dimen>
+    <!--  上下边距-->
+    <dimen name="read_topbottom_bianju">23dp</dimen>
+    <!--  章节名距离顶部的边距-->
+    <dimen name="read_zhangjieming_top_bianju">19dp</dimen>
+    
+    <!-- 广告的高度 -->
+    <dimen name="ad_height">50.0dip</dimen>
+    <!-- 页面内容字大小 -->
+    <dimen name="context_text_size">16sp</dimen>
+    <!-- 关于我们字大小 -->
+    <dimen name="aboutwe_text_size">14sp</dimen>
+    
+    <!-- 支付宝页面 -->
+    <!-- 小字 -->
+    <dimen name="alipay_radiobutton_big_text_size">16sp</dimen>
+    <dimen name="alipay_radiobutton_small_text_size">12sp</dimen>
+    
+    <!-- top bar -->
+    <dimen name="top_bar_height">40dip</dimen>
+    <dimen name="top_bar_right_buttion_width">40dip</dimen>
+    
+    <!-- 阅读分享 -->
+    <dimen name="read_share_tools_width">30dip</dimen>
+    <dimen name="shadow_width">6dip</dimen>
+    
+</resources>

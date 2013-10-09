@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:orientation="horizontal"
+	android:layout_height="wrap_content"
+	android:background="@drawable/rnpop_bg">
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:gravity="center_horizontal">
+		<Button
+			style="@style/style_rnpopbtn"
+			android:drawableTop="@drawable/menu_1"
+			android:id="@+id/popbtn_1"
+			android:paddingTop="5dip"
+			android:layout_marginTop="6dip"
+			android:textColor="#000000"
+			android:text="用户中心" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:gravity="center_horizontal">
+		<Button
+			style="@style/style_rnpopbtn"
+			android:drawableTop="@drawable/menu_3"
+			android:id="@+id/popbtn_2"
+			android:paddingTop="5dip"
+			android:layout_marginTop="6dip"
+			android:textColor="#000000"
+			android:text="设置" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:gravity="center_horizontal">
+		<Button
+			style="@style/style_rnpopbtn"
+			android:drawableTop="@drawable/menu_4"
+			android:id="@+id/popbtn_3"
+			android:paddingTop="5dip"
+			android:layout_marginTop="6dip"
+			android:textColor="#000000"
+			android:text="使用帮助" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:gravity="center_horizontal">
+		<Button
+			style="@style/style_rnpopbtn"
+			android:drawableTop="@drawable/menu_5"
+			android:id="@+id/popbtn_4"
+			android:paddingTop="5dip"
+			android:layout_marginTop="6dip"
+			android:textColor="#000000"
+			android:text="关于" />
+	</LinearLayout>
+</LinearLayout>

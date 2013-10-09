@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tuijian_relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/select_lv" >
+
+    <!--
+    <LinearLayout
+		android:layout_width="64dip"
+		android:layout_height="80dip"
+		android:background="@drawable/tjbook_bg"
+		android:layout_margin="12dip"
+		android:padding="0dip"
+		android:layout_centerVertical="true"
+		android:id="@+id/ll">
+		<ImageView
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/tuijian_list_img" />
+	</LinearLayout>
+    -->
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="64dip"
+        android:layout_height="80dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="6dip"
+        android:background="@drawable/sbxxy_fmbj"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:padding="5.5dp"
+            android:id="@+id/tuijian_list_img"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tuijian_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tuijian_list_img"
+        android:layout_marginTop="10dip"
+        android:layout_toRightOf="@+id/ll"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tuijian_list_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tuijian_list_title"
+        android:layout_below="@id/tuijian_list_title"
+        android:layout_marginRight="40dip"
+        android:layout_marginTop="1dip"
+        android:lineSpacingExtra="2dip"
+        android:text="nimeidewpo"
+        android:textColor="#777"
+        android:textSize="12sp" />
+
+</RelativeLayout>

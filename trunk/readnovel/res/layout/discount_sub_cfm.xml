@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/biankuangsbxxy"
+    android:orientation="vertical" >
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1"
+		android:layout_width="fill_parent"
+		android:layout_marginLeft="15dip"
+		android:layout_marginRight="15dip"
+		android:layout_marginTop="20dip"
+		>
+		<TextView
+			android:text="全本订阅即享惊喜价！"
+			android:id="@+id/textView1"
+			android:textColor="#993300"
+			android:textSize="25sp"
+			android:textStyle="bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout2"
+		android:layout_marginLeft="10dip"
+		android:layout_marginTop="20dip"
+		android:layout_width="fill_parent">
+		<TextView
+			android:text="原价：19000 阅读币"
+			android:id="@+id/tv_zszj"
+			android:textColor="#333333"
+			android:textSize="14sp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			></TextView>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout3"
+		android:layout_width="fill_parent"
+		android:layout_marginLeft="10dip"
+		android:layout_marginTop="5dip">
+		<TextView
+			android:text="折扣：3.8折"
+			android:id="@+id/tv_sxydb"
+			android:layout_width="wrap_content"
+			android:textColor="#333333"
+			android:textSize="14sp"
+			android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout4"
+		android:layout_width="fill_parent"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:orientation="horizontal"
+		android:layout_marginTop="5dip">
+		<TextView
+			android:text="现价："
+			android:textColor="#333333"
+			android:textSize="14sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+		<TextView
+			android:text="500"
+			android:id="@+id/tv_syydb"
+			android:textColor="#FF0000"
+			android:textSize="14sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+		<TextView
+			android:text=" 阅读币"
+			android:textColor="#333333"
+			android:textSize="14sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout4"
+		android:layout_width="fill_parent"
+		android:layout_marginLeft="10dip"
+		android:layout_marginRight="10dip"
+		android:orientation="horizontal"
+		android:layout_marginTop="5dip">
+		<TextView
+			android:text="剩余阅读币：100 个"
+			android:id="@+id/remain"
+			android:textColor="#333333"
+			android:textSize="14sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+		<TextView
+		    android:layout_marginLeft="10dp"
+			android:text="马上充值"
+			android:id="@+id/tv_syydb"
+			android:textColor="#0099FF"
+			android:textSize="14sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+
+	<LinearLayout
+	    android:id="@+id/linearLayout5"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_marginBottom="50dip"
+	    android:layout_marginLeft="10dip"
+	    android:layout_marginRight="10dip"
+	    android:layout_marginTop="40dip"
+	    android:gravity="center" >
+
+	    <Button
+	        android:id="@+id/bt_dyqb"
+	        android:layout_width="153.3dip"
+	        android:layout_height="40dip"
+	        android:background="@drawable/button_bg"
+	        android:text="确认订购"
+	        android:textColor="#ffffff"
+	        android:textSize="20sp" />
+	</LinearLayout>
+
+</LinearLayout>

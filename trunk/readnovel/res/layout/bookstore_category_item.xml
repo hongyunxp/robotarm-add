@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll"
+    android:background="@drawable/v3_bookstore_category_leftnew_xml"
+    android:orientation="vertical" >
+
+ <TextView
+        android:id="@+id/bookstore_category_item_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="1.0dip"
+        android:layout_marginRight="1.0dip"
+        android:gravity="center"
+        android:paddingBottom="10.0dip"
+        android:paddingTop="10.0dip"
+        android:text="玄幻"
+        android:textColor="#ff000000"
+        android:textSize="14.0dip" />
+
+    <View
+        android:id="@+id/bookstore_category_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2.0px"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginLeft="1.0dip"
+        android:layout_marginRight="1.0dip"
+        android:background="@drawable/v3_bookstore_category_line" /> 
+
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@drawable/biankuangsbxxy">
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1"
+		android:layout_width="fill_parent"
+		android:layout_marginTop="135dip"
+		android:gravity="center">
+		<TextView
+			android:text="以下免费章节"
+			android:id="@+id/textView1"
+			android:textColor="#000000"
+			android:textSize="28sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout2"
+		android:layout_width="fill_parent"
+		android:gravity="center">
+		<TextView
+			android:text="必须登录才能阅读"
+			android:id="@+id/textView2"
+			android:textColor="#000000"
+			android:textSize="28sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout3"
+		android:layout_width="fill_parent"
+		android:layout_marginTop="120dip"
+		android:layout_marginLeft="20dip"
+		android:layout_marginRight="20dip"
+		android:layout_marginBottom="135dip">
+		<Button
+			android:text="登    录"
+			android:textSize="20sp"
+			android:id="@+id/bt_login"
+			android:layout_width="120dip"
+			android:layout_height="40dip"
+			android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:background="@drawable/button_bg"></Button>
+		<Button
+			android:text="快速注册"
+			android:id="@+id/bt_loginspeed"
+			android:textSize="20sp"
+			android:background="@drawable/kszc"
+			android:layout_marginLeft="20dip"
+			android:layout_width="120dip"
+			android:layout_weight="1"
+			android:textColor="#ffffff"
+			android:layout_height="40dip"></Button>
+	</LinearLayout>
+
+</LinearLayout>

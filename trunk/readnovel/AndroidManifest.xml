@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xs.cn"
+    android:versionCode="82"
+    android:versionName="3.10.2" >
+
+    <uses-sdk android:minSdkVersion="7" />
+
+    <application
+        android:name=".activitys.BookApp"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:name=".activitys.LoadingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="@string/channel" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="4f967dcd5270153147000001" />
+
+        <!-- 登陆 -->
+        <activity
+            android:name=".activitys.LoginActivity"
+            android:screenOrientation="portrait" />
+        <!-- 注册 -->
+        <activity
+            android:name=".activitys.RegistActivity"
+            android:screenOrientation="portrait" />
+        <!-- 修改密码 -->
+        <activity
+            android:name=".activitys.UpdateMiMa"
+            android:screenOrientation="portrait" />
+
+        <!-- 主导航 -->
+        <activity
+            android:name=".activitys.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 小说分类 分类 -->
+        <activity
+            android:name=".activitys.MenuFenleiItem"
+            android:screenOrientation="portrait" />
+        <!-- 导航栏 主题 -->
+        <activity
+            android:name=".activitys.MenuTheme"
+            android:screenOrientation="portrait" />
+        <!-- 推荐 点击推荐图片 -->
+        <activity
+            android:name=".activitys.Menu_Tuijian_Clickgallery"
+            android:screenOrientation="portrait" />
+        <!-- 导航栏 主页面 -->
+        <activity
+            android:name="com.eastedge.readnovel.fragment.MainGroupFragment"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 系统设置 -->
+        <activity
+            android:name=".activitys.SettingActivity"
+            android:screenOrientation="portrait" />
+        <!-- 版本更新设置 -->
+        <activity
+            android:name=".activitys.SettingBBActivity"
+            android:screenOrientation="portrait" />
+        <!-- Gallery例子 -->
+        <activity
+            android:name=".activitys.GalleryTest"
+            android:screenOrientation="portrait" />
+        <!-- 关于我们 设置 -->
+        <activity
+            android:name=".activitys.AboutweActivity"
+            android:screenOrientation="portrait" />
+        <!-- 版本信息 设置 -->
+        <activity
+            android:name=".activitys.BanbenxinxiActivity"
+            android:screenOrientation="portrait" />
+        <!-- 书本信息页 -->
+        <activity
+            android:name=".activitys.Novel_sbxxy"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 书架目录页 -->
+        <activity
+            android:name=".activitys.BfMLActivity"
+            android:screenOrientation="portrait" />
+        <!-- 书本目录页 -->
+        <activity
+            android:name=".activitys.Novel_sbxxy_mulu"
+            android:screenOrientation="portrait" />
+        <!-- 书评详细页 -->
+        <activity
+            android:name=".activitys.Novel_shuping_huifu"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 书签 -->
+        <activity
+            android:name=".activitys.BookMarkActivity"
+            android:screenOrientation="portrait" />
+        <!-- 排行 详情 -->
+        <activity
+            android:name=".activitys.PaihangDetail"
+            android:screenOrientation="portrait" />
+        <!-- 使用帮助 -->
+        <activity
+            android:name=".activitys.UseHelpActivity"
+            android:screenOrientation="portrait" />
+        <!-- 阅读(在线) -->
+        <activity
+            android:name=".activitys.Readbook"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- <activity android:name=".activitys.Readbook" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:configChanges="orientation|keyboardHidden|navigation"  android:hardwareAccelerated="false"/> -->
+        <!-- 阅读 -->
+        <activity
+            android:name=".activitys.ReadbookDown"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- <activity android:name=".activitys.ReadbookDown" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:configChanges="orientation|keyboardHidden|navigation" android:hardwareAccelerated="false"/> -->
+	
+		<!-- 我的VIP订阅页面 -->
+        <activity
+            android:name=".activitys.MySubVipActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        
+        <!-- 我的信息 -->
+        <activity
+            android:name=".activitys.MyInfoActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        
+        <!-- 消息中心弹出页面 -->
+        <activity
+            android:name=".activitys.ReadingActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        
+         <!-- 手机绑定 -->
+        <activity
+            android:name=".activitys.BindMobileActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+        <!-- 充值中心 手机包月 -->
+        <activity
+            android:name=".activitys.ConsumeCenterForPhone"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 手机包月2 -->
+        <activity
+            android:name=".activitys.ConsumeCenterForPhone2"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 手机包月4 -->
+        <activity
+            android:name=".activitys.ConsumeCenterForPhone4"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 手机包月(新) -->
+        <activity
+            android:name=".activitys.ConsumeCenterForBaoYue"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 短息 -->
+        <activity
+            android:name=".activitys.ConsumeCenterSMS"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 充值卡 -->
+        <activity
+            android:name=".activitys.ConsumeCenterForCzk"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 充值卡 移动 -->
+        <activity
+            android:name=".activitys.ConsumeCzkYd"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 充值卡 联通 -->
+        <activity
+            android:name=".activitys.ConsumeCzkLt"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 充值卡 电信 -->
+        <activity
+            android:name=".activitys.ConsumeCzkDx"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 充值卡 确认页面 -->
+        <activity
+            android:name=".activitys.ConsumeCzk"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 支付宝主页面 -->
+        <activity
+            android:name=".activitys.ConsumeZfb"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 充值中心 网银主页面 -->
+        <activity
+            android:name=".activitys.ConsumeWy"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+
+        <!-- 充值中心 支付宝wap -->
+        <activity
+            android:name=".activitys.ConsumeAlipayWap"
+            android:configChanges="orientation|keyboardHidden|navigation|keyboard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 充值中心 Q币1 -->
+        <activity
+            android:name=".activitys.ConsumeQb1"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 Q币2 -->
+        <activity
+            android:name=".activitys.ConsumeQb2"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 网银 -->
+        <activity
+            android:name=".activitys.ConsumeWyWap"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 充值中心 其余四个 -->
+        <activity
+            android:name=".activitys.ConsumeOther4"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme" />
+        <!-- 支付宝充值WEB版 -->
+        <activity
+            android:name=".activitys.ConsumeOnlyZfb"
+            android:screenOrientation="portrait" />
+
+        <!-- 修改资料 -->
+        <activity
+            android:name=".activitys.UpdateInfo"
+            android:screenOrientation="portrait" />
+        <!-- 结束 -->
+        <activity
+            android:name=".activitys.FinishActivity"
+            android:screenOrientation="portrait" />
+        <!-- 公告 -->
+        <activity
+            android:name=".activitys.NoticeActivity"
+            android:screenOrientation="portrait" />
+        <!-- 手机解绑 -->
+        <activity
+            android:name=".activitys.PhoneUnbindActivity"
+            android:screenOrientation="portrait" />
+        <!-- 忘记密码 -->
+        <activity
+            android:name=".activitys.ForgetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <!-- 最后一页提示 -->
+        <activity
+            android:name=".activitys.ReadBookLastActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 设置推荐应用 -->
+        <activity
+            android:name=".activitys.SettingAppActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 开放平台 -->
+        <!-- 腾讯开放平台 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent222222" />
+                <!-- <data android:scheme="tencent100363349" /> -->
+            </intent-filter>
+        </activity>
+        <!-- 新浪开放平台 -->
+        <activity android:name=".APITypeListActivity" />
+
+        <service android:name=".http.UpdateService" />
+        <service android:name=".http.UpdateAPKService" />
+
+        <receiver android:name=".http.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- =========================================广告平台================================================= -->
+        <!-- 声明Mogo的Activity -->
+        <activity
+            android:name="com.adsmogo.adview.AdsMogoWebView"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- 声明力美的Activity -->
+        <activity
+            android:name="com.lmmob.ad.sdk.LmMobAdWebView"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity
+            android:name="com.lmmob.ad.sdk.LmMobFullImageActivity"
+            android:configChanges="keyboardHidden|orientation" />
+
+        <!-- 声明安沃的Activity -->
+        <activity
+            android:name="com.adwo.adsdk.AdwoAdBrowserActivity"
+            android:label="@string/app_name" />
+        <!-- 安沃全屏广告 -->
+        <activity
+            android:name="com.adwo.adsdk.AdwoSplashAdActivity"
+            android:label="@string/app_name" />
+
+        <!-- 声明Vpon的Activity -->
+
+        <activity
+            android:name="com.vpon.adon.android.WebInApp"
+            android:configChanges="orientation|keyboardHidden|navigation|keyboard"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.vpon.adon.android.CrazyAdRun"
+            android:configChanges="orientation|keyboardHidden|navigation|keyboard"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.vpon.adon.android.webClientHandler.QRActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="keyboardHidden|navigation|keyboard"
+            android:finishOnTaskLaunch="true" >
+        </activity>
+        <activity
+            android:name="com.vpon.adon.android.webClientHandler.ShootActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="keyboardHidden|navigation|keyboard"
+            android:finishOnTaskLaunch="true" >
+        </activity>
+        <activity
+            android:name="com.googleing.zxinging.client.android.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:finishOnTaskLaunch="true"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="com.googleing.zxinging.client.android.SCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 添加百度应用详情Activity -->
+        <meta-data
+            android:name="Market_ID"
+            android:value="1" />
+
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+
+        <!-- 飞云SDK -->
+        <service android:name="com.fractalist.sdk.base.sys.FtService" />
+
+        <!-- 声明AdChina的Activity -->
+        <activity
+            android:name="com.adchina.android.ads.views.AdBrowserView"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.adchina.android.ads.views.FullScreenAdActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <!-- 声明AdMob的Activity(注：编译版本至少为android-13) -->
+        <!-- <activity android:name="com.google.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/> -->
+
+
+        <!-- 注册MOGO Service，应用下载所需 -->
+        <service
+            android:name="com.adsmogo.controller.service.UpdateService"
+            android:exported="true"
+            android:process=":remote" />
+        <!-- 注册MOGO Service，应用被安装所用 -->
+        <service
+            android:name="com.adsmogo.controller.service.CountService"
+            android:exported="true"
+            android:process=":remote" />
+    </application>
+
+    <!-- ===================================================权限设置================================================================== -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" /> <!-- 发送短信权限 -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> <!-- 快捷方式权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 屏幕常亮 -->
+
+
+    <!-- 广告平台需要权限 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+</manifest>

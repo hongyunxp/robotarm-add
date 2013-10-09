@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/consume_bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="3dip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机包月"
+            android:textColor="@drawable/btn_color2"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="2dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/consume_btn"
+            android:id="@+id/consume_phone" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="短信充值"
+            android:textColor="@drawable/btn_color2"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="2dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/consume_btn"
+            android:id="@+id/consume_sms" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机充值卡"
+            android:textColor="@drawable/btn_color2"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="2dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/consume_btn"
+            android:id="@+id/consume_czk" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付宝充值"
+            android:textColor="@drawable/btn_color2"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/consume_btn"
+            android:id="@+id/consume_zfb" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="银行卡充值"
+            android:textColor="@drawable/btn_color2"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/consume_btn"
+            android:id="@+id/consume_wy" />
+        
+         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Q币卡充值"
+            android:textColor="@drawable/btn_color2"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/consume_btn"
+            android:id="@+id/consume_qb" />
+        
+    </LinearLayout>
+
+</LinearLayout>

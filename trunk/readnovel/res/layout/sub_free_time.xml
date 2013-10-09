@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_margin="10dip"
+		android:orientation="vertical"
+		android:id="@+id/sub_free_time"
+		>
+		<TextView
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:text="您正在使用免费畅阅所有小说特权，"
+			android:textColor="@color/custom"
+			 />
+		
+		<TextView
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/sub_free_time_tv"
+			android:textSize="14sp"
+			android:textStyle="bold"
+			android:text="到期时间：2013年1月20号24:00"
+			android:textColor="@color/custom"
+			 />
+	</LinearLayout>
+	
+
+    
+
+</LinearLayout>

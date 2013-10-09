@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="umeng_app_key">4f967dcd5270153147000001</string>
+    <string name="app_name">小说阅读网</string>
+    <string name="limit_input">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="consume_phone2_tv22">3、在收到“订购成功”的短信后请点击下面按钮查看包月状态，10分钟后状态未更新，可能掉单，请联系客服。</string>
+    <string name="consume_phone2_tv3">温馨提示：\n1.目前暂不支持中国移动大众卡用户使用本方式。手机号码仅用作订购服务，请放心填写。\n2.目前小说阅读网手机订购包月阅读服务是通过搜狐公司提供的“焦点新闻”服务来获得的，资费15/月（不含通讯费）。\n3.每个月的服务时间按自然月计算。例如：您在3月15日开通服务，服务只享受到月底，即3月31日。\n4.服务到期后，次月1日，如您不进行退订，服务可继续使用，并将自动扣除下月费用。\n5.根据运营商等合作伙伴要求，每月我们将向您下发来自发送号码：10666666不多于15条短信产品信息，其内容为优秀的作品推荐和新闻资讯。（注：您接收到的信息将不再收取任何费用），成功接收全部信息是正常使用您在所定制服务的必要条件。请保持手机畅通且能正常接收短信。</string>
+    <string name="person_center_frendly">一键绑定手机号，方便您找回用户名和密码。</string>
+    <string name="bind_phone_confirm_msg">点击确定按钮，直接绑定！\n请放心绑定，小说阅读网不会把您的手机号泄漏给任何第三方。\n海外用户暂不支持此服务。</string>
+    <string name="unbind_phone_confirm_msg">点击确定按钮，解除绑定！ </string>
+    <string name="forget_password_confirm_msg">点击确定按钮，找回密码！ </string>
+    <string name="updateInfo_frendly">友情提醒：\n请输入正确的手机号和邮箱号，如果忘记密码，将以任意一个作为凭证找回。\n手机号码仅用来找回密码，不会为您绑定任何服务，不会泄露您的手机号，请放心填写。</string>
+    <string name="forget_password_content_bottom_tv">
+<![CDATA[    
+			 如果没有绑定手机请联系客服找回(9:30 - 19:00)。%s。
+         ]]>
+    </string>
+    <string name="forget_password_msg">
+<![CDATA[    
+           请使用您绑定的手机编辑短信“<font color="#ff6600">小说阅读#mm</font>”发送到 <font color="#ff6600">12114</font>，根据短信提示便可重设密码。本手机找回密码，请点击下面按钮直接找回。
+         ]]>
+    </string>
+    <!-- 注册确认 -->
+    <string name="reg_confirm">点击确定按钮，马上注册！\n请放心注册，小说阅读网不会把您的手机号泄漏给任何第三方。\n海外用户暂不支持短信注册，请手动直接注册。 </string>
+    <!-- 用户中心已绑定说明 -->
+    <string name="person_center_bottom_unbind_tv">
+<![CDATA[
+        	注：1、您已绑定了手机号%s，随时可用已绑定的手机发短信“<font color="#ff6600">小说阅读#mm</font>”到 <font color="#ff6600">12114</font>，根据提示重设密码。<br/>
+        	2、如果您需要更换新的绑定号码，请先<font color="#0066CC"><U>点这里解除绑定</U></font>，然后再用新号码重新绑定。
+		]]>
+    </string>
+    <!-- 解除绑定说明 -->
+    <string name="unbind_phone_msg">
+<![CDATA[
+        	请使用您绑定的手机编辑短信“<font color="#ff6600">小说阅读#jb</font>”发送到<font color="#ff6600">12114</font>，便可解除绑定！本手机解绑，请点击下面按钮直接解除。
+    	]]>
+    </string>
+    <!-- 修改密码底部已绑定手机民号的提示信息 -->
+    <string name="forget_password_personcenter_modify_bind_tv">
+<![CDATA[    
+                   您已绑定了手机号%s，随时可用已绑定的手机发短信“<font color="#ff6600">小说阅读#mm</font>”到<font color="#ff6600">12114</font>，根据提示重设密码。
+         ]]>
+    </string>
+    <!-- 修改密码底部已未绑定手机民号的提示信息 -->
+    <string name="forget_password_personcenter_modify_unbind_tv">
+<![CDATA[    
+			注：1、绑定手机号不需要任何费用，您只需要支付由运营商收取的标准短信费。 <br/>
+			2、手机号仅用于您找回用户名和密码，小说阅读网不会透露给任何第三方。 <br/>
+			3、海外手机用户暂不支持此服务。<br/>
+         ]]>
+    </string>
+    <string name="network_err">网络不给力，请检查网络</string>
+
+    <!-- 人人分享 -->
+    <string name="login">登录</string>
+    <string name="login_hint">请选择以下方式进行登录</string>
+    <string name="auth_site_mode">授权页面方式</string>
+    <string name="sso_mode">SSO方式</string>
+    <string name="password_flow_mode">用户名密码方式</string>
+    <string name="upload_photo">上传照片</string>
+    <string name="logout">登出</string>
+    <string name="view_log">查看Log</string>
+    <string name="user_info_group">用户信息</string>
+    <string name="logined_user_info">登录用户信息</string>
+    <string name="logined_user_info_api">getCurrentUserInfo</string>
+    <string name="albums_info">相册信息</string>
+    <string name="albums_info_api">getAlbums</string>
+    <string name="users_getinfo">获取指定uid用户信息</string>
+    <string name="users_getinfo_api">users.getInfo</string>
+    <string name="friends_get">获取当前用户好友uid列表</string>
+    <string name="friends_get_api">friends.get</string>
+    <string name="friends_get_friends">获取当前用户好友列表</string>
+    <string name="friends_get_friends_api">friends.getFriends</string>
+    <string name="publish_group">发布内容</string>
+    <string name="publish_status">状态</string>
+    <string name="publish_status_api">publishStatus</string>
+    <string name="publish_feed">新鲜事</string>
+    <string name="publish_feed_api">publishFeed</string>
+    <string name="publish_photo">照片</string>
+    <string name="publish_photo_api">uploadPhoto</string>
+    <string name="create_album">新建相册</string>
+    <string name="create_album_api">createAlbum</string>
+    <string name="one_click_publish_group">一键发布</string>
+    <string name="one_click_status">状态</string>
+    <string name="one_click_status_api">publishStatus</string>
+    <string name="one_click_photo">照片</string>
+    <string name="one_click_photo_api">publishPhoto</string>
+    <string name="one_click_album">新建相册</string>
+    <string name="one_click_album_api">createAlbum</string>
+    <string name="dialog_group">Dialog</string>
+    <string name="dialog_feed">Feed Dialog</string>
+    <string name="dialog_feed_api">publishFeed</string>
+    <string name="dialog_status">Status Dialog</string>
+    <string name="dialog_status_api">publishStatus</string>
+    <string name="logined_user_info_invoke">Renren.getUserInfo</string>
+    <string name="albums_info_invoke">Renren.getAlbums</string>
+    <string name="publish_status_invoke">Renren.publishStatus</string>
+    <string name="publish_feed_invoke">Renren.publishFeed</string>
+    <string name="publish_photo_invoke">Renren.publishPhoto</string>
+    <string name="one_click_status_invoke">Renren.publishStatusWithActivity</string>
+    <string name="one_click_photo_invoke">Renren.publishPhotoWithActivity</string>
+    <string name="dialog_feed_invoke">Renren.feedWidget</string>
+    <string name="dialog_status_invoke">Renren.statusWidget</string>
+    <string name="create_album_invoke">Renren.createAlbum</string>
+    <string name="one_click_album_invoke">Renren.createAlbumWithActivity</string>
+    <string name="users_getinfo_invoke">Renren.getUsersInfo</string>
+    <string name="friends_get_invoke">Renren.friends.get</string>
+    <string name="friends_get_friends_invoke">Renren.friends.getFriends</string>
+    <string name="auth_failed">验证失败</string>
+    <string name="username"></string>
+    <string name="password"></string>
+    <string name="status_pub_title">发布状态</string>
+    <string name="status_label">状态</string>
+    <string name="status_pub_button">发布</string>
+    <string name="response_result">返回结果</string>
+    <string name="clear_log">清空</string>
+    <string name="get_back">返回</string>
+    <string name="log_title">log记录</string>
+    <string name="run">运行</string>
+    <string name="renren_demo_status_hint">你正在干嘛？</string>
+
+    <!-- 开心分享 -->
+    <string name="downloading">正在下载...</string>
+    <string name="uploading">正在上传图片...</string>
+    <string name="post_record_empty_content">请输入内容</string>
+    <string name="post_record_success">分享成功！</string>
+    <string name="post_record_fail">分享失败！</string>
+    <string name="loading_photo">正在加载图片...</string>
+    <string name="getting_logged_in_user">正在获取用户UID...</string>
+    <string name="task_failed">请求的任务失败</string>
+    <string name="task_failed_arg_err">传入的参数错误，请检查代码</string>
+    <string name="task_failed_network_err">网络不给力，请重试</string>
+    <string name="net_err_need_check_msg">网络不给力，请检查网络</string>
+    <string name="task_cancel_auth_success">取消授权成功</string>
+    <string name="task_failed_class_cast_err">Java换型错误，请检查代码</string>
+    <string name="task_failed_json_parse_err">JSON解析错误，请检查代码</string>
+    <string name="task_failed_malformed_url_err">错误的 URL，请检查请求的URL</string>
+    <string name="task_failed_encoder_err">字符串转换失败，请检查代码</string>
+    <string name="json_upload_photo_result">返回结果(JSON格式)</string>
+
+    <!-- 充值中心相关 -->
+
+
+    <!-- 手机15元包月 -->
+    <string name="sms_send_to">10666666</string>
+    <string name="sms_body_name">sms_body</string>
+    <string name="sms_body_content">MO</string>
+    <string name="sms_body_content_quit">
+<![CDATA[
+       	 如需退订，请用手机发短信<font color=\"#FB8233\">QMO</font>到10666666即可。原WAP站包月用户请发送短信<font color=\"#FB8233\">QXW</font>到10666666退订包月服务。
+         ]]>
+    </string>
+    <string name="sms_instruct">手机邮件</string>
+    <string name="sms_consume_desc">
+<![CDATA[
+        <font color=\"#FB8233\">15/月</font><font color=\"#000\">（按照自然月计，不含通讯费。广东移动10元/月， 其他地区均15月/月）。
+		<br>支持移动、联通、电信手机。暂不支持：</font>
+		<font color=\"#FB8233\">云南、福建、河南、山西、吉林、宁夏六个省份移动用户</font>
+		<font color=\"#000\">，以及</font><font color=\"#FB8233\">云南、福建、河南、 西藏、陕西、浙江六个省份联通 </font>
+		<font color=\"#000\">用户。<br>手机号码仅用来订购服务，请放心填写。</font>
+   	    ]]>
+    </string>
+    <string name="notice_desc">
+<![CDATA[
+        <p>亲：</p>
+		<p>　　小说阅读网Android客户端掀起阅读狂潮！</p>
+		<p>　　<font color="#ff6600">即日起，至2013年12月31日	 24:00止</font>，只要用您的这款手机注册并登录成功，<font color="#ff6600">即享60天免费畅阅所有小说特权</font>！所有章节都免费，统统免费，畅阅无极限！</p>
+		<p>　　每部手机都可以享受一次特权，还等什么呢？</p>
+   	    ]]>
+    </string>
+
+    <!-- 支付宝 -->
+    <string name="alipay_app"><![CDATA[支付宝客户端支付<br/><font color="#A6A6A6">支持银行卡支付，支付更安全</font>]]></string>
+    <string name="alipay_wap"><![CDATA[支付宝网页支付<br/><font color="#A6A6A6">支持银行卡支付，无需登陆</font>]]></string>
+    <!-- 银行卡支付 -->
+    <string name="xinyongka_app"><![CDATA[信用卡支付<br/><font color="#A6A6A6">支持银行卡支付，支付更安全</font>]]></string>
+   <string name="cunchuka_app"><![CDATA[储蓄卡支付<br/><font color="#A6A6A6">支持银行卡支付，支付更安全</font>]]></string>
+   
+    <!-- ormlite数据库 -->
+    <string name="db_name">readnl_orm.db</string>
+    <string name="db_version">2</string>
+    
+    <!-- 广告平台 -->
+    <string name="ad_id">a6d693e575bb4c9399e9f53698a1c616</string>
+    
+    <!-- =======================================手动分享内容====================================== -->
+    <!-- 字数限制 -->
+    <string name="last_read_share_content_limit"><![CDATA[还可以输入%s个字]]></string>
+    <!-- 阅读结束页 -->
+    <string name="last_read_share_content"><![CDATA[《%s》小说完美结局，意犹未尽，愿亲与我一起享受此书的阅读快感。http://t.xs.cn/d]]></string>
+    <!-- 阅读页 -->
+    <string name="readbook_share_content" ><![CDATA[我已经阅读%s，文风优美，情节精彩，推荐各位亲一起阅读。http://t.xs.cn/d]]></string>
+    <!-- 作品信息页 -->
+    <string name="bookinfo_share_content"><![CDATA[我正在阅读《%s》小说，剧情精彩，主角够味！推荐各位亲一起阅读。http://t.xs.cn/d]]></string>
+    
+    <!-- ===================================自动发布分享信息=====================================-->
+    <!-- 初次订阅VIP章节 -->
+    <string name="book_vip_share_content"><![CDATA[此书不看非君子，《%s》小说精彩无限，真的很不错！推荐大家使用android客户端一起阅读。 http://t.xs.cn/d]]></string>
+    <!-- 登录成功后 -->
+    <string name="login_share_content"><![CDATA[]]>我正在使用小说阅读网android客户端/iphone客户端，数十万部热门小说等你来看：言情、穿越、武侠、仙侠、推理、灵异、军事、校园等。 http://t.xs.cn/d</string>
+    <!-- 把书加入书架 -->
+    <string name="bookshelf_share_content"><![CDATA[我正在阅读《%s》小说，剧情非常精彩，推荐给大家一起阅读。http://t.xs.cn/d]]></string>
+	<string name="channel">alipay</string>
+</resources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string-array name="fenlei">
+		<item>古代言情</item>
+		<item>都市言情</item>
+		<item>穿越架空</item>
+		<item>魔幻仙缘</item>
+		<item>婚姻职场</item>
+		<item>武侠仙侠</item>
+		<item>都市小说</item>
+		
+	</string-array>
+	<string-array name="color">
+		<item>#000000</item>
+		<item>#F31111</item>
+		<item>#7b11f2</item>
+		<item>#c41a7a</item>
+		<item>#752ec5</item>
+		<item>#4eacdd</item>
+		<item>#2ad953</item>
+	</string-array>
+
+	<string-array name="zwcolor">
+		<item>#000000</item>
+		<item>#492f14</item>
+		<item>#333333</item>
+		<item>#2d463e</item>
+		<item>#999999</item>
+	</string-array>
+	
+	<string-array name="orcolor">
+		<item>#b7b4ad</item>
+		<item>#8f6d4b</item>
+		<item>#999999</item>
+		<item>#a0bab3</item>
+		<item>#666666</item>
+	</string-array>
+
+	<string-array name="word">
+		<item>升级</item>
+		<item>豪门</item>
+		<item>吸血鬼</item>
+		<item>青梅</item>
+		<item>反串</item>
+		<item>惊悚</item>
+		<item>无限流</item>
+		<item>热血</item>
+		<item>帝王</item>
+		<item>美女</item>
+		<item>推理</item>
+		<item>扮猪吃虎</item>
+		<item>凄美</item>
+		<item>轻小说</item>
+		<item>宫斗</item>
+		<item>帅哥</item>
+		<item>励志</item>
+	</string-array>
+	
+	<!-- 合作渠道Channel Partner, 需要渠道logo图片命名和渠道名一样 -->
+	<string-array name="channel_partner">
+		<item>anzhi</item>
+		<item>_360</item>
+	</string-array>
+		
+	<!-- 红包成功提示 -->
+	<string-array name="red_packet_success_msg">
+		<item>感谢您的红包，您的支持是我写作的动力！轻轻地道声：谢谢啦，快乐每一天！</item>
+		<item>红包滚滚来，码字天天在！</item>
+		<item>您的心意我一直记在心里，您的支持和鼓励一直以来都是我的码字动力。祝快乐每一天！</item>
+		<item>滚滚红包来，我会好好写文，天天向上！祝您开开心心每一天！</item>
+		<item>谢谢亲给我的大红包，您的支持是我写作的最大动力，我会继续努力写出更多好作品。阅读愉快！</item>
+		<item>红包最给力，真心感谢您！</item>
+		<item>谢谢您的大红包支持和订阅，您的心意我全记心里！谢谢~~~~~~</item>
+		<item>红包倍给力，灵感无限ing！</item>
+		<item>送大红包者，有肉吃，有帅哥（MM）泡，出门有钱钱捡！谢谢谢谢！</item>
+		<item>谢谢亲对我的支持，有您的支持我才会一直走下去……</item>
+	</string-array>
+	
+</resources>
