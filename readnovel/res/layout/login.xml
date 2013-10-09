@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#e9e9e9">
+
+    <include
+        layout="@layout/include_top_bar"
+        android:id="@+id/top_bar"/>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="42.7dip"
+        android:gravity="center"
+        android:textSize="20dip"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:text="登录后享受更多服务！"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_blank"
+        android:singleLine="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="10dip"
+        android:hint="请输入您的用户名"
+        android:textColorHint="#B0B0B0"
+        android:paddingLeft="6dip"
+        android:id="@+id/login_username"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_blank"
+        android:singleLine="true"
+        android:layout_margin="10dip"
+        android:hint="请输入您的密码"
+        android:textColorHint="#B0B0B0"
+        android:password="true"
+        android:paddingLeft="6dip"
+        android:id="@+id/login_password"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/button_height"
+        android:background="@drawable/consume_green_btn"
+        android:text="登录"
+        android:textSize="20dip"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        android:layout_marginTop="14.7dip"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="10dip"
+        android:id="@+id/login"/>
+
+   <TextView
+        android:id="@+id/forget_password_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:gravity="left"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#0066CC"
+        android:text="忘记密码?"
+        android:clickable="true"
+        android:onClick="forgetPassword"/>
+   
+	    <!-- 开放平台登陆 -->
+	    <include layout="@layout/open_login"/>
+
+
+</LinearLayout>

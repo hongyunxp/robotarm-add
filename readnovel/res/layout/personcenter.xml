@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#E9E9E9"
+    android:orientation="vertical" >
+
+    <include
+        layout="@layout/include_user_center"
+        android:id="@+id/user_center_top_bar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:scrollbars="none"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 支付宝账号 -->
+
+            <LinearLayout
+                android:id="@+id/alipay_email_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/center_biankuang"
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip" 
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="8dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginTop="8dip"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:visibility="visible" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="支付宝帐号："
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="su******@qq.com"
+                        android:textColor="#000"
+                        android:id="@+id/alipay_email"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    android:gravity="right">
+
+                    <ImageView
+                        android:layout_width="40dip"
+                        android:layout_height="40dip"
+                        android:src="@drawable/alipay_icon"
+                        android:scaleType="centerInside"
+                        android:layout_marginRight="4dip" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/center_biankuang"
+                android:layout_margin="10dip" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="5dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="10dip" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/center_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#000"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/center_icon"
+                        android:layout_marginLeft="10dip"
+                        android:textSize="16sp"
+                        android:id="@+id/center_name" />
+
+                    <Button
+                        android:layout_width="70dip"
+                        android:layout_height="35dip"
+                        android:textSize="18dip"
+                        android:text="编辑"
+                        android:textColor="@drawable/btn_color"
+                        android:background="@drawable/edit_btn"
+                        android:id="@+id/personcenter_edit"
+                        android:layout_alignParentRight="true"/>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginRight="5dip"
+                    android:background="#BABABA" />
+
+                <!-- 用户Id -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginTop="8dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="用户ID："
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#000"
+                        android:id="@+id/center_uid" />
+                </LinearLayout>
+
+                <!-- 注册邮箱 -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="注册邮箱："
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#000"
+                        android:id="@+id/center_email" />
+                </LinearLayout>
+                <!-- 绑定手机 -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="8dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginBottom="8dip"
+                    android:visibility="visible"
+                    android:id="@+id/personcenter_bindphone_layout" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="绑定手机："
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#000"
+                        android:id="@+id/center_phone" />
+                </LinearLayout>
+                <!-- 帐户余额 -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginRight="8dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginBottom="15dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="账户余额："
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#000"
+                        android:id="@+id/center_readbi" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="个阅读币"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <!-- 修改密码 -->
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_write_btn"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:text="修改密码"
+                    android:textColor="@drawable/btn_color"
+                    android:textSize="20sp"
+                    android:id="@+id/center_modifyword" />
+
+                <!-- 我要充值 -->
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green_btn"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:text="我要充值"
+                    android:textSize="20sp"
+                    android:textColor="#FFF"
+                    android:id="@+id/center_addmoney" />
+            </LinearLayout>
+
+            <!-- 绑定 -->
+
+            <LinearLayout
+                android:id="@+id/personcenter_bindview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:background="@drawable/center_biankuang"
+                android:layout_marginLeft="10dip"
+                android:layout_marginBottom="10dip"
+                android:padding="10dip"
+                android:layout_marginRight="10dip"
+                android:visibility="visible" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dip"
+                    android:lineSpacingExtra="2dip"
+                    android:textColor="#000"
+                    android:text="@string/person_center_frendly" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="5dip" >
+
+                    <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/free_read"
+                        android:layout_marginBottom="2dip"
+                        android:layout_marginLeft="10dip"
+                        android:layout_marginRight="10dip"
+                        android:text="绑定手机号"
+                        android:textSize="20sp"
+                        android:textColor="#FFF"
+                        android:id="@+id/bind_phone_button"
+                        android:onClick="bindPhone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- 解绑 -->
+
+            <LinearLayout
+                android:id="@+id/personcenter_unbindview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dip"
+                android:layout_marginBottom="10dip"
+                android:padding="10dip"
+                android:layout_marginRight="10dip"
+                android:visibility="gone" >
+
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        style="@style/style_textview_bottom"
+                        android:visibility="visible"
+                        android:id="@+id/personcenter_unbind_tv"
+                        android:text="@string/person_center_bottom_unbind_tv"
+                        android:clickable="true"
+                        android:onClick="unBindPhone" />
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

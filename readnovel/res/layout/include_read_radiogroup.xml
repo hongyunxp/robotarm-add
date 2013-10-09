@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+ 	android:layout_width="fill_parent"
+	 android:layout_height="54dip" android:background="@drawable/menu_bar_bg"
+	>
+	<RadioGroup android:id="@+id/radioGroup"	
+		android:orientation="horizontal" android:layout_width="wrap_content" 
+		android:layout_height="52dip" android:gravity="center_horizontal" 
+		 >
+		<RadioButton android:id="@+id/menu_btn1"	android:layout_marginLeft="4dip"
+			android:text="字体大小" 	style="@style/style_read_radiobutton" android:drawableTop="@drawable/btn_readbtn1" 
+		 />
+		<RadioButton android:id="@+id/menu_btn2"	
+			 android:text="背景" style="@style/style_read_radiobutton"  android:drawableTop="@drawable/btn_readbtn2" 
+			/>
+		<RadioButton android:id="@+id/menu_btn3"	
+			 android:text="亮度"  style="@style/style_read_radiobutton"  android:drawableTop="@drawable/btn_readbtn3" 
+		 />
+		<RadioButton android:id="@+id/menu_btn4"	
+			 android:text="夜晚" style="@style/style_read_radiobutton" android:drawableTop="@drawable/menu_read41" 
+		 />
+		<RadioButton android:id="@+id/menu_btn5"	
+			android:text="快速跳转	" style="@style/style_read_radiobutton" android:drawableTop="@drawable/btn_readbtn5" 
+			/>
+	</RadioGroup>
+</RelativeLayout>

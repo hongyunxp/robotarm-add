@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <!-- 内容 -->
+
+    <FrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/main_tools" >
+    </FrameLayout>
+
+    <!-- 工具栏 -->
+
+    <RadioGroup
+        android:id="@id/main_tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/main_navigation_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@id/main_bookshelf"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/tab_indicator_bookshelf"
+            android:drawableTop="@drawable/main_navigation_bookshelf"
+            android:gravity="center_horizontal|bottom"
+            android:text="书架" />
+
+        <RadioButton
+            android:id="@id/main_bookcity"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/tab_indicator_bookcity"
+            android:drawableTop="@drawable/main_navigation_bookcity"
+            android:gravity="center_horizontal|bottom"
+            android:text="书城" />
+
+        <RadioButton
+            android:id="@id/main_search"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/tab_indicator_usercenter"
+            android:drawableTop="@drawable/main_navigation_usercenter"
+            android:gravity="center_horizontal|bottom"
+            android:text="搜索" />
+
+        <RadioButton
+            android:id="@id/main_usercenter"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/tab_indicator_usercenter"
+            android:drawableTop="@drawable/main_navigation_usercenter"
+            android:gravity="center_horizontal|bottom"
+            android:text="用户中心" />
+
+        <RadioButton
+            android:id="@id/main_setting"
+            style="@style/main_tab_bottom"
+            android:background="@drawable/tab_indicator_usercenter"
+            android:drawableTop="@drawable/main_navigation_usercenter"
+            android:gravity="center_horizontal|bottom"
+            android:text="用户中心" />
+    </RadioGroup>
+
+</RelativeLayout>

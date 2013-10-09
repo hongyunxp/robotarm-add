@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:gravity="center">
+	<Button
+		android:id="@+id/novel_fenlei_tv"
+		android:textColor="#666666"
+		android:textSize="15sp"
+		android:gravity="center"
+		android:singleLine="true"
+		android:layout_width="83dip"
+		android:layout_height="40dip"
+		android:background="@drawable/select_fenlei"></Button>
+</LinearLayout>

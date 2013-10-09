@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#F3F3F3"
+	android:orientation="vertical">
+	<RelativeLayout android:id="@+id/rl1"
+		android:layout_width="fill_parent" android:background="@drawable/title_bg" android:layout_height="wrap_content">
+		<Button android:id="@+id/novel_mulu_back" android:text="  返回"  android:layout_height="wrap_content"
+			android:background="@drawable/btn_back" android:layout_width="wrap_content"
+			android:textColor="#ffffff" android:layout_marginLeft="10dip" android:layout_centerVertical="true" android:layout_alignParentLeft="true" />
+		<RadioGroup android:id="@+id/bf_radioGroup"
+			android:layout_centerVertical="true" android:orientation="horizontal" android:layout_marginRight="10dip"
+			android:layout_alignParentRight="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+			<RadioButton  android:id="@+id/novel_mulu_gybs"
+				android:text="关于本书" android:background="@drawable/bfbtn_bg" android:gravity="center"
+				android:button="@null" android:layout_width="wrap_content" 	android:textColor="#FFFFFF" android:layout_height="wrap_content">
+			</RadioButton>
+			<RadioButton android:id="@+id/novel_mulu_mulu"
+				android:text="目录" 	android:background="@drawable/bfbtn_bg"  android:gravity="center" android:checked="true"
+				android:button="@null"  android:layout_width="54dip" android:textColor="#FFFFFF" android:layout_height="30dip">
+			</RadioButton>
+			<RadioButton android:id="@+id/novel_mulu_shuqian"
+				android:text="书签" android:background="@drawable/bfbtn_bg" android:gravity="center"
+				android:button="@null" android:layout_width="54dip" android:textColor="#FFFFFF" android:layout_height="30dip">
+			</RadioButton>
+		</RadioGroup>
+
+	</RelativeLayout>
+	
+	<RelativeLayout android:id="@+id/show1" android:layout_width="fill_parent" android:layout_height="fill_parent" 	android:layout_below="@+id/rl1">
+		<LinearLayout
+			android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/linearLayout1"
+			android:gravity="center"  android:layout_marginTop="27dip">
+			<ImageView
+				android:id="@+id/textView1" android:layout_height="wrap_content"
+				android:background="@drawable/mulu_shuming_l" android:layout_width="wrap_content" />
+			<TextView
+				android:id="@+id/novel_item_detail_title"
+				android:textColor="#000000" android:textSize="26px" android:gravity="center"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<ImageView
+				android:id="@+id/textView3" android:background="@drawable/mulu_shuming_r"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		</LinearLayout>
+		<LinearLayout	android:id="@+id/linearLayout2"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginTop="8dip" android:layout_below="@+id/linearLayout1" android:gravity="center">
+			<TextView
+				android:id="@+id/textView4" android:text="作者："  android:textColor="#6E6E6E"
+				android:textSize="17px" android:layout_width="wrap_content"  android:layout_height="wrap_content" />
+			<TextView
+				android:id="@+id/novel_sbxxy_mulu_author" android:textColor="#6E6E6E" android:textSize="17px"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<TextView
+				android:text="状态：" android:layout_marginLeft="25dip" android:textColor="#6E6E6E"
+				android:textSize="17px" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			<TextView
+				android:id="@+id/novel_sbxxy_mulu_status" android:textColor="#6E6E6E"
+				android:textSize="17px" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		</LinearLayout>
+		<LinearLayout android:id="@+id/linearLayout3"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:layout_marginTop="10dip" android:layout_marginLeft="13dip" android:layout_marginRight="13dip"
+			android:layout_below="@id/linearLayout2" >
+			<ListView
+				android:id="@+id/novel_sbxxy_mulu_lv"
+				android:layout_height="fill_parent"  android:layout_weight="1"
+				android:scrollbars="none" android:cacheColorHint="#00000000"
+				android:divider="@drawable/xuxian"  android:layout_width="fill_parent" />
+		</LinearLayout>
+ 	</RelativeLayout>
+ 	<RelativeLayout android:id="@+id/show2" android:layout_width="fill_parent" android:visibility="gone" android:layout_height="fill_parent" 	android:layout_below="@+id/rl1">
+	 	<RelativeLayout android:id="@+id/rl2"
+			android:layout_width="fill_parent" android:background="@drawable/title_bg"
+			android:layout_height="43dip"  android:layout_alignParentBottom="true">
+	
+			<Button android:id="@+id/bookmark_cancle"
+				android:text="清除"  android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:layout_alignParentRight="true" android:textColor="#ffffff" android:layout_centerVertical="true"
+				android:background="@drawable/btn_z3"  android:layout_marginRight="10dp" />
+		</RelativeLayout>
+	
+		<RelativeLayout android:id="@+id/relativeLayout1"
+			android:layout_width="fill_parent" android:layout_above="@id/rl2" android:layout_below="@id/rl1"
+			android:layout_height="fill_parent" android:padding="8dip" android:background="@drawable/biankuangsbxxy"
+			android:layout_marginBottom="14dip" android:layout_marginTop="8dip" android:layout_marginLeft="8dip" android:layout_marginRight="8dip" >
+			<ListView
+				android:id="@+id/bookmark_list"
+				android:layout_width="fill_parent" android:layout_height="wrap_content" android:cacheColorHint="#00000000"
+				android:scrollbars="none" android:divider="@null" android:visibility="gone" />
+			<TextView android:id="@+id/bmtx"
+				android:layout_width="wrap_content" android:text="您还没添加书签!" android:textColor="#CCCCCC"
+				android:textSize="24sp" android:layout_marginTop="20dip" android:layout_height="wrap_content"
+				android:layout_below="@+id/imageView1" android:layout_centerHorizontal="true" />
+			<ImageView android:id="@+id/bmim"
+				android:layout_width="96dip" android:background="@drawable/shuqian_wujilu" android:layout_height="130.6dip"
+				android:layout_alignParentTop="true" 	android:layout_centerHorizontal="true" android:layout_marginTop="53dp" />
+		</RelativeLayout>
+ 	</RelativeLayout>
+</RelativeLayout>

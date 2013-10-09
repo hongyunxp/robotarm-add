@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <!-- 普通批量订阅 -->
+    <include layout="@layout/batch_sub"/>
+	
+    <!-- 折扣全部订阅 -->
+   <include layout="@layout/discount_sub"/>
+
+</LinearLayout>

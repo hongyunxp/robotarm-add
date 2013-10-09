@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e9e9e9" >
+
+    <include
+        layout="@layout/include_user_center"
+        android:id="@+id/consume_top" />
+
+    <include
+        layout="@layout/consume_top_six_btn"
+        android:id="@+id/consume_sixbtn" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="中国移动移动充值卡充值"
+            android:textSize="20dip"
+            android:textColor="#0066bb"
+            android:id="@+id/yd_tv" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="请选择充值金额："
+            android:textColor="#000"
+            android:layout_below="@id/yd_tv"
+            android:layout_alignLeft="@id/yd_tv"
+            android:layout_marginTop="10dip"
+            android:id="@+id/yd_tv2" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yd_tv2"
+            android:layout_alignLeft="@id/yd_tv2"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dip"
+            android:layout_marginBottom="10dip"
+            android:id="@+id/yd_ll1" >
+
+            <!-- 面额20 -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consume_green_btn2"
+                android:text="20"
+                android:layout_marginRight="15dip"
+                android:layout_weight="1"
+                android:textSize="20dip"
+                android:textColor="#fff"
+                android:id="@+id/czk_yd_20" />
+
+            <!-- 面额30 -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consume_green_btn2"
+                android:text="30"
+                android:textSize="20dip"
+                android:layout_marginRight="15dip"
+                android:layout_weight="1"
+                android:textColor="#fff"
+                android:id="@+id/czk_yd_30" />
+
+            <!-- 面额50 -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consume_green_btn2"
+                android:text="50"
+                android:textSize="20dip"
+                android:layout_weight="1"
+                android:textColor="#fff"
+                android:id="@+id/czk_yd_50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/yd_ll1"
+            android:layout_alignLeft="@id/yd_ll1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dip"
+            android:id="@+id/yd_ll2" >
+
+            <!-- 面额100 -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consume_green_btn2"
+                android:text="100"
+                android:layout_weight="1"
+                android:textSize="20dip"
+                android:layout_marginRight="15dip"
+                android:id="@+id/czk_yd_100"
+                android:textColor="#fff" />
+
+            <!-- 面额300 -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consume_green_btn2"
+                android:text="300"
+                android:textSize="20dip"
+                android:layout_weight="1"
+                android:layout_marginRight="15dip"
+                android:id="@+id/czk_yd_300"
+                android:textColor="#fff" />
+
+            <!-- 面额500 -->
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consume_green_btn2"
+                android:text="500"
+                android:textSize="20dip"
+                android:layout_weight="1"
+                android:id="@+id/czk_yd_500"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/yd_ll2"
+            android:layout_alignLeft="@id/yd_ll2"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dip"
+                android:text="友情提醒："
+                android:textColor="#000" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="请务必选择和充值卡面额一致的金额，否则会造成充值卡失效的后果！"
+                android:lineSpacingExtra="3dip"
+                android:textColor="#FB8233" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="移动支持的充值卡面额为20元、30元、50元、100元、300元、500元，请勿使用其他面额进行支付。"
+                android:textColor="#000"
+                android:lineSpacingExtra="3dip" />
+
+            <!-- 客服信息 -->
+       		<include layout="@layout/about_me"/>
+        
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

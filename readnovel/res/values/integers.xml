@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <integer name="push_up_in_duration">800</integer>
+    <integer name="push_down_out_duration">800</integer>
+</resources>

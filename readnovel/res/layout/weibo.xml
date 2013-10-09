@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#E9E9E9"
+	android:orientation="vertical">
+
+	<include
+		layout="@layout/include_user_center"
+		android:id="@+id/weibo_top_bar" />
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:gravity="center_horizontal"
+		android:background="@drawable/center_biankuang"
+		android:layout_margin="10dip">
+    
+	<TextView
+		android:layout_margin="10dip"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="我现在正在使用小说阅读网客户端看小说"
+		android:textColor="#000"
+		android:gravity="center"
+		/>
+		<ImageView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dip"
+		android:background="@drawable/icon"/>
+	<Button
+		android:id="@+id/btnAddWithPic"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dip"
+		android:background="@drawable/consume_green_btn"
+		android:text="分享"
+		android:textSize="20sp"
+		android:textColor="#fff"
+		/>
+	</LinearLayout>
+</LinearLayout>

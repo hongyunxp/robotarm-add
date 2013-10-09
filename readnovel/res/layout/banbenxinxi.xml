@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#F3F3F3">
+	<include layout="@layout/include_top_bar" android:id="@+id/top_bar" />
+	<ImageView android:layout_width="60dip" android:id="@+id/imageView2"
+		android:background="@drawable/logo_banben" android:layout_height="60dip"
+		android:layout_marginRight="10dip" android:layout_alignBottom="@+id/imageView1"
+		android:layout_toLeftOf="@+id/imageView1" />
+	<ImageView android:layout_width="150dip" android:id="@+id/imageView1"
+		android:background="@drawable/logo_aboutme2" android:layout_height="60dip"
+		android:layout_below="@+id/top_bar" android:layout_alignParentRight="true"
+		android:layout_marginRight="60dp" android:layout_marginTop="40dp" />
+	<ImageView android:layout_width="fill_parent"
+		android:background="@drawable/line_s" android:layout_height="wrap_content"
+		android:layout_below="@+id/imageView2" android:layout_alignParentLeft="true"
+		android:layout_marginTop="39dp" android:id="@+id/view1" />
+		
+	<TextView android:textColor="#000000" android:id="@+id/bbnow"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="当前版本：" android:layout_below="@+id/view1"
+		android:layout_alignParentLeft="true" android:layout_marginLeft="15dip"
+		android:layout_marginTop="21dp" />		
+	<TextView android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:id="@+id/bbt"
+		android:textColor="#000000" android:layout_alignBottom="@id/bbnow"
+		android:layout_toRightOf="@id/bbnow" />
+	<TextView android:textColor="#000000" android:id="@+id/textView1"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:text="最新版本：" android:layout_below="@+id/bbnow"
+		android:layout_alignParentLeft="true" android:layout_marginLeft="15dip"/>		
+	<TextView android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:id="@+id/banbenxinxi_banben"
+		android:textColor="#000000" android:layout_alignBottom="@+id/textView1"
+		android:layout_toRightOf="@+id/textView1" />
+	<TextView android:layout_height="wrap_content" android:text="更新日期："
+		android:textColor="#000000" android:layout_width="wrap_content"
+		android:id="@+id/textView3" android:layout_below="@+id/textView1"
+		android:layout_alignLeft="@+id/textView1" />
+	<TextView android:layout_height="wrap_content" android:text="          "
+		android:textColor="#000000" android:layout_width="wrap_content"
+		android:id="@+id/banbenxinxi_gxrq" android:layout_alignTop="@+id/textView3"
+		android:layout_toRightOf="@+id/textView3" />
+	<Button android:id="@+id/button_gx" android:background="@drawable/button_bg"
+		android:layout_height="40dip" android:layout_width="100dip"
+		android:text="更  	新" android:textColor="#fff"
+		android:layout_marginRight="10dip" android:layout_alignTop="@id/bbt"
+		android:layout_alignParentRight="true" />
+	<TextView android:id="@+id/banbenxinxi_gengxinzhong"
+		android:layout_height="60px" android:layout_width="180px"
+		android:textColor="#000000" android:text="已安装" android:visibility="gone"
+		android:gravity="center" android:layout_marginRight="5dip"
+		android:layout_alignBottom="@+id/banbenxinxi_gxrq"
+		android:layout_alignParentRight="true" />
+	<ImageView android:layout_width="fill_parent"
+		android:background="@drawable/line_s" android:layout_height="wrap_content"
+		android:layout_below="@+id/textView3" android:layout_alignParentLeft="true"
+		android:layout_marginTop="18dp" android:id="@+id/view2" />
+	<TextView android:layout_height="wrap_content" android:text="新增功能："
+		android:layout_width="wrap_content" android:id="@+id/textView5"
+		android:textColor="#000000" android:layout_below="@+id/view2"
+		android:layout_marginTop="15dip" android:layout_marginLeft="15dip" />
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/linearLayout1"
+		android:layout_below="@+id/textView5" android:layout_alignParentLeft="true"
+		android:layout_marginTop="10dp" android:layout_marginLeft="15dip"
+		android:layout_marginRight="15dip">
+		<ListView android:id="@+id/banbenxinxilistView"
+			android:layout_weight="1" android:divider="@null"
+			android:cacheColorHint="#00000000" android:layout_height="wrap_content"
+			android:layout_width="fill_parent" />
+	</LinearLayout>
+
+</RelativeLayout>

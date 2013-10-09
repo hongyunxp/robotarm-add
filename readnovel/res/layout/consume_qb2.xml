@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e9e9e9" >
+
+    <include
+        layout="@layout/include_user_center"
+        android:id="@+id/consume_top" />
+
+    <include
+        layout="@layout/consume_top_six_btn"
+        android:id="@+id/consume_sixbtn" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="10dip" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="充值确认"
+                android:textSize="20dip"
+                android:textColor="#0066bb"
+                android:id="@+id/qb2_tv" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:id="@+id/qb2_tv2"
+                android:layout_below="@id/qb2_tv"
+                android:layout_alignLeft="@id/qb2_tv" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用户名："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="成为作家"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dip"
+                android:id="@+id/qb2_tv3"
+                android:layout_below="@id/qb2_tv2"
+                android:layout_alignLeft="@id/qb2_tv2" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="充值金额："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/pay_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5元"
+                    android:textColor="#FB8233" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dip"
+                android:id="@+id/qb2_tv4"
+                android:layout_below="@id/qb2_tv3"
+                android:layout_alignLeft="@id/qb2_tv3" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="支付方式："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q币卡"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dip"
+                android:id="@+id/qb2_tv5"
+                android:layout_below="@id/qb2_tv4"
+                android:layout_alignLeft="@id/qb2_tv4" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="获得阅读币："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/pay_read_bean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="400"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip"
+                android:id="@+id/qb2_tv6"
+                android:layout_below="@id/qb2_tv5"
+                android:layout_alignLeft="@id/qb2_tv4"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请输入卡号："
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/card_no"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="5dip"
+                    android:digits="@string/limit_input"
+                    android:background="@drawable/input_blank"
+                    android:hint="请输入Q币卡卡号"
+                    android:password="false"
+                    android:textColorHint="#B0B0B0"
+                    android:paddingLeft="6dip" 
+                    android:numeric="integer"/>
+
+                <TextView
+                    android:id="@+id/consume_qq_pwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请输入密码："
+                    android:textColor="#000" />
+
+                <EditText
+                    android:id="@+id/card_pwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginBottom="5dip"
+                    android:digits="@string/limit_input"
+                    android:background="@drawable/input_blank"
+                    android:hint="请输入Q币卡密码："
+                    android:password="false"
+                    android:textColorHint="#B0B0B0"
+                    android:paddingLeft="6dip" 
+                    android:numeric="integer"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consume_green_btn"
+                android:gravity="center"
+                android:text="确认"
+                android:textSize="20dip"
+                android:textColor="#fff"
+                android:layout_below="@id/qb2_tv6"
+                android:layout_alignLeft="@id/qb2_tv5"
+                android:layout_marginTop="10dip"
+                android:layout_marginBottom="25dip"
+                android:id="@+id/consume_qb_go" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/consume_qb_go"
+                android:layout_alignLeft="@id/consume_qb_go" >
+
+                <!-- 客服信息 -->
+                <include layout="@layout/about_me" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

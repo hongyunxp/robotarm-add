@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/biankuangsbxxy" >
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_margin="10dip" >
+
+        <TextView
+            android:text="温馨提示：此章节为VIP收费章节，您的阅读币不足，充值阅读币即可阅读！请选择以下方式充值。"
+            android:id="@+id/tv_wxts"
+            android:textColor="#666666"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </LinearLayout>
+
+    <!-- 内容 -->
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+			 <RelativeLayout
+			    android:id="@+id/baoyue_fufei"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content" >
+                <ImageView
+				    android:id="@+id/imageView0"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentBottom="true"
+				    android:layout_alignParentLeft="true"
+				    android:src="@drawable/fengexian_qian" />
+				<TextView
+				    android:id="@+id/bt_15"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginLeft="20dp"
+				    android:layout_marginTop="7dp"
+				    android:text="手机包月" 
+				     android:textColor="#0066B8"
+				    android:textSize="22sp"/>
+
+				<TextView
+				    android:id="@+id/textView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignLeft="@+id/bt_15"
+				      android:textColor="#999999"
+				      android:paddingBottom="5dp"
+				    android:layout_below="@+id/bt_15"
+				    android:textSize="11sp"
+				    android:text="15元包月畅读全部vip小说!每天仅需0.5元" />
+
+			<ImageView
+				    android:id="@+id/imageView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginRight="20dp"
+				    android:layout_marginTop="21dp"
+				    android:layout_alignParentRight="true"
+				     android:src="@drawable/jiantou_qian"/>
+
+				<ImageView
+				    android:id="@+id/imageView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				   android:layout_below="@+id/textView2"
+				    android:layout_alignParentLeft="true"
+				    android:src="@drawable/fengexian_qian" />
+
+			</RelativeLayout>
+			    <RelativeLayout
+			        android:id="@+id/zhifubao_fufei"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content" >
+
+				<TextView
+				    android:id="@+id/zfb_button"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginLeft="20dp"
+				    android:layout_marginTop="7dp"
+				    android:text="支付宝充值" 
+				     android:textColor="#FF6633"
+				    android:textSize="22sp"/>
+
+				<TextView
+				    android:id="@+id/textView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignLeft="@+id/zfb_button"
+				      android:textColor="#999999"
+				    android:layout_below="@+id/zfb_button"
+				    android:layout_marginBottom="8dp"
+				    android:textSize="11sp"
+				    android:text="推荐支付宝用户使用，充值10元获得1000阅读币" />
+
+				<ImageView
+				    android:id="@+id/imageView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginRight="20dp"
+				    android:layout_marginTop="21dp"
+				    android:layout_alignParentRight="true"
+				    android:src="@drawable/jiantou_qian"/>
+
+				<ImageView
+				    android:id="@+id/imageView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_below="@+id/textView2"
+				    android:layout_centerHorizontal="true"
+				    android:src="@drawable/fengexian_qian" />
+
+				<ImageView
+				    android:id="@+id/imageView1"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:src="@drawable/pic_01" />
+
+			</RelativeLayout>
+			<RelativeLayout
+			    android:id="@+id/yinhangka"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content" >
+
+				<TextView
+				    android:id="@+id/textView1"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginLeft="20dp"
+				    android:layout_marginTop="7dp"
+				    android:text="银行卡充值" 
+				     android:textColor="#0066B8"
+				    android:textSize="22sp"/>
+
+				<TextView
+				    android:id="@+id/textView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignLeft="@+id/textView1"
+				      android:textColor="#999999"
+				    android:layout_below="@+id/textView1"
+				    android:textSize="11sp"
+				    android:layout_marginBottom="8dp"
+				    android:text="信用卡，储蓄卡都能用，充值10元获得1000阅读币" />
+
+				<ImageView
+				    android:id="@+id/imageView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginRight="20dp"
+				    android:layout_marginTop="21dp"
+				    android:layout_alignParentRight="true"
+				     android:src="@drawable/jiantou_qian"/>
+
+				<ImageView
+				    android:id="@+id/imageView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				   android:layout_below="@+id/textView2"
+				    android:layout_centerHorizontal="true"
+				    android:src="@drawable/fengexian_qian" />
+
+			</RelativeLayout>
+			<RelativeLayout
+			    android:id="@+id/duanxin20"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content" >
+
+				<TextView
+				    android:id="@+id/bt_20"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginLeft="20dp"
+				    android:layout_marginTop="7dp"
+				    android:text="中国移动短信20元充值" 
+				     android:textColor="#0066B8"
+				    android:textSize="22sp"/>
+
+				<TextView
+				    android:id="@+id/textView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignLeft="@+id/bt_20"
+				      android:textColor="#999999"
+				      android:textSize="11sp"
+				    android:layout_below="@+id/bt_20"
+				    android:layout_marginBottom="8dp"
+				    android:text="动动拇指，瞬间充值，充值20元获得900阅读币" />
+
+				<ImageView
+				    android:id="@+id/imageView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginRight="20dp"
+				    android:layout_marginTop="21dp"
+				    android:layout_alignParentRight="true"
+				     android:src="@drawable/jiantou_qian" />
+
+				<ImageView
+				    android:id="@+id/imageView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				  android:layout_below="@+id/textView2"
+				    android:layout_centerHorizontal="true"
+				   android:src="@drawable/fengexian_qian" />
+
+			</RelativeLayout>
+			<RelativeLayout
+			    android:id="@+id/duanxin10"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content" >
+
+				<TextView
+				    android:id="@+id/bt_10"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginLeft="20dp"
+				    android:layout_marginTop="7dp"
+				    android:text="中国移动短信10元充值" 
+				     android:textColor="#0066B8"
+				    android:textSize="22sp"/>
+
+				<TextView
+				    android:id="@+id/textView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignLeft="@+id/bt_10"
+				      android:textColor="#999999"
+				      android:textSize="11sp"
+				    android:layout_below="@+id/bt_10"
+				    android:layout_marginBottom="8dp"
+				    android:text="动动拇指，瞬间充值，充值10元获得450阅读币" />
+
+				<ImageView
+				    android:visibility="gone"
+				    android:id="@+id/imageView1"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignTop="@+id/textView1"
+				    android:src="@drawable/jiantou_qian" />
+
+				<ImageView
+				    android:id="@+id/imageView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginRight="20dp"
+				    android:layout_marginTop="21dp"
+				    android:layout_alignParentRight="true"
+				     android:src="@drawable/jiantou_qian" />
+
+				<ImageView
+				    android:id="@+id/imageView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				  android:layout_below="@+id/textView2"
+				    android:layout_centerHorizontal="true"
+				   android:src="@drawable/fengexian_qian" />
+
+			</RelativeLayout>
+			<RelativeLayout
+			    android:id= "@+id/chongzhika"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content" >
+
+				<TextView
+				    android:id="@+id/czk_button"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginLeft="20dp"
+				    android:layout_marginTop="7dp"
+				    android:text="手机充值卡" 
+				     android:textColor="#0066B8"
+				    android:textSize="22sp"/>
+
+				<TextView
+				    android:id="@+id/textView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    
+				      android:textColor="#999999"
+				      android:textSize="11sp"
+				       android:layout_marginLeft="20dp"
+				    android:layout_below="@+id/czk_button"
+				    android:layout_marginBottom="8dp"
+				    android:text="移动，电信，联通，手机充值卡都能充" />
+
+				<ImageView
+				    android:visibility="gone"
+				    android:id="@+id/imageView1"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignTop="@+id/textView1"
+				     android:src="@drawable/jiantou_qian"/>
+
+				<ImageView
+				    android:id="@+id/imageView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_marginRight="20dp"
+				    android:layout_marginTop="21dp"
+				    android:layout_alignParentRight="true"
+				    android:src="@drawable/jiantou_qian" />
+
+				<ImageView
+				    android:id="@+id/imageView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="2dp"
+				    android:layout_below="@+id/textView2"
+				    android:layout_alignParentLeft="true"
+				    android:src="@drawable/fengexian_qian" />
+
+			</RelativeLayout>
+			<RelativeLayout
+			    android:id="@+id/other_fufei"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content" >
+
+				<TextView
+				    android:id="@+id/bt_qita"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginLeft="20dp"
+				    android:layout_marginTop="10dp"
+				    android:text="了解其他充值方式" 
+				    android:paddingBottom="8dp"
+				     android:textColor="#999999"
+				    android:textSize="25sp"/>
+
+				<ImageView
+				    android:id="@+id/imageView2"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentRight="true"
+				    android:layout_centerVertical="true"
+				    android:layout_marginRight="20dp"
+				    android:src="@drawable/jiantou_qian" />
+
+				<ImageView
+				    android:id="@+id/imageView3"
+				    android:layout_width="wrap_content"
+				    android:layout_height="2dp"
+				    android:layout_below="@+id/bt_qita"
+				    android:layout_alignParentLeft="true"
+				    android:src="@drawable/fengexian_qian" />
+
+			</RelativeLayout>  
+			
+            <!-- 手机包月 -->
+           <!-- <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip" >
+
+                <TextView
+                    android:text="手机包月："
+                    android:id="@+id/textView2"
+                    android:textColor="#0066B8"
+                    android:textSize="22sp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="5dip" >
+                <TextView
+                    android:text="TextView"
+                    android:id="@+id/tv_15"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout4"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="5dip" >
+                <Button
+                    android:id="@+id/bt_15"
+                    android:textColor="#ffffff"
+                    android:text="马上15元包月"
+                    android:textSize="22sp"
+                    android:background="@drawable/consume_green2_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </Button>
+            </LinearLayout>
+            
+			中国移动充值
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout5"
+                android:layout_width="fill_parent"
+                android:layout_margin="10dip" >
+
+                <TextView
+                    android:text="最快速充值"
+                    android:id="@+id/textView4"
+                    android:textColor="#0066B8"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TextView>
+                <TextView
+                    android:text="（限移动用户）："
+                    android:textColor="#0066B8"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout6"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip" >
+
+                <Button
+                    android:id="@+id/bt_10"
+                    android:textColor="#ffffff"
+                    android:textSize="22dip"
+                    android:background="@drawable/consume_green2_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout7"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip" >
+
+                <Button
+                    android:id="@+id/bt_20"
+                    android:textColor="#ffffff"
+                    android:textSize="22dip"
+                    android:background="@drawable/consume_green2_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </Button>
+            </LinearLayout>
+            
+            充值卡充值
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout5"
+                android:layout_width="fill_parent"
+                android:layout_margin="10dip" >
+
+                <TextView
+                    android:text="最划算充值（"
+                    android:textColor="#0066B8"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TextView>
+                <TextView
+                    android:text="推荐使用"
+                    android:textColor="#FF6600"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TextView>
+                <TextView
+                    android:text="）："
+                    android:textColor="#0066B8"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TextView>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip">
+
+                <Button
+                    android:id="@+id/zfb_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green2_btn"
+                    android:text="支付宝充值"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip">
+
+                <Button
+                    android:id="@+id/yhk_button"
+                    android:textColor="#ffffff"
+                    android:text="银行卡充值"
+                    android:textSize="22sp"
+                    android:background="@drawable/consume_green2_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                </Button>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip">
+
+                <Button
+                    android:id="@+id/czk_button"
+                    android:textColor="#ffffff"
+                    android:text="手机充值卡充值"
+                    android:textSize="22sp"
+                    android:background="@drawable/consume_green2_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout8"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:layout_marginTop="10dip" >
+
+                <Button
+                    android:id="@+id/bt_qita"
+                    android:textColor="@drawable/btn_color"
+                    android:textSize="18sp"
+                    android:text="点击这里了解其他充值方式"
+                    android:background="@drawable/consume_write_btn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+                </Button>
+            </LinearLayout>  -->
+            <RelativeLayout
+                android:id="@+id/linearLayout9"
+                android:layout_margin="10dip"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent" >
+                <Button
+                    android:text="马上15元包月"
+                    android:id="@+id/tv_kfdh"
+                    android:background="@drawable/consume_green2_btn"
+                    android:textColor="#FFFFFF"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true" >
+                </Button>
+            </RelativeLayout>
+            <!-- 客服信息 -->
+
+            <RelativeLayout
+                android:id="@+id/linearLayout9"
+                android:layout_margin="10dip"
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent" >
+
+                <TextView
+                    android:text="客服电话：010-62110656"
+                    android:id="@+id/tv_kfdh"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true" >
+                </TextView>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

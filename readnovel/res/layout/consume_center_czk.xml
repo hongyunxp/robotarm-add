@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e9e9e9" >
+
+    <include
+        layout="@layout/include_user_center"
+        android:id="@+id/consume_top" />
+
+    <include
+        layout="@layout/consume_top_six_btn"
+        android:id="@+id/consume_sixbtn" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="20dip"
+        android:layout_marginBottom="15dip" >
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:textColor="@drawable/btn_color"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dip"
+            android:text="移动手机充值卡"
+            android:background="@drawable/consume_write_btn"
+            android:id="@+id/consume_czk_yd" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="10.5dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dip"
+            android:layout_centerVertical="true"
+            android:src="@drawable/jiantou2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip" >
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:textColor="@drawable/btn_color"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dip"
+            android:text="联通手机充值卡"
+            android:background="@drawable/consume_write_btn"
+            android:id="@+id/consume_czk_lt" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="10.5dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dip"
+            android:layout_centerVertical="true"
+            android:src="@drawable/jiantou2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginBottom="20dip"
+        android:layout_marginTop="15dip" >
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dip"
+            android:textColor="@drawable/btn_color"
+            android:textSize="20dip"
+            android:text="电信手机充值卡"
+            android:background="@drawable/consume_write_btn"
+            android:id="@+id/consume_czk_dx" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="10.5dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dip"
+            android:layout_centerVertical="true"
+            android:src="@drawable/jiantou2" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dip"
+            android:text="说明："
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dip"
+            android:text="兑换比例1:90,充值100元获得9000阅读币。"
+            android:textColor="#FB8233" />
+        
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dip"
+            android:text="充值卡充值会有网络延迟。"
+            android:textColor="#000" />
+        
+        <!-- 客服信息 -->
+        <include layout="@layout/about_me"/>
+        
+    </LinearLayout>
+
+</LinearLayout>

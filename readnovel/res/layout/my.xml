@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:id="@+id/linearLayout1"
+		android:layout_height="wrap_content">
+		<EditText
+			android:layout_weight="1"
+			android:text="308571955@qq.com"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/username">
+			<requestFocus></requestFocus>
+		</EditText>
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:id="@+id/linearLayout2"
+		android:layout_height="wrap_content">
+		<EditText
+			android:layout_weight="1"
+			android:text="19910404..."
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/password"></EditText>
+	</LinearLayout>
+	<Button
+		android:text="登录"
+		android:layout_gravity="center_horizontal"
+		android:id="@+id/button1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"></Button>
+</LinearLayout>

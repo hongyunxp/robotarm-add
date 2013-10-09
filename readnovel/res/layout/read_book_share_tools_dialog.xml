@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dip"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white" >
+
+    <!-- 标题 -->
+
+    <TextView
+        android:id="@+id/last_read_page_share_title"
+        android:layout_width="fill_parent"
+        android:layout_height="30dip"
+        android:background="@android:color/black"
+        android:layout_margin="1dip"
+        android:text="分享到"
+        android:textSize="15sp"
+        android:padding="5dip"
+        android:gravity="left|center" 
+        android:drawableRight="@drawable/share_tools_dialog_close"/>
+
+    <EditText
+        android:id="@+id/last_read_page_share_content"
+        android:layout_width="fill_parent"
+        android:layout_height="150dip"
+        android:layout_marginLeft="1dip"
+        android:layout_marginRight="1dip"
+        android:padding="5dip"
+        android:gravity="top"
+        android:text="我正在阅读小说，剧情非常精彩，推荐各位亲一起阅读 。 http://t.xs.cn/d"
+        android:background="@drawable/biankuangsbxxy" />
+
+    <TextView
+        android:id="@+id/last_read_page_share_content_count"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="5dip"
+        android:textColor="#333333"
+        android:textSize="12sp"
+        android:text="还可以输入67个字" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@id/read_book_share_sina_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:text="微博分享"
+            android:drawableLeft="@drawable/sina_share_small"
+            android:background="@drawable/consume_write_btn"
+            android:layout_margin="5dip"
+            android:paddingLeft="20dip"
+            android:layout_weight="1" 
+            android:onClick="shareForSina"/>
+
+        <Button
+            android:id="@id/read_book_share_qq_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:text="QQ分享"
+            android:drawableLeft="@drawable/qq_share_small"
+            android:background="@drawable/consume_write_btn"
+            android:layout_margin="5dip"
+            android:paddingLeft="20dip"
+            android:layout_weight="1" 
+            android:onClick="shareForQQ"/>
+    </LinearLayout>
+
+</LinearLayout>

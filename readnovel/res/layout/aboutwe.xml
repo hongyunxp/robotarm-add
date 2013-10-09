@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#F3F3F3">
+	<include
+		layout="@layout/include_top_bar"
+		android:id="@+id/top_bar" />
+	<TextView
+		android:layout_height="wrap_content"
+		android:text="Copyright@2004-2012《小说阅读网》版权所有"
+		android:textColor="#000000"
+		android:layout_width="wrap_content"
+		android:id="@+id/textView1"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		android:layout_marginBottom="20dp"></TextView>
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/textView2"
+		android:textColor="#000000"
+		android:layout_above="@+id/textView1"
+		android:textSize="@dimen/aboutwe_text_size"
+		android:layout_centerHorizontal="true"></TextView>
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/textView3"
+		android:textColor="#000000"
+		android:layout_above="@+id/textView2"
+		android:textSize="@dimen/aboutwe_text_size"
+		android:layout_centerHorizontal="true"></TextView>
+	<ImageView
+		android:layout_height="81.33dip"
+		android:background="@drawable/logo_aboutme"
+		android:layout_width="81.33dip"
+		android:id="@+id/imageView1"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="110dip"></ImageView>
+	<ImageView
+		android:layout_height="74dip"
+		android:background="@drawable/logo_aboutme2"
+		android:layout_width="190dip"
+		android:id="@+id/imageView2"
+		android:layout_marginTop="10dip"
+		android:layout_below="@+id/imageView1"
+		android:layout_centerHorizontal="true"></ImageView>
+</RelativeLayout>
+	

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#e9e9e9" >
+
+    <include
+        layout="@layout/include_user_center"
+        android:id="@+id/consume_top" />
+
+    <include
+        layout="@layout/consume_top_six_btn"
+        android:id="@+id/consume_sixbtn" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="15dip" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Q币卡充值"
+                android:textSize="20dip"
+                android:textColor="#0066bb"
+                android:id="@+id/qb_tv" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="请选择充值金额："
+                android:textColor="#000"
+                android:layout_below="@id/qb_tv"
+                android:layout_alignLeft="@id/qb_tv"
+                android:layout_marginTop="10dip"
+                android:id="@+id/qb_tv2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/qb_tv2"
+                android:layout_alignLeft="@id/qb_tv2"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dip"
+                android:layout_marginBottom="10dip"
+                android:id="@+id/qb_ll1" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green_btn2"
+                    android:text="5"
+                    android:layout_marginRight="15dip"
+                    android:layout_weight="1"
+                    android:textSize="20dip"
+                    android:textColor="#fff"
+                    android:id="@+id/qb_5" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green_btn2"
+                    android:text="10"
+                    android:textSize="20dip"
+                    android:layout_marginRight="15dip"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:id="@+id/qb_10" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green_btn2"
+                    android:text="15"
+                    android:textSize="20dip"
+                    android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:id="@+id/qb_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/qb_ll1"
+                android:layout_alignLeft="@id/qb_ll1"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dip"
+                android:id="@+id/qb_ll2" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green_btn2"
+                    android:text="20"
+                    android:layout_weight="1"
+                    android:textSize="20dip"
+                    android:layout_marginRight="15dip"
+                    android:id="@+id/qb_20"
+                    android:textColor="#fff" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green_btn2"
+                    android:text="30"
+                    android:textSize="20dip"
+                    android:layout_weight="1"
+                    android:layout_marginRight="15dip"
+                    android:id="@+id/qb_30"
+                    android:textColor="#fff" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/consume_green_btn2"
+                    android:text="60"
+                    android:textSize="20dip"
+                    android:layout_weight="1"
+                    android:id="@+id/qb_60"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/qb_ll2"
+                android:layout_alignLeft="@id/qb_ll2"
+                android:layout_marginTop="5dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dip"
+                    android:text="说明："
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="兑换比例1:80，充值10元获得800阅读币。"
+                    android:layout_marginBottom="3dip"
+                    android:textColor="#FB8233" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Q币卡只支持卡号为9位，密码12位的全国各地Q币卡，支持面额：5元、10元、15元、20元、30元、60元"
+                    android:textColor="#000"
+                    android:lineSpacingExtra="3dip" />
+
+                <!-- 客服信息 -->
+
+                <include layout="@layout/about_me" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

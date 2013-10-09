@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <!-- 书架 -->
+    <item type="id" name="bf_lastRead"></item>
+    <item type="id" name="bf_rn"></item>
+    <item type="id" name="notice_webView"></item>
+    <item type="id" name="notice_reg_button"></item>
+    
+    <!-- 公告 -->
+    <item type="id" name="notice_webview"></item>
+    <item type="id" name="reg_button"></item>
+
+    <!-- 支付宝 -->
+    <item type="id" name="consume_zfb_input_layout"></item>
+    <item type="id" name="alipay_app"></item>
+    <item type="id" name="alipay_wap"></item>
+    
+    <!-- 客服电话和QQ -->
+    <item type="id" name="about_me_tel"></item>
+    <item type="id" name="about_me_qq"></item>
+    
+        
+    <!-- 开放平台登陆 -->
+    <item type="id" name="open_login_layout"></item>
+    <item type="id" name="read_book_share_sina_button"></item>
+    <item type="id" name="read_book_share_qq_button"></item>
+    
+    <!-- 头部 -->
+    <item type="id" name="top_bar"></item>
+    
+    <!-- 书架页面 -->
+	<item type="id" name="footer"></item>
+	<item type="id" name="bookshelf_book"></item>
+	<item type="id" name="bookshelf"></item>
+	
+	<!-- 导航栏 -->
+	<item type="id" name="main_tools"></item>
+	<item type="id" name="main_bookshelf"></item>
+	<item type="id" name="main_bookcity"></item>
+	<item type="id" name="main_usercenter"></item>
+	<item type="id" name="main_search"></item>
+	<item type="id" name="main_setting"></item>
+</resources>

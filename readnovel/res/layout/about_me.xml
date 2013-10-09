@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:layout_margin="10dip"
+    android:background="#e9e9e9">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dip"
+        android:text="客服电话：010-62110656、010-62113350"
+        android:textColor="#000"
+        android:id="@id/about_me_tel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="客服QQ：1093874744、961882949"
+        android:textColor="#000"
+        android:id="@id/about_me_qq" />
+
+</LinearLayout>

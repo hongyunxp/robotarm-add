@@ -1,0 +1,244 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#e9e9e9">
+
+    <include
+        layout="@layout/include_top_bar"
+        android:id="@+id/updatemima_top_bar">
+    </include>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="15dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:text="用户名："/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:textColor="#000000"
+            android:text="xiaodouban"
+            android:textStyle="bold"
+            android:id="@+id/update_username"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:digits="@string/limit_input"
+        android:background="@drawable/input_blank"
+        android:hint="请输入您的旧密码"
+        android:password="true"
+        android:textColorHint="#B0B0B0"
+        android:paddingLeft="6dip"
+        android:id="@+id/update_oldcode"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:background="@drawable/input_blank"
+        android:digits="@string/limit_input"
+        android:hint="请输入您的新密码"
+        android:password="true"
+        android:textColorHint="#B0B0B0"
+        android:paddingLeft="6dip"
+        android:id="@+id/update_newcode1"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:digits="@string/limit_input"
+        android:background="@drawable/input_blank"
+        android:hint="请输入您的新密码"
+        android:paddingLeft="6dip"
+        android:password="true"
+        android:textColorHint="#B0B0B0"
+        android:id="@+id/update_newcode2"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/consume_green_btn"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:text="完成修改"
+        android:textColor="#fff"
+        android:textSize="20dip"
+        android:id="@+id/update_over"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_marginRight="10dip"
+        android:padding="0dip"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_margin="10dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dip"
+            android:text="温馨提示："
+            android:textColor="#000"
+            android:textSize="20dip"/>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/free_read"
+            android:layout_marginBottom="5dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:text="一键绑定手机号"
+            android:onClick="bindPhone"
+            android:textSize="20sp"
+            android:textColor="#FFF"/>
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2dip"
+                android:textColor="#000"
+                android:textSize="12sp"
+                android:text="@string/bind_phone_confirm_msg"/>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- 绑定 -->
+    <LinearLayout
+        android:id="@+id/update_bindview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/center_biankuang"
+        android:layout_marginLeft="10dip"
+        android:layout_marginBottom="10dip"
+        android:padding="10dip"
+        android:layout_marginRight="10dip"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15dip"
+            android:lineSpacingExtra="2dip"
+            android:textColor="#000"
+            android:text="@string/person_center_frendly"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/free_read"
+                android:layout_marginBottom="2dip"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="10dip"
+                android:text="绑定手机号"
+                android:textSize="20sp"
+                android:textColor="#FFF"
+                android:id="@+id/bind_phone_button"
+                android:onClick="bindPhone"/>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="2sp"
+                android:textColor="#000"
+                android:textSize="12sp"
+                android:text="@string/bind_phone_confirm_msg"/>
+        </ScrollView>
+    </LinearLayout>
+	
+    <!-- 重置密码 -->
+    <LinearLayout
+        android:id="@+id/forget_password_personcenter_modify_bind"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_marginRight="10dip"
+        android:padding="0dip"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip">
+
+            <TextView
+                style="@style/style_textview_bottom"
+                android:id="@+id/forget_password_personcenter_modify_bind_tv"
+                android:text="@string/forget_password_personcenter_modify_bind_tv"/>
+        </ScrollView>
+    </LinearLayout>
+    
+    <!-- 一键绑定手机号 -->
+    <LinearLayout
+        android:id="@+id/forget_password_personcenter_modify_unbind"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_marginRight="10dip"
+        android:padding="0dip"
+        android:visibility="visible">
+         
+        <Button
+        android:textColor="#fff"
+        android:textSize="20dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:background="@drawable/free_read"
+        android:text="一键绑定手机号"
+        android:onClick="bindPhone"/>
+        
+        <TextView
+                style="@style/style_textview_bottom"
+                android:textSize="16sp"
+                android:text="您就可以发短信轻松找回用户名或密码。"/>
+
+    </LinearLayout>
+
+</LinearLayout>

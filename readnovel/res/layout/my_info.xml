@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_info"
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/my_info_top_bg" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/my_info_top_buttion_bg_selector"
+            android:drawableRight="@drawable/my_info_top_split" 
+            android:layout_alignParentLeft="true"
+            android:onClick="goBack"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="我的资料" 
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="22sp"/>
+        
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/my_info_webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" />
+
+</LinearLayout>

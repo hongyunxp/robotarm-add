@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- 书本阅读 -->
+
+    <RelativeLayout
+        android:id="@+id/read_txrl"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/readbg13" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/read_yy2"
+        android:layout_width="160dip"
+        android:layout_height="200dip"
+        android:layout_centerInParent="true" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/read_yy"
+        android:layout_width="fill_parent"
+        android:visibility="gone"
+        android:layout_height="fill_parent" >
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/read_yy3"
+        android:layout_below="@+id/read_top"
+        android:layout_width="fill_parent"
+        android:visibility="gone"
+        android:layout_height="fill_parent" >
+    </RelativeLayout>
+
+    <!-- 顶部标题栏 -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/read_top"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" >
+
+        <include
+            android:id="@+id/include_top"
+            layout="@layout/include_top_readbook" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/addmark"
+        android:layout_width="21.33dip"
+        android:layout_height="41.33dip"
+        android:layout_marginRight="10dip"
+        android:background="@drawable/addmark"
+        android:layout_below="@id/read_top"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
+
+    <!-- 底部工具栏 -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/menu_button"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/include_read_radiogroup" />
+    </RelativeLayout>
+
+    <!-- 分享工具栏 -->
+    <include android:id="@+id/read_book_share_tools" layout="@layout/read_book_share_tools" android:visibility="gone"/>
+    
+    <!-- 红包按钮 -->
+    <ImageView 
+        	android:id="@+id/support_author"
+        	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/redpacket_icon"
+            android:clickable="true"
+            android:onClick="supportAuthor"
+            android:visibility="gone"
+            android:layout_above="@id/menu_button"
+            android:layout_alignWithParentIfMissing="true"/>
+
+    <LinearLayout
+        android:id="@+id/do_readbg"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="76dip"
+        android:background="#EBEBEB"
+        android:gravity="center"
+        android:layout_above="@id/menu_button">
+
+        <RadioGroup
+            android:id="@+id/rdbgRG"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <RadioButton
+                android:id="@+id/rdbg1"
+                style="@style/style_read_rdbg"
+                android:background="@drawable/btn_readbg1" />
+
+            <RadioButton
+                android:id="@+id/rdbg2"
+                style="@style/style_read_rdbg"
+                android:background="@drawable/btn_readbg2" />
+
+            <RadioButton
+                android:id="@+id/rdbg3"
+                style="@style/style_read_rdbg"
+                android:background="@drawable/btn_readbg3" />
+
+            <RadioButton
+                android:id="@+id/rdbg4"
+                style="@style/style_read_rdbg"
+                android:background="@drawable/btn_readbg4" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/do_readsize"
+        android:gravity="center"
+        android:layout_above="@id/menu_button"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="#EBEBEB" >
+
+        <Button
+            android:id="@+id/btn_readsize1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_readsize1"
+            android:layout_marginBottom="2dip" />
+
+        <SeekBar
+            android:id="@+id/readszseek"
+            android:layout_width="238dip"
+            android:layout_height="wrap_content"
+            android:maxHeight="8dip"
+            android:minHeight="8dip"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/thumb"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:progress="0"
+            android:max="4" />
+
+        <Button
+            android:id="@+id/btn_readsize2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_readsize2"
+            android:layout_marginBottom="2dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/do_readlight"
+        android:gravity="center"
+        android:layout_above="@id/menu_button"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="#EBEBEB" >
+
+        <Button
+            android:id="@+id/btn_readlight1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_readlight1"
+            android:layout_marginBottom="2dip" />
+
+        <SeekBar
+            android:id="@+id/readltseek"
+            android:layout_width="238dip"
+            android:layout_height="wrap_content"
+            android:maxHeight="8dip"
+            android:minHeight="8dip"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/thumb"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:progress="0"
+            android:max="235" />
+
+        <Button
+            android:id="@+id/btn_readlight2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_readlight2"
+            android:layout_marginBottom="2dip" />
+    </LinearLayout>
+
+    <!-- 章节快速跳转 -->
+
+    <LinearLayout
+        android:id="@+id/do_readjp"
+        android:gravity="center"
+        android:layout_above="@id/menu_button"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="118dip"
+        android:background="#EBEBEB" >
+
+        <!-- 进度条 -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="58dip" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" >
+
+                <SeekBar
+                    android:id="@+id/readjpseek"
+                    android:layout_width="238dip"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="8dip"
+                    android:minHeight="8dip"
+                    android:progressDrawable="@drawable/seekbar_style"
+                    android:thumb="@drawable/thumb"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:progress="0"
+                    android:max="0" />
+            </RelativeLayout>
+
+            <!-- 进度显示 -->
+
+            <TextView
+                android:id="@+id/readjp_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="2dip"
+                android:text="0.00%"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="40dip" />
+
+            <!-- 上一章箭头 -->
+
+            <Button
+                android:id="@+id/btn_readjp1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dip"
+                android:background="@drawable/btn_readjp1"
+                android:layout_marginBottom="2dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
+
+            <!-- 下载章箭头 -->
+
+            <Button
+                android:id="@+id/btn_readjp2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="16dip"
+                android:background="@drawable/btn_readjp2"
+                android:layout_marginBottom="2dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <!-- 分割线 -->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line_s" />
+
+        <!-- 上一章下一章按钮 -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="58dip"
+            android:orientation="horizontal"
+            android:gravity="center" >
+
+            <!-- 上一章 -->
+
+            <Button
+                android:id="@+id/btn_readjps1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_readjps1"
+                android:layout_margin="3dip" />
+
+            <!-- 下一章 -->
+
+            <Button
+                android:id="@+id/btn_readjps2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_readjps2"
+                android:layout_margin="3dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/showly3"
+        android:layout_below="@id/read_top"
+        android:visibility="gone"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="11.33dip"
+        android:layout_marginBottom="20dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/showly1"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginBottom="30dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/showly2"
+        android:layout_below="@id/read_top"
+        android:visibility="gone"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="11.33dip"
+        android:layout_marginBottom="20dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/read_help"
+        layout="@layout/readbookhelp" />
+
+</RelativeLayout>

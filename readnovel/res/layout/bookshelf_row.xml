@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="122dip" >
+	
+    <!-- 书架的存放书的底部 -->
+    <ImageView
+        android:id="@id/bookshelf"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bfitem_bg"
+        android:layout_alignBottom="@id/bookshelf_book"/>
+
+    <LinearLayout
+        android:id="@id/bookshelf_book"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="18dip">
+	
+        <!-- 书架的书 -->
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/style_bookshelf_txt"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:id="@+id/bfitem_t1"
+                android:singleLine="true" 
+                android:text="测试标题"/>
+
+            <RelativeLayout
+                android:id="@+id/bfitem_yly1"
+                style="@style/style_bookshelf_yy2320"
+                android:layout_below="@id/bfitem_t1" >
+	
+                <!-- 封面图片 -->
+                <Button
+                    android:id="@+id/bfitem_img1"
+                    style="@style/style_bookshelf_btn320" />
+
+                <ImageView
+                    android:id="@+id/bfitem_up1"
+                    style="@style/style_bookshelf_update3"
+                    android:src="@drawable/imgupdate" />
+
+                <RelativeLayout
+                    android:id="@+id/bfitem_yy1"
+                    style="@style/style_bookshelf_yy320"
+                    android:background="#af5e5e5e" >
+
+                    <TextView
+                        style="@style/style_txtx"
+                        android:text="下载中" />
+
+                    <ProgressBar
+                        android:layout_width="fill_parent"
+                        android:id="@+id/bfitem_pro1"
+                        android:layout_alignParentBottom="true"
+                        android:padding="3dip"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="10dip"
+                        style="?android:attr/progressBarStyleHorizontal" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/bfitem_d1"
+                style="@style/style_bookshelf_delete" />
+        </RelativeLayout>
+	
+        <!-- 书架的书 -->
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                style="@style/style_bookshelf_txt"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:id="@+id/bfitem_t2"
+                android:singleLine="true" />
+
+            <RelativeLayout
+                android:id="@+id/bfitem_yly2"
+                style="@style/style_bookshelf_yy2320"
+                android:layout_below="@id/bfitem_t2" >
+
+                <Button
+                    android:id="@+id/bfitem_img2"
+                    style="@style/style_bookshelf_btn320" />
+
+                <ImageView
+                    android:id="@+id/bfitem_up2"
+                    style="@style/style_bookshelf_update3"
+                    android:src="@drawable/imgupdate" />
+
+                <RelativeLayout
+                    android:id="@+id/bfitem_yy2"
+                    style="@style/style_bookshelf_yy320"
+                    android:background="#af5e5e5e" >
+
+                    <TextView
+                        style="@style/style_txtx"
+                        android:text="下载中" />
+
+                    <ProgressBar
+                        android:layout_width="fill_parent"
+                        android:id="@+id/bfitem_pro2"
+                        android:layout_alignParentBottom="true"
+                        android:padding="3dip"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="10dip"
+                        style="?android:attr/progressBarStyleHorizontal" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/bfitem_d2"
+                style="@style/style_bookshelf_delete" />
+        </RelativeLayout>
+	
+        <!-- 书架的书 -->
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                style="@style/style_bookshelf_txt"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:id="@+id/bfitem_t3"
+                android:singleLine="true"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:id="@+id/bfitem_yly3"
+                style="@style/style_bookshelf_yy2320"
+                android:layout_below="@id/bfitem_t3" >
+
+                <Button
+                    android:id="@+id/bfitem_img3"
+                    style="@style/style_bookshelf_btn320" />
+
+                <ImageView
+                    android:id="@+id/bfitem_up3"
+                    style="@style/style_bookshelf_update3"
+                    android:src="@drawable/imgupdate" />
+
+                <RelativeLayout
+                    android:id="@+id/bfitem_yy3"
+                    style="@style/style_bookshelf_yy320"
+                    android:background="#af5e5e5e" >
+
+                    <TextView
+                        style="@style/style_txtx"
+                        android:text="下载中" />
+
+                    <ProgressBar
+                        android:layout_width="fill_parent"
+                        android:id="@+id/bfitem_pro3"
+                        android:layout_alignParentBottom="true"
+                        android:padding="3dip"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="10dip"
+                        style="?android:attr/progressBarStyleHorizontal" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/bfitem_d3"
+                style="@style/style_bookshelf_delete" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

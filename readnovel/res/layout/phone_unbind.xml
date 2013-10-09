@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#E9E9E9"
+	android:orientation="vertical">
+
+	<include
+		layout="@layout/include_user_center"
+		android:id="@+id/user_center_top_bar" />
+
+			
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:orientation="vertical"
+				android:layout_marginLeft="10dip"
+				android:layout_marginBottom="10dip"
+				android:padding="10dip"
+				android:visibility="visible"
+				android:layout_marginRight="10dip">
+				<TextView
+					style="@style/style_textview_bottom"
+				    android:id="@+id/personcenter_unbindview_tv"
+					android:text="@string/unbind_phone_msg" 
+					android:layout_alignParentTop="true"/>
+				
+				<RelativeLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:layout_marginTop="5dip"
+					android:layout_marginBottom="5dip"
+					android:layout_centerInParent="true">
+					
+				    <Button
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/consume_green_btn"
+					android:layout_marginBottom="10dip"
+					android:layout_marginLeft="10dip"
+					android:layout_marginRight="10dip"
+					android:text="发送短信解除绑定"
+					android:textSize="20sp"
+					android:textColor="#FFF"
+					android:id="@+id/bind_phone_button" 
+					android:onClick="unBindPhone"
+					/>
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+
+</LinearLayout>
