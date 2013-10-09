@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc" >
+
+    <target name="javadoc" >
+
+        <javadoc
+            access="public"
+            author="true"
+            classpath="/sven/download src/ActionBarSherlock-master/library/libs/android-support-v4.jar:/work/tools/adt-bundle-linux-x86/sdk/tools/support/annotations.jar:/sven/download src/ActionBarSherlock-master/library/bin/abs-library.jar:/work/tools/adt-bundle-linux-x86/sdk/add-ons/addon-google_apis-google-14/libs/maps.jar:/work/tools/adt-bundle-linux-x86/sdk/platforms/android-14/android.jar"
+            destdir="/root/桌面"
+            nodeprecated="false"
+            nodeprecatedlist="false"
+            noindex="false"
+            nonavbar="false"
+            notree="false"
+            packagenames="com.slidingmenu.lib,com.slidingmenu.lib.app"
+            source="1.6"
+            sourcepath="src:gen"
+            splitindex="true"
+            use="true"
+            version="true" >
+
+            <link href="http://developer.android.com/reference/" />
+        </javadoc>
+    </target>
+
+</project>
