@@ -1,0 +1,1147 @@
+com.feedback.UMFeedbackService -> com.feedback.a:
+    boolean c -> a
+    boolean getHasCheckedReply() -> a
+com.feedback.a.a -> com.feedback.a.a:
+    java.lang.String a -> a
+    android.content.Context b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    int f -> f
+    android.os.Handler g -> g
+    void run() -> run
+com.feedback.a.b -> com.feedback.a.b:
+    java.lang.String a -> a
+    org.json.JSONObject b -> b
+    android.content.Context c -> c
+    java.lang.Boolean a() -> a
+    java.lang.Object call() -> call
+com.feedback.a.c -> com.feedback.a.c:
+    android.content.Context a -> a
+    java.util.concurrent.ExecutorService b -> b
+    void run() -> run
+com.feedback.b.a -> com.feedback.b.a:
+    com.feedback.b.a a -> a
+    com.feedback.b.a b -> b
+    com.feedback.b.a c -> c
+    com.feedback.b.a d -> d
+    com.feedback.b.a[] e -> e
+    com.feedback.b.a[] values() -> values
+    com.feedback.b.a valueOf(java.lang.String) -> valueOf
+com.feedback.b.b -> com.feedback.b.b:
+    java.lang.String a -> a
+    com.feedback.b.a b -> b
+    java.lang.String c -> c
+    com.feedback.b.d d -> d
+    com.feedback.b.d e -> e
+    java.util.List f -> f
+    com.feedback.b.d a(int) -> a
+    void b(int) -> b
+    int compareTo(java.lang.Object) -> compareTo
+com.feedback.b.c -> com.feedback.b.c:
+    com.feedback.b.c a -> a
+    com.feedback.b.c b -> b
+    com.feedback.b.c c -> c
+    com.feedback.b.c[] d -> d
+    com.feedback.b.c[] values() -> values
+    com.feedback.b.c valueOf(java.lang.String) -> valueOf
+com.feedback.b.d -> com.feedback.b.d:
+    java.lang.String a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    java.util.Date e -> d
+    com.feedback.b.c f -> e
+    com.feedback.b.e g -> f
+    org.json.JSONObject h -> g
+    java.lang.String a() -> a
+    int compareTo(java.lang.Object) -> compareTo
+com.feedback.b.e -> com.feedback.b.e:
+    com.feedback.b.e a -> a
+    com.feedback.b.e b -> b
+    com.feedback.b.e c -> c
+    com.feedback.b.e d -> d
+    com.feedback.b.e[] e -> e
+    com.feedback.b.e[] values() -> values
+    com.feedback.b.e valueOf(java.lang.String) -> valueOf
+com.feedback.c.a -> com.feedback.c.a:
+    void a(android.content.Context,com.feedback.b.b) -> a
+    void b(android.content.Context) -> a
+    void b(android.content.Context,com.feedback.b.b) -> b
+com.feedback.c.b -> com.feedback.c.b:
+    boolean a(android.content.Context,org.json.JSONObject) -> a
+    boolean b(android.content.Context,org.json.JSONObject) -> b
+    java.lang.String a(android.content.Context,org.json.JSONArray) -> a
+    java.lang.String d(android.content.Context,java.lang.String) -> d
+    java.util.List a(android.content.Context) -> a
+    void a(android.content.Context,java.lang.String) -> a
+    void c(android.content.Context,org.json.JSONObject) -> c
+    void d(android.content.Context,org.json.JSONObject) -> d
+    boolean e(android.content.Context,org.json.JSONObject) -> e
+    void a(android.content.SharedPreferences,java.lang.String,java.lang.String) -> a
+    void a(android.content.Context,java.lang.String,java.lang.String) -> a
+    void a(android.content.Context,com.feedback.b.b,int) -> a
+    com.feedback.b.b b(android.content.Context,java.lang.String) -> b
+    void c(android.content.Context,java.lang.String) -> c
+com.feedback.c.c -> com.feedback.c.c:
+    boolean a(java.lang.String) -> a
+    java.lang.String b(java.lang.String,java.lang.String,org.json.JSONObject) -> b
+    java.lang.String a(java.lang.String,java.lang.String,org.json.JSONObject) -> a
+    java.lang.String b(java.lang.String) -> b
+    boolean a(java.lang.String,java.lang.String) -> a
+com.feedback.c.d -> com.feedback.c.d:
+    org.json.JSONObject a(android.content.Context,java.lang.String,int,int) -> a
+    org.json.JSONObject a(android.content.Context,java.lang.String,java.lang.String) -> a
+    boolean a(org.json.JSONObject) -> a
+    boolean c(org.json.JSONObject) -> b
+    boolean d(org.json.JSONObject) -> c
+    boolean e(org.json.JSONObject) -> d
+    boolean a(org.json.JSONObject,java.lang.String,java.lang.String) -> a
+com.feedback.ui.FeedbackConversation -> com.feedback.ui.FeedbackConversation:
+    android.content.Context a -> a
+    com.feedback.b.b e -> f
+    com.feedback.ui.h f -> g
+    android.widget.TextView g -> h
+    android.widget.EditText h -> i
+    android.widget.Button i -> j
+    com.feedback.ui.c j -> k
+    boolean b -> b
+    java.lang.String c -> c
+    boolean d -> d
+    java.util.concurrent.ExecutorService executorService -> e
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    void onStop() -> onStop
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void setUserContext(android.content.Context) -> a
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    com.feedback.b.b a(com.feedback.ui.FeedbackConversation) -> a
+    void a(com.feedback.ui.FeedbackConversation,com.feedback.b.b) -> a
+    com.feedback.ui.h b(com.feedback.ui.FeedbackConversation) -> b
+    android.widget.EditText c(com.feedback.ui.FeedbackConversation) -> c
+    android.widget.Button d(com.feedback.ui.FeedbackConversation) -> d
+com.feedback.ui.FeedbackConversations -> com.feedback.ui.FeedbackConversations:
+    com.feedback.ui.i a -> a
+    android.widget.ImageButton b -> b
+    int[] h -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    void onStop() -> onStop
+    void onListItemClick(android.widget.ListView,android.view.View,int,long) -> onListItemClick
+    void onRestart() -> onRestart
+    boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
+    void b() -> a
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    int[] a() -> b
+com.feedback.ui.SendFeedback -> com.feedback.ui.SendFeedback:
+    android.widget.Spinner b -> c
+    android.widget.Spinner c -> d
+    android.widget.EditText d -> e
+    android.widget.TextView e -> f
+    android.widget.TextView f -> g
+    android.widget.ImageButton g -> h
+    org.json.JSONObject h -> i
+    boolean a -> a
+    java.util.concurrent.ExecutorService executorService -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    android.widget.EditText a(com.feedback.ui.SendFeedback) -> a
+    android.widget.Spinner b(com.feedback.ui.SendFeedback) -> b
+    android.widget.Spinner c(com.feedback.ui.SendFeedback) -> c
+    void a(com.feedback.ui.SendFeedback,org.json.JSONObject) -> a
+    org.json.JSONObject d(com.feedback.ui.SendFeedback) -> d
+com.feedback.ui.a -> com.feedback.ui.a:
+    android.widget.ImageView a -> a
+    android.widget.TextView b -> b
+    android.widget.TextView c -> c
+    android.widget.TextView d -> d
+    com.feedback.ui.b e -> e
+com.feedback.ui.b -> com.feedback.ui.b:
+    android.view.LayoutInflater a -> a
+    android.content.Context b -> b
+    java.util.List c -> c
+    java.lang.String f -> d
+    java.lang.String g -> e
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    com.feedback.b.b b(int) -> a
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    void a(java.util.List) -> a
+com.feedback.ui.c -> com.feedback.ui.c:
+    com.feedback.ui.FeedbackConversation a -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.feedback.ui.d -> com.feedback.ui.d:
+    android.widget.LinearLayout a -> a
+    android.widget.RelativeLayout b -> b
+    android.widget.TextView c -> c
+    android.widget.TextView d -> d
+    android.view.View e -> e
+    android.view.View f -> f
+    com.feedback.ui.h g -> g
+com.feedback.ui.e -> com.feedback.ui.e:
+    com.feedback.ui.SendFeedback a -> a
+    void onClick(android.view.View) -> onClick
+com.feedback.ui.f -> com.feedback.ui.f:
+    com.feedback.ui.SendFeedback a -> a
+    void onClick(android.view.View) -> onClick
+com.feedback.ui.g -> com.feedback.ui.g:
+    com.feedback.ui.FeedbackConversations a -> a
+    void onClick(android.view.View) -> onClick
+com.feedback.ui.h -> com.feedback.ui.h:
+    android.content.Context a -> a
+    android.view.LayoutInflater b -> b
+    java.lang.String d -> c
+    com.feedback.b.b e -> d
+    int[] f -> e
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    void a(com.feedback.b.b) -> a
+    int[] a() -> a
+com.feedback.ui.i -> com.feedback.ui.i:
+    com.feedback.ui.b a -> a
+    com.feedback.ui.FeedbackConversations b -> b
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
+com.feedback.ui.j -> com.feedback.ui.j:
+    com.feedback.ui.FeedbackConversation a -> a
+    void onClick(android.view.View) -> onClick
+com.mobclick.android.MobclickAgent -> com.a.a.a:
+    com.mobclick.android.MobclickAgent a -> f
+    int b -> g
+    android.content.Context c -> h
+    android.os.Handler d -> i
+    com.mobclick.android.UmengUpdateListener l -> j
+    com.mobclick.android.UmengOnlineConfigureListener m -> k
+    java.lang.String GPU_VENDER -> a
+    java.lang.String GPU_RENDERER -> b
+    boolean mUpdateOnlyWifi -> c
+    boolean mUseLocationService -> d
+    org.json.JSONObject n -> l
+    boolean updateAutoPopup -> e
+    void onPause(android.content.Context) -> a
+    void onResume(android.content.Context) -> b
+    java.lang.String b(android.content.Context) -> d
+    void a$62dc3a79(android.content.Context,java.lang.String) -> a
+    void c(android.content.Context) -> e
+    void b(android.content.Context,java.lang.String,java.lang.String,long,int) -> a
+    void b(android.content.Context,java.lang.String,java.util.Map,long) -> a
+    void a(android.content.Context,java.lang.String,java.util.Map,java.lang.String) -> a
+    void b(android.content.Context,java.lang.String,java.lang.String) -> a
+    void a(java.lang.String) -> a
+    void a(android.content.Context,android.content.SharedPreferences,java.lang.String,org.json.JSONObject) -> a
+    void b$5ffc00fd(android.content.Context) -> f
+    long[] d(android.content.Context,android.content.SharedPreferences) -> a
+    android.app.AlertDialog b(android.content.Context,org.json.JSONObject) -> d
+    org.json.JSONArray b(org.json.JSONObject,org.json.JSONArray) -> a
+    java.lang.String a$bc2fcf7(android.content.Context,org.json.JSONObject,java.lang.String,boolean) -> a
+    boolean a(java.lang.String,android.content.Context,java.lang.String[]) -> a
+    java.lang.String a(java.io.InputStream) -> a
+    org.json.JSONObject f(android.content.Context) -> g
+    void g(android.content.Context) -> h
+    android.content.SharedPreferences h(android.content.Context) -> i
+    android.content.SharedPreferences i(android.content.Context) -> j
+    android.content.SharedPreferences j(android.content.Context) -> k
+    java.lang.String l(android.content.Context) -> l
+    android.content.SharedPreferences a(android.content.Context) -> c
+    java.lang.String c() -> b
+    android.content.SharedPreferences m(android.content.Context) -> m
+    void g(android.content.Context,java.lang.String) -> b
+    int h(android.content.Context,java.lang.String) -> c
+    com.mobclick.android.MobclickAgent a() -> a
+    void a$4bdae0f6(android.content.Context,org.json.JSONObject) -> a
+    void b$4bdae0f6(android.content.Context,org.json.JSONObject) -> b
+    void c$4bdae0f6(android.content.Context,org.json.JSONObject) -> c
+    void a(com.mobclick.android.MobclickAgent,android.content.Context) -> a
+    void a$7e5fd124(com.mobclick.android.MobclickAgent,android.content.Context,java.lang.String) -> a
+    void a$3c668592(com.mobclick.android.MobclickAgent,android.content.Context) -> b
+    void a(com.mobclick.android.MobclickAgent,android.content.Context,java.lang.String,java.lang.String,long,int) -> a
+    void a(com.mobclick.android.MobclickAgent,android.content.Context,java.lang.String,java.util.Map,long) -> a
+    void a(com.mobclick.android.MobclickAgent,android.content.Context,java.lang.String,java.util.Map,java.lang.String) -> a
+    void b(com.mobclick.android.MobclickAgent,android.content.Context,java.lang.String,java.lang.String) -> a
+com.mobclick.android.UmengConstants -> com.a.a.b:
+    long kContinueSessionMillis -> a
+    boolean enableCacheInUpdate -> b
+    boolean testMode -> c
+    boolean LOCATION_OPEN -> d
+    boolean ACTIVITY_DURATION_OPEN -> e
+    boolean canCollectionUserInfo -> f
+    boolean canUseLCT -> g
+    java.lang.String channel -> h
+    java.lang.String LAST_SEND_TIME -> i
+    java.lang.Object saveOnlineConfigMutex -> j
+    java.lang.String[] APPLOG_URL_LIST -> k
+    java.lang.String[] UPDATE_URL_LIST -> l
+    boolean COMPRESS_DATA -> m
+com.mobclick.android.UmengOnlineConfigureListener -> com.a.a.c:
+com.mobclick.android.UmengUpdateListener -> com.a.a.d:
+com.mobclick.android.UpdateStatus -> com.a.a.e:
+    int Yes -> a
+    int No -> b
+    int NoneWifi -> c
+    int Timeout -> d
+com.mobclick.android.a -> com.a.a.f:
+    com.mobclick.android.c a -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.mobclick.android.b -> com.a.a.g:
+    com.mobclick.android.c a -> a
+    void run() -> run
+com.mobclick.android.c -> com.a.a.h:
+    android.content.Context a -> a
+    int b -> b
+    java.lang.String c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    java.lang.String f -> f
+    android.app.Notification g -> g
+    android.app.NotificationManager h -> h
+    int i -> i
+    boolean j -> j
+    boolean k -> k
+    boolean l -> l
+    android.os.Handler m -> m
+    long o -> n
+    long p -> o
+    long q -> p
+    boolean r -> q
+    int a(java.lang.String,java.lang.String) -> a
+    void c() -> a
+    boolean f() -> b
+    int a(java.io.InputStream,java.io.FileOutputStream) -> a
+    long b(boolean) -> a
+    void c(java.lang.String) -> a
+    java.lang.String a(com.mobclick.android.c) -> a
+    java.lang.String b(com.mobclick.android.c) -> b
+    android.content.Context c(com.mobclick.android.c) -> c
+    void a$5462817a(com.mobclick.android.c) -> d
+    void d(com.mobclick.android.c) -> e
+    boolean e(com.mobclick.android.c) -> f
+    android.os.Handler f(com.mobclick.android.c) -> g
+    boolean g(com.mobclick.android.c) -> h
+    boolean h(com.mobclick.android.c) -> i
+    void b(com.mobclick.android.c,boolean) -> a
+com.mobclick.android.d -> com.a.a.i:
+    android.content.Context a -> a
+    java.lang.String b -> b
+    java.lang.String c -> c
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.mobclick.android.e -> com.a.a.j:
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.mobclick.android.f -> com.a.a.k:
+    java.lang.String a -> a
+    int b -> b
+    boolean a(android.content.Context,java.lang.String) -> a
+    java.lang.String b(android.content.Context) -> a
+    java.lang.String a(java.lang.String,boolean) -> a
+    java.lang.String c(android.content.Context) -> g
+    java.lang.String d(android.content.Context) -> b
+    java.lang.String j(android.content.Context) -> h
+    java.lang.String a() -> b
+    byte[] a(java.lang.String) -> a
+    java.lang.String a(java.util.Date) -> a
+    java.lang.String b() -> a
+    java.util.Date b(java.lang.String) -> b
+    org.json.JSONObject f(android.content.Context) -> c
+    java.lang.String[] g(android.content.Context) -> d
+    java.lang.String h(android.content.Context) -> e
+    boolean i(android.content.Context) -> f
+    int a(android.content.Context,java.lang.String,java.lang.String) -> a
+    org.json.JSONObject l(android.content.Context) -> i
+com.mobclick.android.g -> com.a.a.l:
+    android.location.LocationManager a -> a
+    android.content.Context b -> b
+    android.location.Location a() -> a
+com.mobclick.android.h -> com.a.a.m:
+    java.lang.Object a -> a
+    com.mobclick.android.MobclickAgent b -> b
+    android.content.Context c -> c
+    org.json.JSONObject d -> d
+    void run() -> run
+com.mobclick.android.i -> com.a.a.n:
+    java.lang.Object a -> a
+    android.content.Context b -> b
+    int c -> c
+    java.lang.String d -> d
+    java.lang.String e -> e
+    java.lang.String f -> f
+    java.lang.String g -> g
+    int h -> h
+    long i -> i
+    java.util.Map j -> j
+    java.lang.String k -> k
+    void run() -> run
+com.mobclick.android.j -> com.a.a.o:
+    com.mobclick.android.n a -> a
+    void process(org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext) -> process
+com.mobclick.android.l -> com.a.a.p:
+    void process(org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext) -> process
+com.mobclick.android.m -> com.a.a.q:
+    com.mobclick.android.n a -> a
+    org.apache.http.protocol.BasicHttpProcessor createHttpProcessor() -> createHttpProcessor
+    org.apache.http.protocol.HttpContext createHttpContext() -> createHttpContext
+com.mobclick.android.n -> com.a.a.r:
+    long a -> a
+    org.apache.http.HttpRequestInterceptor d -> b
+    org.apache.http.client.HttpClient e -> c
+    java.lang.RuntimeException f -> d
+    com.mobclick.android.o g -> e
+    com.mobclick.android.n a(java.lang.String) -> a
+    void finalize() -> finalize
+    void a() -> a
+    org.apache.http.params.HttpParams getParams() -> getParams
+    org.apache.http.conn.ClientConnectionManager getConnectionManager() -> getConnectionManager
+    org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest) -> execute
+    org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.protocol.HttpContext) -> execute
+    org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest) -> execute
+    org.apache.http.HttpResponse execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.protocol.HttpContext) -> execute
+    java.lang.Object execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.client.ResponseHandler) -> execute
+    java.lang.Object execute(org.apache.http.client.methods.HttpUriRequest,org.apache.http.client.ResponseHandler,org.apache.http.protocol.HttpContext) -> execute
+    java.lang.Object execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.client.ResponseHandler) -> execute
+    java.lang.Object execute(org.apache.http.HttpHost,org.apache.http.HttpRequest,org.apache.http.client.ResponseHandler,org.apache.http.protocol.HttpContext) -> execute
+    void b() -> b
+    com.mobclick.android.o a(com.mobclick.android.n) -> a
+    java.lang.String a$501fc75d(org.apache.http.client.methods.HttpUriRequest) -> a
+    org.apache.http.HttpRequestInterceptor c() -> c
+com.mobclick.android.o -> com.a.a.s:
+    java.lang.String a -> a
+    int b -> b
+    boolean a(com.mobclick.android.o) -> a
+    void a(com.mobclick.android.o,java.lang.String) -> a
+com.mobclick.android.p -> com.a.a.t:
+    java.lang.String a(android.content.Context) -> a
+com.readnovel.book.base.BaseActivity -> com.readnovel.book.base.BaseActivity:
+    java.lang.String tag -> a
+    android.app.AlertDialog$Builder builderExit -> b
+    android.app.Dialog dialogExit -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void onPause() -> onPause
+    void onDestroy() -> onDestroy
+    void close() -> a
+    android.app.Dialog access$0(com.readnovel.book.base.BaseActivity) -> a
+com.readnovel.book.base.BaseActivity$1 -> com.readnovel.book.base.a:
+    com.readnovel.book.base.BaseActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.readnovel.book.base.BaseActivity$2 -> com.readnovel.book.base.b:
+    com.readnovel.book.base.BaseActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.readnovel.book.base.BookTagActivity -> com.readnovel.book.base.BookTagActivity:
+    android.widget.ListView list -> b
+    com.readnovel.book.base.db.MyDataBase mydata -> c
+    android.database.Cursor c -> d
+    java.util.List bookTagList -> e
+    java.lang.String title -> f
+    java.lang.String foreText -> g
+    java.lang.String time -> h
+    java.lang.String percent -> i
+    java.lang.String fileName -> t
+    java.lang.String pagenum -> u
+    int fontSize -> v
+    int lastRead -> w
+    com.readnovel.book.base.entity.BookTag bookTag -> x
+    android.widget.LinearLayout ll -> y
+    java.lang.String nowTime -> z
+    android.widget.BaseAdapter adapter -> A
+    com.readnovel.book.base.sp.StyleSaveUtil util -> B
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    void stepTo(int) -> a
+    void closeCursor() -> c
+    int getContentView() -> b
+com.readnovel.book.base.BookTagActivity$1 -> com.readnovel.book.base.c:
+    com.readnovel.book.base.BookTagActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.readnovel.book.base.ChapterListActivity -> com.readnovel.book.base.ChapterListActivity:
+    android.widget.ListView listview -> b
+    java.util.List list -> c
+    com.readnovel.book.base.sp.StyleSaveUtil util -> d
+    java.lang.String aa -> e
+    java.lang.String chapterid -> f
+    android.util.DisplayMetrics displaysMetrics -> g
+    android.widget.TextView backintro_tv -> h
+    android.widget.TextView backcover_tv -> i
+    android.widget.BaseAdapter bookAdapter -> t
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    int getContentView() -> b
+    void access$0(com.readnovel.book.base.ChapterListActivity,int) -> a
+com.readnovel.book.base.ChapterListActivity$1 -> com.readnovel.book.base.d:
+    com.readnovel.book.base.ChapterListActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.ChapterListActivity$2 -> com.readnovel.book.base.e:
+    com.readnovel.book.base.ChapterListActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.ChapterListActivity$3 -> com.readnovel.book.base.f:
+    com.readnovel.book.base.ChapterListActivity this$0 -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+com.readnovel.book.base.ChapterListActivity$4 -> com.readnovel.book.base.g:
+    com.readnovel.book.base.ChapterListActivity this$0 -> a
+    void onScrollStateChanged(android.widget.AbsListView,int) -> onScrollStateChanged
+    void onScroll(android.widget.AbsListView,int,int,int) -> onScroll
+com.readnovel.book.base.CoverActivity -> com.readnovel.book.base.CoverActivity:
+    android.app.Dialog dialogExit -> b
+    android.app.AlertDialog$Builder builderExit -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void toChapterList(android.view.View) -> toChapterList
+    android.app.Dialog access$0(com.readnovel.book.base.CoverActivity) -> a
+com.readnovel.book.base.CoverActivity$1 -> com.readnovel.book.base.h:
+    com.readnovel.book.base.CoverActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.readnovel.book.base.CoverActivity$2 -> com.readnovel.book.base.i:
+    com.readnovel.book.base.CoverActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.readnovel.book.base.CoverActivity$3 -> com.readnovel.book.base.j:
+    com.readnovel.book.base.CoverActivity this$0 -> a
+    android.view.View val$decorView -> b
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+com.readnovel.book.base.CoverActivity$4 -> com.readnovel.book.base.k:
+    com.readnovel.book.base.CoverActivity this$0 -> a
+    android.view.GestureDetector val$gestureDetector -> b
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.readnovel.book.base.DownActivity -> com.readnovel.book.base.DownActivity:
+    android.widget.Button webbtn -> b
+    android.widget.Button stepbtn -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+com.readnovel.book.base.DownActivity$1 -> com.readnovel.book.base.l:
+    com.readnovel.book.base.DownActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.DownActivity$2 -> com.readnovel.book.base.m:
+    com.readnovel.book.base.DownActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.FirstActivity -> com.readnovel.book.base.FirstActivity:
+    android.widget.ImageView imageview -> c
+    android.widget.ImageView img -> b
+    com.readnovel.book.base.sp.StyleSaveUtil util -> d
+    void onCreate(android.os.Bundle) -> onCreate
+    android.view.animation.AlphaAnimation access$0(com.readnovel.book.base.FirstActivity) -> a
+    android.widget.ImageView access$1(com.readnovel.book.base.FirstActivity) -> b
+    com.readnovel.book.base.sp.StyleSaveUtil access$2(com.readnovel.book.base.FirstActivity) -> c
+com.readnovel.book.base.FirstActivity$1 -> com.readnovel.book.base.n:
+    com.readnovel.book.base.FirstActivity this$0 -> a
+    void run() -> run
+com.readnovel.book.base.FirstActivity$2 -> com.readnovel.book.base.o:
+    com.readnovel.book.base.FirstActivity this$0 -> a
+    void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
+    void onAnimationRepeat(android.view.animation.Animation) -> onAnimationRepeat
+    void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
+com.readnovel.book.base.IntroduceActivity -> com.readnovel.book.base.IntroduceActivity:
+    android.app.Dialog dialogExit -> b
+    android.app.AlertDialog$Builder builderExit -> c
+    void onCreate(android.os.Bundle) -> onCreate
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    void toChapterList(android.view.View) -> toChapterList
+    android.app.Dialog access$0(com.readnovel.book.base.IntroduceActivity) -> a
+com.readnovel.book.base.IntroduceActivity$1 -> com.readnovel.book.base.p:
+    com.readnovel.book.base.IntroduceActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.readnovel.book.base.IntroduceActivity$2 -> com.readnovel.book.base.q:
+    com.readnovel.book.base.IntroduceActivity this$0 -> a
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.readnovel.book.base.IntroduceActivity$3 -> com.readnovel.book.base.r:
+    com.readnovel.book.base.IntroduceActivity this$0 -> a
+    android.view.View val$decorView -> b
+    boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+com.readnovel.book.base.IntroduceActivity$4 -> com.readnovel.book.base.s:
+    com.readnovel.book.base.IntroduceActivity this$0 -> a
+    android.view.GestureDetector val$gestureDetector -> b
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.readnovel.book.base.MoreActivity -> com.readnovel.book.base.MoreActivity:
+    java.util.List listmore -> c
+    com.readnovel.book.base.entity.More more -> d
+    com.readnovel.book.base.utils.AsyncImageLoader asyncImageLoader -> e
+    android.widget.ListView listview -> f
+    android.widget.Button loadbtn -> g
+    android.widget.Button installBtn -> h
+    android.app.ProgressDialog mProgressDialog -> i
+    int mNetworkStatus -> b
+    com.readnovel.book.base.MoreActivity$MyAdapter adapter -> t
+    android.view.View v -> u
+    android.os.Handler mHandler -> v
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    java.util.List getPopList(java.io.InputStream) -> a
+    void loadRemoteData() -> e
+    java.io.InputStream getDataStream(java.lang.String) -> a
+    void showProgressDialog() -> c
+    void dismissProgressDialog() -> d
+    int getContentView() -> b
+    com.readnovel.book.base.MoreActivity$MyAdapter access$0(com.readnovel.book.base.MoreActivity) -> a
+    void access$1(com.readnovel.book.base.MoreActivity,com.readnovel.book.base.MoreActivity$MyAdapter) -> a
+    java.util.List access$2(com.readnovel.book.base.MoreActivity) -> b
+    android.widget.ListView access$3(com.readnovel.book.base.MoreActivity) -> c
+    android.view.View access$4(com.readnovel.book.base.MoreActivity) -> d
+    com.readnovel.book.base.utils.AsyncImageLoader access$5(com.readnovel.book.base.MoreActivity) -> e
+    void access$6(com.readnovel.book.base.MoreActivity) -> f
+    java.util.List access$7(com.readnovel.book.base.MoreActivity,java.io.InputStream) -> a
+    android.os.Handler access$8(com.readnovel.book.base.MoreActivity) -> g
+com.readnovel.book.base.MoreActivity$1 -> com.readnovel.book.base.t:
+    com.readnovel.book.base.MoreActivity this$0 -> a
+    void handleMessage(android.os.Message) -> handleMessage
+com.readnovel.book.base.MoreActivity$2 -> com.readnovel.book.base.u:
+    com.readnovel.book.base.MoreActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.MoreActivity$3 -> com.readnovel.book.base.v:
+    com.readnovel.book.base.MoreActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.MoreActivity$4 -> com.readnovel.book.base.w:
+    com.readnovel.book.base.MoreActivity this$0 -> a
+    void run() -> run
+com.readnovel.book.base.MoreActivity$MyAdapter -> com.readnovel.book.base.x:
+    com.readnovel.book.base.MoreActivity this$0 -> a
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+    com.readnovel.book.base.MoreActivity access$0(com.readnovel.book.base.MoreActivity$MyAdapter) -> a
+com.readnovel.book.base.MoreActivity$MyAdapter$1 -> com.readnovel.book.base.y:
+    com.readnovel.book.base.MoreActivity$MyAdapter this$1 -> a
+    int val$arg0 -> b
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.MoreActivity$MyAdapter$2 -> com.readnovel.book.base.z:
+    com.readnovel.book.base.MoreActivity$MyAdapter this$1 -> a
+    void imageLoaded(android.graphics.drawable.Drawable,java.lang.String) -> a
+com.readnovel.book.base.PageFlipActivity -> com.readnovel.book.base.PageFlipActivity:
+    android.widget.LinearLayout left_right_txt -> t
+    android.widget.RelativeLayout bookTagLayout -> u
+    com.readnovel.book.base.reader.PageWidget mPageWidget -> v
+    android.graphics.Bitmap mCurPageBitmap -> w
+    android.graphics.Bitmap mNextPageBitmap -> x
+    android.graphics.Canvas mCurPageCanvas -> b
+    android.graphics.Canvas mNextPageCanvas -> c
+    com.readnovel.book.base.reader.BookPageFactory pagefactory -> d
+    com.readnovel.book.base.sp.StyleSaveUtil util -> e
+    android.view.WindowManager$LayoutParams lp -> y
+    float lightNum -> z
+    int step -> f
+    android.widget.PopupWindow popBookTagPic -> A
+    android.widget.PopupWindow popBookTagPicBlank -> B
+    java.lang.String number -> C
+    java.lang.String pre_tag -> D
+    java.lang.String next_tag -> E
+    java.lang.String tag -> g
+    int end -> F
+    int mstart -> G
+    java.lang.String mchapterName -> H
+    int mLastOffset -> I
+    int bookTagLastRead -> J
+    java.lang.String pageNum -> K
+    java.util.List mlist -> L
+    com.readnovel.book.base.db.MyDataBase mydata -> M
+    java.lang.String strPercent -> N
+    java.lang.String bookTagTag -> O
+    boolean bookTagShow -> P
+    int prePageFlag -> Q
+    android.database.Cursor c -> R
+    int mChapterNum -> h
+    android.widget.TextView left_tv -> S
+    android.widget.TextView right_tv -> T
+    int turnPageNum -> U
+    int titleFlag -> i
+    java.lang.String foretext -> V
+    int deleteReadPosition -> W
+    java.lang.String filePath -> X
+    void onCreate(android.os.Bundle) -> onCreate
+    void onStart() -> onStart
+    void onStop() -> onStop
+    void onDestroy() -> onDestroy
+    boolean onKeyDown(int,android.view.KeyEvent) -> onKeyDown
+    int getScreenBrightness(android.app.Activity) -> a
+    java.lang.String getCurrentTime() -> h
+    void showChapterFirstNum() -> c
+    int turnLastPage(java.lang.String) -> a
+    void stepChapter$255f295(int) -> a
+    void saveLastRead() -> i
+    void insertData() -> d
+    void queryData1() -> j
+    boolean queryData2() -> k
+    void deleteBookTag() -> e
+    void closeCursor() -> l
+    void showBlankBookTag() -> f
+    void hideBlankBookTag() -> m
+    void showBookTag() -> n
+    void hideBookTag() -> o
+    void saveHistoryInfo() -> p
+    int culNum(java.lang.String) -> b
+    void show() -> q
+    void goResizeFont(android.view.View) -> goResizeFont
+    void goBookTag(android.view.View) -> goBookTag
+    void hide() -> r
+    int getAndroidSDKVersion() -> s
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+    void clickTextRight(android.view.View) -> clickTextRight
+    void clickTextLeft(android.view.View) -> clickTextLeft
+    int getContentView() -> b
+    void access$0(com.readnovel.book.base.PageFlipActivity) -> a
+    android.widget.RelativeLayout access$1(com.readnovel.book.base.PageFlipActivity) -> b
+    java.lang.String access$2(com.readnovel.book.base.PageFlipActivity) -> c
+    int access$3(com.readnovel.book.base.PageFlipActivity) -> d
+    com.readnovel.book.base.reader.PageWidget access$4(com.readnovel.book.base.PageFlipActivity) -> e
+    android.graphics.Bitmap access$5(com.readnovel.book.base.PageFlipActivity) -> f
+    android.graphics.Bitmap access$6(com.readnovel.book.base.PageFlipActivity) -> g
+    void access$7(com.readnovel.book.base.PageFlipActivity,android.view.WindowManager$LayoutParams) -> a
+    void access$8(com.readnovel.book.base.PageFlipActivity,float) -> a
+    float access$9(com.readnovel.book.base.PageFlipActivity) -> h
+    android.view.WindowManager$LayoutParams access$10(com.readnovel.book.base.PageFlipActivity) -> i
+    void access$11(com.readnovel.book.base.PageFlipActivity) -> j
+    void access$12(com.readnovel.book.base.PageFlipActivity) -> k
+    void access$13(com.readnovel.book.base.PageFlipActivity) -> l
+com.readnovel.book.base.PageFlipActivity$1 -> com.readnovel.book.base.aa:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$10 -> com.readnovel.book.base.ab:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$11 -> com.readnovel.book.base.ac:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$2 -> com.readnovel.book.base.ad:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    android.widget.Button val$smallBtn -> b
+    android.widget.Button val$mediaBtn -> c
+    android.widget.Button val$bigBtn -> d
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$3 -> com.readnovel.book.base.ae:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    android.widget.SeekBar val$seekbar -> b
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$4 -> com.readnovel.book.base.af:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    android.widget.SeekBar val$seekbar -> b
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$5 -> com.readnovel.book.base.ag:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    android.widget.SeekBar val$seekbar -> b
+    void onStopTrackingTouch(android.widget.SeekBar) -> onStopTrackingTouch
+    void onStartTrackingTouch(android.widget.SeekBar) -> onStartTrackingTouch
+    void onProgressChanged(android.widget.SeekBar,int,boolean) -> onProgressChanged
+com.readnovel.book.base.PageFlipActivity$6 -> com.readnovel.book.base.ah:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$7 -> com.readnovel.book.base.ai:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$8 -> com.readnovel.book.base.aj:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.PageFlipActivity$9 -> com.readnovel.book.base.ak:
+    com.readnovel.book.base.PageFlipActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.R -> com.readnovel.book.base.al:
+com.readnovel.book.base.R$anim -> com.readnovel.book.base.am:
+    int dhld -> a
+    int goin -> b
+com.readnovel.book.base.R$color -> com.readnovel.book.base.an:
+    int bg -> a
+    int grey -> b
+    int pink -> c
+com.readnovel.book.base.R$drawable -> com.readnovel.book.base.ao:
+    int bigsize -> a
+    int bigsize_press -> b
+    int booktags1_press -> c
+    int mediasize -> d
+    int mediasize_press -> e
+    int more_press -> f
+    int mulu_press -> g
+    int read_bg -> h
+    int smallsize -> i
+    int smallsize_press -> j
+com.readnovel.book.base.R$id -> com.readnovel.book.base.ap:
+    int author -> a
+    int backcover_tv -> b
+    int backintro_tv -> c
+    int bg_ll -> d
+    int bigbtn -> e
+    int book_logo -> f
+    int book_title -> g
+    int booktag_chaptername_tv -> h
+    int booktag_foreText_tv -> i
+    int booktag_lv -> j
+    int booktag_percent_tv -> k
+    int booktag_pic -> l
+    int booktag_time_tv -> m
+    int booktagblankpic -> n
+    int booktagllblankpic -> o
+    int booktagllpic -> p
+    int chapter_id -> q
+    int content_layout -> r
+    int continue_read -> s
+    int delete_image1 -> t
+    int delete_image2 -> u
+    int delete_tv1 -> v
+    int delete_tv2 -> w
+    int dhimg -> x
+    int download_btn -> y
+    int download_num -> z
+    int exit_ll -> A
+    int footer_ll -> B
+    int image1 -> C
+    int image2 -> D
+    int imageView_light_down -> E
+    int imageView_light_up -> F
+    int imageview -> G
+    int install_btn -> H
+    int iv -> I
+    int left_tv -> J
+    int listview -> K
+    int loadbtn -> L
+    int mediabtn -> M
+    int more_image1 -> N
+    int more_image2 -> O
+    int more_lv -> P
+    int more_tv1 -> Q
+    int more_tv2 -> R
+    int nobooktag_ll -> S
+    int read_help -> T
+    int right_button -> U
+    int right_tv -> V
+    int screen_light_seekbar -> W
+    int scrollview_zhengwen -> X
+    int smallbtn -> Y
+    int stepdownbtn -> Z
+    int tab_btn1 -> aa
+    int tab_btn3 -> ab
+    int tab_btn4 -> ac
+    int tab_resize_font -> ad
+    int tv1 -> ae
+    int tv2 -> af
+    int txt_left_right -> ag
+    int type -> ah
+    int webbtn -> ai
+com.readnovel.book.base.R$layout -> com.readnovel.book.base.aq:
+    int adapter_list_item -> a
+    int booktag -> b
+    int booktag_item -> c
+    int booktag_list_item -> d
+    int booktag_pic -> e
+    int booktagpicblank -> f
+    int chapter_list -> g
+    int cover -> h
+    int delete_booktag_item -> i
+    int down -> j
+    int first -> k
+    int footer -> l
+    int introduce -> m
+    int lightpop -> n
+    int load -> o
+    int more -> p
+    int more_item -> q
+    int more_list2 -> r
+    int read -> s
+    int tabs -> t
+com.readnovel.book.base.R$string -> com.readnovel.book.base.ar:
+    int bookid -> a
+    int chaptertotalnum -> b
+    int totalfontnum -> c
+com.readnovel.book.base.ToolsActivity -> com.readnovel.book.base.ToolsActivity:
+    int height -> j
+    int wide -> k
+    android.util.DisplayMetrics displaysMetrics -> l
+    android.widget.PopupWindow popMenu -> m
+    android.widget.PopupWindow popSize -> n
+    android.widget.PopupWindow popBookTag -> o
+    android.widget.PopupWindow popMore -> p
+    android.widget.Button chapterBtn -> q
+    android.widget.Button bookTagBtn -> r
+    android.widget.Button moreBtn -> s
+    int getContentView() -> b
+    void onCreate(android.os.Bundle) -> onCreate
+    void goChapter(android.view.View) -> goChapter
+    void goResizeFont(android.view.View) -> goResizeFont
+    void goBookTag(android.view.View) -> goBookTag
+    void goMore(android.view.View) -> goMore
+    void hidePopMenu() -> g
+com.readnovel.book.base.ToolsActivity$1 -> com.readnovel.book.base.as:
+    com.readnovel.book.base.ToolsActivity this$0 -> a
+    void onClick(android.view.View) -> onClick
+com.readnovel.book.base.adapter.BookTagAdapter -> com.readnovel.book.base.a.a:
+    android.content.Context context -> a
+    java.util.List bookTagList -> b
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.readnovel.book.base.adapter.ChapterListAdapter -> com.readnovel.book.base.a.b:
+    android.content.Context context -> a
+    java.util.List bookList -> b
+    com.readnovel.book.base.sp.StyleSaveUtil util -> c
+    int getCount() -> getCount
+    java.lang.Object getItem(int) -> getItem
+    long getItemId(int) -> getItemId
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.readnovel.book.base.db.MyDataBase -> com.readnovel.book.base.b.a:
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+com.readnovel.book.base.entity.Book -> com.readnovel.book.base.c.a:
+    java.lang.String chapterid -> a
+    java.lang.String chapterName -> b
+    java.lang.String getChapterid() -> a
+    void setChapterid(java.lang.String) -> a
+    java.lang.String getChapterName() -> b
+    void setChapterName(java.lang.String) -> b
+    java.lang.String toString() -> toString
+com.readnovel.book.base.entity.BookTag -> com.readnovel.book.base.c.b:
+    java.lang.String fileName -> a
+    int lastRead -> b
+    java.lang.String time -> c
+    java.lang.String foreText -> d
+    java.lang.String percent -> e
+    int fontSize -> f
+    java.lang.String pagenum -> g
+    java.lang.String chapterFileName -> h
+    java.lang.String getPagenum() -> a
+    void setPagenum(java.lang.String) -> a
+    java.lang.String getChapterFileName() -> b
+    void setChapterFileName(java.lang.String) -> b
+    java.lang.String getFileName() -> c
+    void setFileName(java.lang.String) -> c
+    int getLastRead() -> d
+    void setLastRead(int) -> a
+    java.lang.String getTime() -> e
+    void setTime(java.lang.String) -> d
+    java.lang.String getForeText() -> f
+    void setForeText(java.lang.String) -> e
+    java.lang.String getPercent() -> g
+    void setPercent(java.lang.String) -> f
+    void setFontSize(int) -> b
+com.readnovel.book.base.entity.ChapterPageNum -> com.readnovel.book.base.c.c:
+    java.lang.String bookName -> a
+    java.lang.String number -> b
+    java.lang.String getBookName() -> a
+    void setBookName(java.lang.String) -> a
+    java.lang.String getNumber() -> b
+    void setNumber(java.lang.String) -> b
+com.readnovel.book.base.entity.More -> com.readnovel.book.base.c.d:
+    java.lang.String bookLogo -> a
+    java.lang.String bookTitle -> b
+    java.lang.String downLoadNum -> c
+    java.lang.String type -> d
+    java.lang.String author -> e
+    java.lang.String appurl -> f
+    java.lang.String getAppurl() -> a
+    void setAppurl(java.lang.String) -> a
+    java.lang.String getBookLogo() -> b
+    void setBookLogo(java.lang.String) -> b
+    java.lang.String getBookTitle() -> c
+    void setBookTitle(java.lang.String) -> c
+    java.lang.String getDownLoadNum() -> d
+    void setDownLoadNum(java.lang.String) -> d
+    java.lang.String getType() -> e
+    void setType(java.lang.String) -> e
+    java.lang.String getAuthor() -> f
+    void setAuthor(java.lang.String) -> f
+com.readnovel.book.base.entity.Version -> com.readnovel.book.base.c.e:
+    java.lang.String version -> a
+    java.lang.String subversion -> b
+    java.lang.String appname -> c
+    void setVersion(java.lang.String) -> a
+    void setSubVersion(java.lang.String) -> b
+    void setAppname(java.lang.String) -> c
+com.readnovel.book.base.parsesax.MyContentHandler -> com.readnovel.book.base.d.a:
+    java.util.List booklist -> a
+    java.util.List versionlist -> b
+    java.lang.String preTAG -> c
+    com.readnovel.book.base.entity.Book book -> d
+    com.readnovel.book.base.entity.Version version -> e
+    com.readnovel.book.base.entity.ChapterPageNum chapterPageNum -> f
+    java.util.List chapterPageNumList -> g
+    java.util.List getBooklist() -> a
+    java.util.List getChapterPageNumList() -> b
+    void startDocument() -> startDocument
+    void startElement(java.lang.String,java.lang.String,java.lang.String,org.xml.sax.Attributes) -> startElement
+    void characters(char[],int,int) -> characters
+    void endElement(java.lang.String,java.lang.String,java.lang.String) -> endElement
+com.readnovel.book.base.parsesax.ParserBySAX -> com.readnovel.book.base.d.b:
+    java.util.List parseXML(java.io.InputStream) -> a
+    java.util.List parseXMLChapterNum(java.io.InputStream) -> b
+com.readnovel.book.base.reader.BookPageFactory -> com.readnovel.book.base.e.a:
+    java.lang.String TAG -> b
+    java.io.File book_file -> c
+    java.nio.MappedByteBuffer m_mbBuf -> d
+    int m_mbBufLen -> e
+    int m_mbBufBegin -> f
+    int m_mbBufEnd -> g
+    java.lang.String m_strCharsetName -> h
+    int m_backColor -> i
+    android.graphics.Bitmap m_book_bg -> j
+    int mWidth -> k
+    int mHeight -> l
+    java.util.List m_lines -> m
+    int m_fontSize -> a
+    int marginWidth -> n
+    int marginHeight -> o
+    float mVisibleWidth -> p
+    float mVisibleHeight -> q
+    boolean m_isfirstPage -> r
+    boolean m_islastPage -> s
+    android.content.Context context -> t
+    android.graphics.Paint mPaint -> u
+    android.graphics.Paint pt -> v
+    android.graphics.Paint zPaint -> w
+    java.lang.String pageNum -> x
+    java.lang.String foreText -> y
+    java.lang.String chapterName -> z
+    void openBook(java.lang.String) -> a
+    void openBook(java.lang.String,int) -> a
+    void prePage() -> a
+    void nextPage() -> b
+    void onDraw(android.graphics.Canvas) -> a
+    void setFontSize(int) -> a
+    void setBgBitmap(android.graphics.Bitmap) -> a
+    boolean isfirstPage() -> c
+    boolean islastPage() -> d
+    int getBufBegin() -> e
+    int getBufEnd() -> f
+    java.lang.String getPageNum() -> g
+    void setPageNum(java.lang.String) -> b
+    java.lang.String getForeText() -> h
+    void setChapterName(java.lang.String) -> c
+    byte[] readParagraphBack(int) -> b
+    byte[] readParagraphForward(int) -> c
+    java.util.List pageDown() -> i
+com.readnovel.book.base.reader.PageWidget -> com.readnovel.book.base.e.b:
+    int mWidth -> a
+    int mHeight -> b
+    int mCornerX -> c
+    int mCornerY -> d
+    android.graphics.Path mPath0 -> e
+    android.graphics.Path mPath1 -> f
+    android.graphics.Bitmap mCurPageBitmap -> g
+    android.graphics.Bitmap mNextPageBitmap -> h
+    android.graphics.PointF mTouch -> i
+    android.graphics.PointF mBezierStart1 -> j
+    android.graphics.PointF mBezierControl1 -> k
+    android.graphics.PointF mBeziervertex1 -> l
+    android.graphics.PointF mBezierEnd1 -> m
+    android.graphics.PointF mBezierStart2 -> n
+    android.graphics.PointF mBezierControl2 -> o
+    android.graphics.PointF mBeziervertex2 -> p
+    android.graphics.PointF mBezierEnd2 -> q
+    float mMiddleX -> r
+    float mMiddleY -> s
+    float mDegrees -> t
+    float mTouchToCornerDis -> u
+    android.graphics.ColorMatrixColorFilter mColorMatrixFilter -> v
+    android.graphics.Matrix mMatrix -> w
+    float[] mMatrixArray -> x
+    boolean mIsRTandLB -> y
+    float mMaxLength -> z
+    int[] mBackShadowColors -> A
+    int[] mFrontShadowColors -> B
+    android.graphics.drawable.GradientDrawable mBackShadowDrawableLR -> C
+    android.graphics.drawable.GradientDrawable mBackShadowDrawableRL -> D
+    android.graphics.drawable.GradientDrawable mFolderShadowDrawableLR -> E
+    android.graphics.drawable.GradientDrawable mFolderShadowDrawableRL -> F
+    android.graphics.drawable.GradientDrawable mFrontShadowDrawableHBT -> G
+    android.graphics.drawable.GradientDrawable mFrontShadowDrawableHTB -> H
+    android.graphics.drawable.GradientDrawable mFrontShadowDrawableVLR -> I
+    android.graphics.drawable.GradientDrawable mFrontShadowDrawableVRL -> J
+    android.graphics.Paint mPaint -> K
+    android.widget.Scroller mScroller -> L
+    boolean doTouchEvent(android.view.MotionEvent) -> a
+    void setBitmaps(android.graphics.Bitmap,android.graphics.Bitmap) -> a
+    void calcCornerXY(float,float) -> a
+    void abortAnimation() -> a
+    boolean isDragToRight() -> b
+    void reflash() -> c
+    void onDraw(android.graphics.Canvas) -> onDraw
+    void computeScroll() -> computeScroll
+    android.graphics.PointF getCross(android.graphics.PointF,android.graphics.PointF,android.graphics.PointF,android.graphics.PointF) -> a
+com.readnovel.book.base.sp.StyleSaveUtil -> com.readnovel.book.base.f.a:
+    android.content.SharedPreferences sp -> a
+    void first$13462e() -> a
+    int getfirst() -> b
+    void setFontsize(int) -> a
+    int getFontsize() -> c
+    void savescollery(int) -> b
+    int writescollery() -> d
+    void saveChapterName(java.lang.String) -> a
+    java.lang.String writeChapterName() -> e
+    void saveLight(float) -> a
+    float writeLight() -> f
+    void saveSeekbar(int) -> c
+    int writeSeekbar() -> g
+    void saveLastOffSet(int) -> d
+    int writeLastOffSet() -> h
+    void saveReadPage(java.lang.String) -> b
+    java.lang.String writeReadPage() -> i
+    void saveReadPath(int) -> e
+    int writeReadPath() -> j
+    void saveFirstChapter$13462e() -> k
+    int writeFirstChapter() -> l
+    void saveFirstRead$13462e() -> m
+    int writeFirstRead() -> n
+    void saveFirstStep$13462e() -> o
+    int writeFirstStep() -> p
+    void saveFirstReadChapter(int) -> f
+    int writeFirstReadChapter() -> q
+    void saveFirstReadChapterName(java.lang.String) -> c
+    void saveFirstReadChapterPer(java.lang.String) -> d
+    void saveFirstReadChapterTime(java.lang.String) -> e
+    void saveFirstReadChapterFontSize(int) -> g
+    void saveFirstReadChapterLast(int) -> h
+    int writeFirstReadChapterLast() -> r
+    void saveFirstReadChapterFileName(java.lang.String) -> f
+    java.lang.String writeFirstReadChapterFileName() -> s
+    void saveFirstReadChapterPageNum(java.lang.String) -> g
+    java.lang.String writeFirstReadChapterPageNum() -> t
+    void saveCulPageNumThread$13462e() -> u
+com.readnovel.book.base.utils.AsyncImageLoader -> com.readnovel.book.base.g.a:
+    java.util.HashMap imageCache -> a
+    android.graphics.drawable.Drawable loadDrawable(java.lang.String,com.readnovel.book.base.utils.AsyncImageLoader$ImageCallback) -> a
+    android.graphics.drawable.Drawable loadImageFromUrl(java.lang.String) -> a
+    java.util.HashMap access$0(com.readnovel.book.base.utils.AsyncImageLoader) -> a
+com.readnovel.book.base.utils.AsyncImageLoader$1 -> com.readnovel.book.base.g.b:
+    com.readnovel.book.base.utils.AsyncImageLoader this$0 -> a
+    com.readnovel.book.base.utils.AsyncImageLoader$ImageCallback val$imageCallback -> b
+    java.lang.String val$imageUrl -> c
+    void handleMessage(android.os.Message) -> handleMessage
+com.readnovel.book.base.utils.AsyncImageLoader$2 -> com.readnovel.book.base.g.c:
+    com.readnovel.book.base.utils.AsyncImageLoader this$0 -> a
+    java.lang.String val$imageUrl -> b
+    android.os.Handler val$handler -> c
+    void run() -> run
+com.readnovel.book.base.utils.AsyncImageLoader$ImageCallback -> com.readnovel.book.base.g.d:
+    void imageLoaded(android.graphics.drawable.Drawable,java.lang.String) -> a
+com.readnovel.book.base.utils.BookInfoUtils -> com.readnovel.book.base.g.e:
+    java.lang.String getChapterPrefix(android.content.Context) -> a
+com.readnovel.book.base.utils.BookListProvider -> com.readnovel.book.base.g.f:
+    java.util.List bookList -> a
+    java.util.List getBookList(android.content.Context) -> a
+com.readnovel.book.base.utils.CloseAll -> com.readnovel.book.base.g.g:
+    com.readnovel.book.base.utils.CloseAll instance -> a
+    java.util.LinkedList list -> b
+    com.readnovel.book.base.utils.CloseAll getInstance() -> a
+    void add(android.app.Activity) -> a
+    void reMove(android.app.Activity) -> b
+    void close() -> b
+com.readnovel.book.base.utils.CommonUtils -> com.readnovel.book.base.g.h:
+    java.lang.String TAG -> b
+    int SDK_Version -> a
+    java.lang.String setMkdir(android.content.Context) -> a
+    void initSystemEnv$faab20d() -> a
+    void writeFile(android.content.Context) -> b
+    java.lang.String getAssetsPath(android.content.Context) -> c
+    void finishActs(java.util.List) -> a
+    void killProcess() -> b
+    java.util.List getBookList(android.content.Context) -> d
+    java.lang.String getCurrentTime() -> c
+    java.lang.String access$0() -> d
+com.readnovel.book.base.utils.CommonUtils$1 -> com.readnovel.book.base.g.i:
+    android.content.Context val$context -> a
+    void run() -> run
+com.readnovel.book.base.utils.ViewCache -> com.readnovel.book.base.g.j:
+    android.view.View baseView -> a
+    android.widget.TextView titletextView -> b
+    android.widget.TextView typetextView -> c
+    android.widget.ImageView imageView -> d
+    android.widget.TextView downNumtextView -> e
+    android.widget.TextView authortextView -> f
+    android.widget.Button downloadBtn -> g
+    android.widget.TextView getTitleTextView() -> a
+    android.widget.TextView getDownNumTextView() -> b
+    android.widget.TextView getTypeTextView() -> c
+    android.widget.TextView getAuthorTextView() -> d
+    android.widget.ImageView getImageLogoView() -> e
+    android.widget.Button getDownLoadBtn() -> f
