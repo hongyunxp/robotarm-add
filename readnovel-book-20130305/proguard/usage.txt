@@ -1,0 +1,596 @@
+android.annotation.SuppressLint
+android.annotation.TargetApi
+com.feedback.NotificationType
+com.feedback.UMFeedbackService:
+    private static com.feedback.NotificationType a
+    private static android.content.Context b
+    public UMFeedbackService()
+    private static void b(java.lang.String)
+    public static void openUmengFeedbackSDK(android.content.Context)
+    public static void enableNewReplyNotification(android.content.Context,com.feedback.NotificationType)
+    static synthetic android.content.Context a()
+    static synthetic void a(java.lang.String)
+com.feedback.a
+com.feedback.a.a:
+    public a(android.content.Context,android.os.Handler)
+com.feedback.b
+com.feedback.b.d:
+    public java.lang.String d
+com.feedback.c
+com.feedback.c.a:
+    public a()
+com.feedback.c.b:
+    public b()
+com.feedback.c.c:
+    static final java.lang.String a
+    private static final int b
+    public c()
+com.feedback.c.d:
+    public d()
+    public static synchronized boolean b(org.json.JSONObject)
+com.feedback.ui.FeedbackConversations:
+    private static final int c
+    private static final int d
+    private static final int e
+    private static final int f
+    private static final int g
+com.feedback.ui.ThreadView
+com.feedback.ui.b:
+    org.json.JSONArray d
+    java.lang.String[] e
+    public com.feedback.b.a a(int)
+com.feedback.ui.h:
+    java.lang.String c
+com.mobclick.android.Gender
+com.mobclick.android.MobclickAgent:
+    private static final int e
+    private static final int f
+    private static final int g
+    private static final int h
+    private static final int i
+    private static final int j
+    private static final int k
+    private static final java.lang.String o
+    private static final java.lang.String p
+    private static final java.lang.String q
+    private static final java.lang.String r
+    private static final java.lang.String s
+    private static final java.lang.String t
+    private static final java.lang.String u
+    private static final java.lang.String v
+    private static final java.lang.String w
+    private static final java.lang.String x
+    private static final java.lang.String y
+    private static final java.lang.String z
+    private static final java.lang.String A
+    private static final java.lang.String B
+    private static final java.lang.String C
+    private static final java.lang.String D
+    private static final java.lang.String E
+    private static final java.lang.String F
+    private static final java.lang.String G
+    private static final java.lang.String H
+    private static final java.lang.String I
+    private static final java.lang.String J
+    private static final java.lang.String K
+    private static final java.lang.String L
+    private static final java.lang.String M
+    private static final java.lang.String N
+    private static final java.lang.String O
+    private static final java.lang.String P
+    private static final java.lang.String Q
+    private static final java.lang.String R
+    private static final java.lang.String S
+    private static final java.lang.String T
+    private static final java.lang.String U
+    private static final java.lang.String V
+    private static final java.lang.String W
+    private static final java.lang.String X
+    private static final java.lang.String Y
+    private static final java.lang.String Z
+    private static final java.lang.String aa
+    private static final java.lang.String ab
+    private static synthetic int[] ac
+    public static org.json.JSONObject getUpdateInfo()
+    public static void setAutoLocation(boolean)
+    public static void setUpdateOnlyWifi(boolean)
+    public static void setUpdateListener(com.mobclick.android.UmengUpdateListener)
+    public static void setSessionContinueMillis(long)
+    public static void setOnlineConfigureListener(com.mobclick.android.UmengOnlineConfigureListener)
+    public static void openActivityDurationTrack(boolean)
+    public static boolean isDownloadingAPK()
+    public static void setDebugMode(boolean)
+    public static void setDefaultReportPolicy(android.content.Context,int)
+    public static void onError(android.content.Context)
+    public static void reportError(android.content.Context,java.lang.String)
+    public static void flush(android.content.Context)
+    public static void update(android.content.Context,java.lang.String)
+    public static void update(android.content.Context)
+    public static void onEvent(android.content.Context,java.lang.String)
+    public static void onEvent(android.content.Context,java.lang.String,int)
+    public static void onEvent(android.content.Context,java.lang.String,java.lang.String,int)
+    public static void onEvent(android.content.Context,java.lang.String,java.lang.String)
+    private static void a(android.content.Context,java.lang.String,java.lang.String,long,int)
+    private static void a(android.content.Context,java.lang.String,java.util.Map)
+    private static void a(android.content.Context,java.lang.String,java.util.Map,long)
+    public static void enterPage(android.content.Context,java.lang.String)
+    private synchronized void a(android.content.Context,java.lang.String)
+    private synchronized void d(android.content.Context)
+    private void e(android.content.Context)
+    private org.json.JSONArray a(org.json.JSONObject,org.json.JSONArray)
+    public static void setOpenGLContext(javax.microedition.khronos.opengles.GL10)
+    public static java.lang.String getConfigParams(android.content.Context,java.lang.String)
+    private static java.lang.String o(android.content.Context)
+    private static void a(android.content.Context,int)
+    public static void updateOnlineConfig(android.content.Context,java.lang.String)
+    public static void updateOnlineConfig(android.content.Context)
+    private synchronized void e(android.content.Context,java.lang.String)
+    private static void a(android.content.Context,com.mobclick.android.Gender)
+    private static void b(android.content.Context,int)
+    private static void d(android.content.Context,java.lang.String,java.lang.String)
+    public static void update(android.content.Context,long)
+    private static void b(android.content.Context,java.lang.String,long)
+    private static void a(android.content.Context,java.lang.String,java.lang.String,long)
+    private static void c(android.content.Context,java.lang.String,java.util.Map,long)
+    private static void f(android.content.Context,java.lang.String)
+    private static void i(android.content.Context,java.lang.String)
+    private static void e(android.content.Context,java.lang.String,java.lang.String)
+    private static void f(android.content.Context,java.lang.String,java.lang.String)
+    private static void b(android.content.Context,java.lang.String,java.util.Map,java.lang.String)
+    private static void g(android.content.Context,java.lang.String,java.lang.String)
+    static synthetic int[] b()
+com.mobclick.android.ReportPolicy
+com.mobclick.android.UmengConstants:
+    public static final java.lang.String OS
+    public static final java.lang.String SDK_TYPE
+    public static final java.lang.String SDK_VERSION
+    public static final int DEFAULT_TIMEZONE
+    static final int a
+    public static final java.lang.String LOG_TAG
+    public static final java.lang.String CONFIG_URL
+    public static final java.lang.String CONFIG_URL_BACK
+    public static final java.lang.String FEEDBACK_BASE_URL
+    public static final java.lang.String FEEDBACK_UER_REPLY_URL
+    public static final java.lang.String FEEDBACK_Dev_Reply_URL
+    public static final java.lang.String FEEDBACK_NewFeedback_URL
+    public static final java.lang.String FeedbackPreName
+    public static final java.lang.String PreName_Trivial
+    public static final java.lang.String TrivialPreKey_newreplyIds
+    public static final java.lang.String TrivialPreKey_MaxReplyID
+    public static final java.lang.String TrivialPreKey_Email
+    public static final java.lang.String TrivialPreKey_AgeGroup
+    public static final java.lang.String TrivialPreKey_Sex
+    public static final java.lang.String PreName_maxReplyIdOfFb
+    static final java.lang.String b
+    static final java.lang.String c
+    static final java.lang.String d
+    static final java.lang.String e
+    static final java.lang.String f
+    static final java.lang.String g
+    public static final java.lang.String AtomKey_Content
+    public static final java.lang.String AtomKey_Thread_Title
+    public static final java.lang.String AtomKey_Date
+    public static final java.lang.String AtomKey_User_ID
+    public static final java.lang.String AtomKey_FeedbackID
+    public static final java.lang.String AtomKey_ReplyId
+    public static final java.lang.String AtomKey_AgeGroup
+    public static final java.lang.String AtomKey_Sex
+    public static final java.lang.String AtomKey_Email
+    public static final java.lang.String AtomKey_AppKey
+    public static final java.lang.String AtomKey_Index
+    public static final java.lang.String AtomKey_Lat
+    public static final java.lang.String AtomKey_Lng
+    public static final java.lang.String AtomKey_Message
+    public static final java.lang.String AtomKey_SDK_Version
+    public static final java.lang.String AtomKey_AppVersion
+    public static final java.lang.String AtomKey_OSVersion
+    public static final java.lang.String AtomKey_DeviceModel
+    public static final java.lang.String AtomKeyReplyId
+    public static final java.lang.String AtomKey_State
+    public static final java.lang.String Atom_State_Error
+    public static final java.lang.String Atom_State_OK
+    public static final java.lang.String AtomKey_Type
+    public static final java.lang.String Atom_Type_UserReply
+    public static final java.lang.String Atom_Type_NewFeedback
+    public static final java.lang.String Atom_Type_DevReply
+    public static final java.lang.String Atom_Type_Responce
+    public static final java.lang.String FailState
+    public static final java.lang.String TempState
+    public static final java.lang.String OKState
+    public static final java.lang.String PostFeedbackBroadcast
+    public static final java.lang.String PostFeedbackBroadcast_Fail
+    public static final java.lang.String PostFeedbackBroadcast_Succeed
+    public static final java.lang.String RetrieveReplyBroadcastAction
+    public static final int RetrieveReplyBroadcast_Fail
+    public static final int RetrieveReplyBroadcast_HasReply
+    public static final int RetrieveReplyBroadcast_NoReply
+    public static final java.lang.String HasNewReplyBroadcast
+    public static final int HasNewReplyBroadcast_Yes
+    public static final int HasNewReplyBroadcast_No
+    public static final java.lang.String PostFeedbackBroadcastAction
+    public static final java.lang.String NewReplyNotifyType
+    public static final int NotificationBanner
+    public static final int NotificationPopout
+    public static final java.lang.String NewReplyContent
+    public static final java.lang.String Online_Config_Local_Policy
+    public static final java.lang.String Online_Config_Net_Policy
+    public static final java.lang.String Online_Config_Last_Modify
+    public static final java.lang.String KEY_LAST_UPDATE_TIME
+    public static final java.lang.String KEY_UPDATE_INTERNAL
+    public UmengConstants()
+com.mobclick.android.UpdateStatus:
+    public UpdateStatus()
+com.mobclick.android.c:
+    private static final int n
+    public boolean a()
+    public static boolean b()
+    public void a(java.lang.String)
+    public void b(java.lang.String)
+    public void a(int)
+    public void a(boolean)
+com.mobclick.android.f:
+    public f()
+    public static void a(android.content.Context)
+    public static java.lang.String[] a(javax.microedition.khronos.opengles.GL10)
+    public static int a(java.util.Date,java.util.Date)
+    public static java.util.Date e(android.content.Context)
+    public static void a(android.content.Context,java.util.Date)
+    public static java.lang.String a(org.json.JSONObject)
+    public static java.lang.String b(org.json.JSONObject)
+com.mobclick.android.i:
+    i(android.content.Context,java.lang.String,java.lang.String,long,int,int)
+    i(android.content.Context,java.lang.String,java.util.Map,long,int)
+    i(android.content.Context,java.lang.String,java.util.Map,java.lang.String,int)
+    i(android.content.Context,java.lang.String,int)
+com.mobclick.android.k
+com.mobclick.android.n:
+    private static final int b
+    private static final java.lang.String c
+    public static void a(org.apache.http.HttpRequest)
+    public static java.io.InputStream a(org.apache.http.HttpEntity)
+    public static org.apache.http.entity.AbstractHttpEntity a(byte[],android.content.ContentResolver)
+    public static long a(android.content.ContentResolver)
+    public void a(java.lang.String,int)
+com.mobclick.android.o:
+    private o(java.lang.String,int)
+    synthetic o(java.lang.String,int,com.mobclick.android.o)
+com.mobclick.android.p:
+    public p()
+com.readnovel.book._26340.BuildConfig
+com.readnovel.book._26340.R
+com.readnovel.book._26340.R$anim
+com.readnovel.book._26340.R$array
+com.readnovel.book._26340.R$attr
+com.readnovel.book._26340.R$color
+com.readnovel.book._26340.R$dimen
+com.readnovel.book._26340.R$drawable
+com.readnovel.book._26340.R$id
+com.readnovel.book._26340.R$layout
+com.readnovel.book._26340.R$string
+com.readnovel.book._26340.R$style
+com.readnovel.book.base.DownActivity:
+    private static final java.lang.String URL
+com.readnovel.book.base.FirstActivity:
+    private static final int DURATION
+com.readnovel.book.base.PageFlipActivity:
+    776:779:public void flush()
+    869:879:public void savePreStepInfo()
+com.readnovel.book.base.R:
+    10:10:public R()
+com.readnovel.book.base.R$anim:
+    public static final int grid_tool_alpha1
+    public static final int grid_tool_alpha2
+    public static final int grid_tool_translate1
+    public static final int grid_tool_translate2
+    public static final int grid_tool_translate3
+    public static final int grid_tool_translate4
+    11:11:public R$anim()
+com.readnovel.book.base.R$array
+com.readnovel.book.base.R$attr
+com.readnovel.book.base.R$color:
+    public static final int ChapterName
+    public static final int bgtool
+    public static final int black
+    public static final int fontcolor
+    public static final int fontsizecolor
+    public static final int lightblue
+    public static final int orange
+    public static final int pink1
+    public static final int readcolor
+    public static final int solid_blue
+    public static final int solid_green
+    public static final int solid_yellow
+    public static final int white
+    30:30:public R$color()
+com.readnovel.book.base.R$dimen
+com.readnovel.book.base.R$drawable:
+    public static final int ad640
+    public static final int addbooktagpic
+    public static final int addtagintro
+    public static final int author_left
+    public static final int author_right
+    public static final int bg
+    public static final int bg_color
+    public static final int biaotibg
+    public static final int big640
+    public static final int bigpress640
+    public static final int blue
+    public static final int booklogo
+    public static final int bookname_left
+    public static final int bookname_right
+    public static final int booktag1640
+    public static final int booktag2640
+    public static final int booktag640
+    public static final int booktag_bg
+    public static final int booktag_gesture
+    public static final int booktag_pic
+    public static final int booktag_title
+    public static final int booktagbg
+    public static final int booktagbg640
+    public static final int booktagpress640
+    public static final int booktags
+    public static final int booktags640
+    public static final int booktags_press
+    public static final int btn_bg
+    public static final int btn_select_booktag
+    public static final int btn_select_booktag640
+    public static final int btn_select_chapter
+    public static final int btn_select_chapter640
+    public static final int btn_select_more
+    public static final int btn_select_more640
+    public static final int btn_select_size
+    public static final int btn_select_size640
+    public static final int btnbg
+    public static final int btnbg1
+    public static final int chapter640
+    public static final int chapterpress640
+    public static final int chapters640
+    public static final int cover
+    public static final int delete
+    public static final int delete640
+    public static final int dh1
+    public static final int dh2
+    public static final int dh3
+    public static final int dh4
+    public static final int dh5
+    public static final int dh6
+    public static final int dh7
+    public static final int dh8
+    public static final int dotline
+    public static final int download
+    public static final int download640
+    public static final int exit
+    public static final int first
+    public static final int green
+    public static final int history_press
+    public static final int historypic
+    public static final int home_btn_bg
+    public static final int hostory
+    public static final int icon
+    public static final int install
+    public static final int install640
+    public static final int intro_btn
+    public static final int jianjie
+    public static final int jiantou
+    public static final int jump
+    public static final int left
+    public static final int lightdown
+    public static final int lightdown640
+    public static final int lightup
+    public static final int lightup640
+    public static final int line
+    public static final int logo
+    public static final int logo6
+    public static final int logo640
+    public static final int lookup
+    public static final int lookup640
+    public static final int media640
+    public static final int mediapress640
+    public static final int menubg
+    public static final int menubg640
+    public static final int more
+    public static final int more1_press
+    public static final int more640
+    public static final int more_deepline
+    public static final int more_logo
+    public static final int more_qianline
+    public static final int morebg
+    public static final int morebg640
+    public static final int morepic
+    public static final int morepress640
+    public static final int mores640
+    public static final int mulu
+    public static final int mulu_press1
+    public static final int nobooktag
+    public static final int nojl_bg
+    public static final int notify_shape
+    public static final int notify_shape1
+    public static final int notify_shape2
+    public static final int orange
+    public static final int pic_kuang
+    public static final int picbg640
+    public static final int progressbarbg
+    public static final int readjilu_btn_bg
+    public static final int red
+    public static final int right
+    public static final int screen_background_black
+    public static final int seekbar_front_color
+    public static final int seekbarbg
+    public static final int seekbarbtn
+    public static final int seekbarbutton
+    public static final int seekbarpic
+    public static final int seekbarpic640
+    public static final int size
+    public static final int size640
+    public static final int size_960x640
+    public static final int size_bg
+    public static final int size_press
+    public static final int sizebg640
+    public static final int sizepress640
+    public static final int small640
+    public static final int smallpress640
+    public static final int translucent_background
+    public static final int transparent_background
+    public static final int white
+    public static final int xiaobg
+    public static final int ydjltitle
+    public static final int yellow
+    55:55:public R$drawable()
+com.readnovel.book.base.R$id:
+    public static final int bg
+    public static final int bookTagBtn
+    public static final int book_logo_layout
+    public static final int booktag_tv
+    public static final int bottomMenu
+    public static final int chapterbtn
+    public static final int describe_rl
+    public static final int fengmianinfo
+    public static final int guanggao
+    public static final int history_chaptername_tv
+    public static final int history_foreText_tv
+    public static final int history_lv
+    public static final int history_percent_tv
+    public static final int history_time_tv
+    public static final int intro
+    public static final int jianjie
+    public static final int jilu
+    public static final int jilu_btn1
+    public static final int jilu_btn2
+    public static final int jilu_btn3
+    public static final int jilu_btn4
+    public static final int jilu_ll1
+    public static final int jilu_ll2
+    public static final int jilu_ll3
+    public static final int jilu_ll4
+    public static final int loadll
+    public static final int lookll
+    public static final int main_btn1
+    public static final int main_btn2
+    public static final int main_btn3
+    public static final int main_btn4
+    public static final int main_radio
+    public static final int moreBtn
+    public static final int nojl_ll
+    public static final int pic_kuang
+    public static final int radio_button0
+    public static final int radio_button1
+    public static final int radio_button2
+    public static final int radio_button3
+    public static final int read_help_left
+    public static final int read_help_right
+    public static final int readbook_help
+    public static final int readhelp_heng
+    public static final int readhelp_heng2
+    public static final int readhelp_shu
+    public static final int readhelp_shu2
+    public static final int readjilubg
+    public static final int sizeBtn
+    public static final int tab_ll1
+    public static final int tab_ll3
+    public static final int tab_ll4
+    public static final int tab_resize_font_button
+    public static final int title
+    public static final int zhengwen
+    198:198:public R$id()
+com.readnovel.book.base.R$layout:
+    public static final int blankfooter
+    public static final int booktag_list
+    public static final int button_right
+    public static final int footerbtn
+    public static final int history_list_item
+    public static final int maintabs
+    public static final int maintabs1
+    public static final int more_list
+    public static final int read_footerbtn
+    public static final int read_jilu
+    public static final int readbookhelp
+    315:315:public R$layout()
+com.readnovel.book.base.R$string:
+    public static final int app_name
+    public static final int author
+    public static final int down
+    public static final int intro
+    public static final int title
+    public static final int umeng_app_key
+    public static final int umeng_app_value
+    public static final int umeng_channel_name
+    public static final int umeng_channel_value_anzhi
+    public static final int umeng_channel_value_appchina
+    public static final int umeng_channel_value_baidu
+    public static final int umeng_channel_value_by_360
+    public static final int umeng_channel_value_by_91
+    public static final int umeng_channel_value_dingkai
+    public static final int umeng_channel_value_dingkai01
+    public static final int umeng_channel_value_dingkai02
+    public static final int umeng_channel_value_eoe
+    public static final int umeng_channel_value_gfan
+    public static final int umeng_channel_value_google
+    public static final int umeng_channel_value_hiapk
+    public static final int umeng_channel_value_kaiqi
+    public static final int umeng_channel_value_none
+    public static final int umeng_channel_value_qq
+    public static final int umeng_channel_value_readnovel
+    public static final int umeng_channel_value_shuaji
+    public static final int umeng_channel_value_xs_cn
+    public static final int umeng_channel_value_yyh_wap
+    348:348:public R$string()
+com.readnovel.book.base.R$style
+com.readnovel.book.base.db.MyDataBase:
+    public static final java.lang.String DB_NAME
+    public static final java.lang.String TABLE_NAME_BOOKTAG
+    public static final java.lang.String TABLE_NAME_HISTORY
+    public static final java.lang.String TABLE_NAME_CHAPTERPAGE_SAMLL
+    public static final java.lang.String TABLE_NAME_CHAPTERPAGE_MEDIE
+    public static final java.lang.String TABLE_NAME_CHAPTERPAGE_BIG
+    public static final java.lang.String ID
+    public static final java.lang.String FileName
+    public static final java.lang.String BookTitle
+    public static final java.lang.String LastOffset
+    public static final java.lang.String Time
+    public static final java.lang.String ForeText
+    public static final java.lang.String PerCent
+    public static final java.lang.String FontSize
+    public static final java.lang.String CHAPTERNUM
+    public static final java.lang.String PAGENUM
+com.readnovel.book.base.entity.Book:
+    private static final long serialVersionUID
+    private int id
+    12:12:public int getId()
+    16:17:public void setId(int)
+com.readnovel.book.base.entity.BookTag:
+    70:70:public int getFontSize()
+com.readnovel.book.base.entity.Version:
+    8:8:public java.lang.String getVersion()
+    14:14:public java.lang.String getSubVersion()
+    20:20:public java.lang.String getAppname()
+com.readnovel.book.base.parsesax.MyContentHandler:
+    31:31:public java.util.List getVersionlist()
+com.readnovel.book.base.parsesax.ParserBySAX:
+    20:20:public ParserBySAX()
+    43:59:public static java.util.List parseXMLVersion(java.io.InputStream)
+com.readnovel.book.base.reader.PageContext
+com.readnovel.book.base.sp.StyleSaveUtil:
+    android.content.SharedPreferences$Editor editor
+    int fontsize
+    int fontcolor
+    int a
+    int b
+    42:45:public void setFontcolor(int)
+    49:50:public int getFontcolor()
+    101:104:public void saveListLocal(float)
+    107:108:public float writeListLocal()
+    197:200:public void saveStepReadChapter(int)
+    203:204:public int writeStepReadChapter()
+    215:216:public java.lang.String writeFirstReadChapterName()
+    221:224:public void saveFirstReadChapterForeText(java.lang.String)
+    227:228:public java.lang.String writeFirstReadChapterForeText()
+    239:240:public java.lang.String writeFirstReadChapterPer()
+    251:252:public java.lang.String writeFirstReadChapterTime()
+    263:264:public int writeFirstReadChapterFontSize()
+    310:311:public int writeCulPageNumThread()
+com.readnovel.book.base.utils.BookInfoUtils:
+    14:14:public BookInfoUtils()
+    22:22:public static java.lang.String getBookId(android.content.Context)
+    40:40:public static java.lang.String getTotalnum(android.content.Context)
+com.readnovel.book.base.utils.CommonUtils:
+    148:155:public static void closeCursor(android.database.Cursor)

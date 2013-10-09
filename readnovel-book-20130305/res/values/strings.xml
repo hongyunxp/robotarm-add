@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">诱惑村花</string>
+    <!-- 统计平台  biaozhun-->
+  <string name="umeng_app_value">5207e8d456240bdd510c411c</string>  
+   
+    <!-- 统计平台  360-->
+ <!-- <string name="umeng_app_value">5207e8d456240bdd510c411c</string>  -->
+ <!--   <string name="umeng_app_value">51fe287656240b0ecf078cc0</string>51a2d5e7527015f3a400000a -->
+    <!-- 渠道  biaozhun-->
+    <string name="umeng_channel_value">5207e8d456240bdd510c411c</string>  
+<!-- gengduo -->
+    <!-- <string name="umeng_channel_value">51fe287656240b0ecf078cc0</string> -->
+    <!-- 360 -->
+  <!--  <string name="umeng_channel_value">5207e8d456240bdd510c411c</string> -->
+    <!-- 广告平台 -->
+    <string name="ad_id">c6798c07f47ca38f180dff3af1aa84c9</string>
+    <!-- free免费, pay付费 -->
+    <string name="bookType">free</string>
+</resources>
