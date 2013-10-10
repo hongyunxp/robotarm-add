@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:orientation="vertical">
+    <!-- 封面 -->
+    <RelativeLayout
+        android:id="@+id/more_book_logo_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dip"
+        android:layout_marginTop="10dip">
+        <!-- 封面框 -->
+
+        <ImageView
+            android:id="@+id/more_pic_kuang"
+            android:layout_width="70dip"
+            android:layout_height="80dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/more_heji_pic"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="10dip"
+            android:scaleType="centerCrop" >
+
+        </ImageView>
+        <!-- 封面图片 -->
+        <ImageView
+            android:id="@+id/more_heji_pic"
+            android:layout_width="59dip"
+            android:layout_height="73dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="3.5dip"
+            android:layout_marginBottom="3.5dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/nopic"
+           >
+        </ImageView>
+        <!-- 描述信息 -->
+
+        <LinearLayout
+            android:id="@+id/more_describe_rl"
+            android:layout_width="wrap_content"
+            android:layout_height="73.5dip"
+            android:layout_alignBottom="@+id/more_heji_pic"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/more_pic_kuang"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/more_book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dip"              
+                android:textSize="17sp"
+                android:singleLine="true"
+                 android:gravity="top"
+                 android:textColor="#000000"
+                android:text="最強武俠小說合計">
+            </TextView>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dip"
+                android:layout_marginTop="7.5dip"
+                android:textSize="13dip"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:textColor="#666666"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"       
+                    android:textSize="13sp"
+                    android:text="下载数：">
+                </TextView>
+                <TextView
+                    android:id="@+id/more_download_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:text="12580"   
+                    android:textColor="#FF3300"      
+                    android:textSize="13dip">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:layout_marginLeft="7dip"
+                android:layout_marginTop="6dip"
+                
+                >
+
+                <TextView
+                    android:id="@+id/more_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    
+                    android:textColor="#666666"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:textColor="#666666"
+                    android:id="@+id/more_author"
+                    
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:singleLine="true"
+                   
+                   
+                    android:textSize="13sp">
+                </TextView>
+            </LinearLayout>  
+        </LinearLayout>  
+    </RelativeLayout>
+    <!-- 下载按钮 -->
+    <Button
+        android:id="@+id/more_download_btn"
+        android:layout_width="50dip"
+        android:layout_height="26dip"
+        android:background="@drawable/download640"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="6dip"
+        android:layout_marginTop="40dip"
+        android:layout_alignParentRight="true"
+        >
+    </Button>
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string-array name="fenlei">
+		<item>古代言情</item>
+		<item>都市言情</item>
+		<item>穿越架空</item>
+		<item>魔幻仙缘</item>
+		<item>婚姻职场</item>
+		<item>武侠仙侠</item>
+		<item>都市小说</item>
+		
+	</string-array>
+	<string-array name="color">
+		<item>#000000</item>
+		<item>#F31111</item>
+		<item>#7b11f2</item>
+		<item>#c41a7a</item>
+		<item>#752ec5</item>
+		<item>#4eacdd</item>
+		<item>#2ad953</item>
+	</string-array>
+
+	<string-array name="zwcolor">
+		<item>#000000</item>
+		<item>#999999</item>
+		<item>#000000</item>
+		<item>#999999</item>
+		<item>#000000</item>
+		<item>#999999</item>
+		<item>#000000</item>
+		<item>#999999</item>
+	</string-array>
+	
+	<string-array name="orcolor">
+		<item>#b7b4ad</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#b7b4ad</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#b7b4ad</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#666666</item>
+		<item>#666666</item>
+	</string-array>
+
+	<string-array name="word">
+		<item>升级</item>
+		<item>豪门</item>
+		<item>吸血鬼</item>
+		<item>青梅</item>
+		<item>反串</item>
+		<item>惊悚</item>
+		<item>无限流</item>
+		<item>热血</item>
+		<item>帝王</item>
+		<item>美女</item>
+		<item>推理</item>
+		<item>扮猪吃虎</item>
+		<item>凄美</item>
+		<item>轻小说</item>
+		<item>宫斗</item>
+		<item>帅哥</item>
+		<item>励志</item>
+	</string-array>
+	
+	<string-array name="books_ad">
+		<item>Book_57161</item>
+		<item>Book_22931</item>
+		<item>Book_47345</item>
+		<item>Book_16318</item>
+		<item>Book_105825</item>
+	</string-array>
+	
+	<!-- 特权渠道 -->
+	<string-array name="channel_right">
+	    <item>by_360_right</item>
+	</string-array>
+
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >    <LinearLayout 
+            android:id="@+id/more_ll"
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent">
+			 <ListView
+		        android:id="@+id/more_lv"
+		        android:layout_width="fill_parent"
+		        android:layout_height="460dp"
+		        android:cacheColorHint="#fff6f6f6"
+		        android:divider="@drawable/more_qianline" >
+              </ListView>
+	</LinearLayout>
+	<LinearLayout 
+	        android:id="@+id/heji_ll"
+	        android:visibility="gone"
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent">
+    <ListView
+				android:id="@+id/heji_lv"
+				android:layout_height="fill_parent"  
+				android:layout_weight="1"
+				android:scrollbars="none" 
+				android:cacheColorHint="#fff6f6f6"
+				android:divider="@drawable/more_qianline"
+				android:layout_width="fill_parent" />
+    </LinearLayout>
+    
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp" >
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="单本系列" />
+        <Button
+            android:id="@+id/hejibtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="76dp"
+            android:text="合集系列" />
+        <Button
+            android:id="@+id/danbenbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:text="返回" />
+    </RelativeLayout>
+
+</LinearLayout>

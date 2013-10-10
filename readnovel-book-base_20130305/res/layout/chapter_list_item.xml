@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingRight="8dip">
+
+    <TextView
+        android:id="@id/chapter_id"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="@dimen/chapter_list_text_margin"
+        android:layout_marginBottom="@dimen/chapter_list_text_margin"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/chapter_list_every_content"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:layout_toLeftOf="@id/continue_tv"
+        android:text="asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfa"
+        android:layout_alignParentLeft="true">
+    </TextView>
+
+    <TextView
+        android:id="@id/chapter_type"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/chapter_list_text_margin"
+        android:layout_marginBottom="@dimen/chapter_list_text_margin"
+        android:layout_alignParentRight="true"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/chapter_list_vip"
+        android:layout_centerVertical="true"
+        android:text="VIP"
+        android:layout_marginLeft="6dp"
+        >
+
+    </TextView>
+
+</RelativeLayout>

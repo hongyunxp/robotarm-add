@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/content_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+       <LinearLayout
+            android:id="@+id/msg_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="visible"
+            android:background="@color/white">
+            <LinearLayout 
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="仅需"
+                android:textColor="@color/black"
+                android:textSize="20sp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="#FF0000"
+                android:textSize="25sp">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元 即可畅读以下："
+                android:textColor="@color/black"
+                android:textSize="20sp">
+            </TextView>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/showchapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="付费之后，立刻进入阅读"
+                android:textColor="@color/black"
+                android:textSize="20sp">
+            </TextView>
+            <Button
+                android:layout_width="290dp"
+                android:layout_height="54dp"
+                android:gravity="center"
+              android:id="@+id/zhifubao"
+                android:layout_margin="22dip"
+                android:background="@drawable/pay_sure_button_bg"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/zhifubao_item"
+                android:textSize="22sp"
+                
+                android:onClick="zhifubaopay"/>
+            <!-- <Button
+                android:visibility="gone"
+                android:layout_width="290dp"
+                android:layout_height="54dp"
+                android:gravity="center"
+                android:id="@+id/yibao_pay"
+                android:background="@drawable/pay_sure_button_bg"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="易宝，信用卡支付"
+                android:textSize="22sp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/white"
+                android:onClick="yibaozhifu"/> -->
+            <Button
+                android:layout_width="290dp"
+                android:layout_height="54dp"
+                android:gravity="center"
+                android:id="@+id/weipai_pay"
+                android:background="@drawable/pay_sure_button_bg"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="短信,充值卡支付"
+                android:textSize="22sp"
+                android:textColor="#FFFFFF"
+                android:onClick="zhifubaopay"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="感谢您支持翠微居原创正版阅读"
+                android:textSize="17sp"
+                android:textColor="#AAAAAA"
+                android:layout_gravity="center">
+            </TextView>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="支持辛勤的原创作者"
+                android:textColor="#AAAAAA"
+                android:textSize="17sp"
+                android:layout_gravity="center">
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="如有问题请加QQ群：327983472"
+                android:textSize="17sp"
+                android:textColor="#AAAAAA"
+                android:layout_gravity="center">
+            </TextView>
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我们会第一时间给您解决哦"
+                android:textSize="17sp"
+                android:textColor="#AAAAAA"
+                android:layout_gravity="center">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/in_progress_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在确认付费是否成功"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请耐心等待30秒"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="15sp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/count_limit_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="第天限订3次"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请明天再订"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="您可以下载我们其它小说"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="15sp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="感谢您的喜爱"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="15sp">
+            </TextView>
+        </LinearLayout>
+
+        <!-- tabs -->
+
+        <include layout="@layout/tabs"/>
+    </LinearLayout>
+
+</RelativeLayout>

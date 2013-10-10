@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:id="@+id/bg_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/white"
+        android:orientation="vertical"
+        android:layout_above="@id/ad_layout">
+        <!-- 阅读背景,网站链接 -->
+		         <LinearLayout
+		            android:id="@+id/txt_left_right"
+		            android:layout_width="fill_parent"
+		            android:layout_height="fill_parent" >
+		         </LinearLayout> 
+			        <LinearLayout
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content"
+			            android:layout_marginTop="-40px"
+			            android:gravity="bottom" >
+			      
+			           <RelativeLayout 
+			               android:layout_width="fill_parent"
+			               android:layout_height="wrap_content"
+			               android:layout_marginBottom="4.5dp"
+			               android:layout_marginLeft="10dp"
+			               android:layout_marginRight="10dp"
+			               >
+			                <TextView
+			                android:id="@+id/left_tv"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:textColor="@color/grey"
+			                android:clickable="true" 
+			                android:onClick="clickTextLeft"
+			                android:layout_alignParentLeft="true"
+			                android:layout_alignParentBottom="true"
+			                android:textSize="@dimen/read_bottom_font_size"
+			                >
+			               </TextView>
+			               <TextView
+			                android:id="@+id/right_tv"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content"
+			                android:textColor="@color/grey"
+			                android:clickable="true" 
+			                android:layout_alignParentRight="true"
+			                android:layout_alignParentBottom="true"
+			                android:visibility="gone"
+			                android:text="nimeia "
+			                android:textSize="@dimen/read_bottom_font_size">
+			               </TextView>
+			           </RelativeLayout>
+			        </LinearLayout>
+			        <RelativeLayout
+				            android:id="@+id/booktag_pic"
+				            android:layout_width="28dp"
+				            android:layout_height="42dp"
+				            android:layout_gravity="right"
+				            android:layout_marginRight="100dp"
+				            android:visibility="gone">	        
+	    </RelativeLayout> 
+    </LinearLayout>
+    <!-- 广告 -->
+    <include layout="@layout/ad" />
+   <!--  <include
+        android:id="@+id/read_help"
+        layout="@layout/readbookhelp" /> -->
+    <include
+        android:id="@+id/dialogmengceng"
+        layout="@layout/loading" />
+</RelativeLayout>

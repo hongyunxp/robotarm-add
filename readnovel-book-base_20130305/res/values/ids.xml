@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <item type="id" name="more_image1"></item>
+    <item type="id" name="more_image2"></item>
+    <item type="id" name="more_image3"></item>
+    <item type="id" name="more_tv1"></item>
+    <item type="id" name="more_tv2"></item>
+    <item type="id" name="more_tv3"></item>
+    <item type="id" name="exit_ll"></item>
+    <item type="id" name="ad_layout"></item>
+    <item type="id" name="pay_record_ll"></item>
+    <item type="id" name="more_ll"></item>
+    
+    <!-- 订购记录 -->
+    <item type="id" name="pay_record_lv"></item>
+    <item type="id" name="pay_record_date"></item>
+    <item type="id" name="pay_record_chapter_scope"></item>
+    
+    <!-- 章节列表 -->
+    <item type="id" name="chapter_type"></item>
+    <item type="id" name="continue_tv"></item>
+    <item type="id" name="chapter_id"></item>
+</resources>

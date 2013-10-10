@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用名 -->
+    <string name="app_name">danben</string>
+    <!-- free免费, pay付费 -->
+    <string name="bookType">pay</string>
+    <string name="down">亲，请直接访问t.xs.cn继续阅读!</string>
+    <!-- 统计平台 -->
+    <string name="umeng_app_value">none</string>
+    <!-- 渠道 biaozhun -->
+    <!-- <string name="umeng_channel_value">51a2d5e7527015f3a400000a</string>  5207e8d456240bdd510c411c -->
+    <!-- 渠道 360 -->
+    <string name="umeng_channel_value">5207e8d456240bdd510c411c</string>  
+    <!-- 广告平台 -->
+    <string name="ad_id">none</string>
+    <!-- 付费章节 -->
+    <string name="pay_send_msg_title">发送短信</string>
+    <string name="pay_send_msg_content">您将使用短信付费业务，短信费2元/条，继续点播享受服务，返回不扣费，客服电话：010-62110656。不含通讯费，信息费由移动运营商代收。</string>
+    <string name="pay_send_msg_fails">订购失败</string>
+    <!-- 特权活动描述 -->
+	<string name="channel_right_msg">360特权活动</string>
+	<string name="zhifubao_item">
+<![CDATA[    
+           <font color="#FFFFFF">支付宝,网银支付</font><font color="#ff0000">  8折</font>
+         ]]>
+    </string>
+</resources>

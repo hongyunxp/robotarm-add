@@ -1,0 +1,114 @@
+ <LinearLayout 
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/bottomMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp" 
+        android:background="@drawable/ireadmenu_bg_head"
+    >
+        <LinearLayout
+            android:id="@+id/tab_resize_font"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="goResizeFont"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/tab_resize_font_button"
+               android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
+                android:layout_marginTop="2dip"
+                android:background="@drawable/ireadmenu_item_font"
+                android:onClick="goResizeFont" />
+
+           <TextView
+               android:layout_marginTop="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="字体亮度"
+                android:textSize="12sp" /> 
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_ll1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+             android:onClick="goChapter"
+            android:orientation="vertical" >
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:id="@+id/tab_btn1"
+                android:padding="6dp"
+                android:layout_marginTop="2dip"
+                android:background="@drawable/ireadmenu_item_directory"
+                android:onClick="goChapter" >
+            </Button>
+             <TextView
+                android:layout_marginTop="6dp"               
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="章节目录"
+                android:textSize="12sp" /> 
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tab_ll3"
+             android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="goBookTag"
+            android:orientation="vertical" >
+            <Button
+               android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/tab_btn3"
+                android:scaleType="fitCenter"
+                android:padding="8dp"
+                android:layout_marginTop="2dip"
+                android:background="@drawable/myday"
+                android:onClick="goBookTag" >
+            </Button>
+            <TextView
+               android:layout_marginTop="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="白天夜间"
+                android:textSize="12sp" /> 
+        </LinearLayout>
+       <LinearLayout
+           android:visibility="gone"
+            android:id="@+id/tab_ll3"
+             android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+             android:onClick="resumeBackground"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <Button
+                android:id="@+id/tab_btn3"
+              android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:paddingLeft="3dp"
+                android:paddingTop="3dp"
+                android:paddingRight="3dp"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="2dip"
+                android:background="@drawable/morebookbtn"
+                android:onClick="resumeBackground" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精品书"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
