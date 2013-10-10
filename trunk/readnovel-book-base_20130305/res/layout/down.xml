@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/lookll" android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="wrap_content">
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/down"
+		android:layout_gravity="center_horizontal" android:textSize="24dp"
+		android:layout_marginLeft="46dp" android:layout_marginRight="46dp"
+		android:lineSpacingExtra="3dp"
+		android:layout_marginTop="90dp" android:textColor="@color/black"></TextView>
+	<Button android:id="@+id/webbtn" android:layout_width="240dp"
+		android:layout_height="46dp" android:layout_gravity="center_horizontal"
+		android:layout_marginTop="66dp" android:text="去t.xs.cn继续阅读"
+		android:background="@drawable/orange" android:textColor="@color/white"
+		android:textSize="20dp"></Button>
+	<Button android:id="@+id/stepdownbtn" android:layout_width="240dp"
+		android:layout_height="46dp" android:layout_gravity="center_horizontal"
+		android:text="更多免费小说下载" android:background="@drawable/blue"
+		android:textColor="@color/white" android:layout_marginTop="40dp"
+		android:textSize="18sp"></Button>
+</LinearLayout>

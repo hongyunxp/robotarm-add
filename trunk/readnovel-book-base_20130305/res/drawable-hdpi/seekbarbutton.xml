@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- 按下状态 -->
+	<item android:state_pressed="true" android:drawable="@drawable/seekbarpic"
+		android:layout_width="350px" android:layout_height="350px" />
+
+	<!-- 普通无焦点状态 -->
+	<item android:state_focused="false" android:state_pressed="false"
+		android:layout_width="350px" android:layout_height="350px"
+		android:drawable="@drawable/seekbarpic" />
+</selector> 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/readjilubg" android:orientation="vertical"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@color/bg">
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginTop="27dp">
+		<TextView android:id="@+id/jilu" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+			android:text="阅读记录" android:textColor="@color/black"
+			android:textSize="24dp"></TextView>
+		<ImageView android:layout_width="78dp"
+			android:layout_height="27dp" android:layout_toLeftOf="@id/jilu"
+			android:layout_marginTop="5dp" android:background="@drawable/left"
+			android:layout_marginRight="15dp"></ImageView>
+		<ImageView android:layout_width="79dp"
+			android:layout_height="27dp" android:layout_toRightOf="@id/jilu"
+			android:layout_marginTop="5dp" android:background="@drawable/right"
+			android:layout_marginLeft="15dp"></ImageView>
+	</RelativeLayout>
+	<ImageView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginLeft="17dp"
+		android:layout_marginRight="17dp" android:layout_marginTop="20dp"
+		android:background="@drawable/more_deepline"></ImageView>
+	<LinearLayout android:id="@+id/nojl_ll"
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:gravity="center_horizontal" android:orientation="vertical">
+		<ImageView android:layout_width="132dp"
+			android:layout_height="132dp" android:layout_marginTop="40dp"
+			android:background="@drawable/nojl_bg"></ImageView>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="暂无记录，马上阅读吧"
+			android:textSize="29dp" android:layout_marginTop="25dp"
+			android:textColor="@color/fontcolor"></TextView>
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="自动帮您记录3个最近阅读的位置"
+			android:textSize="15dp" android:textColor="@color/fontcolor"
+			android:layout_marginTop="7dp"></TextView>
+	</LinearLayout>
+	<ListView android:id="@+id/history_lv" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_marginLeft="18dp"
+		android:layout_marginRight="18dp"></ListView>
+	<LinearLayout android:id="@+id/bottomMenu"
+		android:layout_width="fill_parent" android:layout_height="50dp"
+		android:layout_marginTop="-50dp" android:paddingTop="6dp"
+		android:background="@drawable/menubg">
+		<LinearLayout android:id="@+id/jilu_ll1"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_weight="1" android:gravity="center">
+			<Button android:id="@+id/jilu_btn1" android:layout_width="40dp"
+				android:layout_height="40dp" android:layout_marginTop="2dp"
+				android:background="@drawable/mulu"></Button>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/jilu_ll2"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_weight="1" android:gravity="center">
+			<Button android:id="@+id/jilu_btn2" android:layout_width="40dp"
+				android:layout_height="40dp" android:background="@drawable/history_press"
+				android:layout_marginTop="2dp"></Button>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/jilu_ll3"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_weight="1" android:gravity="center">
+			<Button android:id="@+id/jilu_btn3" android:layout_width="40dp"
+				android:layout_height="40dp" android:layout_marginTop="2dp"
+				android:background="@drawable/booktags"></Button>
+		</LinearLayout>
+		<LinearLayout android:id="@+id/jilu_ll4"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_weight="1" android:gravity="center">
+			<Button android:id="@+id/jilu_btn4" android:layout_width="40dp"
+				android:layout_height="40dp" android:layout_marginTop="2dp"
+				android:background="@drawable/more"></Button>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

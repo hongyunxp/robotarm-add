@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+         >
+
+        <TextView
+            android:id="@+id/booktag_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="我的书签"
+            android:textColor="@color/black"
+            android:textSize="@dimen/chapter_list_text_font_size_big" 
+            android:layout_centerVertical="true">
+        </TextView>
+
+        <ImageView
+            android:layout_width="78dp"
+            android:layout_height="26dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@id/booktag_tv"
+            android:background="@drawable/left" >
+        </ImageView>
+
+        <ImageView
+            android:layout_width="78dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/booktag_tv"
+            android:background="@drawable/right" >
+        </ImageView>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        
+        android:background="@drawable/more_deepline" >
+    </ImageView>
+
+    <LinearLayout
+        android:id="@+id/nobooktag_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/nobooktag" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="18dp"
+            android:text="暂无书签"
+            android:textColor="@color/fontcolor"
+            android:textSize="20sp" >
+        </TextView>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/booktag_lv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:cacheColorHint="#fff6f6f6" 
+        android:paddingBottom="50dp"
+        >
+    </ListView>
+
+    <!-- tabs -->
+
+    <include layout="@layout/tabs" />
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <dimen name="button_height">50.0dip</dimen>
+    <dimen name="bottom_tab_font_size">10.0dip</dimen>
+    <dimen name="bottom_tab_padding_up">-2.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">1.0dip</dimen>
+    <dimen name="switch_logo_bottom_padding">20.0sp</dimen>
+
+    <!-- 广告的高度 -->
+    <dimen name="ad_height">50.0dip</dimen>
+    <dimen name="tools_height">150.0dip</dimen>
+    <dimen name="popsize_height">37.0dip</dimen>
+    
+    <!-- 订购记录 -->
+    <dimen name="pay_record_font_size">16sp</dimen>
+    <dimen name="pay_record_margin">3dip</dimen>
+    <dimen name="pay_record_second_font_size">14sp</dimen>
+     <dimen name="pay_record_date_font_size">16sp</dimen>
+    <!-- 章节列表 -->
+    <dimen name="chapter_list_text_font_size">20sp</dimen>
+    <dimen name="chapter_list_text_font_size_big">23sp</dimen>
+    <dimen name="chapter_list_zuozhe">20sp</dimen>
+    <dimen name="chapter_list_text_margin">20dip</dimen>
+    <dimen name="chapter_list_every_content">18sp</dimen>
+    <dimen name="chapter_list_vip">14sp</dimen>
+    <!-- 阅读页面 -->
+    <dimen name="read_text_font_size_small">17sp</dimen>
+    <dimen name="read_text_font_size_middle">20.0sp</dimen>
+    <dimen name="read_text_font_size_big">25sp</dimen>
+
+    <!--  章节字体的显示   -->
+    <dimen name="read_zhangjie_font_size">13sp</dimen>
+    <!--  底部字体-->
+    <dimen name="read_bottom_font_size">13sp</dimen>
+    <!--  行的高度-->
+    <dimen name="read_hang_height">4sp</dimen>
+    <!--  段的高度-->
+    <dimen name="read_duanbetween_height">8sp</dimen>
+    <!--  内容距离最上面的高度-->
+    
+    <dimen name="read_topbetweencontent_height">17sp</dimen>
+    <!--  电量距离左边的距离-->
+    <dimen name="read_lightleft_height">84sp</dimen>
+    <!--  时间距离左边的距离-->
+    <dimen name="read_timeleft_height">60sp</dimen>
+    <!--  电量宽度-->
+    <dimen name="read_light_wight">10.5sp</dimen>
+    <!--  电量高度-->
+    <dimen name="read_light_height">19sp</dimen>
+    <!-- 电量距上面的距离 -->
+    <dimen name="read_light_top">10sp</dimen>
+    <!--  电量距离左边的距离-->
+    <dimen name="read_one">10sp</dimen>
+    <dimen name="read_two">1sp</dimen>
+    <dimen name="read_three">17sp</dimen>
+    
+    <dimen name="read_four">16sp</dimen>
+    <dimen name="read_oneone">3.2sp</dimen>
+    <!--  左右边距-->
+    <dimen name="read_leftright_bianju">10sp</dimen>
+    <!--  上下边距-->
+    <dimen name="read_topbottom_bianju">23sp</dimen>
+    <!--  章节名距离顶部的边距-->
+    <dimen name="read_zhangjieming_top_bianju">19sp</dimen>
+    
+    <!-- tools -->
+    <dimen name="tools_more_bg_width">170dip</dimen>
+    <dimen name="tools_more_bg_height">100dip</dimen>
+    <dimen name="tools_more_bg_pay_height">150dip</dimen>
+    <dimen name="tools_more_bianju_width">170dip</dimen>
+    <dimen name="tools_more_bianju_height">50dip</dimen>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project Licensed under the 
+	Apache License, Version 2.0 (the "License"); you may not use this file except 
+	in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 
+	Unless required by applicable law or agreed to in writing, software distributed 
+	under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES 
+	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
+	the specific language governing permissions and limitations under the License. -->
+
+<resources>
+	<drawable name="red">#77ff0000</drawable>
+	<drawable name="blue">#770000ff</drawable>
+	<drawable name="green">#7700ff00</drawable>
+	<drawable name="yellow">#77ffff00</drawable>
+	<drawable name="white">#00ffffff</drawable>
+	<drawable name="bg_color">#00D7E9FB</drawable>
+	<drawable name="screen_background_black">#ff000000</drawable>
+	<drawable name="translucent_background">#e0000000</drawable>
+	<drawable name="transparent_background">#00000000</drawable>
+	<color name="black">#ff000000</color>
+	<color name="fontsizecolor">#ff000000</color>
+	<color name="ChapterName">#ff666666</color>
+	<color name="fontcolor">#ff000000</color>
+	<color name="solid_blue">#0000ff</color>
+	<color name="solid_green">#f0f0</color>
+	<color name="solid_yellow">#ffffff00</color>
+	<color name="lightblue">#ffc0ffff</color>
+	<color name="white">#ffffffff</color>
+	<color name="bgtool">#ff0066B8</color>
+	<color name="bg">#EFEFEF</color>
+	<color name="orange">#ffff3300</color>
+	<color name="pink">#7700ff00</color>
+	<color name="pink1">#ffff95b8</color>
+	<color name="grey">#ff999999</color>
+	<color name="readcolor">#ffebebeb</color>
+	<color name="red">#77ff0000</color>
+	<style name="main_tab_bottom"></style>
+	<color name="green">#389e00</color>
+	<color name="adColor">#e0000000</color>
+	<color name="mulu">#0066B8</color>
+	<color name="muluw">#FFFFFF</color>
+	<!-- VIP书 -->
+	<color name="vip_chapter_list_readable">#339900</color>
+	<color name="vip_chapter_list_unreadable">#FF0066</color>
+</resources>
